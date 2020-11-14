@@ -5,7 +5,7 @@ This repository contains tutorials for LightOJ volume problems.
 
 ### Contribution Guideline
 This whole project is based on voluntary contribution. You are more than welcome to contribute. If you think you can write a tutorial for a problem, please create
-an issue first like this: https://github.com/lightoj-dev/problem-tutorials/issues/2 and then assign yourself. This will make sure no other person is working on the same problem's tutorial. Then add your tutorial by a pull request like this: https://github.com/lightoj-dev/problem-tutorials/pull/1
+an issue first like this: https://github.com/lightoj-dev/problem-tutorials/issues/2 and then assign yourself. This will make sure no other person is working on the same problem's tutorial. Then add your tutorial by a pull request like this: https://github.com/lightoj-dev/problem-tutorials/pull/1. If you don't know how to create pull request, read this article: https://opensource.com/article/19/7/create-pull-request-github
 
 We are planning to have tutorials both in Bangla and English language. But you don't need to work on both, write the English one first, then maybe you or other contributor can translate it to Bangla.
 
