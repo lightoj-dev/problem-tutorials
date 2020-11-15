@@ -37,15 +37,47 @@ int main(){
         int myPosition, liftPosition;
         cin>>myPosition>>liftPosition;
       
-        int timeTakenByMeToEnter=5;
-        int timeTakenByMeToExit=5;
-        int timeTakenByLiftToOpen=3;
-        int timeTakenByLiftToClose=3;
-        int timeTakenByLiftToReachMyFloor= abs(myPosition-liftPosition)*4; // If lift was on floor 8 and I was on floor 2, (2-8)=-6. To avoid the minus sign, we used the abs() function. As lift takes 4 seconds to reach the adjacent floor, we multiply by 4.
-        int timeTakenByLiftToReachGroundFloorFromMyFloor=(myPosition)*4; //Lift takes 4 seconds to go from one floor to the next floor. That's why we multiply by 4.
+        int timeTakenByMeToEnter= 5;
+        int timeTakenByMeToExit= 5;
+        int timeTakenByLiftToOpen= 3;
+        int timeTakenByLiftToClose= 3;
+        int timeTakenByLiftToReachMyFloor= abs(myPosition-liftPosition)*4; // If lift was on floor 7 and I was on floor 2, number of floors passed by the lift would be (2-7)=-6. But number of floors cannot be negative. To avoid the minus sign, we used the abs() function. As the lift takes 4 seconds to reach the adjacent floor, we multiply by 4.
+        int timeTakenByLiftToReachGroundFloorFromMyFloor= (myPosition)*4; //Lift takes 4 seconds to go from one floor to the next floor. That's why we multiply by 4.
         
-        cout<<"Case "<<t<<": "<<  abs(myPosition-liftPosition)*4 + timeTakenByLiftToOpen + timeTakenByMeToEnter + timeTakenByLiftToClose + (myPosition)*4 + timeTakenByLiftToOpen + timeTakenByMeToExit<<endl;
+        int ans = timeTakenByLiftToReachMyFloor + timeTakenByLiftToOpen + timeTakenByMeToEnter + timeTakenByLiftToClose + timeTakenByLiftToReachGroundFloorFromMyFloor + timeTakenByLiftToOpen + timeTakenByMeToExit;
+        
+        cout<<"Case "<<t<<": "<< ans <<endl;
     }
+}
+```
+
+### Java
+-----
+```java
+package com.loj.volume;
+
+import java.util.Scanner;
+
+class Lift {
+  public static void main(String[] args) throws Exception {
+    Scanner scanner = new Scanner(System.in);
+    int cases = scanner.nextInt();
+    for (int caseno = 1; caseno <= cases; ++caseno) {
+      int myPosition = scanner.nextInt();
+      int liftPosition = scanner.nextInt();
+
+      int timeTakenByMeToEnter= 5;
+      int timeTakenByMeToExit= 5;
+      int timeTakenByLiftToOpen= 3;
+      int timeTakenByLiftToClose= 3;
+      int timeTakenByLiftToReachMyFloor= Math.abs(myPosition-liftPosition)*4; If lift was on floor 7 and I was on floor 2, number of floors passed by the lift would be (2-7)=-6. But number of floors cannot be negative. To avoid the minus sign, we used the abs() function. As the lift takes 4 seconds to reach the adjacent floor, we multiply by 4.
+      int timeTakenByLiftToReachGroundFloorFromMyFloor= (myPosition)*4; //Lift takes 4 seconds to go from one floor to the next floor. That's why we multiply by 4.
+
+      int ans = timeTakenByLiftToReachMyFloor + timeTakenByLiftToOpen + timeTakenByMeToEnter + timeTakenByLiftToClose + timeTakenByLiftToReachGroundFloorFromMyFloor + timeTakenByLiftToOpen + timeTakenByMeToExit;
+   
+      System.out.println("Case " + caseno + ": " + ans);
+    }
+  }
 }
 ```
 Happy Coding!
