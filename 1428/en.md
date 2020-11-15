@@ -6,6 +6,7 @@
 
 **`string`** , **`suffix array`** , **`binary search`** , **`kmp`**
 
+&nbsp;
 # **Idea**
 
 First , think an easier version of this problem . How many _**distinct**_ _**substrings**_ are possible of a string S ?  
@@ -23,7 +24,7 @@ Now , the _**ending position**_ for possible substrings starts from `p[i] + LCP(
 Why  `p[i] + LCP(i)` ?  
 > Because in the `i-1` th suffix we have already considered the substrings that start from `p[i]` , `p[i] + 1` , ... , `p[i] + LCP(i) - 1`   
 
-Now that we have solved all the easier versions . Let's solve our problem :D
+Now that we have solved all the easier versions . Let's solve our problem : D
 
 How many among the distinct substrings _**doesn't contain another string as a substring**_ ?  
 Let's call this other string `SUB`  .
@@ -52,8 +53,12 @@ For other positions ?
 > **abacdaba**  
 27777788
 
-Why ?
-Well , figure that out yourself :p It's really easy to see why
+&nbsp;
+# **Original Writeup**
+You can find my original writeup of this one [here](https://zarif98sjs.github.io/blog/blog/lightoj1428/) 
+
+&nbsp;
+# **Code**
 
 ```cpp
 
@@ -89,19 +94,6 @@ inline void optimizeIO()
 
 const int nmax = 2e5+7;
 const LL LINF = 1e17;
-
-template <class T>
-string to_str(T x)
-{
-    stringstream ss;
-    ss<<x;
-    return ss.str();
-}
-
-//bool cmp(const PII &A,const PII &B)
-//{
-//
-//}
 
 void count_sort(vector<int> &p,vector<int> &c)
 {
@@ -283,10 +275,6 @@ int main()
             if(ending_pos[i]==-1) ending_pos[i] = now;
             else now = ending_pos[i];
         }
-
-//        for(int i=0; i<(int)p.size(); i++)
-//        cout<<p[i]<<" "<<lcp[i]<<" "<<s.substr(p[i],s.size()-p[i])<<endl;
-//        cout<<endl;
 
         LL ans = 0;
 
