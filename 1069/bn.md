@@ -43,9 +43,42 @@ int main(){
         int timeTakenByLiftToClose=3;
         int timeTakenByLiftToReachMyFloor= abs(myPosition-liftPosition)*4; // লিফট যদি 7 তলায় থাকত আর আমি দোতলায় থাকতাম, লিফটের অতিক্রান্ত ফ্লোরসংখ্যা = (2-7)= -5 । ফ্লোরসংখ্যা কখনো ঋণাত্বক হতে পারেনা। ঋণাত্বক মান এড়ানোর জন্য আমরা abs() function ব্যবহার করেছি। যেহেতু লিফটের এক ফ্লোর থেকে অন্য ফ্লোরে যেতে 4 সেকেন্ড লাগে, তাই 4 দিয়ে গুণ করা হয়েছে।
         int timeTakenByLiftToReachGroundFloorFromMyFloor=(myPosition)*4; // লিফট এক ফ্লোর থেকে অন্য ফ্লোরে যেতে 4 সেকেন্ড সময় নেয় বলে 4 দিয়ে গুণ করা হয়েছে।
+                
+        int ans = timeTakenByLiftToReachMyFloor + timeTakenByLiftToOpen + timeTakenByMeToEnter + timeTakenByLiftToClose + timeTakenByLiftToReachGroundFloorFromMyFloor + timeTakenByLiftToOpen + timeTakenByMeToExit;
         
-        cout<<"Case "<<t<<": "<<  abs(myPosition-liftPosition)*4 + timeTakenByLiftToOpen + timeTakenByMeToEnter + timeTakenByLiftToClose + (myPosition)*4 + timeTakenByLiftToOpen + timeTakenByMeToExit<<endl;
+        cout<<"Case "<<t<<": "<< ans <<endl;
     }
 }
 ```
+
+### Java
+-----
+```java
+package com.loj.volume;
+
+import java.util.Scanner;
+
+class Lift {
+  public static void main(String[] args) throws Exception {
+    Scanner scanner = new Scanner(System.in);
+    int cases = scanner.nextInt();
+    for (int caseno = 1; caseno <= cases; ++caseno) {
+      int myPosition = scanner.nextInt();
+      int liftPosition = scanner.nextInt();
+
+      int timeTakenByMeToEnter= 5;
+      int timeTakenByMeToExit= 5;
+      int timeTakenByLiftToOpen= 3;
+      int timeTakenByLiftToClose= 3;
+      int timeTakenByLiftToReachMyFloor= Math.abs(myPosition-liftPosition)*4; // লিফট যদি 7 তলায় থাকত আর আমি দোতলায় থাকতাম, লিফটের অতিক্রান্ত ফ্লোরসংখ্যা = (2-7)= -5 । ফ্লোরসংখ্যা কখনো ঋণাত্বক হতে পারেনা। ঋণাত্বক মান এড়ানোর জন্য আমরা abs() function ব্যবহার করেছি। যেহেতু লিফটের এক ফ্লোর থেকে অন্য ফ্লোরে যেতে 4 সেকেন্ড লাগে, তাই 4 দিয়ে গুণ করা হয়েছে।
+      int timeTakenByLiftToReachGroundFloorFromMyFloor= (myPosition)*4; // লিফট এক ফ্লোর থেকে অন্য ফ্লোরে যেতে 4 সেকেন্ড সময় নেয় বলে 4 দিয়ে গুণ করা হয়েছে।
+
+      int ans = timeTakenByLiftToReachMyFloor + timeTakenByLiftToOpen + timeTakenByMeToEnter + timeTakenByLiftToClose + timeTakenByLiftToReachGroundFloorFromMyFloor + timeTakenByLiftToOpen + timeTakenByMeToExit;
+   
+      System.out.println("Case " + caseno + ": " + ans);
+    }
+  }
+}
+```
+
 Happy Coding!
