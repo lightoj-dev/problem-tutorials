@@ -5,10 +5,12 @@ In this problem you are given "T" test cases where "n" and "m" are rows and colu
 Knights in the board travel in "L" shape.In this  problem there are 3 cases mainly considerable.
 
 - **Case 1:**  If any of  the rows or columns is 1 then there is no "L" shaped formed. So answer is max of row and column.
+![Knight-in-1-row](https://user-images.githubusercontent.com/58706003/99261396-df0e2500-2846-11eb-8b94-a99262f2a46a.jpg)
 
 - **Case 2:**  If rows and columns are greater then 2 then just half the total of squares is the answer.
 
 - **Case 3:**(most important case) If either of the row or column is 2 then we just divide the total squares by 8 where 1st 4 blocks can be placed by knights and other 4 blocks are forbidden.The remaining blocks(if any) if less then or equals 4 then remaining  blocks are added to the answer and if greater then we add 4 to the answer.
+![Knight-in-2-row](https://user-images.githubusercontent.com/58706003/99261602-21cffd00-2847-11eb-9f34-43bde191856e.jpg)
 
 
 Code:
