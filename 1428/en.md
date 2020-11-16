@@ -1,13 +1,31 @@
 
-<h1 align="center"> <b>LightOj 1428 (Melody Comparison) </b> </h1>
-<hr/>
+# [LightOj 1428 - Melody Comparison](http://lightoj.com/volume_showproblem.php?problem=1428)
 
-# **Tags**
+In short , the problem asks , given 2 string `A` and `B` , we need to find how many **distinct substrings** of `A` that don't contain `B` as a substring .
 
-**`string`** , **`suffix array`** , **`binary search`** , **`kmp`**
+## Tags
 
-&nbsp;
-# **Idea**
+`string` , `suffix array` , `binary search` , `kmp`
+
+## Hint
+
+<details>
+<summary>  
+    Hint 1
+</summary>
+
+Try to solve for this one first : How many _**distinct**_ _**substrings**_ are possible of a string S ?
+</details>
+
+<details>
+<summary>  
+    Hint 2
+</summary>
+
+If you couldn't solve for Hint 1 , try this and go back to Hint 1 again : How many _**distinct**_ _**substrings**_ are possible of a string S ?
+</details>
+
+## Idea
 
 First , think an easier version of this problem . How many _**distinct**_ _**substrings**_ are possible of a string S ?  
 
@@ -31,7 +49,7 @@ Let's call this other string `SUB`  .
 What's the thing that will change in our substring count ?  
 > For any suffix , the ending position for possible substrings still starts from `p[i] + LCP(i)` . But this time we can't end at `S.size()-1` as that could lead to have substring having the string `SUB` . So , we need to find the new ending positions .  
 
-For this part we need to know the positions where our string `SUB` appears in our string `S` . We can use _**KMP**_ for that . Also we can b_**inary search on suffix array**_ for that .
+For this part we need to know the positions where our string `SUB` appears in our string `S` . We can use _**KMP**_ for that . Alternatively , we can _**binary search on suffix array**_ for that .
 Anyway , now that you know where our string `SUB` occurs , you know that then ending position for that values will be `p[i] + SUB.size() - 1` . As , if we go one more we would have considered the string `SUB`.  
 Now , we can solve for the rest of the positions easily .  
 
@@ -53,12 +71,14 @@ For other positions ?
 > **abacdaba**  
 27777788
 
+Try to implement on your own before checking the reference code below .
+
 &nbsp;
-# **Original Writeup**
+# Original Writeup
 You can find my original writeup of this one [here](https://zarif98sjs.github.io/blog/blog/lightoj1428/) 
 
 &nbsp;
-# **Code**
+# Code
 
 ```cpp
 
