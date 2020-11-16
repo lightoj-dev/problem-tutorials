@@ -22,7 +22,7 @@ Try to solve for this one first : How many _**distinct**_ _**substrings**_ are p
     Hint 2
 </summary>
 
-If you couldn't solve for Hint 1 , try this and go back to Hint 1 again : How many _**distinct**_ _**substrings**_ are possible of a string S ?
+If you couldn't solve for Hint 1 , try this and go back to Hint 1 again : How many _**substrings**_ are possible of a string S ?
 </details>
 
 ## Idea
