@@ -20,7 +20,7 @@ Knights in the board travel in "L" shape.In this  problem there are 3 cases main
 Code:
 ### C++
 -----
-```c++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long int
