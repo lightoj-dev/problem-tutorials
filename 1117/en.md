@@ -1,6 +1,8 @@
 # 1117 - Helping Cicada
 
-## This is a number theory problem and you have given `T` test cases and for each test cases you have `N`, a possible range, and `M` positive integer numbers, denoting the life cycles of the predators.
+This is a number theory problem and you have given `T` test cases and for each test cases you have `N`, a possible range, and `M` positive integer numbers, denoting the life cycles of the predators.
+
+---
 
 #### Summary
 
@@ -37,6 +39,72 @@ So the algorithm is:
 
 - loop through all the numbers `1 ~ 1<<M`,
 - check for the set bits, find their LCM and
-- add to the count if the set bit count is negative, subtract otherwise.
+- add to the count if the set bit count is negative, subtract otherwise,
+- print `N - count`, here count contains number of divisors.
 
 #### Code
+
+```C++
+#include "bits/stdc++.h"
+
+using namespace std;
+
+#define deb(x,y) cerr << #x << " " << x << " " << #y << " " << y <<endl;
+#define deb1(x) cerr << #x << " " << x <<endl;
+#define isSet(x,i) (bool)(x & (1<<i))
+
+long long lcm(long long a, long long b){
+    return a/__gcd(a,b) * b;
+}
+
+int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("in.txt","r",stdin);
+    freopen("out.txt","w",stdout);
+    #endif
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+
+    int tc,t(1);
+    for(cin>>tc; tc; ++t,--tc){
+
+        // print the test case number
+        cout<<"Case "<<t<<": ";
+
+        // input part
+        long long n,m;
+        cin>>n>>m;
+
+        vector<long long>lst(m);
+        for(int i=0; i<m; cin>>lst[i++]);
+
+
+        long long cnt(0);
+
+        for(int i=1; i<(1<<m); ++i){
+            vector<long long>bitCount;
+
+            // find all the set bits
+            for(int j=0; j<15; ++j)
+                if(isSet(i,j))
+                    bitCount.push_back(lst[j]);
+
+            long long ab=bitCount[0];
+
+            // find LCM of all the set bits
+            for(auto x: bitCount)
+                ab = lcm(ab,x);
+
+            // deb1(lst.size());
+
+            (bitCount.size()%2?cnt+= (n/ab): cnt-=(n/ab));
+
+            // deb(ab,cnt);
+
+        }
+        cout<<n-cnt<<endl;
+
+    }
+    return 0;
+}
+```
