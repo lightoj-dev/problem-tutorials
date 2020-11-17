@@ -44,6 +44,8 @@ So the algorithm is:
 - add `N/LCM` to the count if the set bit count is negative, subtract otherwise,
 - print `N - count`, here `count` tracks all the number from `1-N` that can be divided at least one of the `M` numbers.
 
+`Note: (1<<M) will works here as M is small`
+
 #### Code
 
 ### C++
