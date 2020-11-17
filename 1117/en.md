@@ -41,7 +41,7 @@ So the algorithm is:
 
 - loop through all the numbers `1 ~ 1<<M`,
 - check for the set bits, find their LCM and
-- add to the count if the set bit count is negative, subtract otherwise,
+- add `N/LCM` to the count if the set bit count is negative, subtract otherwise,
 - print `N - count`, here `count` tracks all the number from `1-N` that can be divided at least one of the `M` numbers.
 
 #### Code
