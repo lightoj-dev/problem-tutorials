@@ -12,7 +12,7 @@ For the `T` group of input set, where each set consist of `N` and `M` numbers, y
 
 For any number `x`, `1 ~ n` it has `[n/x]` numbers of divisors, in a other word, there are `[n/x]` numbers that can be divisible by `x`, [a] means a is rounded down.
 
-As now you have to deal with multiple divisors, from the (principle-of-inclusion-and-exclusion)[https://brilliant.org/wiki/principle-of-inclusion-and-exclusion-pie/] :
+As now you have to deal with multiple divisors, from the [principle-of-inclusion-and-exclusion](https://brilliant.org/wiki/principle-of-inclusion-and-exclusion-pie/) :
 
 `AUBUC=A+B+C-A∩B-A∩C-B∩C+A∩B∩C`
 
@@ -50,7 +50,7 @@ So the algorithm is:
 
 ### C++
 
-```C++
+```cpp
 #include "bits/stdc++.h"
 
 using namespace std;
