@@ -13,7 +13,9 @@ For the `T` group of input set, where each set consist of `N` and `M` numbers, y
 For any number `x`, `1 ~ n` it has `[n/x]` numbers of divisors, in a other word, there are `[n/x]` numbers that can be divisible by `x`, [a] means a is rounded down.
 
 As now you have to deal with multiple divisors, from the (principle-of-inclusion-and-exclusion)[https://brilliant.org/wiki/principle-of-inclusion-and-exclusion-pie/] :
+
 `AUBUC=A+B+C-A∩B-A∩C-B∩C+A∩B∩C`
+
 If you summarize this, the pattern is you add the divisor counts of `N/LCM` of odd numbers and subtracts even.
 
 As you have `M` divisors to deal with, if you check the binary of all the numbers from `1 ~ (2^M -1)`, you can see all possible combinations you need are presented there.
@@ -43,6 +45,8 @@ So the algorithm is:
 - print `N - count`, here count contains number of divisors.
 
 #### Code
+
+### C++
 
 ```C++
 #include "bits/stdc++.h"
