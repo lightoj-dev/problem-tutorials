@@ -1,6 +1,6 @@
 # 1117 - Helping Cicada
 
-This is a number theory problem and you have given `T` test cases and for each test cases you have `N`, a possible range, and `M` positive integer numbers, denoting the life cycles of the predators.
+_This is a number theory problem and you have given `T` test cases and for each test cases you have `N`, a possible range, and `M` positive integer numbers, denoting the life cycles of the predators._
 
 ---
 
