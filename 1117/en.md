@@ -28,13 +28,13 @@ M = 3
 { 2,  3,  5 }
 binary representation of 1 - (2^M - 1) or 7:
 
-0001        // gets included
-0010        // gets included
-0011        // gets excluded
-0100        // gets included
-0101        // gets excluded
-0110        // gets excluded
-0111        // gets included
+0001        // C     -> gets included
+0010        // B     -> gets included
+0011        // B∩C   -> gets excluded
+0100        // A     -> gets included
+0101        // A∩C   -> gets excluded
+0110        // A∩B   -> gets excluded
+0111        // A∩B∩C -> gets included
 ```
 
 So the algorithm is:
@@ -42,7 +42,7 @@ So the algorithm is:
 - loop through all the numbers `1 ~ 1<<M`,
 - check for the set bits, find their LCM and
 - add to the count if the set bit count is negative, subtract otherwise,
-- print `N - count`, here count contains number of divisors.
+- print `N - count`, here `count` tracks all the number from `1-N` that can be divided at least one of the `M` numbers.
 
 #### Code
 
