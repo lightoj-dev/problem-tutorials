@@ -27,7 +27,7 @@ int main(){
     
     for(int t=1; t<=testcase; t++){
         int n, P, Q; 
-        cin>>n>>P>>Q;
+        cin >> n>> P>> Q;
 
         int sumOfWeight= 0, counter=0;
         for(int i = 1; i <= n; i++ ){
