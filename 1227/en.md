@@ -10,10 +10,10 @@ _Each case starts with three integers n (1 ≤ n ≤ 30), P (1 ≤ P ≤ 30) and
 
 **As the weight of each egg will be given in non-decreasing order, there is no need to store their values in an array and sort them.** 
 
-Using a sum variable to compare the total weight with Q and a counter variable will suffice. 
+We can use a sum variable and keep adding the weight of each egg to the sum variable until it exceeds **Q**. We need a counter variable to keep track of the number of eggs taken so far.
 In the end, we need to print the value of the counter variable.
 
-###### Although [this O(n^2) solution]( https://github.com/Arfaqur-Rahman/cp/blob/master/LightOJ/1227%20-%20Boiled%20Eggs.cpp ) gets accepted, this approach is not recommended. If constraints(T and n) were bigger, this approach might cause you to encounter a TLE.
+###### Although [this O(n^2) solution]( https://github.com/Arfaqur-Rahman/cp/blob/master/LightOJ/1227%20-%20Boiled%20Eggs.cpp ) gets accepted, we can do better. An O(n) solution is given below.
 
 ### C++
 -----
