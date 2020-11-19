@@ -10,7 +10,7 @@ _Each case starts with three integers n (1 ≤ n ≤ 30), P (1 ≤ P ≤ 30) and
 
 **As the weight of each egg will be given in non-decreasing order, there is no need to store their values in an array and sort them.** 
 
-We can use a sum variable and keep adding the weight of each egg to the sum variable until it exceeds **Q**. We need a counter variable to keep track of the number of eggs taken so far.
+We can use a sum variable and keep adding the weight of each egg to the sum variable until it exceeds **Q**. We need a counter variable to keep track of the number of eggs taken so far until it exceeds **P**.
 In the end, we need to print the value of the counter variable.
 
 ###### Although [this O(n^2) solution]( https://github.com/Arfaqur-Rahman/cp/blob/master/LightOJ/1227%20-%20Boiled%20Eggs.cpp ) gets accepted, we can do better. An O(n) solution is given below.
@@ -32,9 +32,9 @@ int main(){
         int sumOfWeight= 0, counter=0;
         for(int i = 1; i <= n; i++ ){
             int x; 
-            cin>>x;
+            cin >> x;
             
-            if(i <= P && sumOfWeight + x <= Q){ // i<=P ensures that number of eggs never exceeds P. sumOfWeight+x<=Q ensures that total weight of eggs never exceeds Q
+            if(counter + 1 <= P && sumOfWeight + x <= Q){ // counter+1<=P ensures that number of eggs never exceeds P. sumOfWeight+x<=Q ensures that total weight of eggs never exceeds Q
               sumOfWeight += x;                 // With the sumOfWeight variable, we are keeping track of the total weight of the eggs
               counter++;                        // counter variable keeps track of the number of eggs
             }
@@ -65,7 +65,7 @@ class BoiledEggs {
       for(int i = 1; i <= n; i++ ){
             int x = scanner.nextInt();
             
-            if(i <= P && sumOfWeight + x <= Q){ // i<=P ensures that number of eggs never exceeds P. sumOfWeight+x<=Q ensures that total weight of eggs never exceeds Q
+            if(counter + 1 <= P && sumOfWeight + x <= Q){ // counter+1<=P ensures that number of eggs never exceeds P. sumOfWeight+x<=Q ensures that total weight of eggs never exceeds Q
               sumOfWeight += x;                 // With the sumOfWeight variable, we are keeping track of the total weight of the eggs
               counter++;                        // counter variable keeps track of the number of eggs
             }
