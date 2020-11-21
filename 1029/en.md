@@ -14,7 +14,10 @@ We can see the following properties in the problem structure.
 
 - **Minimum Spanning Tree**: We have to connect all houses with the power station using minimum cost. We have to pick `edges` in a way that satisfies the cost minimization. Therefore, we have to compute the `Minimum Spanning Tree` of the graph.
 
+  - `Minimum Spanning Tree` of a graph is a subtree of that graph that contains all the `nodes` and the `sum of edge weights` is minimum possible.
+
 - **Maximum Spanning Tree**: We also have to calculate the maximum possible cost to connect all the `nodes`. For this, we have to pick `edges` in a way that maximizes the cost. So we also have to compute the `Maximum Spanning Tree` of the graph.
+  - `Maximum Spanning Tree` of a graph is a subtree of that graph that contains all the `nodes` and the `sum of edge weights` is maximum possible. We can tweak the Minimum Spanning Tree algorithm to implement Maximum Spanning Tree.
 
 ### Solution
 
@@ -31,6 +34,12 @@ Simulation of **test case 2** is given below.
 ![Frame 3](https://user-images.githubusercontent.com/14056189/99875768-3f70de00-2c1c-11eb-80d2-38ab56236789.png)
 
 And the answer is `(70 + 159) / 2`. Since `229` is not divisible by `2`, we print `229/2`.
+
+### Furthar Reading
+
+**Minimum spanning tree - Kruskal's algorithm:** https://cp-algorithms.com/graph/mst_kruskal.html
+
+**Minimum spanning tree - Prim's algorithm:** https://cp-algorithms.com/graph/mst_prim.html
 
 ### C++
 
