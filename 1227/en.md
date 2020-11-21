@@ -10,7 +10,7 @@ _Each case starts with three integers `n` (1 ≤ n ≤ 30), `P` (1 ≤ P ≤ 30)
 
 **O(n^2) Approach:** We can store the weight of each egg in an array of size n and run two for loops to calculate all possible answers. Among them, we need to print the maximum one. This approach will take O(n) space and O(n^2) time.
 
-**O(n) Approach:** As in the input the weight of each egg will be given in non-decreasing order, there is no need to store their values in an array and sort them. This is why it is possible to solve the problem in O(n) time. We can use a sum variable and keep adding the weight of each egg to the sum variable until it exceeds **Q**. We need a counter variable to keep track of the number of eggs taken so far until it exceeds **P**. In the end, we need to print the value of the counter variable. This approach will take O(1) space and O(n) time.
+**O(n) Approach:** As in the input the weight of each egg will be given in non-decreasing order, there is no need to store their values in an array and sort them. We can use a sum variable and keep adding the weight of each egg to the sum variable until it exceeds **Q**. We need a counter variable to keep track of the number of eggs taken so far until it exceeds **P**. In the end, we need to print the value of the counter variable. This approach will take O(1) space and O(n) time.
 
 
 ### C++
