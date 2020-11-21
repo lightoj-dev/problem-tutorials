@@ -1,23 +1,23 @@
 # 1014 - Ifter Party
 
-_You have given `T` test cases and for each test cases you have `P`, number of piaju in the beginning, and `L` piaju left end of the day, find the value `Q`, the number of piaju's each of `C` contestant ate._
+_You have given `T` test cases and for each test case you have `P`, number of piaju in the beginning, and `L` piaju left end of the day, find the value `Q`, the number of piaju's each of `C` contestant ate._
 
 ---
 
 ### Summary
 
-This is a number theory problem and for the `T` group of input set, where each set consist of `P` and `L` number, you have to find all the divisors of piaju's eaten or `(P-L)`.
+This is a number theory problem and for the `T` group of the input set, where each set consists of `P` and `L` number, you have to find all the divisors of piaju's eaten or `(P-L)`.
 
 ### Solution
 
-Initially you had `P` amount of piaju's and end of the it became `L`, so piaju's eaten by the contestants are `(P-L)`. As `C` contestants were invited and each of them ate `Q` piaju's each, `P - L = C * Q` stands true. So the result will be all possible divisors of `Q`, number of piaju's each contestant ate.
+Initially, you had `P` amount of piaju's, and end of the day it became `L`, so piaju's eaten by the contestants are `(P-L)`. As `C` contestants were invited and each of them ate `Q` piaju's each, `P - L = C * Q` stands true. So the result will be all possible divisors of `Q`, the number of piaju's each contestant ate.
 
 The algorithm is:
 
 - find the number of piaju's eaten
 - find all the unique divisors of the 'count of eaten piaju's'
 - sort and print all the divisors in ascending order that satisfy `(L<Q)` condition.
-- if no such solution exist print `impossible`.
+- if no such solution exists print `impossible`.
 
 ### Code
 
