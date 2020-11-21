@@ -68,6 +68,7 @@ int Find(int u){
     return parent[u] = Find(parent[u]);
 }
 
+// Kruskal's algorithm with Disjoint-Set Union method is used
 // minimum spanning tree
 long long MinST(){
     // reset parent table [0-n]
@@ -75,6 +76,7 @@ long long MinST(){
         parent[i] = i;
 
     long long cost = 0;
+    // forward iteration for minimum cost first
     for (int i = 0; i < G.size(); i++){
         int u = G[i].u;
         int v = G[i].v;
@@ -97,6 +99,7 @@ long long MaxST(){
         parent[i] = i;
 
     long long cost = 0;
+    // backward iteration for maximum cost first
     for (int i = G.size()-1; i >= 0; i--){
         int u = G[i].u;
         int v = G[i].v;
@@ -127,6 +130,8 @@ int main()
         }
 
         // sorting is only done once
+        // forward and backward iterations will be done
+        // for ascending and descending order traversal
         sort(G.begin(), G.end(), cmp);
 
         long long cost1 = MinST();
