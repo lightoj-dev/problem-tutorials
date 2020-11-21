@@ -10,11 +10,11 @@ We can see the following properties in the problem structure.
 
 - **Graph**: We can consider the houses and the power station as `nodes` in a graph, and the wires as `edges`. Since the costs of connecting two nodes are given, and the connections have no direction, so this is a `Weighted Undirected Graph`.
 
-- **Tree**: In total, we have n+1 points (n houses and 1 power station). We have to connect them using exactly n wires. We know in a tree, for `N` nodes we have `N-1` edges. So the problem is asking us to convert the graph into a tree.
+- **Tree**: In total, we have `n+1` nodes (`n` houses and `1` power station). We have to connect them using exactly `n` wires or `edges`. We know in a tree, for `N` nodes we have `N-1` edges. So the problem is asking us to convert the graph into a tree.
 
-- **Minimum Spanning Tree**: We have to connect all houses with the power station using minimum cost. We have to pick wires in a way that satisfies the cost minimization. Therefore, we have to compute the `Minimum Spanning Tree` of the graph.
+- **Minimum Spanning Tree**: We have to connect all houses with the power station using minimum cost. We have to pick `edges` in a way that satisfies the cost minimization. Therefore, we have to compute the `Minimum Spanning Tree` of the graph.
 
-- **Maximum Spanning Tree**: We also have to calculate the maximum possible cost to connect all the points. For this, we have to pick wires in a way that maximizes the cost. So we also have to compute the `Maximum Spanning Tree` of the graph.
+- **Maximum Spanning Tree**: We also have to calculate the maximum possible cost to connect all the `nodes`. For this, we have to pick `edges` in a way that maximizes the cost. So we also have to compute the `Maximum Spanning Tree` of the graph.
 
 ### Solution
 
