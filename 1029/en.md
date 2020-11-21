@@ -18,7 +18,7 @@ We can see the following properties in the problem structure.
 
 ### Solution
 
-For every case, we have to calculate minimum spanning tree `cost` and maximum spanning tree `cost2` and then average their costs, thus `(cost1 + cost2) / 2`. If `(cost1 + cost2)` is not divisible by `2` then we have to print in `p/q` format. Where `p` is `(cost1 + cost2)` and `q` is `2`.
+For every case, we have to calculate minimum spanning tree `cost1` and maximum spanning tree `cost2` and then average their costs, thus `(cost1 + cost2) / 2`. If `(cost1 + cost2)` is not divisible by `2` then we have to print in `p/q` format. Where `p` is `(cost1 + cost2)` and `q` is `2`. For example, `229/2`.
 
 ### Simulation
 
