@@ -2,7 +2,7 @@
 
 ### Problem Summary
 
-You have `n` houses `[1-n]` and a power station `0`. You have to use exactly `n` wires to connect the houses and the power station. You are given a list of wires in `u v w` format, meaning `connection from u to v costs w`.
+You have `n` houses `[1-n]` and a power station `0`. You are also given a set of wires, where every wire is in `u v w` format, meaning `connection from u to v costs w`. You have to use exactly `n` wires from the set to connect the houses with the power station. **The connections can be direct or indirect (through some houses) but there must be a path of wires from every house to the power station.**
 
 ### Observations
 
@@ -12,12 +12,12 @@ We can see the following properties in the problem structure.
 
 - **Tree**: In total, we have `n+1` nodes (`n` houses and `1` power station). We have to connect them using exactly `n` wires or `edges`. We know in a tree, for `N` nodes we have `N-1` edges. So the problem is asking us to convert the graph into a tree.
 
-- **Minimum Spanning Tree**: We have to connect all houses with the power station using minimum cost. We have to pick `edges` in a way that satisfies the cost minimization. Therefore, we have to compute the `Minimum Spanning Tree` of the graph.
+- **Minimum Spanning Tree**: For the `best possible connection scheme`, We have to connect all houses with the power station using minimum cost. We have to pick `edges` in a way that satisfies the cost minimization. Therefore, we have to compute the `Minimum Spanning Tree` of the graph.
 
-  - `Minimum Spanning Tree` of a graph is a subtree of that graph that contains all the `nodes` and the `sum of edge weights` is minimum possible.
+  - `Minimum Spanning Tree` of a graph is a subtree of that graph that contains all the `nodes` and the `sum of edge weights` is minimum possible. You can use [Prim's algorithm](https://cp-algorithms.com/graph/mst_prim.html) or [Kruskal's Algorithm](https://cp-algorithms.com/graph/mst_kruskal.html) to implement the Minimum Spanning Tree.
 
-- **Maximum Spanning Tree**: We also have to calculate the maximum possible cost to connect all the `nodes`. For this, we have to pick `edges` in a way that maximizes the cost. So we also have to compute the `Maximum Spanning Tree` of the graph.
-  - `Maximum Spanning Tree` of a graph is a subtree of that graph that contains all the `nodes` and the `sum of edge weights` is maximum possible. We can tweak the Minimum Spanning Tree algorithm to implement Maximum Spanning Tree.
+- **Maximum Spanning Tree**: We also have to calculate the maximum possible cost to connect all the `nodes`, since this is the `worst possible connection scheme`. For this, we have to pick `edges` in a way that maximizes the cost. So we also have to compute the `Maximum Spanning Tree` of the graph.
+  - `Maximum Spanning Tree` of a graph is a subtree of that graph that contains all the `nodes` and the `sum of edge weights` is maximum possible. We can tweak the Minimum Spanning Tree algorithm (sort the edges in descending order of the weights) to implement Maximum Spanning Tree.
 
 ### Solution
 
@@ -34,12 +34,6 @@ Simulation of **test case 2** is given below.
 ![Frame 3](https://user-images.githubusercontent.com/14056189/99875768-3f70de00-2c1c-11eb-80d2-38ab56236789.png)
 
 And the answer is `(70 + 159) / 2`. Since `229` is not divisible by `2`, we print `229/2`.
-
-### Furthar Reading
-
-**Minimum spanning tree - Kruskal's algorithm:** https://cp-algorithms.com/graph/mst_kruskal.html
-
-**Minimum spanning tree - Prim's algorithm:** https://cp-algorithms.com/graph/mst_prim.html
 
 ### C++
 
