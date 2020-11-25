@@ -61,6 +61,7 @@ c 3
 
 
 **Code: C++:**
+const int maxx=150005;
 int BIT[maxx];
 void update(int pos,int val){
     while(pos<=maxx-1){
@@ -77,10 +78,10 @@ int query(int pos){
     return res;
 }
 void solve(){
-    SET(BIT);
+    memset(BIT, 0, sizeof(BIT));
     int n,q;
     scanf("%d%d",&n,&q);
-    vi vec(maxx);
+    vector<int> vec(maxx);
     rep1(i,1,n){
         scanf("%d",&vec[i]);
         update(i,1);
