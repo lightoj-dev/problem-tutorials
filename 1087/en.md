@@ -29,8 +29,8 @@ observation 2:
 relative position of every people is the number of people standing right before him/her + 1.
 
 Explanation: 
-lets say,people standing in the array means his/her value is 1 and people called out means his/her value in that list is 0
-in our example,replacing with the value of the people array will look like,
+lets say,people standing in the array means his/her positional value is 1 and people called out means his/her positional value in that list is 0
+in our example,replacing with the value of the people ,initial array will look like,
 1 1 1 1 1 
 1 2 3 4 5
 
@@ -54,7 +54,7 @@ the prefix sum array will look like,
 the actual problem will give you the relative position of a people and you need to output the id of that people who has the relative position the problem
 asked for and of course the left most occurrences of that relative position is the ans.
 
-So,for prefix sum query and update we can use any range query data structure such as segment tree,bit.
+So,for prefix sum query and update we can use any range query data structure such as segment tree,Binary Indexed tree.
 As,prefix sum array is a monotonic array,we can binary search for the leftmost occurrence of the relative position the problem will ask for. 
 
 **Note: use fast I/O :3**
@@ -118,11 +118,6 @@ void solve(){
         else {
             scanf("%d",&x);getchar();
             vec[++en]=x;
-1. 
-
-----------
-
-----------
 
             update(en,1);
         }
