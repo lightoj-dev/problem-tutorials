@@ -1,4 +1,4 @@
-[1087 - Diablo](http://lightoj.com/volume_showproblem.php?problem=1087)
+# LOJ 1087 - Diablo
 একটা উদাহরনের সাহায্যে বুঝা যাক। ধরি,n জন মানুষ এক লাইনে দাঁড়িয়ে আছে প্রত্যেকের একটি করে আইডি নাম্বার আছে।  
 6 5 3 2 1 --->id  
 1 2 3 4 5 --->there relative position  
@@ -43,70 +43,87 @@ c 3
 1 2 2 3 4 5  
 1 2 3 4 5 6  
 
-এই প্রেফিক্স এরে টা মেনটেইন করার জন্য আমরা সেগমেন্ট ট্রী অথবা বাইনারী ইন্ডেক্সট ট্রী ব্যবহার করতে পারি। আর প্রেফিক্স সাম যেহেতু একটা মনোটনিক ফাংশন,আমরা এর উপর বাইনারী সার্চ চালিয়ে   সবচেয়ে বামের রিলেটিভ পজিশন বের করতে পারি এবং অই পজিশনে যে লোকটি দাঁড়িয়ে থাকবে তার আইডিই আমাদের প্রব্লেম এর এন্সার।  
+এই প্রেফিক্স এরে টা মেনটেইন করার জন্য আমরা [সেগমেন্ট ট্রী](https://cp-algorithms.com/data_structures/segment_tree.html) অথবা [বাইনারী ইন্ডেক্সট ট্রী](https://www.youtube.com/watch?v=CWDQJGaN1gY&t=447s) ব্যবহার করতে পারি। আর প্রেফিক্স সাম যেহেতু একটা মনোটনিক ফাংশন,আমরা এর উপর বাইনারী সার্চ চালিয়ে   সবচেয়ে বামের রিলেটিভ পজিশন বের করতে পারি এবং অই পজিশনে যে লোকটি দাঁড়িয়ে থাকবে তার আইডিই আমাদের প্রব্লেম এর এন্সার।  
 
 **Note: use fast I/O :3**  
-**Code: C++:**  
+If you are still stuck with this problem, check the codes below:  
 
-	const int maxx=150005;
-	int BIT[maxx];
-	void update(int pos,int val){
-	    while(pos<=maxx-1){
-	        BIT[pos]+=val;
-	        pos+=(pos&-pos);
-	    }
-	}
-	int query(int pos){
-	    int res=0;
-	    while(pos>0){
-	        res+=BIT[pos];
-	        pos-=(pos&-pos);
-	    }
-	    return res;
-	}
-	void solve(){
-	    memset(BIT, 0, sizeof(BIT));
-	    int n,q;
-	    scanf("%d%d",&n,&q);
-	    vector<int> vec(maxx);
-	    for(int i=1;i<=n;i++){
-	        scanf("%d",&vec[i]);
-	        update(i,1);
-	    }
-	    getchar();
-		int en=n;
-	
-	    for(int i=0;i<q;i++){
-	
-	        char ch;
-	        ch=getchar();
-	        int x;
-	        if(ch=='c'){
-	            scanf("%d",&x); getchar();
-	            int lo=1,high=en;
-	            int ans=-1;
-	            while(lo<=high){
-	                int mid=(lo+(high-lo)/2);
-	                int xx=query(mid);
-	                if(xx>=x){
-	                    if(xx==x) ans=mid;
-	                    high=mid-1;
-	                }
-	                else lo=mid+1;
-	            }
-	            if(ans==-1) printf("none\n");
-	            else {
-	                printf("%d\n",vec[ans]);
-	                update(ans,-1);
-	                vec[ans]=-1;	
-	            }
-	        }
-	        else {
-	            scanf("%d",&x);getchar();
-	            vec[++en]=x;
-	
-	            update(en,1);
-	        }
-	    }
-	
-	}
+### C++
+-----
+```cpp  
+#include<bits/stdc++.h>
+using namespace std;
+const int maxx=150005;
+int BIT[maxx];
+
+void update(int pos,int val){
+    while(pos<=maxx-1){
+        BIT[pos]+=val;
+        pos+=(pos&-pos);
+    }
+}
+
+int query(int pos){
+    int res=0;
+    while(pos>0){
+        res+=BIT[pos];
+        pos-=(pos&-pos);
+    }
+    return res;
+}
+
+void solve(){
+    memset(BIT, 0, sizeof(BIT));
+    int n,q;
+    scanf("%d%d",&n,&q);
+    vector<int> vec(maxx);
+    for(int i=1;i<=n;i++){
+        scanf("%d",&vec[i]);
+        update(i,1);
+    }
+    getchar();
+    int en=n;
+    for(int i=0;i<q;i++){
+        char ch;
+        ch=getchar();
+        int x;
+        if(ch=='c'){
+            scanf("%d",&x); getchar();
+            int lo=1,high=en;
+            int ans=-1;
+            while(lo<=high){
+                int mid=(lo+(high-lo)/2);
+                int xx=query(mid);
+                if(xx>=x){
+                    if(xx==x) ans=mid;
+                    high=mid-1;
+                }
+                else lo=mid+1;
+            }
+            if(ans==-1) printf("none\n");
+            else {
+                printf("%d\n",vec[ans]);
+                update(ans,-1); // Because the person who was standing at that ans position will come out and leave that position
+                vec[ans]=-1;    // void. So,# of person will decrease by 1.
+            }
+        }
+        else {
+            scanf("%d",&x);getchar();
+            vec[++en]=x;
+            update(en,1);
+        }
+    }
+}
+
+signed main()
+{
+    int t;
+    scanf("%d",&t);
+    int cs=0;
+    while(t--){
+        printf("Case %d:\n",++cs);
+        solve();
+    }
+    return 0;
+}
+```
