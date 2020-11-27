@@ -1,4 +1,4 @@
-# 1136 - Division by 3
+# LOJ 1136 - Division by 3
 
 ## Problem
 Straight from the statement: "There is sequence 1, 12, 123, 1234, ..., 12345678910, ... . Now you are given two integers **A** and **B**, you have to find the number of integers from **A**th number to **B**th (inclusive) number, which are divisible by 3.
@@ -103,8 +103,8 @@ long long result = numbers_divisible_by_3_from_1_to_n (B) - numbers_divisible_by
 ```
 So overall complexity of the solution is O(1). Super handy!
 
-## C++ implementation
-```
+### C++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 
