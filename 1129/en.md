@@ -40,6 +40,8 @@ Visualization-
 
 Lastly, after the answer is got, we delete the trie from the memory to avoid memory wastage in our program.
 
+Try yourself before watching the code below.
+
 ### Code: (C++ solution)
 
 ```cpp
