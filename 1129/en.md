@@ -7,7 +7,7 @@
 ### Theory:
 If you have learnt **trie data structure** well, this problem is really easy for you.
 
-You will be given some numbers with length 1-10. And you have to find **"is atleast one number is a prefix of another number or not"**. (To recap, a substring from the 0th index of a string is a prefix of that string. Ex- **123** is a prefix of **12345**, but **124**, **132** or **234** is not a prefix of **12345**.) So simply take the numbers as strings and insert the strings into the trie tree.
+You will be given some numbers with length 1-10. And you have to find **"is atleast one number a prefix of another number or not"**. (To recap, a substring from the 0th index of a string is a prefix of that string. Ex- **123** is a prefix of **12345**, but **124**, **132** or **234** is not a prefix of **12345**.) So simply take the numbers as strings and insert the strings into the trie tree.
 
 **How will be the trie node?!** Since a number can have digit only between 0-9, then the trie node will have one boolean variable and an array of trie nodes of length 10. Once you complete inserting the numbers as strings into the trie, you will write a function which will check if a single string is a prefix of another or not, and the function will return true or false. Based on that, you got your answer. :)
 
