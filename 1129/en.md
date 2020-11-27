@@ -1,21 +1,47 @@
-# 1129 - Consistency Checker
+# LOJ 1129 - Consistency Checker
 
-**Problem Link:** [click here](http://lightoj.com/volume_showproblem.php?problem=1129)
+In this problem, you will be given `T` testcases. The first line of each test case contains an integer `n`. Following `n` lines will contain a number of length 1-10 each. You are asked to check the consistency of the dataset. The consistency is, no number is a prefix of another number.
 
-**Algorithm:** [Trie Tree Data Structure on Shafaetsplanet](http://www.shafaetsplanet.com/?p=1679) **Shafaetsplanet** blog has really awesome tutorial on trie data structure. Also you can learn from anywhere.
-***Some youtube resources on trie:-***
-- [Tushar Roy - Coding Made Simple](https://m.youtube.com/watch?v=AXjmTQ8LEoI)
-- [HackerRank](https://m.youtube.com/watch?v=zIjfhVPRZCg)
+To recap, a substring of a string from its 0th index is a prefix of that string. Like `123` is a prefix of `12345`, but `124`, `234`, or `132` is not.
 
-### Theory:
-If you have learnt **trie data structure** well, this problem is really easy for you.
+This is a great problem to start **Trie Data Structure** if you haven't already.
+**Tries** are an extremely special and useful data-structure that are based on the prefix of a string. They are used to represent the **“Retrieval”** of data.
 
-You will be given some numbers with length 1-10. And you have to find **"is atleast one number a prefix of another number or not"**. (To recap, a substring from the 0th index of a string is a prefix of that string. Ex- **123** is a prefix of **12345**, but **124**, **132** or **234** is not a prefix of **12345**.) So simply take the numbers as strings and insert the strings into the trie tree.
+Here are some resources to trie data structure you can understand and learn:-
 
-**How will be the trie node?!** Since a number can have digit only between 0-9, then the trie node will have one boolean variable and an array of trie nodes of length 10. Once you complete inserting the numbers as strings into the trie, you will write a function which will check if a single string is a prefix of another or not, and the function will return true or false. Based on that, you got your answer. :)
+- [Shafaetsplanet](http://www.shafaetsplanet.com/?p=1679)
+- [HackerRank](https://m.youtube.com/watch?v=zIjfhVPRZCg&list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX&index=9&t=1s)
+- [Tushar Roy - Coding Made Easy](https://m.youtube.com/watch?v=AXjmTQ8LEoI)
+
+### Approach:
+
+Atfirst, we create a trie for each new testcase. A single node of trie data structure will contain a `boolean` variable and an `array` of trie nodes of length `10`. The boolean variable will say if a string end on that node or not. The 10 size array will be enough for the next adjacent digit of the number because different digits can be atmost 10 (0-9).
+
+The best way to take the `n` numbers from the input is as strings. Because trie deals with the prefix of a string. If we want to take `n` numbers as integers, we can. Because integer data type can hold between `-2147483648` to `2147483647` which will be enough to hold an integer of length 1-10. But still that won't be a smart approach.
+
+So we simply take the `n` input numbers as strings and insert into the trie. Once the trie is formed, we create a function `isPrefix()` which will check if there is a single number prefix of another number or not in the trie. How will the function check? The function will traverse the trie, and if there is a single node which has the boolean variable value `true` but more trie nodes emit from that node, this confirms that it is a prefix.
+
+Example, if our trie consists of two numbers `123` and `12345`, at the node for digit `3`, there is a number ending but still more node coming out from it. So, this confirms that the dataset is not consistent.
+
+Visualization-
+```
+//A trie with two strings inserted, "123" and "12345"
+
+        1(false)
+         \
+          2(false)
+           \
+            3(true) <-- ending of one line but not the leaf node!
+             \
+              4(false)
+               \
+                5(true)
+```
+
+Lastly, after the answer is got, we delete the trie from the memory to avoid memory wastage in our program.
 
 ### Code: (C++ solution)
-This is an accepted solution of mine!
+
 ```cpp
 #include<iostream>
 #include<stdio.h>
@@ -48,12 +74,9 @@ void insert(char s[])
     {
         int x = int(s[i]-'0');
         if(curr->arr[x]==NULL) curr->arr[x] = new trie();
-        if(i+1==n) {
-            curr->arr[x]->endmark = 1;
-            break;
-        }
         curr = curr->arr[x];
     }
+    curr->endmark = 1;
 }
 
 void del(trie* node)
