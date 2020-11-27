@@ -7,17 +7,17 @@ For example, let **A** = 3. **B** = 5. So, the numbers in the sequence are, 123,
 
 Looking a bit into the sequence you will find out that for a certain position **A** the number can be found by simply appending all natural numbers from 1 upto **A** one after another. So if **A** = 5: sequence is 12345, if **A** = 12: sequence is 123456789101112.
 
-Now you will be given two numbers **A** and **B**. You have to find out how many numbers are divisible by 3 on the position of **A**, **A+1**, ..., **B** (range is from **A** to **B**).
+Now you will be given two numbers **A** and **B**. You have to find out how many numbers on that sequence are divisible by 3 on the position of **A**, **A+1**, ..., **B** (from position **A** to position **B** inclusive).
 
 ## Constrains: 
 Test cases T (≤ 10000) and 1 ≤ A ≤ B < 2^31
 
 ## Observation
-1. By looking at the constrains it is quite sure that bruteforce approach is going to gift us TLE. (If you calculate all the number from range **A** to **B** and try to find out who amoung them are divisible by 3 you will get time limit exceeded). So we need a very effecient approach. 
+1. By looking at the constrains, it is quite sure that bruteforce approach is going to gift us TLE. (If you calculate all the number from range **A** to **B** and try to find out who amoung them are divisible by 3 you will get time limit exceeded). So we need a very effecient approach. 
 2. Numbers can be quite big. 
 
 ## Understanding 1
-Let get out hand dirty by finding out if numbers from the sequence are divisible by 3.
+Let get our hands dirty by finding out if numbers from the sequence are divisible by 3.
 
 | Position at the sequence | Number      | Is divisible by 3 |
 |--------------------------|-------------|-------------------|
@@ -35,7 +35,9 @@ Let get out hand dirty by finding out if numbers from the sequence are divisible
 We can clearly see a repeatitive pattern. Here {1, 4, 7, 10...} positions are not divisible by 3 and rests are. 
 
 Curious minds will want to know "why?". Simple! 
+
 First, you may know that calcuting if a number is divisible by 3 is super easy. You just add all digits and see if the sum is divisible by 3 or not. So finding out if 123456 is divisible by 3 is equal to finding out if (1 + 2 + 3 + 4 + 5 + 6) = 21 is divisible by 3 or not. 
+
 Now focus on the table. Each time we construct new position we just add the position-number to the previous value of the sequence, right? Let's follow an example. We have found out the 5th position in this sequence is 12345 which is divisible by 3 (12345 % 3 = 0; 12345 modulo 3 is zero. Also in other words (1 + 2 + 3 + 4 + 5) % 3 = 0). Now we construct 6th position in the sequence by just appending 6 to the last of the 5th number (123456). To calcuate if new number is divisible by 3 we can check that (1 + 2 + 3 + 4 + 5 + 6) % 3 is equal to 0 or not. Now after messing with paranthesis, you can see that (1 + 2 + 3 + 4 + 5 + 6) % 3  = ( (1 + 2 + 3 + 4 + 5) + 6) % 3. In other words for every **n***, *seq[n]** % 3 = (**seq[n - 1]** + n) % 3 = (**seq[n - 1]** % 3 + n % 3) % 3 (From modular arithmatic).
 
 Now look at this table:
@@ -55,7 +57,7 @@ Now look at this table:
 Does the pattern make sense now? 
 
 ## Understanding 2
-Previous undestanding is not enough to give you an AC, right. Now Lets look at the table a bit differently. Now we will add cumulative sum too and replace true/false with zero/one.
+Previous undestanding is not enough to give you an AC, right? Now Let's look at the table a bit differently. Now we will add cumulative sum too and replace true/false with one/zero.
 
 | Position at the sequence | Number      | Is divisible by 3 | Cumulative sum over divisibility |
 |--------------------------|-------------|-------------------|----------------------------------|
@@ -78,10 +80,10 @@ Now we know that cumulative sum can be the key to success. We just have to find 
 Now, finding out how many numbers are divisible by 3 from 1 to **n** is quite equal to finding how many numbers are not divisible by 3 and substract the answer from **n**. (numbers_divisible_by_3_from_1_to_n = n - numbers_not_divisible_by_3). Now our problem has become smaller. Here we can see that for every three consecutive position starting from 1, first position is not divisible by 3. So to calculate how many numbers are not divisible by 3 in range of position 1 to **n**...
 1. If n % 3 = 0 then exactly (n / 3) integers are not divisible by 3.
 2. If n % 3 = 1 then exactly floor(n / 3) + 1 integers are not divisible by 3.
-3. If n % 3 = 2 then exactly floor(n / 3) + 1 integers arr not divisible by 3.
+3. If n % 3 = 2 then exactly floor(n / 3) + 1 integers are not divisible by 3.
 So now we will get how many numbers are divisible by 3 by simply substracting the result found above from the number **n**.
 
-c++ function to calculate this is going to be (Beware of n = 1 also)...
+c++ function to calculate this is going to be (Beware of n = 1 case also)...
 ```
 long long numbers_divisible_by_3_from_1_to_n (int n){
   if(n == 0) return 0;  // Caution: we will also call numbers_divisible_by_3_from_1_to_n(A - 1). If A = 1 then the argument becomes -1 which can result in     
@@ -132,4 +134,5 @@ int main(){
 ```
 
 Happy Coding!
+
 Written by: [Rahat Hossain](https://github.com/rahathossain690)
