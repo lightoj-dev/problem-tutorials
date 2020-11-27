@@ -3,6 +3,9 @@
 **Problem Link:** [click here](http://lightoj.com/volume_showproblem.php?problem=1129)
 
 **Algorithm:** [Trie Tree Data Structure on Shafaetsplanet](http://www.shafaetsplanet.com/?p=1679) **Shafaetsplanet** blog has really awesome tutorial on trie data structure. Also you can learn from anywhere.
+***Some youtube resources on trie:-***
+- [Tushar Roy - Coding Made Simple](https://m.youtube.com/watch?v=AXjmTQ8LEoI)
+- [HackerRank](https://m.youtube.com/watch?v=zIjfhVPRZCg)
 
 ### Theory:
 If you have learnt **trie data structure** well, this problem is really easy for you.
