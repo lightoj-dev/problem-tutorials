@@ -24,6 +24,8 @@ Atfirst, we create a trie for each new testcase. A single node of trie data stru
 
 You may have noticed trie usually contains a `boolean` variable, but I am taking an `integer` instead. This is a slight change you need to make for this problem on purpose. Because if you look carefully on the problem statement, we don't need the `boolean` endmark on where a DNA string ends. We just need the prefix. I used the `integer` variable to count the times of each node being visited while inserting the DNA strings into the trie. This count variable is dynamically keeping track of a single node being used in how many DNA strings.
 
+Then we create a function which traverses the trie and computes the maximum value for our result.
+
 Visualization-
 ```
 //A trie with two DNA strings inserted, "ACGACG" and "ACGTACG"
