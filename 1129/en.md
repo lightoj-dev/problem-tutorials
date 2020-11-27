@@ -1,8 +1,8 @@
 # LOJ 1129 - Consistency Checker
 
-In this problem, you will be given `T` testcases. The first line of each test case contains an integer `n`. Following `n` lines will contain a number of length 1-10 each. You are asked to check the consistency of the dataset. The consistency is, no number is a prefix of another number.
+In this problem, you will be given `T` testcases. The first line of each test case contains an integer `n`. Following `n` lines will contain a number of length `1-10` each. You are asked to check the consistency of the dataset. The consistency is, no number is a prefix of another number.
 
-To recap, a substring of a string from its 0th index is a prefix of that string. Like `123` is a prefix of `12345`, but `124`, `234`, or `132` is not.
+To recap, a substring of a string from its `0th` index is a prefix of that string. Like `123` is a prefix of `12345`, but `124`, `234`, or `132` is not.
 
 This is a great problem to start **Trie Data Structure** if you haven't already.
 **Tries** are an extremely special and useful data-structure that are based on the prefix of a string. They are used to represent the **“Retrieval”** of data.
@@ -15,9 +15,9 @@ Here are some resources to trie data structure you can understand and learn:-
 
 ### Approach:
 
-Atfirst, we create a trie for each new testcase. A single node of trie data structure will contain a `boolean` variable and an `array` of trie nodes of length `10`. The boolean variable will say if a string end on that node or not. The 10 size array will be enough for the next adjacent digit of the number because different digits can be atmost 10 (0-9).
+Atfirst, we create a trie for each new testcase. A single node of trie data structure will contain a `boolean` variable and an `array` of trie nodes of length `10`. The boolean variable will say if a string end on that node or not. The `10` size array will be enough for the next adjacent digit of the number because different digits can be atmost ten `(0-9)`.
 
-The best way to take the `n` numbers from the input is as strings. Because trie deals with the prefix of a string. If we want to take `n` numbers as integers, we can. Because integer data type can hold between `-2147483648` to `2147483647` which will be enough to hold an integer of length 1-10. But still that won't be a smart approach.
+The best way to take input of the `n` numbers for each testcase is as strings. Because trie deals with the prefix of a string. If we want to take `n` numbers as integers, we can. Because `integer` data type can hold between `-2147483648` to `+2147483647` which will be enough to hold an integer of length `1-10`. But still that won't be a smart approach.
 
 So we simply take the `n` input numbers as strings and insert into the trie. Once the trie is formed, we create a function `isPrefix()` which will check if there is a single number prefix of another number or not in the trie. How will the function check? The function will traverse the trie, and if there is a single node which has the boolean variable value `true` but more trie nodes emit from that node, this confirms that it is a prefix.
 
@@ -31,11 +31,11 @@ Visualization-
          \
           2(false)
            \
-            3(true) <-- ending of one line but not the leaf node!
+            3(true) <-- ending of string "123" but not the leaf node!
              \
               4(false)
                \
-                5(true)
+                5(true) <-- ending of string "12345" and it is a leaf node
 ```
 
 Lastly, after the answer is got, we delete the trie from the memory to avoid memory wastage in our program.
