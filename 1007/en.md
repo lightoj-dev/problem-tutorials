@@ -1,4 +1,4 @@
-# 1007 - Mathematically Hard
+# LOJ 1007 - Mathematically Hard
 
 _You have given `T` test cases and for each test case you have `a`, the lower bound, and `b`, the upper bound, find the summation of the
 scores of the numbers from a to b (inclusive), where <br>
@@ -34,10 +34,8 @@ The algorithm is:
 - generate cumulative sum array of squared phi values
 - for each query, print the `cumulative sum array[b]` - `cumulative sum array [a-1]`
 
-### Code
-
-#### C++
-
+### C++
+-----
 ```cpp
 #include <bits/stdc++.h>
 
@@ -79,5 +77,4 @@ int main(){
     }
     return 0;
 }
-
 ```
