@@ -74,4 +74,62 @@ Here cumulative sum for position **n** simply says "Between position 1 to **n** 
 
 ## Understanding 3
 Now we know that cumulative sum can be the key to success. We just have to find it smartly. By looking at the last table we can get that {1, 4, 7, 10, ...} are not divisible by 3. And all this positions are also 1 modulo 3 (position % 3 = 1). So if we get a position which is 1 modulo 3 it will not be divisible, right? (If position % 3 = 1 then not divisible by 3.)
-Now, finding out how many numbers are divisible by 3 from 1 to **n** is quite equal to finding how many numbers are not divisible by 3 and substract the answer from **n**. (numbers_divisible_by_3_from_1_to_n = n - numbers_not_divisible_by_3)
+
+Now, finding out how many numbers are divisible by 3 from 1 to **n** is quite equal to finding how many numbers are not divisible by 3 and substract the answer from **n**. (numbers_divisible_by_3_from_1_to_n = n - numbers_not_divisible_by_3). Now our problem has become smaller. Here we can see that for every three consecutive position starting from 1, first position is not divisible by 3. So to calculate how many numbers are not divisible by 3 in range of position 1 to **n**...
+1. If n % 3 = 0 then exactly (n / 3) integers are not divisible by 3.
+2. If n % 3 = 1 then exactly floor(n / 3) + 1 integers are not divisible by 3.
+3. If n % 3 = 2 then exactly floor(n / 3) + 1 integers arr not divisible by 3.
+So now we will get how many numbers are divisible by 3 by simply substracting the result found above from the number **n**.
+
+c++ function to calculate this is going to be (Beware of n = 1 also)...
+```
+long long numbers_divisible_by_3_from_1_to_n (int n){
+  if(n == 0) return 0;  // Caution: we will also call numbers_divisible_by_3_from_1_to_n(A - 1). If A = 1 then the argument becomes -1 which can result in     
+                        // calculation.
+  int subs;
+  if(n % 3 == 0) {
+    subs = n / 3;
+  } else { // both n % 3 == 1 and n % 3 == 2 shows the same result
+    subs = (n / 3) + 1;
+  }
+  return n - subs;
+}
+```
+We solve this problem in O(1) right now. So as we will be given **A** and **B** and we need to find how many numbers from these range are divisible by 3 we simply do this.
+```
+long long result = numbers_divisible_by_3_from_1_to_n (B) - numbers_divisible_by_3_from_1_to_n (A - 1);
+```
+So overall complexity of the solution is O(1). Super handy!
+
+## C++ implementation
+```
+#include<bits/stdc++.h>
+using namespace std;
+
+int testcase;
+long long A, B;
+
+long long numbers_divisible_by_3_from_1_to_n (int n){
+  if(n == 0) return 0;  // Caution: we will also call numbers_divisible_by_3_from_1_to_n(A - 1). If A = 1 then the argument becomes -1 which can result in     
+                        // calculation.
+  int subs;
+  if(n % 3 == 0) {
+    subs = n / 3;
+  } else { // both n % 3 == 1 and n % 3 == 2 shows the same result
+    subs = (n / 3) + 1;
+  }
+  return n - subs;
+}
+
+int main(){
+  scanf("%d", &testcase);
+  for(int test = 1; test <= testcase; test++){
+    scanf("%lld %lld", &A, &B);
+    long long result = numbers_divisible_by_3_from_1_to_n (B) - numbers_divisible_by_3_from_1_to_n (A - 1);
+    printf("Case %d: %lld\n", test, result);
+  }
+}
+```
+
+Happy Coding!
+Written by: [Rahat Hossain](https://github.com/rahathossain690)
