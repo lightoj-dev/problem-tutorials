@@ -23,17 +23,17 @@ Now, we can start the bisection by denoting the parameters ```low = d = 0``` and
 
 Let the ```mid = K``` ( in general d ) and you have the value of ```X```. From pythagorean theorem, we know,
 
-<img src="https://latex.codecogs.com/svg.latex?hypotenuse^{2}&space;=&space;base^{2}&space;&plus;&space;perpendicular^{2}" /></a>
+![1](https://user-images.githubusercontent.com/14172268/100466281-e365f800-30fa-11eb-8672-fb33477dfad4.jpg)
 
 From this equation, We can show that -
 
-<img src="https://latex.codecogs.com/svg.latex?h1&space;=&space;\sqrt{Y^{2}}&space;-&space;\sqrt{mid^{2}}" /></a>
+![2](https://user-images.githubusercontent.com/14172268/100466284-e3fe8e80-30fa-11eb-9f46-807eea4dd634.png)
 
-<img src="https://latex.codecogs.com/svg.latex?h2&space;=&space;\sqrt{X^{2}}&space;-&space;\sqrt{mid^{2}}" /></a>
+![3](https://user-images.githubusercontent.com/14172268/100466286-e4972500-30fa-11eb-8348-b27e4d24bc8a.png)
 
 So, now you have the value of ```h1``` and ```h2``` . You can easily find ,
 
-<img src="https://latex.codecogs.com/svg.latex?h&space;=&space;\frac{(&space;h1&space;*&space;h2&space;)}{(&space;h1&space;&plus;&space;h2&space;)}" /></a>
+![4](https://user-images.githubusercontent.com/14172268/100466279-e234cb00-30fa-11eb-9e79-38b4d404fbb8.png)
 
 For a value of ```mid```, we will found the approximate value of real ```h```. Now for every calculated ```h```, you easily can compare with the original ```h```. 
 
