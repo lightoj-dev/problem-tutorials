@@ -1,4 +1,4 @@
-# LightOJ 1224 - DNA Prefix
+# LOJ 1224 - DNA Prefix
 
 In this problem, you will be given `T` testcases. The first line of each test case contains an integer `n`. Following `n` lines will contain DNA sample string of length `1-50` each. You are asked to calculate the maximum value of `(length of common prefix * number of DNA samples shared)`.
 
