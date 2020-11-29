@@ -84,8 +84,8 @@ int main(int argc, char const *argv[]) {
   }
 }
 ```
-> Time Complexity O(n*m) <br>
-> Can you solve it in more easier way?
+> **Time Complexity O(n*m)** <br>
+> **Can you solve it in more easier way?**
 
 ***
 ### Solution Idea 2:
@@ -155,4 +155,4 @@ int main(int argc, char const *argv[]) {
   }
 }
 ```
-> Time Complexity O(n*m)
+> **Time Complexity O(n*m)**
