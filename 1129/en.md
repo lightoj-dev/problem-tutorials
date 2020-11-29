@@ -42,7 +42,7 @@ Lastly, after the answer is got, we delete the trie from the memory to avoid mem
 
 Try yourself before watching the code below.
 
-### Code: (C++ solution)
+### C++:
 
 ```cpp
 #include<iostream>
