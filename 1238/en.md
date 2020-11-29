@@ -16,6 +16,7 @@ da, db and dc respectively, then, we have to find the  <br>      max(da, db, dc)
 
 Suppose, the shortest distance from the initial postiion of each power puff girl to home is da, db and dc respectively . To calculate the shortest distance between two cell in a 2D grid, we can use **Breadth-first search**. So, to calculate da, db and dc, we have to run bfs three times from the initial position of each power puff girl separately. Each time we will start bfs from the initial position of a different power puff girl and find the shortest distance from that power puff girl to home. After calculating da, db and  dc separately, the final answer will be max(da, db, dc).<br>
 See the code below to understand better <br>
+### C++
 ``` c++
 #include<bits/stdc++.h>
 using namespace std;
@@ -89,6 +90,7 @@ int main(int argc, char const *argv[]) {
 ***
 ### Solution Idea 2:
 Do we really need to run bfs three times? Actually, we can solve this problem using single bfs. Instead of finding the shortest distance from each power puff girl to home, we can find the shortest distance from **home** to each power puff girl using single bfs.
+### C++
 ``` c++
 #include<bits/stdc++.h>
 using namespace std;
