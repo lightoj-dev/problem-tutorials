@@ -84,12 +84,12 @@ int main(int argc, char const *argv[]) {
   }
 }
 ```
-> **Time Complexity O(n*m)** <br>
-> **Can you solve it in more easier way?**
+> **Time Complexity: O(T\*n\*m)** <br>
+> **Can you solve it in more convenient way?**
 
 ***
 ### Solution Idea 2:
-Do we really need to run bfs three times? Actually, we can solve this problem using single bfs. Instead of finding the shortest distance from each power puff girl to home, we can find the shortest distance from **home** to each power puff girl using single bfs.
+Do we really need to run bfs three times? Actually, we can solve this problem using single bfs. Instead of finding the shortest distance from each power puff girl to home, we can find the shortest distance from **home** to each power puff girl using single bfs. This approach is much more efficient than the previous approach. Using this approach, we can also solve the problem where power puff girls are more than 3, within the same time complexity. 
 ### C++
 ``` c++
 #include<bits/stdc++.h>
@@ -155,4 +155,4 @@ int main(int argc, char const *argv[]) {
   }
 }
 ```
-> **Time Complexity O(n*m)**
+> **Time Complexity: O(T\*n\*m)**
