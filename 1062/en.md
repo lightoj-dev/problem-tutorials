@@ -1,4 +1,4 @@
-#### Problem Clarification : 
+# 1062 - Crossed Ladders : 
 
 A ladder with length **X** rested from the base and lean with the right building. Another ladder with length **Y** rested from another right side's base and lean with the left side's base. These two ladders are crossed at a point **N**. The length between **M** and **N** is **h**. We have to find the width **d** of the road. 
 
@@ -38,9 +38,8 @@ So, now you have the value of ```h1``` and ```h2``` . You can easily find ,
 For a value of ```mid```, we will found the approximate value of real ```h```. Now for every calculated ```h```, you easily can compare with the original ```h```. 
 
 
-#### Code
-
-```
+# Code
+```c++
 #include<bits/stdc++.h>
 #define DIST(x1,x2, y1, y2) (((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)))
 #define CLR(a) a.clear()
