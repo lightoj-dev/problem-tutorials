@@ -16,11 +16,11 @@ LL BC(int n, int k, int m) {
 }
 ```
 There are two things that still need to be handled before the function correctly solves the problem:
-- Invalid state: We are visiting some states (here the tuple (n, k, m) defines the "state" of the problem) that are invalid. For example, `n = 5`, `k = 1` and `m = 7`. From this state, when `x = 6`, we are calling `B(-1, 0, 7)` which is an invalid state. Also, we are allowing `k` to go negative, which is an invalid state too. The simplest way to resolve this is to `return 0` when we have reached an invalid state.
+- **Invalid state**: We are visiting some states (here the tuple (n, k, m) defines the "state" of the problem) that are invalid. For example, from the state `BC(5, 1, 7)`, when `x = 6`, we are calling `BC(-1, 0, 7)` which is an invalid state. Also, we are allowing `k` to go negative, which is an invalid state too. The simplest way to resolve this is to `return 0` when we have reached an invalid state.
 ```c++ 
     if (n < 0 || k < 0) return 0;
 ```
-- Base case: what's a base case? It's the simplest state of the problem, which can't be reduced any more. Notice that, `n < 0` is an invalid state. It makes sense to make `n = 0` a base case. `n = 0` means we have no array left to be partitioned. How many ways are there to partition an array of length `0` into `0` sub-arrays? Exactly `1`. However, if we see that `k != 0`, it means we still have some sub-array(s) left to be covered from the zero length array! There is no way to do that. So, we can check for base case after checking for invalid states.
+- **Base case**: what's a base case? It's the simplest state of the problem, which can't be reduced any more. Notice that, `n < 0` is an invalid state. It makes sense to make `n = 0` a base case. `n = 0` means we have no array left to be partitioned. How many ways are there to partition an array of length `0` into `0` sub-arrays? Exactly `1`. However, if we see that `k != 0`, it means we still have some sub-array(s) left to be covered from the zero length array! There is no way to do that. So, we can check for base case after checking for invalid states.
 ```c++ 
     if (n == 0) {
         if (k == 0) return 1;
@@ -55,7 +55,8 @@ Now, when we visit a state for the first time, we actually solve the problem and
 
 To save the results for a state, we will need a 3-D array `dp[][][]`. At the start of the program, we will assign `-1` to each position of the dp table. When returning from the function, we just have to assign the result to `dp[n][k][m]`. The solution to our problem is always non-negative. So, when we reach a **valid non-base case** state `BC(n, k, m)`, if we see that `dp[n][k][m]` is `-1`, it means we did not solve the problem for this state before. In that case, we will proceed to solve the problem and save the result in dp table. The next time we visit `BC(n, k, m)`, `dp[n][k][m]` will be something other than `-1`. We can say at this moment that, we visited this state before, the solution to this state is dp[n][k][m]`.
 
-So, the full solution will be:
+There are in total `O(N^3)` states and `O(N^4)` transitions where `N <= 50`. The full solution will be:
+
 ```c++
 #include<bits/stdc++.h>
 using namespace std;
