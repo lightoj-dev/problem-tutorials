@@ -41,7 +41,8 @@ Now, with some knowledge of `Binary search`, we can finally solve this problem:
 See the code below if you still need some help with the implementation:
 
 ### C++
-```
+
+```C++
 #include <bits/stdc++.h>
 using namespace std;
 
