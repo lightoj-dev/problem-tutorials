@@ -37,7 +37,7 @@ int main() {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     
-    if(a == b) {
+    if (a == b) {
       cout << "Case " << i + 1 << ": Yes\n";
     } else {
       cout << "Case " << i + 1 << ": No\n";
@@ -75,7 +75,7 @@ class Main {
       Arrays.sort(a_array);
       Arrays.sort(b_array);
       
-      if(Arrays.equals(a_array, b_array)) {
+      if (Arrays.equals(a_array, b_array)) {
         System.out.println("Case "+ (i + 1) +": Yes");
       } else {
         System.out.println("Case "+ (i + 1) +": No");
