@@ -28,7 +28,7 @@ int main() {
   cin >> cases;
   for (int i = 1; i <= cases; i++) {
     cin >> num;
-    cout << "Case " << i << ": " << (ones & 1 ? "odd" : "even") << "\n"; 
+    cout << "Case " << i << ": " << ((__builtin_popcount(num) & 1) ? "odd" : "even") << "\n";
   }
   return 0;
 }
