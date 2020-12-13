@@ -2,25 +2,28 @@
 
 _Keywords: Flows, Min-Cut_
 
-Consider a circle for each of the robots.
+Consider a circle for each of the robots. Let's consider vertices for the circles. We shall add two more vertices, source and sink. Let's the following:
 
-![](./img1.png)
-
-Let's consider vertices for the circles. We shall add two more vertices, source and sink. Let's add some edges in our graph:
-* if a circle intersects or touches with the top side border of the field (y=W), then we shall add an edge between source and the corresponding vertex for the circle.
-* if a circle intersects or touches with the bottom side border of the field (y=0), then we shall add an edge between sink and the corresponding vertex for the circle.
-* if two circles intersect or touch, we shall add an edge between their corresponding vertices.
-* each edge will have capacity = 1.
-
-![](./img2.png)
+* Split each vertex except source, sink into two vertices. Suppose i'th vertex is split into a_i and b_i. Add an edge a_i -> b_i.
+* If a circle intersects or touches with the top side border of the field (y=W), then we shall add an edge from source to the corresponding vertex for the circle. Since the vertex is split into two, we'll add source -> a_i.
+* If a circle intersects or touches with the bottom side border of the field (y=0), then we shall add an edge from the corresponding vertex for the circle to the sink. Since the vertex is split into two, we'll add b_i -> sink.
+* If two circles intersect or touch, we shall add an edge between their corresponding vertices. Again, since the vertices are both split, we shall add b_i -> a_j and b_j -> a_i edges.
+* Each edge will have capacity = 1.
 
 For mentioned source and sink, the value of the minimum cut will be our result.
-
-![](./img3.png)
 
 __How?__
 
 The edges represent "some kind of wall". Between source and sink, that is, between the top and bottom side borders, there are some hierarchy of walls. We shall try to minimize the number of walls we have to run through to get from the left side to the right side. Thus, the minimum cut value.
+
+__Questions to ask__
+* Why do we need to split the vertices?
+* Should we have given capacity = 2 when adding edges between vertices for circles i and j?
+* What happens when there's a path from left to right without touching any of the circles?
+
+Following is a rough illustration without the vertex-splitting:
+
+![img][./img.png]
 
 ### C++ Code
 
@@ -133,7 +136,7 @@ int main() {
 		reset();
 		S = 0, T = n+n+1;
 		for(int i=1; i<=n; ++i) {
-			addedge(i, i+n, 1, 1);
+			addedge(i, i+n, 1, 0);
 			if(lineCircleSects(i, w)) addedge(S, i, 1, 0);
 			if(lineCircleSects(i, 0)) addedge(i+n, T, 1, 0);
 			for(int j=i+1; j<=n; ++j) {
