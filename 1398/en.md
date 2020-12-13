@@ -2,7 +2,7 @@
 
 _Keywords: Flows, Min-Cut_
 
-Consider a circle for each of the robots. Let's consider vertices for the circles. We shall add two more vertices, source and sink. Let's the following:
+Consider a circle for each of the robots. Let's consider vertices for the circles. We shall add two more vertices, source and sink. Let's do the following:
 
 * Split each vertex except source, sink into two vertices. Suppose i'th vertex is split into a_i and b_i. Add an edge a_i -> b_i.
 * If a circle intersects or touches with the top side border of the field (y=W), then we shall add an edge from source to the corresponding vertex for the circle. Since the vertex is split into two, we'll add source -> a_i.
@@ -23,7 +23,7 @@ __Questions to ask__
 
 Following is a rough illustration without the vertex-splitting:
 
-![img][./img.png]
+![img](./img.png)
 
 ### C++ Code
 
@@ -155,4 +155,4 @@ int main() {
 
 ---
 _reborn++_<br/>
-_Dec 10 2020_
+_Dec 13 2020_
