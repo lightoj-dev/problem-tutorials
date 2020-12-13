@@ -1,12 +1,18 @@
-# 1117 - Helping Cicada
+# 1080 - Binary Simulation
 
-_This is a number theory problem and you have given `T` test cases and for each test cases you have `N`, a possible range, and `M` positive integer numbers, denoting the life cycles of the predators._
+_Given a binary number, we are about to do some operations on the number. Two types of operations can be here._
+
+_`‘I i j‘` which means invert the bit from `i` to `j`_ (inclusive)
+
+_`‘Q i‘` answer whether the ith bit is `0` or `1`_
+
+_The MSB (most significant bit) is the first bit (i.e. i=1). The binary number can contain leading zeroes._
 
 ---
 
 #### Summary
 
-For the `T` group of input set, where each set consist of `N` and `M` numbers, you have to find how many of the numbers from `1 to N` can't be divided by any of given `M` numbers.
+For the `T` group of input set, where each set consist of `S`, a binary bit pattern, and `Q`, number of queries, for each queries you have invert a range in the given bit pattern or answer if the asked bit is set/`1` or not/`0`.
 
 #### Solution
 
@@ -51,66 +57,5 @@ So the algorithm is:
 ### C++
 
 ```cpp
-#include "bits/stdc++.h"
 
-using namespace std;
-
-#define deb(x,y) cerr << #x << " " << x << " " << #y << " " << y <<endl;
-#define deb1(x) cerr << #x << " " << x <<endl;
-#define isSet(x,i) (bool)(x & (1<<i))
-
-long long lcm(long long a, long long b){
-    return a/__gcd(a,b) * b;
-}
-
-int main(){
-    #ifndef ONLINE_JUDGE
-    freopen("in.txt","r",stdin);
-    freopen("out.txt","w",stdout);
-    #endif
-    ios::sync_with_stdio(false);
-    cin.tie(0);cout.tie(0);
-
-    int tc,t(1);
-    for(cin>>tc; tc; ++t,--tc){
-
-        // print the test case number
-        cout<<"Case "<<t<<": ";
-
-        // input part
-        long long n,m;
-        cin>>n>>m;
-
-        vector<long long>lst(m);
-        for(int i=0; i<m; cin>>lst[i++]);
-
-
-        long long cnt(0);
-
-        for(int i=1; i<(1<<m); ++i){
-            vector<long long>bitCount;
-
-            // find all the set bits
-            for(int j=0; j<15; ++j)
-                if(isSet(i,j))
-                    bitCount.push_back(lst[j]);
-
-            long long ab=bitCount[0];
-
-            // find LCM of all the set bits
-            for(auto x: bitCount)
-                ab = lcm(ab,x);
-
-            // deb1(lst.size());
-
-            (bitCount.size()%2?cnt+= (n/ab): cnt-=(n/ab));
-
-            // deb(ab,cnt);
-
-        }
-        cout<<n-cnt<<endl;
-
-    }
-    return 0;
-}
 ```
