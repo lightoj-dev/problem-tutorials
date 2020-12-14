@@ -3,8 +3,8 @@ Problem Title: 1258 - Making Huge Palindromes
 Problem Description: You will be given a non-empty string containing only lowercase English letters. Your task is to make it a palindrome adding
 minimum numbers of characters at the right side of the string.
 
-Observation: Suppose the input string length is N. We are allowed to add characters only right side of the given string to make the string palindrome.
-We can do it by adding the reversed string at the right side of the input string. But we have to minimize it as much as possible. Let’s, observe the following strings:
+Observation: Suppose the input string length is N. We are allowed to add characters only right side of the given string to make the string palindrome. We can
+do it by adding the reversed string at the right side of the input string. But we have to minimize it as much as possible. Let’s, observe the following strings:
 
 Input string: kamal
 Reversed string: lamak
@@ -54,7 +54,7 @@ from the first position initializing 1. Each time match the forward & reversed h
 Time Complexity: O(T*N) Cause, we are calculating both hash values just running a single loop (Where T denotes total number of test cases).
 Memory Complexity: O(N)
 
-_______________________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________
 
 1) My Code using KMP:
 
