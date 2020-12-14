@@ -11,7 +11,7 @@ In each query, you will be given two integers `L` and `R`. You need to find out 
 
 For each query, you can simply run a linear loop over all the integers of the array and find out whether each of them lies inside the query segment or not. The overall time complexity of this approach is `O(Q x N)` where `Q` denotes the number of queries and `N` is the size of the array.
 
-As `Q` can be up to `5x10^4` and `N` can be up to `10^5`, `QN` can be up to `5x10^9`. There are 5 test cases too! So overall, there can be up to `2.5x10^10` operations and it would take roughly `250` seconds! Too much!
+As `Q` can be up to `5x10^4` and `N` can be up to `10^5`, `QxN` can be up to `5x10^9`. There are 5 test cases too! So overall, there can be up to `2.5x10^10` operations and it would take roughly `250` seconds. Too much!
 
 ## Efficient approach with binary search (Accepted)
 
@@ -19,7 +19,7 @@ Most important observation:
 
 - Our given array is SORTED.
 
-We can make use of this fact in order to improve our runtime. In a sorted array of numbers, you can easily find how many numbers lie in a segment from `L` to `R` from the upper bound of `R` - lower bound of `L`. upper bound and lower bound can be easily found out from a sorted array in logarithmic time. It reduces the query handling runtime to `O(logN)`.
+We can make use of this fact in order to improve our runtime. In a sorted array of numbers, you can easily find how many numbers lie in a segment from `L` to `R` from the upper bound of `R` - the lower bound of `L`. Upper bound and lower bound can be easily found out from a sorted array in logarithmic time with binary search. It reduces the query handling runtime to `O(logN)`.
 
 For example, let's consider a random test case:
 
@@ -30,8 +30,8 @@ R = 12
 
 The query asks us to find out how many numbers are there starting from L = 3 (inclusive) to R = 12 (inclusive).
 
-upper_bound of R = 12 in array is 15 (It's the index)
-lower_bound of L = 3 in array is 4
+upper_bound of R = 12 in array is 15 (15 is the index)
+lower_bound of L = 3 in array is 4 (4 is the index)
 
 So, the final answer is 15 - 4 = 11
 ```
