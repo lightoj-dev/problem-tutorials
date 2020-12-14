@@ -36,9 +36,7 @@ lower_bound of L = 3 in array is 4 (4 is the index)
 So, the final answer is 15 - 4 = 11
 ```
 
-If you are having hard times understanding how binary search works in such scenarios, I would suggest you to watch this wonderful discussion by [Errichto](https://codeforces.com/profile/Errichto) on binary search:
-
-- [Binary Search tutorial (C++ and Python)](https://www.youtube.com/watch?v=GU7DpgHINWQ)
+If you are having hard times understanding how binary search works in such scenarios, I would suggest you to watch this wonderful discussion by [Errichto](https://codeforces.com/profile/Errichto) on binary search: [Binary Search tutorial (C++ and Python)](https://www.youtube.com/watch?v=GU7DpgHINWQ)
 
 - Time Complexity: `O(Q * log(N))` per test case.
 - Memory Complexity: `O(N)` per test case.
