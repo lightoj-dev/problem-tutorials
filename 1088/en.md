@@ -4,16 +4,16 @@
 
 In this problem, you will be given an array of non-negative integers of size `N`, All the integers are distinct and the array will be given in a sorted manner. You will be given `Q` queries also.
 
-In each query, you will be given two integers `L` and `R`. You need to find out the number of points that lie in segment L-R (L-R is a segment that starts from point `L` and ends on point `R`).
+In each query, you will be given two integers `L` and `R`. You need to find out the number of points that lie in segment `[L,R]` (`[L,R]` is a segment that starts from point `L` and ends on point `R`).
 
-## Solution
-# Brute force approach (Time Limit Exceeded)
+#### Solution
+## Brute force approach (Time Limit Exceeded)
 
 For each query, you can simply run a linear loop over all the integers of the array and find out whether each of them lies inside the query segment or not. The overall time complexity of this approach is `O(Q x N)` where `Q` denotes the number of queries and `N` is the size of the array.
 
 As `Q` can be up to `5x10^4` and `N` can be up to `10^5`, `QN` can be up to `5x10^9`. There are 5 test cases too! So overall, there can be up to `2.5x10^10` operations and it would take roughly `250` seconds! Too much!
 
-# Efficient approach with binary search (Accepted)
+## Efficient approach with binary search (Accepted)
 
 Most important observation:
 
@@ -40,7 +40,7 @@ Time Complexity: `O(Q * log(N))` per test case
 Memory Complexity: `O(N)` per test case
 
 #### Code
-### C++
+## C++
 
 ```
 #include <bits/stdc++.h>
