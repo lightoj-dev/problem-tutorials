@@ -1,4 +1,4 @@
-#### LOJ 1088 - Points in Segments
+# LOJ 1088 - Points in Segments
 
 # Summary
 
@@ -6,7 +6,7 @@ In this problem, you will be given an array of non-negative integers of size `N`
 
 In each query, you will be given two integers `L` and `R`. You need to find out the number of points that lie in segment `[L,R]` (`[L,R]` is a segment that starts from point `L` and ends on point `R`).
 
-#### Solution
+# Solution
 ## Brute force approach (Time Limit Exceeded)
 
 For each query, you can simply run a linear loop over all the integers of the array and find out whether each of them lies inside the query segment or not. The overall time complexity of this approach is `O(Q x N)` where `Q` denotes the number of queries and `N` is the size of the array.
@@ -39,8 +39,8 @@ So, the final answer is 15 - 4 = 11
 Time Complexity: `O(Q * log(N))` per test case
 Memory Complexity: `O(N)` per test case
 
-#### Code
-## C++
+## Code
+### C++
 
 ```
 #include <bits/stdc++.h>
