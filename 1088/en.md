@@ -7,7 +7,7 @@ In this problem, you will be given an array of non-negative integers of size `N`
 In each query, you will be given two integers `L` and `R`. You need to find out the number of points that lie in segment `[L,R]` (`[L,R]` is a segment that starts from point `L` and ends on point `R`).
 
 # Solution
-## Brute force approach (\textcolor{red}Time Limit Exceeded)
+## Brute force approach (Time Limit Exceeded)
 
 For each query, you can simply run a linear loop over all the integers of the array and find out whether each of them lies inside the query segment or not. The overall time complexity of this approach is `O(Q x N)` where `Q` denotes the number of queries and `N` is the size of the array.
 
@@ -36,8 +36,8 @@ lower_bound of L = 3 in array is 4 (4 is the index)
 So, the final answer is 15 - 4 = 11
 ```
 
-Time Complexity: `O(Q * log(N))` per test case
-Memory Complexity: `O(N)` per test case
+- Time Complexity: `O(Q * log(N))` per test case.
+- Memory Complexity: `O(N)` per test case.
 
 ## Code
 ### C++
@@ -45,9 +45,9 @@ Memory Complexity: `O(N)` per test case
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-#define MAX 100006
+#define MAX 100000
 
-int arr[MAX];
+int arr[MAX + 5];
 
 int main()
 {
