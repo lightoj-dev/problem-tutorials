@@ -1,6 +1,6 @@
 ### Problem Title: 1258 - Making Huge Palindromes
 
-**Problem Description:** ``You will be given a non-empty string containing only lowercase English letters. Your task is to make it a palindrome\
+**Problem Description:** ``You will be given a non-empty string containing only lowercase English letters. Your task is to make it a palindrome
 adding minimum numbers of characters at the right side of the string.``
 
 **Observation:** Suppose the input string length is `N`. We are allowed to add characters only right side of the given string to make the string\
@@ -9,25 +9,25 @@ Let’s, observe the following strings:
 
 Input string: kamal\
 Reversed string: lamak\
-Input string + `reversed string`: "kamal`lamak` (it is palindrome but not optimal)\
+Input string + **reversed string**: kamal**lamak** (it is palindrome but not optimal)\
 Optimal palindrome: kama**l**amak\
 If we add `"amak"` to the right side then it be a palindrome (4 characters added).
 
 Input string: ahdaa\
 Reversed string: aadha\
-Input string + `reversed string`: ahdaa`aadha` (it is palindrome but not optimal)\
+Input string + **reversed string**: ahdaa**aadha** (it is palindrome but not optimal)\
 Optimal palindrome: ahd**aa**dha\
 If we add `"dha"` to the right side then it be a palindrome (3 characters added).
 
 Input string: nooroo\
 Reversed string: ooroon\
-Input string + `reversed string`: nooroo`ooroon` (it is palindrome but not optimal)\
+Input string + **reversed string**: nooroo**ooroon** (it is palindrome but not optimal)\
 Optimal palindrome: n**ooroo**n\
 If we add `"n"` to the right side then it be a palindrome (1 character added).
 
 Input string: madam\
 Reversed string: madam\
-Input string + `reversed string`: madam`madam` (it is palindrome but not optimal)\
+Input string + **reversed string**: madam**madam** (it is palindrome but not optimal)\
 Optimal palindrome: **madam**\
 It is already palindrome. We needn’t to add any characters (0 character added).
 
@@ -43,8 +43,7 @@ string (reverse of input string) then we are done (the idea of KMP).
 We can easily do it by adding both strings. Then the last value of the LPS array will be “already palindrome” part length. We will add both\
 strings in this way: **``reversed_string#input_string``** → lamak#kamal  (Here, input string is "kamal")
 
-``N.B. We need to add ‘#’ to denote that each string is different (‘#’ will never be given in the input string).``
-**Output:** 2*N - alreday_palindrome_length
+``N.B. We need to add ‘#’ to separate each string (‘#’ will never be given in the input string).``
 
 **Time Complexity:** O(T*N)\
 (Where, N denotes string length and T denotes total number of test cases.)\
@@ -61,6 +60,8 @@ Cause, we can calculate both hash values just running a single loop.\
 (Where, N denotes string length and T denotes total number of test cases.)\
 **Memory Complexity:** O(N)\
 ``Both complexities are for calculating the hash values.``
+
+**Output:** 2*N - alreday_palindrome_length
 
 ________________________________________________________________________________
 
@@ -158,5 +159,4 @@ int main(){
 ```
 
 
-**Contributed by: AH Kamal, HSTU**\
-www.facebook.com/kamalcse36
+**Contributed by: AH Kamal, HSTU**
