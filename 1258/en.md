@@ -5,10 +5,10 @@ minimum numbers of characters at the right side of the string.``
 
 **Observation:** Suppose the input string length is `N`. We are allowed to add characters only right side of the given string to make the string palindrome. We can do it by adding the reversed string at the right side of the input string. But we have to minimize it as much as possible. Let’s, observe the following strings:
 
-Input string: kamal
-Reversed string: lamak
-Input string + reversed string: "kamal lamak" it is palindrome but not optimal.
-Optimal palindrome: kama**l**amak
+Input string: kamal\
+Reversed string: lamak\
+Input string + reversed string: "kamal lamak" it is palindrome but not optimal.\
+Optimal palindrome: kama**l**amak\
 If we add `"amak"` to the right side then it be a palindrome (4 characters added).
 
 Input string: ahdaa
