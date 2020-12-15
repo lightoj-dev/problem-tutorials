@@ -11,19 +11,19 @@ Input string: kamal\
 Reversed string: lamak\
 Input string + reversed string: "kamal lamak" it is palindrome but not optimal.\
 Optimal palindrome: kama**l**amak\
-If we add `"amak"` to the right side then it be a palindrome (4 characters added).\
+If we add `"amak"` to the right side then it be a palindrome (4 characters added).
 
 Input string: ahdaa\
 Reversed string: aadha\
 Input string + reversed string: ahdaa aadha\
 Optimal palindrome: ahd**aa**dha\
-If we add `"dha"` to the right side then it be a palindrome (3 characters added).\
+If we add `"dha"` to the right side then it be a palindrome (3 characters added).
 
 Input string: nooroo\
 Reversed string: ooroon\
 Input string + reversed string: nooroo ooroon\
 Optimal palindrome: n**ooroo**n\
-If we add `"n"` to the right side then it be a palindrome (1 character added).\
+If we add `"n"` to the right side then it be a palindrome (1 character added).
 
 Input string: madam\
 Reversed string: madam\
