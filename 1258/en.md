@@ -9,28 +9,27 @@ Let’s, observe the following strings:
 
 Input string: kamal\
 Reversed string: lamak\
-Input string + reversed string: "kamal lamak" it is palindrome but not optimal.\
+Input string + `reversed string`: "kamal`lamak` (it is palindrome but not optimal)\
 Optimal palindrome: kama**l**amak\
 If we add `"amak"` to the right side then it be a palindrome (4 characters added).
 
 Input string: ahdaa\
 Reversed string: aadha\
-Input string + reversed string: ahdaa aadha\
+Input string + `reversed string`: ahdaa`aadha` (it is palindrome but not optimal)\
 Optimal palindrome: ahd**aa**dha\
 If we add `"dha"` to the right side then it be a palindrome (3 characters added).
 
 Input string: nooroo\
 Reversed string: ooroon\
-Input string + reversed string: nooroo ooroon\
+Input string + `reversed string`: nooroo`ooroon` (it is palindrome but not optimal)\
 Optimal palindrome: n**ooroo**n\
 If we add `"n"` to the right side then it be a palindrome (1 character added).
 
 Input string: madam\
 Reversed string: madam\
-Input string + reversed string: madam madam\
+Input string + `reversed string`: madam`madam` (it is palindrome but not optimal)\
 Optimal palindrome: **madam**\
-It is already palindrome. We needn’t to add any characters (0 character added).\
-``N.B. In input string + reversed string, space is added to separate both strings.``
+It is already palindrome. We needn’t to add any characters (0 character added).
 
 We have observed that if we need to add `K` characters to the right side of a string to make the string palindrome then `N-K` characters are\
 already palindrome which are at the right side of the string. These `N-K` characters are suffix of the input string and prefix of the reversed\
@@ -45,16 +44,23 @@ We can easily do it by adding both strings. Then the last value of the LPS array
 strings in this way: **``reversed_string#input_string``** → lamak#kamal  (Here, input string is "kamal")
 
 ``N.B. We need to add ‘#’ to denote that each string is different (‘#’ will never be given in the input string).``
+**Output:** 2*N - alreday_palindrome_length
 
-**Time Complexity:** O(T*N) Where, T denotes total number of test cases.\
-**Memory Complexity:** O(N)
+**Time Complexity:** O(T*N)\
+(Where, N denotes string length and T denotes total number of test cases.)\
+**Memory Complexity:** O(N)\
+``Both complexities are for creating the LPS array.``
 
 **2. Solution by Hashing:** Reverse the input string and calculate the hash values from first to last. Take a variable to store max palindrome\
 length starting from the first position initializing 1. Each time match the forward & reversed hash value. If matched then update the max\
 palindrome length value.
+**Output:** 
 
-**Time Complexity:** O(T*N) Cause, we are calculating both hash values just running a single loop (Where T denotes total number of test cases).\
-**Memory Complexity:** O(N)
+**Time Complexity:** O(T*N)\
+Cause, we can calculate both hash values just running a single loop.\
+(Where, N denotes string length and T denotes total number of test cases.)\
+**Memory Complexity:** O(N)\
+``Both complexities are for calculating the hash values.``
 
 ________________________________________________________________________________
 
@@ -62,23 +68,22 @@ ________________________________________________________________________________
 ```
 #include <bits/stdc++.h>
 using namespace std;
-#define pb  push_back
 
 vector<int> lps;
 
 void createLPS(string pat){
-    lps.pb(0);
+    lps.push_back(0);
     int i = 0, j = 1;
     for ( ; pat[j]; ){
         if (pat[i] == pat[j]){
-            lps.pb(i+1);
+            lps.push_back(i+1);
             ++i, ++j;
         }
         else{
             if (i != 0) i = lps[i-1];
             else {
                 ++j;
-                lps.pb(0);
+                lps.push_back(0);
             }
         }
     }
@@ -106,15 +111,15 @@ int main(){
 ```
 #include <bits/stdc++.h>
 using namespace std;
-#define  LL    long long int
-#define  LIM   1000005
+#define  LL    long long
+#define  LIM   1000000
 #define  base1 129
 #define  base2 137
 #define  MOD1  1479386893
 #define  MOD2  1928476349
 
 string text;
-LL pow1[LIM], pow2[LIM];
+LL pow1[LIM+5], pow2[LIM+5];
 
 void calPower(){
     pow1[0] = pow2[0] = 1;
@@ -126,15 +131,15 @@ void calPower(){
 
 int getHash(){
     LL hash1 = 0, hash2 = 0, revHash1 = 0, revHash2 = 0;
-    int res = 1;
+    int maxPal = 1;
     for(int i = 0; text[i]; i++){
         hash1 = ((hash1*base1)%MOD1 + (text[i]-'a' + 1))%MOD1;
         hash2 = ((hash2*base2)%MOD2 + (text[i] - 'a' + 1))%MOD2;
         revHash1 = (revHash1 + ((text[i]-'a' + 1)*pow1[i])%MOD1)% MOD1;
         revHash2 = (revHash2 + ((text[i]-'a' + 1)*pow2[i])%MOD2)% MOD2;
-        if(hash1 == revHash1 && hash2 == revHash2) res = max(res, i+1);
+        if(hash1 == revHash1 && hash2 == revHash2) maxPal = max(maxPal, i+1);
     }
-    return res;
+    return maxPal;
 }
 
 int main(){
@@ -142,14 +147,14 @@ int main(){
     int T; cin>>T;
     for(int t = 1; t <= T; t++){
         cin>>text;
-        string tmp = text;
         reverse(text.begin(), text.end());
-        int res = getHash();
-        int matched = res;
-        res = (text.size()-res)*2 + res;
-        printf("Case %d: %d\n", t, res);
+        int maxPal = getHash(); //to store max palindrome length from right side
+        int matched = maxPal;
+        maxPal = 2*text.size() - maxPal;
+        printf("Case %d: %d\n", t, maxPal);
     }
 }
+
 ```
 
 
