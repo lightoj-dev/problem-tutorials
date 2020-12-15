@@ -1,52 +1,59 @@
 ### Problem Title: 1258 - Making Huge Palindromes
 
-**Problem Description:** ``You will be given a non-empty string containing only lowercase English letters. Your task is to make it a palindrome adding
-minimum numbers of characters at the right side of the string.``
+**Problem Description:** ``You will be given a non-empty string containing only lowercase English letters. Your task is to make it a palindrome\
+adding minimum numbers of characters at the right side of the string.``
 
-**Observation:** Suppose the input string length is `N`. We are allowed to add characters only right side of the given string to make the string palindrome. We can do it by adding the reversed string at the right side of the input string. But we have to minimize it as much as possible. Let’s, observe the following strings:
+**Observation:** Suppose the input string length is `N`. We are allowed to add characters only right side of the given string to make the string\
+palindrome. We can do it by adding the reversed string at the right side of the input string. But we have to minimize it as much as possible.\
+Let’s, observe the following strings:
 
 Input string: kamal\
 Reversed string: lamak\
 Input string + reversed string: "kamal lamak" it is palindrome but not optimal.\
 Optimal palindrome: kama**l**amak\
-If we add `"amak"` to the right side then it be a palindrome (4 characters added).
+If we add `"amak"` to the right side then it be a palindrome (4 characters added).\
 
-Input string: ahdaa
-Reversed string: aadha
-Input string + reversed string: ahdaa aadha
-Optimal palindrome: ahd**aa**dha
-If we add `"dha"` to the right side then it be a palindrome (3 characters added).
+Input string: ahdaa\
+Reversed string: aadha\
+Input string + reversed string: ahdaa aadha\
+Optimal palindrome: ahd**aa**dha\
+If we add `"dha"` to the right side then it be a palindrome (3 characters added).\
 
-Input string: nooroo
-Reversed string: ooroon
-Input string + reversed string: nooroo ooroon
-Optimal palindrome: n**ooroo**n
-If we add `"n"` to the right side then it be a palindrome (1 character added).
+Input string: nooroo\
+Reversed string: ooroon\
+Input string + reversed string: nooroo ooroon\
+Optimal palindrome: n**ooroo**n\
+If we add `"n"` to the right side then it be a palindrome (1 character added).\
 
-Input string: madam
-Reversed string: madam
-Input string + reversed string: madam madam
-Optimal palindrome: **madam**
-It is already palindrome. We needn’t to add any characters (0 character added).
+Input string: madam\
+Reversed string: madam\
+Input string + reversed string: madam madam\
+Optimal palindrome: **madam**\
+It is already palindrome. We needn’t to add any characters (0 character added).\
 ``N.B. In input string + reversed string, space is added to separate both strings.``
 
-We have observed that if we need to add `K` characters to the right side of a string to make the string palindrome then `N-K` characters are already palindrome which are at the right side of the string. These `N-K` characters are suffix of the input string and prefix of the reversed string. We need to erase one (suffix or prefix) to get the optimal answer.
+We have observed that if we need to add `K` characters to the right side of a string to make the string palindrome then `N-K` characters are\
+already palindrome which are at the right side of the string. These `N-K` characters are suffix of the input string and prefix of the reversed\
+string. We need to erase one (suffix or prefix) to get the optimal answer.
 
 **So, how can we detect it?**
 
-**1. Solution by KMP:** Here, already palindrome characters are a suffix of the belonged string. If we can match it with the prefix of another string
-(reverse of input string) then we are done (the idea of KMP).
+**1. Solution by KMP:** Here, already palindrome characters are a suffix of the belonged string. If we can match it with the prefix of another\
+string (reverse of input string) then we are done (the idea of KMP).
 
-We can easily do it by adding both strings. Then the last value of the LPS array will be “already palindrome” part length. We will add both strings in this way: **``reversed_string#input_string``** → lamak#kamal  (Here, input string is "kamal")
+We can easily do it by adding both strings. Then the last value of the LPS array will be “already palindrome” part length. We will add both\
+strings in this way: **``reversed_string#input_string``** → lamak#kamal  (Here, input string is "kamal")
 
 ``N.B. We need to add ‘#’ to denote that each string is different (‘#’ will never be given in the input string).``
 
-**Time Complexity:** O(T*N) Where, T denotes total number of test cases.
+**Time Complexity:** O(T*N) Where, T denotes total number of test cases.\
 **Memory Complexity:** O(N)
 
-**2. Solution by Hashing:** Reverse the input string and calculate the hash values from first to last. Take a variable to store max palindrome length starting from the first position initializing 1. Each time match the forward & reversed hash value. If matched then update the max palindrome length value.
+**2. Solution by Hashing:** Reverse the input string and calculate the hash values from first to last. Take a variable to store max palindrome\
+length starting from the first position initializing 1. Each time match the forward & reversed hash value. If matched then update the max\
+palindrome length value.
 
-**Time Complexity:** O(T*N) Cause, we are calculating both hash values just running a single loop (Where T denotes total number of test cases).
+**Time Complexity:** O(T*N) Cause, we are calculating both hash values just running a single loop (Where T denotes total number of test cases).\
 **Memory Complexity:** O(N)
 
 ________________________________________________________________________________
@@ -146,5 +153,5 @@ int main(){
 ```
 
 
-**Contributed by: AH Kamal, HSTU**
+**Contributed by: AH Kamal, HSTU**\
 www.facebook.com/kamalcse36
