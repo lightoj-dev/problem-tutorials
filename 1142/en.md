@@ -33,6 +33,9 @@ Isn't this recurrence beautiful? :sparkles: To find `S(k)`, you can solve for `S
 So, it looks like the case is very similar for both the cases. In short,
 
 <img src="in short.png" width="500" align="middle">
+
+The overall time complexity becomes O( (log k)^2 * n^3).
+
 ## Code in C++
 
 ```cpp
