@@ -2,37 +2,37 @@
 
 ## Problem Specification
 
-The problems asks you to find ![equation](https://latex.codecogs.com/svg.latex?A&plus;A%5E2&plus;A%5E3&plus;...&plus;A%5Ek) for a given ![equation](https://latex.codecogs.com/svg.latex?A) and ![equation](https://latex.codecogs.com/svg.latex?k), where ![equation](https://latex.codecogs.com/svg.latex?A) is an ![equation](https://latex.codecogs.com/svg.latex?n%20%5Ctimes%20n) matrix and ![equation](https://latex.codecogs.com/svg.latex?k) is an integer (![equation](https://latex.codecogs.com/svg.latex?1%20%5Cleq%20n%20%5Cleq%2030%2C%201%20%5Cleq%20k%20%5Cleq%2010%5E9%2C%20%5Cleq%2020) test cases). You have to print **only the last digit** for every cell of the matrix.
+The problems asks you to find `A+A^2+A^3+...+A^k` for a given `A` and `k`, where `A` is an `n x n` matrix and `k` is an integer (`1 <= n <= 30, 1 <= k <= 10^9`). There are at most 20 test cases, and you have to print **only the last digit** for every cell of the matrix.
 
 ## Some discussions and insights
 
-Without any time limit, the problem looks very simple. Starting with ![equation](https://latex.codecogs.com/svg.latex?A), you keep adding it to the result and keep multiplying it with ![equation](https://latex.codecogs.com/svg.latex?A). But it obviously fails because the time complexity becomes ![equation](https://latex.codecogs.com/svg.latex?O%28k%20%5Ccdot%20n%5E3%29). Hmm. That's a problem. Let's try to solve some different problems related to this.
+Without any time limit, the problem looks very simple. Starting with `A`, you keep adding it to the result and keep multiplying it with `A`. But it obviously fails because the time complexity becomes `O(k * n^3)`. Hmm. That's a problem. Let's try to solve some different problems related to this.
 
 ## Hint 1
 
-Can you find ![equation](https://latex.codecogs.com/svg.latex?A%5Ek) only, for the same constraints, in ![equation](https://latex.codecogs.com/svg.latex?O%28%5Clog%20k%20%5Ccdot%20n%5E3%29) time? If you can't, you might want to learn about it from this [link](https://en.wikipedia.org/wiki/Modular_exponentiation). Our problem directly needs this knowledge.
+Can you find `A^k` only, for the same constraints, in `O(logk * n^3)` time? If you can't, you might want to learn about it from this [link](https://en.wikipedia.org/wiki/Modular_exponentiation). Our problem directly needs this knowledge.
 
 ## Hint 2
 
-Let's assume you can find ![equation](https://latex.codecogs.com/svg.latex?A%5Ek) using modular exponentiation (commonly known as _bigmod_). Have you noticed how _exactly_ bigmod works, or how it does what it does? Can we do something similar here?
+Let's assume you can find `A^k` using modular exponentiation (commonly known as _bigmod_). Have you noticed how _exactly_ bigmod works, or how it does what it does? Can we do something similar here?
 
 ## Solution
 
-Let, ![equation](https://latex.codecogs.com/svg.latex?S%28k%29%20%3D%20A&plus;A%5E2&plus;A%5E3&plus;...&plus;A%5Ek).
+Let, `S(k) = A+A^2+A^3+...+A^k`.
 
 ### Case 1: k is even
 
-![equation](https://latex.codecogs.com/svg.latex?S%28k%29%20%5C%5C%20%3D%20A%20&plus;%20A%5E2%20&plus;%20A%5E3%20&plus;%20...%20&plus;A%5Ek%20%5C%5C%20%3D%20A%20&plus;%20A%5E2%20&plus;%20...%20&plus;%20A%5E%7B%5Cfrac%7Bk%7D%7B2%7D%7D%20&plus;%20A%5E%7B%5Cfrac%7Bk%7D%7B2%7D&plus;1%7D%20&plus;%20...%20&plus;%20A%5Ek%20%5C%5C%20%3D%20%28A%20&plus;%20A%5E2%20&plus;%20...%20&plus;%20A%5E%7B%5Cfrac%7Bk%7D%7B2%7D%7D%29%20&plus;%20A%5E%7B%5Cfrac%7Bk%7D%7B2%7D%7D%20%5Ccdot%20%28A%20&plus;%20A%5E2%20&plus;%20...%20&plus;%20A%5E%7B%5Cfrac%7Bk%7D%7B2%7D%7D%29%20%5C%5C%20%3D%20S%28%5Cfrac%7Bk%7D%7B2%7D%29%20&plus;%20A%5E%7B%5Cfrac%7Bk%7D%7B2%7D%7D%20%5Ccdot%20S%28%5Cfrac%7Bk%7D%7B2%7D%29)
-Isn't this recurrence beautiful? :tada: To find ![equation](https://latex.codecogs.com/svg.latex?S%28k%29), you can solve for ![equation](https://latex.codecogs.com/svg.latex?S%28%5Cfrac%7Bk%7D%7B2%7D%29), find ![equation](https://latex.codecogs.com/svg.latex?A%5E%7B%5Cfrac%7Bk%7D%7B2%7D%7D) in ![equation](https://latex.codecogs.com/svg.latex?O%28%5Clog%20k%20%5Ccdot%20n%5E3%29) time using modular exponentiation, do necessary calculation and produce the result. but what about when ![equation](https://latex.codecogs.com/svg.latex?k) is odd? Can you find it similarly?
+<img src="k is even.png" width="500" align="middle">
+
+Isn't this recurrence beautiful? :sparkles: To find `S(k)`, you can solve for `S(k/2)`, find `A^(k/2)` in `O(logk * n^3)` time using modular exponentiation, do necessary calculation and produce the result. but what about when `k` is odd? Can you find it similarly?
 
 ### Case 2: k is odd
 
-![equation](https://latex.codecogs.com/svg.latex?S%28k%29%20%5C%5C%20%3D%20A%20&plus;%20A%5E2%20&plus;%20A%5E3%20&plus;%20...%20&plus;A%5Ek%20%5C%5C%20%3D%20A%20&plus;%20A%5E2%20&plus;%20...%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%7D%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor&plus;1%7D%20&plus;%20...%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%5Ccdot%202%7D%20&plus;%20A%5Ek%20%5C%5C%20%3D%20%28A%20&plus;%20A%5E2%20&plus;%20...%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%7D%29%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%7D%20%5Ccdot%20%28A%20&plus;%20A%5E2%20&plus;%20...%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%7D%29%20&plus;%20A%5Ek%20%5C%5C%20%3D%20S%28%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%29%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%7D%20%5Ccdot%20S%28%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%29%20&plus;%20A%5Ek)
+<img src="k is odd.png" width="500" align="middle">
 
 So, it looks like the case is very similar for both the cases. In short,
-![equation](https://latex.codecogs.com/svg.latex?S%28k%29%20%3D%20S%28%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%29%20&plus;%20A%5E%7B%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%7D%20%5Ccdot%20S%28%5Clfloor%7B%5Cfrac%7Bk%7D%7B2%7D%7D%5Crfloor%29) ( add ![equation](https://latex.codecogs.com/svg.latex?A%5Ek) if ![equation](https://latex.codecogs.com/svg.latex?k) is odd). Don't forget to take `%10` properly. :metal:.
 
-The overall time complexity becomes ![equation](https://latex.codecogs.com/svg.latex?O%28%28%5Clog%20k%29%5E2%20%5Ccdot%20n%5E3%29).
+<img src="in short.png" width="500" align="middle">
 ## Code in C++
 
 ```cpp
