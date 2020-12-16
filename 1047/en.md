@@ -13,9 +13,11 @@ We'll use the iterative **Dynamic Programming** approach to solve this problem. 
 
 
 Let's define the **state** of our DP solution:
+
 For simplicity, let's assign some numerical values to each of the colors. `R = 1`, `G = 2`, `B = 3`
 
 `cost[i][j] = cost of coloring i'th house with the color j`
+
 `dp[i][j] = minimum total costs of coloring first i houses where the i'th house is colored with color j`
 
 If we have no houses, then we don't need to color them, so:
