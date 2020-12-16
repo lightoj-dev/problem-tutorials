@@ -1,37 +1,37 @@
 # 1142 - Summing Up Powers (II)
 
 ## Problem Specification
-The problems asks you to find $A+A^2+A^3+...+A^k$ for a given $A$ and $k$, where $A$ is an $n \times n$ matrix and $k$ is an integer ($1\leq n\leq 30, 1\leq k\leq 10^9$). There are $\leq 20$ test cases, and you have to print only the last digit for every cell of the matrix.
+The problems asks you to find $$A+A^2+A^3+...+A^k$$ for a given $$A$$ and $$k$$, where $$A$$ is an $$n \times n$$ matrix and $$k$$ is an integer ($$1\leq n\leq 30, 1\leq k\leq 10^9$$). There are $$\leq 20$$ test cases, and you have to print only the last digit for every cell of the matrix.
 
 ## Some discussions and insights
-Without any time limit, the problem looks very simple. Starting with $A$, you keep adding it to the result and keep multiplying it with $A$. But it obviously fails because the time complexity becomes $O(k\cdot n^3)$. Hmm. That's a problem. Let's try to solve some different problems related to this.
+Without any time limit, the problem looks very simple. Starting with $$A$$, you keep adding it to the result and keep multiplying it with $$A$$. But it obviously fails because the time complexity becomes $$O(k\cdot n^3)$$. Hmm. That's a problem. Let's try to solve some different problems related to this.
 
 ## Hint 1
-Can you find $A^k$ only, for the same constraints, in $O(lg k*n^3)$ time? If you can't, you might want to learn about it from this [link](https://en.wikipedia.org/wiki/Modular_exponentiation). Our problem directly needs this knowledge.
+Can you find $$A^k$$ only, for the same constraints, in $$O(lg k*n^3)$$ time? If you can't, you might want to learn about it from this [link](https://en.wikipedia.org/wiki/Modular_exponentiation). Our problem directly needs this knowledge.
 
 ## Hint 2
 Let's assume you can find $A^k$ using modular exponentiation (commonly known as _bigmod_). Have you noticed how _exactly_ bigmod works, or how it does what it does? Can we do something similar here?
 
 ## Solution
-Let, $S(k) = A+A^2+A^3+...+A^k$. 
+Let, $$S(k) = A+A^2+A^3+...+A^k$$. 
 
 ### Case 1: k is even
-$S(k)   \\
+$$S(k)   \\
     = A + A^2 + A^3 + ... +A^k \\
     = A + A^2 + ... + A^{\frac{k}{2}} + A^{\frac{k}{2}+1} + ... + A^k \\
     = (A + A^2 + ... + A^{\frac{k}{2}}) + A^{\frac{k}{2}} \cdot (A + A^2 + ... + A^{\frac{k}{2}}) \\
-    = S(\frac{k}{2}) + A^{\frac{k}{2}} \cdot S(\frac{k}{2})$
-Isn't this recurrence beautiful? :) To find $S(k)$, you can solve for $S(\frac{k}{2})$, find $A^{\frac{k}{2}}$ in $O(lg \frac{k}{2}*n^3)$ time using modular exponentiation, do necessary calculation and produce the result. but what about when $k$ is odd? Can you find it similarly?
+    = S(\frac{k}{2}) + A^{\frac{k}{2}} \cdot S(\frac{k}{2})$$
+Isn't this recurrence beautiful? :) To find $S(k)$, you can solve for $$S(\frac{k}{2})$$, find $$A^{\frac{k}{2}}$$ in $$O(lg \frac{k}{2}*n^3)$$ time using modular exponentiation, do necessary calculation and produce the result. but what about when $$k$$ is odd? Can you find it similarly?
 
 ### Case 2: k is odd
-$S(k)   \\
+$$S(k)   \\
     = A + A^2 + A^3 + ... +A^k \\
     = A + A^2 + ... + A^{\lfloor{\frac{k}{2}}\rfloor} + A^{\lfloor{\frac{k}{2}}\rfloor+1} + ... + A^{\lfloor{\frac{k}{2}}\rfloor\cdot 2} + A^k \\
     = (A + A^2 + ... + A^{\lfloor{\frac{k}{2}}\rfloor}) + A^{\lfloor{\frac{k}{2}}\rfloor} \cdot (A + A^2 + ... + A^{\lfloor{\frac{k}{2}}\rfloor}) + A^k \\
-    = S(\lfloor{\frac{k}{2}}\rfloor) + A^{\lfloor{\frac{k}{2}}\rfloor} \cdot S(\lfloor{\frac{k}{2}}\rfloor) + A^k$
+    = S(\lfloor{\frac{k}{2}}\rfloor) + A^{\lfloor{\frac{k}{2}}\rfloor} \cdot S(\lfloor{\frac{k}{2}}\rfloor) + A^k$$
 
 So, it looks like the case is very similar for both the cases. In short,
-$S(k) = S(\lfloor{\frac{k}{2}}\rfloor) + A^{\lfloor{\frac{k}{2}}\rfloor} \cdot S(\lfloor{\frac{k}{2}}\rfloor) + C$, where $C$ is $A^k$ or matrix filled with $0$, depending on whether $k$ is odd or not, respectively.
+$$S(k) = S(\lfloor{\frac{k}{2}}\rfloor) + A^{\lfloor{\frac{k}{2}}\rfloor} \cdot S(\lfloor{\frac{k}{2}}\rfloor) + C$$, where $$C$$ is $$A^k$$ or matrix filled with $$0$$, depending on whether $$k$$ is odd or not, respectively.
 
 ## Code in C++
 ```cpp
