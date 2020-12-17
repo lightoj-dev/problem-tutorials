@@ -1,4 +1,4 @@
-# 1080 - Binary Simulation
+# Loj 1080 - Binary Simulation
 
 _Given a binary number, we are about to do some operations on the number. Two types of operations can be here._
 
@@ -16,41 +16,16 @@ For the `T` group of input set, where each set consist of `S`, a binary bit patt
 
 #### Solution
 
-For any number `x`, `1 ~ n` it has `[n/x]` numbers of divisors, in a other word, there are `[n/x]` numbers that can be divisible by `x`, [a] means a is rounded down.
+It's clear that a naive approach of `O(N)` complexity will give `TLE` in this input range. So you have to look for a faster way to make queries.
 
-As now you have to deal with multiple divisors, from the [principle-of-inclusion-and-exclusion](https://brilliant.org/wiki/principle-of-inclusion-and-exclusion-pie/) :
+There are many Data structures, _segment tree_, _binary index tree_, for example, to handle this type of _range update and point query_ or _point update range query_ in a faster way.
 
-`AUBUC=A+B+C-A∩B-A∩C-B∩C+A∩B∩C`
+In this tutorial you will go through segment tree with lazy propagation implementation version.
 
-If you summarize this, the pattern is you add the divisor counts of `N/LCM` of odd numbers and subtracts even.
+If you aren't already aware of Segment Tree and Lazy Propagation:
 
-As you have `M` divisors to deal with, if you check the binary of all the numbers from `1 ~ (2^M -1)`, you can see all possible combinations you need are presented there.
-
-for example, let's consider sample test case 1:
-
-```
-N = 15
-M = 3
-{ 2,  3,  5 }
-binary representation of 1 - (2^M - 1) or 7:
-
-0001        // C     -> gets included
-0010        // B     -> gets included
-0011        // B∩C   -> gets excluded
-0100        // A     -> gets included
-0101        // A∩C   -> gets excluded
-0110        // A∩B   -> gets excluded
-0111        // A∩B∩C -> gets included
-```
-
-So the algorithm is:
-
-- loop through all the numbers `1 ~ 1<<M`,
-- check for the set bits, find their LCM and
-- add `N/LCM` to the count if the set bit count is negative, subtract otherwise,
-- print `N - count`, here `count` tracks all the number from `1-N` that can be divided at least one of the `M` numbers.
-
-`Note: (1<<M) will works here as M is small`
+- [Hackerearth: Segment Tree and Lazy Propagation](https://www.hackerearth.com/practice/notes/segment-tree-and-lazy-propagation/)
+- [Cp-Algorithm: Segment Tree and it varieties](https://cp-algorithms.com/data_structures/segment_tree.html)
 
 #### Code
 
