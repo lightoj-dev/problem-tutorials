@@ -9,7 +9,7 @@ You need to find the **minimum cost** of coloring these houses.
 --- 
 ### Solution Idea:
 
-We'll use the iterative **Dynamic Programming** approach to solve this problem. Let's assume that we're processing the houses from left to right, coloring them maintaining the condition and keeping track of total costs. To color a particular house we just need to know the color of previous house. If the previous house is colored with `R` then, now we can use either `B` or `G`. If the previously used color is `B`, now we can use either `R` or `G`. Similarly, if the previously used color is `G`, now we can use either `R` or `B`. For the first house, we can use any of these three colors. So, we know how to pick the valid color, but how do we find the minimum costs of doing so?
+We'll use the **Dynamic Programming** bottom-up approach to solve this problem. Let's assume that we're processing the houses from left to right, coloring them maintaining the condition and keeping track of total costs. To color a particular house we just need to know the color of previous house. If the previous house is colored with `R` then, now we can use either `B` or `G`. If the previously used color is `B`, now we can use either `R` or `G`. Similarly, if the previously used color is `G`, now we can use either `R` or `B`. For the first house, we can use any of these three colors. So, we know how to pick the valid color, but how do we find the minimum costs of doing so?
 
 
 Let's define the **state** of our DP solution:
@@ -49,6 +49,12 @@ for (int j = 1; j <= 3; j++) {
 So, according to our initial `dp[][]` definition, our final answer would be: `min(dp[n][1], dp[n][2], dp[n][3])` the costs of coloring first `n` houses, where the `n'th` house is colors with color `1(R)`, `2(G)` or `3(B)`
 
 ---
+1. It's also possible to solve this problem using top-down DP.
+2. Initialize the dp[][] array  with some large possible value, helps in finding the minimum by comparing.
+3. Format the output properly according to the output section.
+
+---
+
 See the code below if you still need some help with the implementation:
 
 ### C++
