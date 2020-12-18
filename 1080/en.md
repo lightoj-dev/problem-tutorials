@@ -16,7 +16,7 @@ For the `T` group of input set, where each set consist of `S`, a binary bit patt
 
 #### Solution
 
-It's clear that a naive approach of `O(N)` complexity will give `TLE` in this input range. So you have to look for a faster way to make queries.
+It's clear that a naive approach of updating range in `O(N)` complexity will make `O(Q*N)` complexity for `Q` queries, which will give `TLE` in this input range. So you have to look for a faster way to make these queries.
 
 There are many Data structures, _segment tree_, _binary index tree_, for example, to handle this type of _range update and point query_ or _point update range query_ in a faster way.
 
@@ -31,13 +31,37 @@ As there are two types of queries, for _update range_ query, rather than updatin
 
 _**Fact**: as the input string is consist of only 0 and 1, and the type of update is only inverting the index, no matter how many inversions you make it will be same in each `odd` inversion count and vise versa, `1` will remain `1` after 1,3,5,.. inversions and will become `0` after 2,4,6,.. inversions, for example._
 
-Let's go through a visual example:
+Let's have a walk through a visual example:
 
 Let's say you have an array named **nodes** contains the tree.
 Initially value of all the nodes will be `0`.
 Now for any type of inversion query, make a function call named `invertRange` that will find out and mark the node that needed to be marked with pending update in `O(log N)` time complexity. Same rules go for the given bit pattern as well.
 
 For bit status query, call a function `query` that will walk though the nodes and process it's pending updates/inversions, starting from the root node to the desired node.
+
+```
+input:
+1
+1 4
+1011001
+
+I 1 7
+Q 4
+I 5 5
+Q 1
+```
+
+![Initial tree:](1080/initial.png)
+
+![tree after processing input:](1080/input.png)
+
+![tree first inversion query:](1080/Q1.png)
+
+![tree after second query:](1080/Q2.png)
+
+![tree second inversion query:](1080/Q3.png)
+
+![tree after final query:](1080/Q4.png)
 
 #### Code
 
