@@ -27,7 +27,11 @@ In this tutorial you will use the logic of the segment tree lazy propagation. If
 
 Let's assume you got a proper knowledge on what is segment tree and how does lazy propagation works.
 
-As there are two types of queries, _for update range query_, rather than updating the range, if you just _keep a track_ or _mark the node_, so that next time you go down to this node you will be aware of pending updates to make on it's predecessors, and for the for the second type of queries, while finding the desired node, make the pending updates.
+As there are two types of queries, for _update range_ query, rather than updating the range instantly, if you just _keep a track_ or _mark the node_, so that next time you go down to this node you will be aware of pending updates to make updates on it's predecessors, and for the second type of queries, while finding the desired node, make the pending updates and store the latest status of that node.
+
+_**Fact**: as the input string is consist of only 0 and 1, and the type of update is only inverting the index, no matter how many inversions you make it will be same in each `odd` inversion count and vise versa, `1` will remain `1` after 1,3,5,.. inversions and will become `0` after 2,4,6,.. inversions, for example._
+
+Let's go through a visual example:
 
 #### Code
 
