@@ -51,17 +51,17 @@ I 5 5
 Q 1
 ```
 
-![Initial tree:](1080/initial.png)
+<img width="1200" alt="initial" src="https://user-images.githubusercontent.com/27924505/102653205-db98f100-4198-11eb-85ef-05b90cd8735e.png">
 
-![tree after processing input:](1080/input.png)
+<img width="1200" alt="input" src="https://user-images.githubusercontent.com/27924505/102653261-f23f4800-4198-11eb-81f4-8935fb8698b2.png">
 
-![tree first inversion query:](1080/Q1.png)
+<img width="1200" alt="Q1" src="https://user-images.githubusercontent.com/27924505/102653299-01be9100-4199-11eb-8a42-afea805deebd.png">
 
-![tree after second query:](1080/Q2.png)
+<img width="1200" alt="Q2" src="https://user-images.githubusercontent.com/27924505/102653376-11d67080-4199-11eb-8c72-2dd01b705314.png">
 
-![tree second inversion query:](1080/Q3.png)
+<img width="1200" alt="Q3" src="https://user-images.githubusercontent.com/27924505/102653420-1dc23280-4199-11eb-99a5-18bcfb1aac6e.png">
 
-![tree after final query:](1080/Q4.png)
+<img width="1200" alt="Q4" src="https://user-images.githubusercontent.com/27924505/102653456-27e43100-4199-11eb-8f2a-e34a43b0b6fb.png">
 
 #### Code
 
