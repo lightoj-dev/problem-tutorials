@@ -33,6 +33,12 @@ _**Fact**: as the input string is consist of only 0 and 1, and the type of updat
 
 Let's go through a visual example:
 
+Let's say you have an array named **nodes** contains the tree.
+Initially value of all the nodes will be `0`.
+Now for any type of inversion query, make a function call named `invertRange` that will find out and mark the node that needed to be marked with pending update in `O(log N)` time complexity. Same rules go for the given bit pattern as well.
+
+For bit status query, call a function `query` that will walk though the nodes and process it's pending updates/inversions, starting from the root node to the desired node.
+
 #### Code
 
 ### C++
@@ -44,12 +50,12 @@ using namespace std;
 
 const int mx = 100005;
 
-bool sum[4*mx];
+bool nodes[4*mx];
 
 void invertRange(int v, int tl, int tr, int l, int r){
 
 	if(tl==l and tr==r){
-		sum[v] = !sum[v];
+		nodes[v] = !nodes[v];
 		return;
 	}
 
@@ -67,21 +73,18 @@ void invertRange(int v, int tl, int tr, int l, int r){
 	}
 }
 
-
-
 int query(int v, int tl, int tr, int pos){
 
 	if(tr==pos and tl==pos)
-		return sum[v];
+		return nodes[v];
 
 	int tm = (tl+tr)/2;
 
 	if(pos<=tm)
-		return sum[v] + query(v*2, tl, tm, pos);
+		return nodes[v] + query(v*2, tl, tm, pos);
 	else
-		return sum[v] + query(v*2+1, tm+1, tr, pos);
+		return nodes[v] + query(v*2+1, tm+1, tr, pos);
 }
-
 
 int main(){
 	#ifndef ONLINE_JUDGE
@@ -95,8 +98,8 @@ int main(){
 	for (cin >> t; cs <= t; cs++) {
 		printf("Case %d:\n", cs);
 
-//		create_tree(a, tree, n);
-		memset(sum, 0, sizeof(sum));
+//		create_tree(a, nodes, n);
+		memset(nodes, 0, sizeof(nodes));
 
 		string str;
 		cin >> str;
@@ -111,7 +114,6 @@ int main(){
 		cin >> q;
 
 		for (int i = 0; i < q; i++) {
-
 			char choice;
 			cin >> choice;
 			switch(choice) {
@@ -126,11 +128,8 @@ int main(){
 					printf("%d\n", (query(1,1,len,x) % 2));
 					break;
 			}
-
 		}
-
 	}
-
     return 0;
 }
 ```
