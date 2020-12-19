@@ -12,7 +12,7 @@ So having a clear concept of the topics above,we can solve this problem.Now let'
 To be more clear,notice  in the diagram `* | * * | * ` where we could  seperate the `4 stars` into `3 subsegments` using `two` bars.Now in the `first segment we have `x1=1`,`x2=2` and `x3=1`
 which is equivalent to 4.Now since our particular subsegment can have zero as well  so `| * * | * *` can be true as well where `x1=0`,`x2=2` and `x3=2` so lets imagine we are given an array where there are n+k-1 number of spaces fulfiiling with n stars and k-1 bars
 so now we have to find the number of ways we can `arrange` these `(k-1) bars` within the `n+k-1` sized array so that we have `k` subsegments whose summation is equivalent to n
-Now if you know `combination/combinatorics` you can easily tell the answer to this problem.If you don't you can always check the `code` or `tutorials`given
+Now if you know `combination/combinatorics` you can easily tell the answer to this problem which is (n+k-1)c(k-1) where n+k-1 is the summation of stars(n) and bars(k-1) and bars can be arranged among n+k-1 characters in (n+k-1)c(k-1) ways.If you don't you can always check the `code` or `tutorials`given
 This concept also coinsides with the famous theorem `Stars and Bars Method`,Link to have a deep understanding is given in the bottom
 
 `Notes:` We have to find the factorials upto 2*10^6 even though the constraint of this problem for both n and k is 1*10^6 only for the purpose of calculation and also we need to compute the problem using long long constraint because there is a chance that multiplication of two numbers while finding the answer can surpass 10^9 constraint
