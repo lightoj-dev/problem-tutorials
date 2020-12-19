@@ -157,7 +157,7 @@ int main(){
 
 				case 'Q':
 					cin >> x;
-					printf("%d\n", (query(1,1,len,x) ));
+					printf("%d\n", (query(1,1,len,x) %2));
 					break;
 			}
 		}
