@@ -110,6 +110,12 @@ int query(int v, int tl, int tr, int pos){
 	if(tr==pos and tl==pos)
 		return nodes[v];
 
+	if(nodes[v]){
+		nodes[v*2]= !nodes[v*2];
+		nodes[v*2+1]= !nodes[v*2+1];
+		nodes[v]=0;
+	}
+
 	int tm = (tl+tr)/2;
 
 	if(pos<=tm)
@@ -157,7 +163,7 @@ int main(){
 
 				case 'Q':
 					cin >> x;
-					printf("%d\n", (query(1,1,len,x) %2));
+					printf("%d\n", (query(1,1,len,x)));
 					break;
 			}
 		}
