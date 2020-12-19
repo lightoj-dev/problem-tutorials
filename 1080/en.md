@@ -29,7 +29,7 @@ Let's assume you got a proper knowledge on what is segment tree and how does laz
 
 As there are two types of queries, for _update range_ query, rather than updating the range instantly, if you just _keep a track_ or _mark the node_, so that next time you go down to this node you will be aware of pending updates to make updates on it's predecessors, and for the second type of queries, while finding the desired node, make the pending updates and store the latest status of that node.
 
-_**Fact**: as the input string is consist of only 0 and 1, and the type of update is only inverting the index, no matter how many inversions you make it will be same in each `odd` inversion count and vise versa, `1` will remain `1` after 1,3,5,.. inversions and will become `0` after 2,4,6,.. inversions, for example._
+_**Fact**: as the input string is consist of only 0 and 1, and the type of update is only inverting the index, no matter how many inversions you make it will be same in each `even` inversion count and vise versa, `1` will remain `1` after 2,4,6,.. inversions and will become `0` after 1,3,5,.. inversions, for example._
 
 Let's have a walk through a visual example:
 
@@ -57,11 +57,19 @@ Q 1
 
 <img width="1200" alt="Q1" src="https://user-images.githubusercontent.com/27924505/102653299-01be9100-4199-11eb-8a42-afea805deebd.png">
 
-<img width="1200" alt="Q2" src="https://user-images.githubusercontent.com/27924505/102653376-11d67080-4199-11eb-8c72-2dd01b705314.png">
+query-1: _you can see there is a pending update on root (1-7) node._
 
-<img width="1200" alt="Q3" src="https://user-images.githubusercontent.com/27924505/102653420-1dc23280-4199-11eb-99a5-18bcfb1aac6e.png">
+<img width="1200" alt="Q2" src="https://user-images.githubusercontent.com/27924505/102683002-db7c0e00-41f7-11eb-9989-d66b21d99524.png">
 
-<img width="1200" alt="Q4" src="https://user-images.githubusercontent.com/27924505/102653456-27e43100-4199-11eb-8f2a-e34a43b0b6fb.png">
+query-2: _pending updates shifted shown to the (1-2) and (5-7) range nodes and no pending ad on (2-4) as it's already made the updates in it's predecessors_
+
+<img width="1200" alt="Q3" src="https://user-images.githubusercontent.com/27924505/102683001-da4ae100-41f7-11eb-920d-7c625cbf5bca.png">
+
+query-3: _pending update (5-7) shifted down and as (5,5) already had a pending update, with another inversion request it remains same with even inversion counts._
+
+<img width="1200" alt="Q4" src="https://user-images.githubusercontent.com/27924505/102683000-d8811d80-41f7-11eb-962d-637c406ac30d.jpg">
+
+query-4: _no more pending updates in (1-2) as it's predecessors get updated_
 
 #### Code
 
@@ -149,7 +157,7 @@ int main(){
 
 				case 'Q':
 					cin >> x;
-					printf("%d\n", (query(1,1,len,x) % 2));
+					printf("%d\n", (query(1,1,len,x) ));
 					break;
 			}
 		}
