@@ -2,7 +2,7 @@
 
 In this problem, you will be given `T` testcases. The first line of each test case contains two integers `n` and `k`. We have to find the number of ways we can add `k` number of  variables so that the `sum` is equivalent to `n`
 
-To be more precise, suppose `n=4` and k=`3` so have to  find the number of ways `x1+x2+x3==4`
+To be more precise, suppose `n=4` and `k=3` so have to  find the number of ways `x1+x2+x3==4`
 
 
 
@@ -47,7 +47,7 @@ int modPow(int b, int p)
     }
     return r;
 }
-int fact[2000009+2];
+int fact[2000009];
 void factorial()
 {
     fact[0]=1;
@@ -59,7 +59,7 @@ void factorial()
 main()
 {
     int t;
-    factorial();
+    factorial();//generating factorial upto 2*10^6 since we are trying to find factorial of n+k-1 where in worst case n=10^6 and k=10^6 ans so n+k=2*10^6
     cin>>t;
     for(int i=1; i<=t; i++)
     {
