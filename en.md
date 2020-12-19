@@ -9,8 +9,7 @@ To be more precise, suppose `n=4` and `k=3` so have to  find the number of ways 
 ### Approach:
 In order to solve this problem there are a few prerequisite that need to be fulfilled which are you need to have a basic understanding of combinatorics and inverse modulo.The tutorials are given below.
 So having a clear concept of the topics above,we can solve this problem.Now let's think using the test case `n=4,k=3`.Let's imagine there are 4 stars * * * * and now we got to segment these 4 stars into 3 subsegments so that summation of stars in all the `k` subsegments is equivalent to 4
-To be more clear,notice  in the diagram `* | * * | * ` where we could  seperate the `4 stars` into `3 subsegments` using `two` bars.Now in the `first segment we have `x1=1`,`x2=2` and `x3=1`
-which is equivalent to 4.Now since our particular subsegment can have zero as well  so `| * * | * *` can be true as well where `x1=0`,`x2=2` and `x3=2` so lets imagine we are given an array where there are n+k-1 number of spaces fulfiiling with n stars and k-1 bars
+To be more clear,notice  in the diagram `* | * * | * ` where we could  seperate the `4 stars` into `3 subsegments` using `two` bars.Now in the `first` segment we have x1=1, and in the `second` segment we have x2=2 and lastly x3=1 which is equivalent to 4.Now since our particular subsegment can have zero as well  so `| * * | * *` can be true as well where `x1=0`,`x2=2` and `x3=2` so lets imagine we are given an array where there are n+k-1 number of spaces fulfiiling with n stars and k-1 bars
 so now we have to find the number of ways we can `arrange` these `(k-1) bars` within the `n+k-1` sized array so that we have `k` subsegments whose summation is equivalent to n
 Now if you know `combination/combinatorics` you can easily tell the answer to this problem which is (n+k-1)c(k-1) where n+k-1 is the summation of stars(n) and bars(k-1) and bars can be arranged among n+k-1 characters in (n+k-1)c(k-1) ways.If you don't you can always check the `code` or `tutorials`given
 This concept also coinsides with the famous theorem `Stars and Bars Method`,Link to have a deep understanding is given in the bottom
@@ -19,17 +18,17 @@ This concept also coinsides with the famous theorem `Stars and Bars Method`,Link
 
 
 
-###Resources:
+### Resources:
 Here are some resources of  **inverse modulo and combinatorics** so that you can have a deeper understanding and learn to solve problems using these resources:-
 
-- [Shafaetsplanet](https://www.shafaetsplanet.com/?p=600) (Combinatorics)
-- [Go code](https://www.youtube.com/watch?v=aGjfSTr_0AE) (Inverse Mod Demonstration)
-- [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=ZsZglqx33U8&t=13737s) (Inverse Mod and some advanced problem applications)
+- [Shafaetsplanet](https://www.shafaetsplanet.com/?p=600) **(Combinatorics)**
+- [Go code](https://www.youtube.com/watch?v=aGjfSTr_0AE) **(Inverse Mod Demonstration)**
+- [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=ZsZglqx33U8&t=13737s) **(Inverse Mod and some advanced problem applications)**
 - [CP-AlGORITHM](https://cp-algorithms.com/algebra/module-inverse.html) **(inverse Mod and Fermat's Little Theorem)**
 - [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=fEb_swNH0fY)   **(Stars and Bars Method)**
-             
 
-###C++ Implementation:
+
+### C++ Implementation:
 ```
 #include<bits/stdc++.h>
 using namespace std;
