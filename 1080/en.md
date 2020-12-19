@@ -119,9 +119,9 @@ int query(int v, int tl, int tr, int pos){
 	int tm = (tl+tr)/2;
 
 	if(pos<=tm)
-		return nodes[v] + query(v*2, tl, tm, pos);
+		return  query(v*2, tl, tm, pos);
 	else
-		return nodes[v] + query(v*2+1, tm+1, tr, pos);
+		return  query(v*2+1, tm+1, tr, pos);
 }
 
 int main(){
