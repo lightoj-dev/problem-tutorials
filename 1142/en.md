@@ -20,19 +20,19 @@ Let's assume you can find `A^k` using modular exponentiation (commonly known as 
 
 Let, `S(k) = A+A^2+A^3+...+A^k`.
 
-### Case 1: k is even
+#### Case 1: k is even
 
-<img src="k is even.png" width="500" align="middle">
+<img src="k_even.png" width="500" align="middle">
 
 Isn't this recurrence beautiful? :sparkles: To find `S(k)`, you can solve for `S(k/2)`, find `A^(k/2)` in `O(logk * n^3)` time using modular exponentiation, do necessary calculation and produce the result. but what about when `k` is odd? Can you find it similarly?
 
-### Case 2: k is odd
+#### Case 2: k is odd
 
-<img src="k is odd.png" width="500" align="middle">
+<img src="k_odd.png" width="500" align="middle">
 
 So, it looks like the case is very similar for both the cases. In short,
 
-<img src="in short.png" width="500" align="middle">
+<img src="general.png" width="500" align="middle">
 
 The overall time complexity becomes O( (log k)^2 * n^3).
 
