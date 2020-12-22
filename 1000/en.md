@@ -43,9 +43,59 @@ int main() {
 }
 ```
 
+### C#
+-----
+```csharp
+using System;
+
+public class HelloWorld {
+  static public void Main () {
+    int cases = int.Parse(Console.ReadLine());
+    for (int caseno = 1; caseno <= cases; ++caseno) {
+      string[] tokens = Console.ReadLine().Split();
+      int a = int.Parse(tokens[0]);
+      int b = int.Parse(tokens[1]);
+      Console.WriteLine("Case " + caseno + ": " + (a + b));
+    }
+  }
+}
+```
+
+### Go
+-----
+```go
+package main
+import "fmt"
+
+func main() {
+  var cases int
+  fmt.Scan(&cases)
+  for caseno := 1;  caseno <= cases; caseno++ {
+    var a int
+    var b int
+    fmt.Scan(&a)
+    fmt.Scan(&b)
+
+    fmt.Printf("Case %d: %d\n", caseno, a + b)
+  }
+}
+```
+
+### Groovy
+-----
+```groovy
+System.in.withReader { Reader r ->
+  int cases = r.readLine().toInteger()
+  for (int caseno = 1; caseno <= cases; ++caseno) {
+    def (a, b) = r.readLine().tokenize(' ')
+    println("Case " + caseno + ": " + (a.toInteger() + b.toInteger()))
+  }
+}
+```
+
 ### Haskell
 -----
-```
+```haskell
 import Control.Monad
 
 main = do
@@ -79,6 +129,28 @@ class GreetingsFromLoj {
     }
   }
 }
+```
+
+### Pascal
+-----
+```pascal
+var
+    i, x, y, z, cases : Integer;
+
+begin
+    read(x);
+
+    i := 0;
+
+    repeat
+        i := i + 1;
+        read(y);
+        read(z);
+        y := y + z;
+        writeln( 'Case ', i, ': ', y );
+    until i = x;
+
+end.
 ```
 
 ### Perl
@@ -135,6 +207,24 @@ for (caseno in 1:cases) {
   data <- strsplit(readLines(f, n = 1), " ", TRUE)[[1]]
   sum <- as.numeric(data[1]) + as.numeric(data[2])
   cat ("Case ", caseno, ": ", sum, "\n", sep="")
+}
+```
+
+### Swift
+-----
+```swift
+import Foundation
+
+let cases = Int(readLine()!)
+if let cases = cases {
+  for caseno in 1...cases {
+  	let input = readLine()
+		if let input = input {
+	  	let sep = input.split(separator: " ")
+	    let sum = sep.map { Int(String($0))! }.reduce(0, +)
+	    print(String(format: "Case %d: %d", caseno, sum))
+		}
+	}
 }
 ```
 
