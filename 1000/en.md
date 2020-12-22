@@ -61,6 +61,31 @@ public class HelloWorld {
 }
 ```
 
+### Clojure
+-----
+```clojure
+(defn parse-int [string]
+  (Integer. (re-find  #"\d+" string)))
+
+(defn str-to-ints [string]
+  (map parse-int (.split #" " string)))
+
+(let
+  [reader (java.io.BufferedReader. *in*)
+   casesStr (.readLine reader)]
+    
+  (def cases (parse-int casesStr))
+  (dotimes [i cases]
+    (def line (.readLine reader))
+    (def input (str-to-ints line))
+    (def res (reduce + input))
+    (def caseno (+ i 1))
+
+    (println (format "Case %d: %d" caseno res))
+  )
+)
+```
+
 ### Coffeescript
 -----
 ```coffeescript
@@ -237,6 +262,27 @@ do
 end
 ```
 
+### Objective C
+-----
+```objectivec
+#include <stdio.h>
+#import <Foundation/Foundation.h>
+
+int main() {
+  NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+  NSInteger cases, a, b;
+  scanf("%lu", &cases);
+
+  for (NSInteger caseno = 1; caseno <= cases; ++caseno) {
+    scanf("%lu %lu", &a, &b);
+    printf("Case %lu: %lu\n", caseno, a + b);
+  }
+
+  [pool drain];
+  return 0;
+}
+```
+
 ### Pascal
 -----
 ```pascal
@@ -326,6 +372,21 @@ cases = gets.to_i
   puts "Case #{caseno}: #{sum}"
 end
 ```
+
+### Scala
+-----
+```scala
+object Main {
+  def main(args: Array[String]) {
+    val cases = readInt()
+    for (caseno <- 1 to cases) {
+      val Array(a, b) = readLine() split " " map (_.toInt)
+      println("Case " + caseno + ": " + (a + b))
+    }
+  }
+}
+```
+
 
 ### Swift
 -----
