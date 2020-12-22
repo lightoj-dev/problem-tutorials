@@ -61,6 +61,20 @@ public class HelloWorld {
 }
 ```
 
+### Coffeescript
+-----
+```coffeescript
+readline = require 'readline'
+caseno = 1
+rl = readline.createInterface process.stdin, process.stdout
+rl.on 'line', (line) ->
+  input = line.split " "
+  if input.length is 2
+    res = parseInt(input[0]) + parseInt(input[1])
+    console.log ["Case ", caseno, ": ", res].join("")
+    caseno = caseno + 1
+```
+
 ### Dart
 -----
 ```dart
@@ -173,6 +187,24 @@ class GreetingsFromLoj {
       int b = scanner.nextInt();
       System.out.println("Case " + caseno + ": " + (a + b));
     }
+  }
+}
+```
+
+### Kotlin
+-----
+```kotlin
+import java.util.Scanner
+
+fun main() {
+  val input = Scanner(System.`in`)
+  val cases = input.nextInt()
+
+  for (caseno in 1..cases) {
+    val a = input.nextInt()
+    val b = input.nextInt()
+    val c = a + b
+    println("Case " + caseno + ": " + c)
   }
 }
 ```
