@@ -23,7 +23,7 @@ the set `S` such that all the nodes in each partition can be visited starting
 from some node, i.e. `ok(P)` should be `true` for the set partition `P`. The
 transitions for dp are as follows:
 
-![eqn.png](./eqn.png)
+![eqn](https://user-images.githubusercontent.com/6233068/102877520-1341ba80-4471-11eb-9c51-58964e35d14b.png)
 
 We need 0 partitions for an empty set. For a non-empty set, we can choose a
 valid subset, remove it and calculate the value for this transition as 1 plus
