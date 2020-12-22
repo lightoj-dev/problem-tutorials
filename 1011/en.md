@@ -8,12 +8,12 @@ In this problem, you will be given `T` testcases. The first line of each test ca
 8 1 2
 `
 Here the 1 in the first row and first column denotes the priority of the `1st` man towards `1st` woman and `2`,`3` of first row denotes the priority of the `1st` man towards `2nd` and `3rd` woman respectively
-So fiom the first row we can notice that first man likes the 3rd woman most among the 3 womans..So what we have to find is we will assure the marriage of N woman with N man with no overlappings but the summation of choosings of all the marriage has to be maximum
-The output of `this testcase` is 16.Now the question comes why it is `16`?Well it's because the `3rd` man from the `3rd` row married `1st` woman which the highest priority of the `third` row
+So from the first row we can notice that first man likes the 3rd woman most among the 3 womans.So what we have to find is we will assure the marriage of N woman with N man with no overlappings but the summation of choosings of all the marriage has to be maximum
+The output of `this testcase` is 16.Now the question comes why it is `16`?Well it's because the `3rd` man from the `3rd` row married `1st` woman which is the highest priority of the `third` row
 The `2nd` man married the `2nd`woman who's priority is 5 but it is not the maximum priority of the row.Now ask yourself why `2nd` man married the `2nd` woman despite having a greater priority towards `1st` woman
-The answer is unfortunately the `3rd` man married the `1st` woman who's priority surpasses the priority of the `2nd` man and `1st` woman isn't avaibable since he is already engaged with the `3rd` man and that's why 2nd man has to look for his 2nd priority which is the `2nd` woman.
-And then he got engaged with her.So upto now `3rd ` man married `1st woman`,`2nd` man married `2nd woman` and now the only man and woman left are `1st` and `3rd` respectively and they got engaged.
-Now that sum of the priority is 3+5+8=16.And this combination is the maximum of all the combinations and that's why this is the answer.
+The answer is unfortunately the `3rd` man married the `1st` woman who's priority surpasses the priority of the `2nd` man and `1st` woman isn't avaibable since he is already married with the `3rd` man and that's why 2nd man has to look for his 2nd priority which is the `2nd` woman.
+And then he got married with the `2nd` woman.So upto now `3rd ` man married `1st woman`,`2nd` man married `2nd woman` and now the only man and woman left are `1st` and `3rd` respectively and they got engaged.
+Now that sum of the priority is 3+5+8=16.And this combination is the maximum of all the combinations without having any overlappings and that's why this is the answer.
 
 ### Approach:
 In order to solve this problem, there are a few prerequisites that need to be fulfilled which are: you need to have a basic understanding of dynamic programming and bit manipulations. The tutorials you can look and follow to develop your knowledge regarding these topics is provided in the "Resources" section
