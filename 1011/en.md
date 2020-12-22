@@ -28,7 +28,7 @@ That maximum number which is a combination is the answer.The number of total com
 
 The recursive formula of this problem is:
 `bitmask(i,mask)=0 where (mask=1<<n)-1
- bitmask(i,mask)=min(a[i][j]+bitmask(i+1,mask|(1<<j)) where i<=n,j<=2^n-1 and a[i][j] consists of priority of ith man for jth woman
+ bitmask(i,mask)=max(a[i][j]+bitmask(i+1,mask|(1<<j)) where i<=n,j<=2^n-1 and a[i][j] consists of priority of ith man for jth woman
 `
 
 ### Resources:
