@@ -4,7 +4,9 @@ In this problem, you will be given `T` test cases. Each test case begins with an
 - `donate K`, where `K` is an integer ranging from 100 to 100000 inclusive, or
 - `report`
 
-When you receive the string `donate K`, your task is to add `K` as part of your donation and when you receive the string `report` your task is to print out the total amount of donation till now. Note that, you have `0` amount of money in the beginning.
+Note that, both of `T` and `N` can be at most `100`. 
+
+Now, keep an integer variable `sum` with initial value as `0`. When you receive the string `donate K`, your task is to add `K` to the `sum`. And, when you receive the string `report`, your task is to print out the value of the `sum`.
 
 The problem is pretty straightforward. However, some people might find it difficult to get an `Accepted` verdict. The reason could be one of the following:
 
