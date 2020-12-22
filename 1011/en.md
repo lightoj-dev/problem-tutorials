@@ -27,7 +27,9 @@ Now choosing the 3rd bit that is the 3rd woman we make `mask|(1<<2)==3|4==7` tha
 That maximum number which is a combination is the answer.The number of total combinations is `2^N-1` and we will have to compute all of them and return the maximum one out there which will denote the maximum sum of priority.
 
 The recursive formula of this problem is:
-`bitmask(i,mask)=min(a[i][j]+bitmask(i+1,mask|(1<<j)) where i<=n,j<=2^n-1 and a[i][j] consists of priority of ith man for jth woman`
+`bitmask(i,1<<n-1)=0
+bitmask(i,mask)=min(a[i][j]+bitmask(i+1,mask|(1<<j)) where i<=n,j<=2^n-1 and a[i][j] consists of priority of ith man for jth woman
+`
 
 ### Resources:
 Here are some resources of  **Bit Manipulation,Basic Dp and BitMask Dp** so that you can have a deeper understanding and learn to solve problems using these resources:-
