@@ -51,7 +51,7 @@ int bitmask(int i,int mask)
 {
     if(mask==(1<<n)-1) //base case
         return 0;
-    int &ans=dp[mask];//& is a reference variable and we use that because any change brought to a reference variable will be set to the dp array at mask index
+    int &ans=dp[mask];//& is a reference operator and any change brought to a reference variable will be set to the dp array at mask index because of this operator
     if(ans!=-1)
         return dp[mask];//since we have already computed that value in previous iterations
     for(int j=0; j<n; j++)
