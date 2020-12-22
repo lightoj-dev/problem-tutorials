@@ -61,6 +61,54 @@ public class HelloWorld {
 }
 ```
 
+### Dart
+-----
+```dart
+import 'dart:io';
+void main() {
+  var cases = int.parse(stdin.readLineSync());
+  for (var caseno = 1; caseno <= cases; ++caseno) {
+    var inputStr = stdin.readLineSync();
+    var inputs = inputStr.split(' ');
+    var a = int.parse(inputs[0]);
+    var b = int.parse(inputs[1]);
+    var result = a + b;
+    print("Case $caseno: $result");
+  }
+}
+```
+
+### Elixir
+-----
+```elixir
+{cases, _} = IO.gets("") |> Integer.parse
+Enum.each(1..cases, fn(caseno) ->
+  [a, b] = IO.gets("") |> String.split |> Enum.map(&String.to_integer/1)
+  IO.puts("Case #{caseno}: #{inspect(a + b)}")
+end)
+```
+
+### Erlang
+-----
+```erlang
+-module(main).
+-export([start/0]).
+
+loop(0, _) ->
+  ok;
+
+loop(N, CASENO) ->
+  {ok, [A]} = io:fread("", "~d"),
+  {ok, [B]} = io:fread("", "~d"),
+  C = A+B,
+  io:fwrite("Case ~w: ~w~n",[CASENO, C]),
+  loop(N-1, CASENO+1).
+
+start() ->
+  {ok, [CASES]} = io:fread("", "~d"),
+  loop(CASES, 1).
+```
+
 ### Go
 -----
 ```go
@@ -114,8 +162,6 @@ main = do
 ### Java
 -----
 ```java
-package com.loj.volume;
-
 import java.util.Scanner;
 
 class GreetingsFromLoj {
@@ -129,6 +175,34 @@ class GreetingsFromLoj {
     }
   }
 }
+```
+
+### Lisp
+-----
+```lisp
+(defun main()
+  (setq cases (read))
+  (loop for caseno from 1 to cases
+  do
+      (setq a (read))
+      (setq b (read))
+      (setq c (+ a b))
+      (format t "Case ~d: ~d" caseno c)
+      (terpri)))
+(main)
+```
+
+### Lua
+-----
+```lua
+cases = io.read("*n")
+for caseno = 1,cases,1
+do
+  a = io.read("*n")
+  b = io.read("*n")
+  c = a + b
+  print(string.format("Case %d: %d", caseno, c))
+end
 ```
 
 ### Pascal
@@ -208,6 +282,17 @@ for (caseno in 1:cases) {
   sum <- as.numeric(data[1]) + as.numeric(data[2])
   cat ("Case ", caseno, ": ", sum, "\n", sep="")
 }
+```
+
+### Ruby
+-----
+```ruby
+cases = gets.to_i
+1.upto(cases) do |caseno|
+  sum = 0
+  gets.split(' ').map(&:to_i).each { |a| sum += a }
+  puts "Case #{caseno}: #{sum}"
+end
 ```
 
 ### Swift
