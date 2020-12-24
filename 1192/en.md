@@ -9,8 +9,7 @@ In order to solve this problem, there are a few prerequisites that need to be fu
 
 So having a clear concept of the topic mentioned above, we can solve this problem.
 Now for the sake of making the explanation easier consider me as Alice and you are Bob.Now let's think that I have a piece at 2 and you have a piece at 3 and we have no other pieces
-So as I am allowed only to move towards the right only I can't move since there are no empty cells towards right and since my movement is zero for a move,I lost.So we can say,zero is a losing state and I,as the first player failed to give a non-zero state to the opponent which if my opponent failed to make a zero state and return to me,he would
-have lost.
+So as I am allowed only to move towards the right only I can't move since there are no empty cells towards right and since my movement is zero for a move,I lost.So we can say,zero is a losing state and I,as the first player failed to give a non-zero state to the opponent which if my opponent failed to make a zero state and return to me,he would have lost.
 The winner of the game always tries to make xor zero with the change brought by the loser of the game.In this case,I failed at giving you a non zero state which is why I lost.
 Now,let's play a game to simulate the entire thing for a better understanding.
 Suppose I have 2 pieces at 0 and 7 and you have 2 pieces at 3 and 9.
