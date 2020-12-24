@@ -33,6 +33,8 @@ Here are some resources of **How XOR works and Nim Game** so that you can have a
 - [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=2GoUYpQlAUY&t=9419s)**(Many Applications of Nim Game)**
 - [I,ME AND MYSELF](http://zobayer.blogspot.com/2009/12/bitwise-operations-in-cc-part-1.html)**(Basic understanding of how XOR works)**
 
+If you are still stuck with this problem, check the codes below:
+
 ### C++
 ```
 #include<bits/stdc++.h>
