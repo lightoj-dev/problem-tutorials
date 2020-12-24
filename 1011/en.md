@@ -40,6 +40,9 @@ Here are some resources of  **Bit Manipulation,Basic Dp and BitMask Dp** so that
 - [HackerEarth](https://www.hackerearth.com/practice/basic-programming/bit-manipulation/basics-of-bit-manipulation/tutorial/)**(Basics of Bit Manipulation)**
 - [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=cbgdSX2pXcQ)**(BitMask Dp)**
 - [GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-programming/)**(Basic and Advanced Types of DP)**
+
+If you are still stuck with this problem, check the codes below:
+
 ### C++:
 ```
 #include<bits/stdc++.h>
