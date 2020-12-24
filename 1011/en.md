@@ -36,10 +36,10 @@ The recursive formula of this problem is:
 ### Resources:
 Here are some resources of  **Bit Manipulation,Basic Dp and BitMask Dp** so that you can have a deeper understanding and learn to solve problems using these resources:-
 
-- [Shafaetsplanet](https://www.shafaetsplanet.com/?p=1357) **(BitMask Dp)**
-- [HackerEarth](https://www.hackerearth.com/practice/basic-programming/bit-manipulation/basics-of-bit-manipulation/tutorial/) **(Basics of Bit Manipulation)**
-- [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=cbgdSX2pXcQ)   **(BitMask Dp)**
-- [GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-programming/)   **(Basic and Advanced Types of DP)**
+- [Shafaetsplanet](https://www.shafaetsplanet.com/?p=1357)**(BitMask Dp)**
+- [HackerEarth](https://www.hackerearth.com/practice/basic-programming/bit-manipulation/basics-of-bit-manipulation/tutorial/)**(Basics of Bit Manipulation)**
+- [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=cbgdSX2pXcQ)**(BitMask Dp)**
+- [GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-programming/)**(Basic and Advanced Types of DP)**
 ### C++:
 ```
 #include<bits/stdc++.h>
