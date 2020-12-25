@@ -21,7 +21,12 @@ Yes, the count of primes are multiplied. If you think and observe a little, you'
 So now all you have to do is to factorize `n`, count the frequency of prime factors, then multiply each factors frequency by `m`.  
 Now you can solve this problem using the formula given before.  
 
-You'll also need Bigmod and Modular Inverse to solve this problem.  
+You'll also need Bigmod and Modular Inverse to solve this problem. If you don't know what they are, check these links:  
+[Modular Addition and Subtraction](https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-addition-and-subtraction)  
+[Modular Arithmetic](https://brilliant.org/wiki/modular-arithmetic/)  
+[Modular Inverse](https://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/)
+
+You may also need to know about the [Fermat's Little Theorem](https://www.geeksforgeeks.org/fermats-little-theorem/) if you try to understand modular inverse.
 
 ## Code
 **Please try your best to solve the problem on your own before watching the source code.**  
@@ -96,8 +101,8 @@ int main()
         for (auto i: primes) {
             LL now = bigmod(i, times[i] + 1, mod);
             now -= 1;
-            if (now < 0)
-                now += mod;
+            if (now < 0)  // The program may give a negative result for modulo of negative numbers
+                now += mod;  // So we convert it to a positive value by adding mod
             LL low = inv_mod(i - 1, mod);
             now *= low;
             ans = ((ans % mod) * (now % mod)) % mod;
@@ -108,5 +113,6 @@ int main()
     return 0;
 }
 ```
-
+If you have trouble understanding the condition `if (now < 0)` at line 69 and 70 of the code, you can check [this blog](https://discuss.codechef.com/t/guide-to-modular-arithmetic-plus-tricks-codechef-edition-there-is-no-other-edition/67424).   
+  
 Happy Coding ^_^ 
