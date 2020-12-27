@@ -10,7 +10,7 @@ We are given 8 numbers(1-8) with a different sign. (+)value indicate male and (-
 
 ### Solution Idea
 
-We will use generate hashmap from the 8 value sequence to a int (ex. 12345678) and use set to keep track of the found sequence. When generating hashMap we will also neglect the sign and assume + for every input. From a sequence we will generate all possible sequence and mark down new sequence. then we will use a queue to fing the minimum movement to get to destination (12345678)
+We will use **hashmap** from the 8 value sequence to a int (ex. 12345678) and use set to keep track of the found sequence. When generating hashMap we will also neglect the sign and assume +(positive) for every input. From a sequence we will generate all possible sequence in 1 move form the given sequence and mark down those new sequence. then we will use a ***queue*** to find the minimum movement to get to destination (12345678).
 
 
 
