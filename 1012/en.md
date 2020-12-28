@@ -3,9 +3,9 @@
 #### This is an easy grid travesing problem.
 In this problem,we have a grid of size `W` and `H`.Each cell in the grid consist of land `.` or water `#`.We can't travel through water `#`.So from the initial position `@` ,we have to tell the number of cells we can reach by traveling through land `.`
 
-For this problem we have to learn [DFS](http://www.shafaetsplanet.com/?p=973)
+For this problem we have to learn [DFS](http://www.shafaetsplanet.com/?p=973).
 
-Below picture shows a basic working procedure of **DFS**
+Below picture shows a basic working procedure of **DFS**:
 
 ![dfs](https://user-images.githubusercontent.com/32892229/103203367-f00a8580-491e-11eb-9952-3731c8cd3bc6.jpg)
 
