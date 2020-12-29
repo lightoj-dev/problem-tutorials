@@ -5,10 +5,6 @@ In this problem,we have a grid of size `W` and `H`.Each cell in the grid consist
 
 For this problem we have to learn [DFS](http://www.shafaetsplanet.com/?p=973).
 
-Below picture shows a basic working procedure of **DFS**:
-
-![dfs](https://user-images.githubusercontent.com/32892229/103203367-f00a8580-491e-11eb-9952-3731c8cd3bc6.jpg)
-
 Each cell describes as row `x` and column `y`.As the problem describes we can only move from one cell to its adjacent **LEFT,RIGHT,UP** and **DOWN** cells.So to go from one cell to its adjajent cell we have to do this:
 ```
 Left - (x-1,y)
@@ -17,14 +13,14 @@ Up - (x,y-1)
 Down - (x,y+1)
 ```
 
-Instead of doing this manually everytime we use **Directional Array** and loop through it.
+Instead of doing this manually everytime we use [Directional Array](https://www.shafaetsplanet.com/?p=1448) and loop through it.
 
 ```
 int dx[]={+1,-1,+0,-0}
 int dy[]={+0,-0,+1,-1}
 ```
 
-Now from the starting point `@`,we go to every adjacent cells and check if it is a **valid** cell or not.We have to remember that we can't go outside grid and water cells `#`.For this we can write a valid function to check.
+Now from the starting point `@`,we go to every adjacent cells and check if it is a **valid** cell or not.We have to remember that we can't go outside grid , water cells `#` and the cells that we visited before.For this we can write a valid function to check.
 
 ```
 bool valid(int x,int y)
