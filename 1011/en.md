@@ -44,7 +44,7 @@ Here are some resources of  **Bit Manipulation,Basic Dp and BitMask Dp** so that
 If you are still stuck with this problem, check the codes below:
 
 ### C++:
-```
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int a[16][16];
