@@ -24,7 +24,7 @@ The algorithm is:
 #### C++
 
 ```cpp
-    #include <bits/stdc++.h>
+       #include <bits/stdc++.h>
 
     using namespace std;
 
@@ -40,12 +40,10 @@ The algorithm is:
 
             scanf("%lld%lld", &piaju,&left);
 
-            // exception
             if(left*2>=piaju){
                 printf("Case %d: impossible\n",t);
                 continue;
             }
-
             printf("Case %d:",t);
 
 
@@ -69,7 +67,7 @@ The algorithm is:
 
             // print the divisors
             for(auto x: possibleValueOfQ)
-                // if(x>left)
+                 if(x>left)
                     printf(" %lld",x);
 
 
