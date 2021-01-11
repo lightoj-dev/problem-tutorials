@@ -5,7 +5,7 @@ You'll be given two integers, `n` and `m`. You have to print the sum of all divi
 ## Hint
 I highly recommend trying the problem [LightOJ 1336 - Sigma Function](http://lightoj.com/volume_showproblem.php?problem=1336), or at the very least, read the statement carefully before trying this problem.  
 If you read that problem, you'll come to know about this formula:  
-![Sigma Function](images/sigma-function.png)  
+![Sigma Function](sigma-function.png)  
 where `σ(n)` is the sum of divisors of `n`.  
 From this formula, we can see that we only need the Prime factors of n<sup>m</sup> and how many times each prime factors appear. This seems a little difficult task since n<sup>m</sup> can be a huge number. Let's see how we can solve this part of the problem.  
 Let's factorize `6`. The primes are `2, 3`.  
