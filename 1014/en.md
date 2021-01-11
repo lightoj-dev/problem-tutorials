@@ -10,7 +10,7 @@ This is a number theory problem and for the `T` group of the input set, where ea
 
 ### Solution
 
-Initially, you had `P` amount of piaju's, and end of the day it became `L`, so piaju's eaten by the contestants are `(P-L)`. As `C` contestants were invited and each of them ate `Q` piaju's each, `P - L = C * Q` stands true. So the result will be all possible divisors of `Q`, the number of piaju's each contestant ate.
+Initially, you had `P` amount of piaju's, and end of the day it became `L`, so piaju's eaten by the contestants are `(P-L)`. As `C` contestants were invited and each of them ate `Q` piaju's each, `P - L = C * Q` stands true. So the result will be all possible divisors of `P-L`, the number of piaju's each contestant ate.
 
 The algorithm is:
 
@@ -24,7 +24,7 @@ The algorithm is:
 #### C++
 
 ```cpp
-    #include <bits/stdc++.h>
+       #include <bits/stdc++.h>
 
     using namespace std;
 
@@ -40,12 +40,10 @@ The algorithm is:
 
             scanf("%lld%lld", &piaju,&left);
 
-            // exception
             if(left*2>=piaju){
                 printf("Case %d: impossible\n",t);
                 continue;
             }
-
             printf("Case %d:",t);
 
 
@@ -69,7 +67,7 @@ The algorithm is:
 
             // print the divisors
             for(auto x: possibleValueOfQ)
-                // if(x>left)
+                 if(x>left)
                     printf(" %lld",x);
 
 
