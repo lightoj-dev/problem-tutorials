@@ -7,19 +7,25 @@ In this problem, you have to built bee-hive in such a way that if `one` path is 
 ## Hint
 
 You have to find `shortest cycle` in an undirected and unweighted graph. If you can't find one it will be impossible to built.
-- Prerequisites 1: DFS Algorithm
-- Prerequisites 2: Dijikstra Algorithm
+
+- Prerequisites : BFS
 
 # Solution
 ## Approach
 
-For every node, we check if it is possible to get the shortest cycle involving this node. For every node first, push current node into the queue and then if node which is already visited comes again but it is not the parent node then the cycle is present.
+For every node, we check if it is possible to get the shortest cycle involving this node. We run bfs from each node, for a back-edge, we consider the cycle it poses in our result. First push current node into the queue and then if node which is already visited comes again but it is not the parent node then the cycle is present.
+
+Also note that, the cycles that we may consider might not be actual cycles (cycles + a prolonged line of vertices), but in case they are not, they'll not contribute to the result. See this picture below.
+
+<img src="graph.png" width="400">
+
+If we run bfs on node 0, there will be a cycle(1-2-3-5-4-1) + a prolonged line of vertices(0-1)  but it will not contribute to the result because when we run bfs in node 1 or any other node within the cycle, it will be smaller.
 
 Apply the above process for every node and find the length of the shortest cycle.
 
 
-- Time Complexity: `O(N^2)` per test case.
-- Memory Complexity: `O(N^2)` per test case.
+- Time Complexity: `O(|V|(|V|+|E|))` for a graph G=(V, E) per test case.
+- Memory Complexity: `O(V^2)` for a graph G=(V, E) per test case.
 
 ## Code
 ### C++
