@@ -4,7 +4,7 @@ In the first line of input, we will be the number of test cases *T*. After that 
 
 ![Explanation](1072.png)
 
-If we look at the picture above, we can see that a *smaller circle* within the *bigger circle* creates an **angle** `α` if we draw two **tangent line**s starting from the *bigger circle*'s **center** `A` on the two sides of the *smaller circle* touching the *bigger circle*'s **parameter line** which are`AD` and `AB` respectively. We know a circle produces an **angle** of `2*π`. And the *smaller circles* does not have any space among themselves, so `2*π = N*α` from which, we can get `α = 2π/N`. 
+If we look at the picture above, we can see that a *smaller circle* within the *bigger circle* creates an **angle** `α` if we draw two **tangent line**s starting from the *bigger circle*'s **center** `A` on the two sides of the *smaller circle* touching the *bigger circle*'s **parameter line** which are`AD` and `AB` respectively. We know a circle produces an **angle** of `2*π`. And the *smaller circles* do not have any space among themselves, so `2*π = N*α` from which, we can get `α = 2π/N`. 
 
 Also let's draw `AE` which goes through the **center** of the *small circle* `c` and here `AE = R (radius of the bigger circle) = AD = AB`. Drawing `AE` produces an **angle** `β`. Since the *smaller circle* is split straight through its **center**, `β = α/2` from which we can get `β = (2*π/N)/2 = π/N`.
 
