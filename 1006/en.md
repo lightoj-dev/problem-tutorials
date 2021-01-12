@@ -10,7 +10,7 @@ This is a little tweaked Fibonacci problem with a simple trick. Only difference 
 -  Print array[N]%10000007.
 ___
 ### Code in C++
-```
+```cpp
 int main()
 {
     long long a,b,c,d,e,f,t,n;
