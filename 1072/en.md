@@ -11,9 +11,9 @@ Also let's draw `AE` which goes through the **center** of the *small circle* `c`
 Now let's draw one **perpendicular line** from **point** `C` on `AB` which is `CF`. If we observe the figure, `CF = CE = r (radius of the smaller circle)`. Now we can easily find out the value of `r` using the `sin(β)` ratio.
 
 ```
-    sin(β) = CF/AE-CE 
-           = r/R-r
-=>  sin(π/N) = r/R-r
+    sin(β) = CF/(AE-CE) 
+           = r/(R-r)
+=>  sin(π/N) = r/(R-r)
 =>  r = sin(π/N)*(R-r)
       = sin(π/N)*R - sin(π/N)*r
 =>  r + sin(π/N)*r = sin(π/N)*R
