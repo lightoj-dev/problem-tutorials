@@ -1,9 +1,11 @@
-# **Discussion**
-&nbsp;We may 1st think of generating all combinations and check that if the sum of any combination is equal to `K (sum == K)`. But, here `n<=18` and we can take each coin at most 2 times, 
-so if we make combination using bit manipulation we will have 2^36 combinations, and it is too large. So this approach of generating all combination is not feasible. We will use
+# **LOJ 1235 - Coin Change (IV)**
+
+## **Discussion**
+&nbsp; We may 1st think of generating all combinations and check that if the sum of any combination is equal to `K (sum == K)`. But, here `n<=18` and we can take each coin at most 2 times, 
+so if we make combination using bit manipulation we will have `2^36` combinations, and it is too large. So this approach of generating all combination is not feasible. We will use
 meet in the middle technique to solve it.
 ***
-# **Solution Idea**
+## **Solution Idea**
 &nbsp;If set-1  `S1={a,b}` and set-2  `S2={c,d,e}`;<br/>
 then all combination using set-1 and set-2 is- </br>
 &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;           `{ a, b } X { c, d, e }  = { ac, ad, ac, bc, bd, be }`<br/>
@@ -15,7 +17,7 @@ For improving our solution, let's see what is happening -<br/>
 &nbsp; &nbsp; &nbsp; &nbsp; So , combination will be = `{a , a ,ab , ab , aab ...... ....... .. .. .. .. }`<br/>
 **we are generating  same combination again and again !** So if we simply backtrack to generate combination instead of using bit manipulation , we can overcome this problem .
 
-# **Solution Code(C++)**
+## **Solution Code(C++)**
 ```C++
 #include<bits/stdc++.h>
 using namespace std;
