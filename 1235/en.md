@@ -1,21 +1,21 @@
 # **Discussion**
-&nbsp;We may 1st think of generating all combinations and check that if the sum of any combination is equal to K (sum == K). But here n<=18 and we can take each coin at most 2 times, 
+&nbsp;We may 1st think of generating all combinations and check that if the sum of any combination is equal to `K (sum == K)`. But, here `n<=18` and we can take each coin at most 2 times, 
 so if we make combination using bit manipulation we will have 2^36 combinations, and it is too large. So this approach of generating all combination is not feasible. We will use
 meet in the middle technique to solve it.
 ***
 # **Solution Idea**
-&nbsp;If set-1  S1={a,b} and set-2  S2={c,d,e};<br/>
+&nbsp;If set-1  `S1={a,b}` and set-2  `S2={c,d,e}`;<br/>
 then all combination using set-1 and set-2 is- </br>
-&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;           { a, b } X { c, d, e }  = { ac, ad, ac, bc, bd, be }<br/>
+&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;           `{ a, b } X { c, d, e }  = { ac, ad, ac, bc, bd, be }`<br/>
 Using this property , we can divide the n coins in two half. And have to push each coin two times . So size of each combination set will be 2^18 if we use bit manipulation
-technique(we are mainly saving combination sum) . then we can iterate through set-1 and check if any element in set-2 is there , that set-1[i][+set-2[j] == K , and to do this
-we can do binary search or can save the value of set-2 in a map , and it will take (log n) time. But this solution will get TLE.<br/>
+technique(we are mainly saving combination sum) . Then we can iterate through set-1 and check if any element in set-2 is there , that `set-1[i][+set-2[j] == K` , and to do this
+we can do binary search or can save the value of set-2 in a map , and it will take `log n` time. But this solution will get TLE.<br/>
 For improving our solution, let's see what is happening -<br/>
-&nbsp; &nbsp; &nbsp; &nbsp; lets we have two coins a, b. We are pushing each element two times.<br/>
-&nbsp; &nbsp; &nbsp; &nbsp; So , combination will be = {a , a ,ab , ab , aab ...... ....... .. .. .. .. }<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; lets we have two coins `a`,`b`. We are pushing each element two times.<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; So , combination will be = `{a , a ,ab , ab , aab ...... ....... .. .. .. .. }`<br/>
 **we are generating  same combination again and again !** So if we simply backtrack to generate combination instead of using bit manipulation , we can overcome this problem .
 
-# **Solution Code**
+# **Solution Code(C++)**
 ```C++
 #include<bits/stdc++.h>
 using namespace std;
