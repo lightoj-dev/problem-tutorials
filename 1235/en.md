@@ -13,33 +13,45 @@ Using this property , we can divide the n coins in two half. And have to push ea
 technique(we are mainly saving combination sum) . Then we can iterate through set-1 and check if any element in set-2 is there , that `set-1[i][+set-2[j] == K` , and to do this
 we can do binary search or can save the value of set-2 in a map , and it will take `log n` time. But this solution will get TLE.<br/>
 For improving our solution, let's see what is happening -<br/>
-&nbsp; &nbsp; &nbsp; &nbsp; lets we have two coins `a`,`b`. We are pushing each element two times.<br/>
-&nbsp; &nbsp; &nbsp; &nbsp; So , combination will be = `{a , a ,ab , ab , aab ...... ....... .. .. .. .. }`<br/>
-**we are generating  same combination again and again !** So if we simply backtrack to generate combination instead of using bit manipulation , we can overcome this problem .
+&nbsp; &nbsp; &nbsp; &nbsp; Lets we have two coins a,b.<br/>
+In the question, it is said that in the solution we can use the same coin at most 2 times. So a solution might consist of zero or one or two number of the coin ‘a’, but can’t
+be anything else. Let’s see how binary counting is used to generate all combination.<br/>
+Consider this list `b b a a`  to generate the combinations using bit manipulation.<br/>
+Here, List size = 4<br/>
+So to get all combinations, we have to count from `1` to `2^4 - 1`(not considering empty set) in binary form and generate different combinations by considering the bit of the binary numbers.<br/>
+#### Generating combinations from the list(bbaa) using bit manipulation: 
+### &nbsp;&nbsp;&nbsp;&nbsp;  Binary number         &nbsp;&nbsp;&nbsp;&nbsp;  represented combination
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0001          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  a<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0010           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  a<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0011           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0100           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  b<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0101           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ba<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0110           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ba<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1011            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  baa<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1111            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bbaa<br/>
+
+So, if we want to generate all combinations using bit manipulation we have to consider every coin two times otherwise we can’t generate combinations where the same coin appear
+2 times.<br/>
+And in this process, we are generating same the combination of the coin again and again (shown in the example above).<br/>
+But if we backtrack to generate combination, we can control that. We will choose every coin 0,1 or 2(generating 3 different state) times and then we will make a decision for the next coin. In this way, the same combination will not be
+generated and the run time of the solution will decrease. (it is not necessary to create the combination, we just need the sum) <br/>
+
 
 ## **Solution Code(C++)**
 ```C++
 #include<bits/stdc++.h>
 using namespace std;
-#define FastRead ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define visited 1
-#define pi acos(-1)
-#define inf 1<<30
-#define lli long long int
-#define sci(a) scanf("%d",&a)
-#define sci2(a,b) sci(a);sci(b)
-#define scli(a) scanf("%lld",&a)
-#define scli2(a,b) scli(a);scli(b)
-#define Case int t,cs=0;scanf("%d",&t);while(++cs<=t)
-void sciar(int a[],int n){for(int i=0;i<n;i++)scanf("%d",&a[i]);}
  
-lli sz1;
-lli sz2;
-lli ar1[20];
-lli ar2[20];
-vector<lli>combination1;
-map<lli,bool>combination2;
-void backtrackCombination(int pos,lli sum,int dir){
+long long int sz1;
+long long int sz2;
+long long int ar1[20];
+long long int ar2[20];
+vector<long long int>combination1;
+map<long long int,bool>combination2;
+void backtrackCombination(int pos,long long int sum,int dir){
     if(dir==1 && pos>=sz1){
         combination1.push_back(sum);
         return;
@@ -48,7 +60,7 @@ void backtrackCombination(int pos,lli sum,int dir){
         combination2[sum]=true;
         return;
     }
-    lli num;
+    long long int num;
     if(dir==1) num=ar1[pos];
     else num=ar2[pos];
  
@@ -56,22 +68,21 @@ void backtrackCombination(int pos,lli sum,int dir){
     backtrackCombination(pos+1,sum+num,dir);
     backtrackCombination(pos+1,sum+2*num,dir);
 }
-int main()
-{
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
- 
-    Case{
-        lli n,k;scli2(n,k);
+int main(){
+ 	int t,cs=1;
+    cin>>t;
+    while(cs<=t){
+        long long int n,k;
+        cin>>n>>k;
  
         if(n>1){
             sz1=n/2;
             sz2=n-sz1;
-            for(lli i=0;i<sz1;i++)
-                scli(ar1[i]);
+            for(int i=0;i<sz1;i++)
+                cin>>ar1[i];
  
-            for(lli i=0;i<sz2;i++)
-                scli(ar2[i]);
+            for(int i=0;i<sz2;i++)
+                cin>>ar2[i];
  
             ///make combination
             backtrackCombination(0,0,1);
@@ -79,8 +90,8 @@ int main()
  
             ///checking for the sum
             bool flg=false;
-            for(lli i=0;i<combination1.size();i++){
-                lli need=k-combination1[i];
+            for(int i=0;i<combination1.size();i++){
+                long long int need=k-combination1[i];
                 if(combination2[need]==true){
                     flg=true; break;
                 }
@@ -93,14 +104,15 @@ int main()
             combination2.clear();
         }
         else{
-            lli a;scli(a);
+            long long int a;
+            cin>>a;
             if(a==k || 2*a==k)
                 printf("Case %d: Yes\n",cs);
             else
                 printf("Case %d: No\n",cs);
         }
+        cs++;
     }
-    //fclose(stdin);
     return 0;
 }
 ```
