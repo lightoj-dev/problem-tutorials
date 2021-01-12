@@ -1,6 +1,6 @@
 # LOJ 1072 - Calm Down #
 ---
-In the first line of input, we will be the number of test cases *T*. After that we will be given *R*, the radius of the bigger circle and *N*, the number of small circles within. *R* and *N* are separated by a space for each test case to *T* times. We have to output the *r*, the radius of the small circles upto 10 floating points.
+In the first line of input, we will be given the number of test cases *T*. After that we will be given *R*, the radius of the bigger circle and *N*, the number of small circles within. *R* and *N* are separated by a space for each test case to *T* times. We have to output the *r*, the radius of the small circles upto 10 floating points.
 
 ![Explanation](1072.png)
 
