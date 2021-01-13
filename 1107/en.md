@@ -17,7 +17,7 @@ and also
 ```
 lower left y-coordinate < cow's y-cordinate < upper right y-coordinate
 ```
-If any of the above mentioned conditions is not met, the cow can be said to not be within the field. For example : I & E has the same y-coordinate as G as well as F & H has the same x-coordinate as G, yet none of them are in the field except G.
+If any of the above mentioned conditions is not met, the cow can be said to not be within boundaries of the field. For example : I & E has the same y-coordinate as G as well as F & H has the same x-coordinate as G, yet none of them are in the field except G.
 
 The above implementation is `accepted`.
 
