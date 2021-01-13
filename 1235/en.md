@@ -9,7 +9,7 @@ meet in the middle technique to solve it.
 &nbsp;If set-1  `S1={a,b}` and set-2  `S2={c,d,e}`;<br/>
 then all combination using set-1 and set-2 is- </br>
 &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;           `{ a, b } X { c, d, e }  = { ac, ad, ac, bc, bd, be }`<br/>
-Using this property , we can divide the n coins in two half. And have to consider each coin two times(reason is described below) . So size of each combination set will be `2^18` if we use bit manipulation technique(we are mainly saving combination sum) . Then we can iterate through set_1, which will take O(n) time and check if any element in set_2 is there , that `set_1[i]+set_2[j] == K` , and to do this we can do binary search or can save the value of set_2 in a map , and it will take (log n) time.So, the complexity after making combination is `O(nlogn)`. But this solution will get TLE.<br/>
+Using this property , we can divide the n coins in two half. And have to consider each coin two times(reason is described below) . So size of each combination set will be `2^18` if we use bit manipulation technique(we are mainly saving combination sum) . Then we can iterate through set_1, which will take `O(n)` time and check if any element in set_2 is there , that `set_1[i]+set_2[j] == K` , and to do this we can do binary search or can save the value of set_2 in a map , and it will take (log n) time.So, the complexity after making combination is `O(nlogn)`. But this solution will get TLE.<br/>
 For improving our solution, let's see what is happening -<br/>
 &nbsp; &nbsp; &nbsp; &nbsp; Lets we have two coins `a`,`b`.<br/>
 In the question, it is said that in the solution we can use the same coin at most 2 times. So a solution might consist of zero or one or two number of the coin `a`, but can’t
@@ -33,11 +33,11 @@ So to get all combinations, we have to count from `1` to `2^4 - 1`(not consideri
 
 So, if we want to generate all combinations using bit manipulation we have to consider every coin two times otherwise we can’t generate combinations where the same coin appear
 2 times.<br/>
-And in this process, we are generating same the combination of the coin again and again (shown in the example above).<br/>
-But if we backtrack to generate combination, we can control that. We will choose every coin 0,1 or 2(generating 3 different state) times and then we will make a decision for the next coin.As we are going 
-to 3 different state from every state and the maximum depth of this call is 9(max_list_size = 18/2), so to generate all combination the coplexity will be `O(3^9)`. In this way, the same combination will not be
+And in this process, we are generating the same combination of the coin again and again (shown in the example above).<br/>
+But if we backtrack to generate combinations, we can control that. We will choose every coin 0,1 or 2(generating 3 different state) times and then we will make a decision for the next coin.As we are going 
+to 3 different state from every state and the maximum depth of this call is 9(max_list_size = 18/2), so to generate all combinations the complexity will be `O(3^9)`. In this way, the same combination will not be
 generated and the run time of the solution will decrease. (it is not necessary to create the combination, we just need the sum) <br/>
-Total complexity of our solution is `O( 3^(n/2) + nlogn )`
+Total complexity of our solution per test case is `O( 3^(n/2) + nlogn )`
 
 
 ## **Solution Code(C++)**
@@ -69,7 +69,7 @@ void backtrackCombination(int pos,long long int sum,int dir){
     backtrackCombination(pos+1,sum+2*num,dir);
 }
 int main(){
- 	int t,cs=1;
+ 	  int t,cs=1;
     cin>>t;
     while(cs<=t){
         long long int n,k;
