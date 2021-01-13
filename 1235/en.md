@@ -32,9 +32,9 @@ So to get all combinations, we have to count from `1` to `2^4 - 1`(not consideri
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1111            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bbaa<br/>
 
 So, if we want to generate all combinations using bit manipulation we have to consider every coin two times otherwise we can’t generate combinations where the same coin appear
-2 times.<br/>
+2 times. Maximum complexity for generating all combinations is `O(2^18)`.<br/>
 And in this process, we are generating the same combination of the coin again and again (shown in the example above).<br/>
-But if we backtrack to generate combinations, we can control that. We will choose every coin 0,1 or 2(generating 3 different state) times and then we will make a decision for the next coin.As we are going 
+But if we backtrack to generate combinations, we can control that. We will choose every coin 0,1 or 2(generating 3 different state) times and then we will make a decision for the next coin. As we are going 
 to 3 different state from every state and the maximum depth of this call is 9(max_list_size = 18/2), so to generate all combinations the complexity will be `O(3^9)`. In this way, the same combination will not be
 generated and the run time of the solution will decrease. (it is not necessary to create the combination, we just need the sum) <br/>
 Total complexity of our solution per test case is `O( 3^(n/2) + nlogn )`
