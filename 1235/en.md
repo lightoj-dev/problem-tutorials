@@ -6,14 +6,13 @@ so if we make combination using bit manipulation we will have `2^36` combination
 meet in the middle technique to solve it.
 ***
 ## **Solution Idea**
-&nbsp;If set-1  `S1={a,b}` and set-2  `S2={c,d,e}`;<br/>
-then all combination using set-1 and set-2 is- </br>
+&nbsp;If set_1  `S1={a,b}` and set_2  `S2={c,d,e}`;<br/>
+then all combination using set_1 and set_2 is- </br>
 &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;           `{ a, b } X { c, d, e }  = { ac, ad, ac, bc, bd, be }`<br/>
-Using this property , we can divide the n coins in two half. And have to consider each coin two times(reason is described below) . So size of each combination set will be `2^18` if we use bit manipulation technique(we are mainly saving combination sum) . Then we can iterate through set_1, which will take `O(n)` time and check if any element in set_2 is there , that `set_1[i]+set_2[j] == K` , and to do this we can do binary search or can save the value of set_2 in a map , and it will take (log n) time.So, the complexity after making combination is `O(nlogn)`. But this solution will get TLE.<br/>
+Using this property , we can divide the n coins in two half. And have to consider each coin two times(reason is described below) . So size of each combination set will be `2^18` if we use bit manipulation technique(we are mainly saving combination sum). Then we can iterate through set_1, which will take `O(m)`(let size of each combination set as 'm') time and check if any element in set_2 is there , that `set_1[i]+set_2[j] == K` , and to do this we can do binary search or can save the value of set_2 in a map , and it will take (log m) time.So, the complexity after making combination is `O(mlogm)`. But this solution will get TLE.<br/>
 For improving our solution, let's see what is happening -<br/>
 &nbsp; &nbsp; &nbsp; &nbsp; Lets we have two coins `a`,`b`.<br/>
-In the question, it is said that in the solution we can use the same coin at most 2 times. So a solution might consist of zero or one or two number of the coin `a`, but can’t
-be anything else. Let’s see how binary counting is used to generate all combinations.<br/>
+In the question, it is said that in the solution we can use the same coin at most 2 times. So a solution might consist of zero or one or two number of the coin `a`. Let’s see how binary counting is used to generate all combinations.<br/>
 Consider this list `b b a a`  to generate the combinations using bit manipulation.<br/>
 Here, List size = 4<br/>
 So to get all combinations, we have to count from `1` to `2^4 - 1`(not considering empty set) in binary form and generate different combinations by considering the bit of the binary numbers.<br/>
@@ -21,11 +20,11 @@ So to get all combinations, we have to count from `1` to `2^4 - 1`(not consideri
 ### &nbsp;&nbsp;&nbsp;&nbsp;  Binary number         &nbsp;&nbsp;&nbsp;&nbsp;  represented combination
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0001          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  a<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0010           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  a<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0010           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  a (unnecessary)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0011           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  aa<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0100           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  b<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0101           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ba<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0110           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ba<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0110           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ba (unnecessary)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1011            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  baa<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ..............<br/>
@@ -37,7 +36,7 @@ And in this process, we are generating the same combination of the coin again an
 But if we backtrack to generate combinations, we can control that. We will choose every coin 0,1 or 2(generating 3 different state) times and then we will make a decision for the next coin. As we are going 
 to 3 different state from every state and the maximum depth of this call is 9(max_list_size = 18/2), so to generate all combinations the complexity will be `O(3^9)`. In this way, the same combination will not be
 generated and the run time of the solution will decrease. (it is not necessary to create the combination, we just need the sum) <br/>
-Total complexity of our solution per test case is `O( 3^(n/2) + nlogn )`
+Total complexity of our solution per test case is `O( 3^(n/2) + mlogm )`
 
 
 ## **Solution Code(C++)**
