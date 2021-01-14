@@ -7,8 +7,9 @@ The player giving the move of 0 piece first loses.Now, we have to find if both p
 ### Approach:
 In order to solve this problem, there are a few prerequisites that need to be fulfilled which are: you need to have a basic understanding of Nim Game and how XOR works. The tutorials are given below in the "Resources" section.
 
-![img](1192/1192-1.png)
-![img](1192/1192-2.png)
+![img](1192-1.png)
+
+![img](1192-2.png)
 So having a clear concept of the topic mentioned above, we can solve this problem.
 Now for the sake of making the explanation easier consider me as Alice and you are Bob.Now let's think that I have a piece at position 2 and you have a piece at 3 and there are  no additional pieces.
 Since I am allowed to move towards the right only,I can't move as there are no empty cells towards right and since my movement is zero for a move,I lost.So we can say,zero is a losing state and I,as the first player failed to give a non-zero state to the opponent which if my opponent failed to make a zero state and return to me,he would have lost.
