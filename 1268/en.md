@@ -29,22 +29,21 @@ We might write this string as `a _ _ _` which refers to `dp(3, 1)`.
 * If we put `b` there, it becomes `a b a b _ _ _`. Again 3 places remaining to fill but this time 2 characters match with a prefix of `s`, the last `a b`. 
 So, `m = 2, n = 3` for the new string which we can write as `a b _ _ _`.
 * For `c` however, it becomes `a b a c _ _ _`. Note that all 4 characters to the left matches with `s` and thus this shouldn't be allowed.
-In this case, we ignore the very first `a` and now check how many characters match in `b a c _ _ _`.
-Clearly none does. Thus `m = 0` for this case. Refers to `dp(3, 0)` and `_ _ _`.
+We simply ignore this case.
 * If we put `d`, it becomes `a b a d _ _ _`. No suffix of `abad` matches with any prefix of `s`.
 So, this produces `dp(3, 0)` similar to `_ _ _`.
 
-We can conclude that for this example, `dp(4, 3) = 1 * dp(3, 1) + 1 * dp(3, 2) + 2 * dp(3, 0)`. In a general case, for `n > 0`, we can write
+We conclude that for this example, `dp(4, 3) = 1 * dp(3, 1) + 1 * dp(3, 2) + 1 * dp(3, 0)`. In a general case, for `n > 0`, we can write
 
 ![img](dp-def.png)
 
 We can compute `f(m, c)` by using the [_KMP Prefix Function_](https://cp-algorithms.com/string/prefix-function.html) or by simple brute-force.
-In our previous example, `f(3, 'a') = 1, f(3, 'b') = 2, f(3, 'c') = 0, f(3, 'd') = 0`.
+In our previous example, `f(3, 'a') = 1, f(3, 'b') = 2, f(3, 'c') = 4, f(3, 'd') = 0`.
 
 Let's define `g(m, m')` as the number of allowed characters `c` for which `f(m, c) = m'`.
 In the previous example,
 ```
-g(3, 0) = 2 (for characters 'c', 'd')
+g(3, 0) = 1 (for character 'd')
 g(3, 1) = 1 (for character 'a')
 g(3, 2) = 1 (for character 'b')
 g(3, 3) = 0 (no such character)
@@ -63,3 +62,125 @@ Since, `g(m, m')` is constant, the square matrix in the middle remains constant.
 ![img](mat-def-2.png)
 
 Using [matrix exponentiation](http://www.progkriya.org/gyan/matrix-expo.html), we can find `dp(n, 0)` for a given `n` in `O(|s|^3 lg n)` time.
+
+### C++ Implementation
+
+Notes
+* Module by `2^32` can be simply done by using `unsigned int` data type.
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct Mat {
+	const static int SZ = 57;
+	
+	int row, col;
+	unsigned int v[SZ][SZ];
+
+	Mat(int r=0, int c=0) {
+		row = r, col = c;
+		memset(v, 0, sizeof v);
+	}
+
+	Mat operator * (const Mat &p) const {
+		assert(col == p.row);
+
+		Mat ret(row, p.col);
+		for(int i=0; i<ret.row; ++i) {
+			for(int j=0; j<ret.col; ++j) {
+				unsigned int& sum = ret.v[i][j];
+				for(int k=0; k<col; ++k) {
+					sum += v[i][k] * p.v[k][j];
+				}
+			}
+		}
+
+		return ret;
+	}
+
+	Mat power (int p) {
+		assert(row == col);
+
+		Mat base = *this;
+		Mat ret(row, col);
+		for(int i=0; i<row; ++i) ret.v[i][i] = 1;
+
+		while(p > 0) {
+			if(p & 1) ret = ret * base;
+			base = base * base;
+			p >>= 1;
+		}
+
+		return ret;
+	}
+};
+
+// kmp prefix function
+vector<int> prefix_function(string P) {
+	vector<int> pi(P.size());
+	pi[0] = 0;
+	int q = 0;	// number of matched characters
+
+	for(int i=1; i<(int) P.size(); ++i) {
+		while(q > 0 and P[q] != P[i]) q = pi[q-1];
+		if(P[q] == P[i]) ++q;
+		pi[i] = q;
+	}
+	return pi;
+}
+
+int f(int m, char c, const string& s, const vector<int>& pi) {
+	while(m > 0 and s[m] != c) m = pi[m - 1];
+	if(s[m] == c) ++m;
+	return m;
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0); cout.tie(0);
+
+	int t, tc = 0;
+	cin >> t;
+
+	while(t--) {
+		int n;
+		cin >> n;
+
+		string alphabet;
+		cin >> alphabet;
+
+		string s;
+		cin >> s;
+
+		auto pi = prefix_function(s);
+		int ns = s.size();
+		
+		Mat G(ns, ns);
+		for(int m=0; m<ns; ++m) {
+			for(char c : alphabet) {
+				int m_prime = f(m, c, s, pi);
+				if(m_prime < ns) G.v[m][m_prime] += 1;
+			}
+		}
+		G = G.power(n);
+
+		Mat base(ns, 1);
+		for(int m=0; m<ns; ++m) {
+			base.v[m][0] = 1;
+		}
+
+		Mat dp_n = G * base;
+		unsigned int res = dp_n.v[0][0];
+
+		cout << "Case " << ++tc << ": " << res << "\n";
+	}
+
+	return 0;
+}
+```
+
+---
+_reborn++_<br/>
+_Jan 14 2021_
