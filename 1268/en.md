@@ -12,14 +12,14 @@ We can think such strings to be of length `m + n` with the first `m` characters 
 
 For example, suppose `s = "abc"`. `dp(3, 2)` will refer to those string of the form `a b _ _ _`.
 The first 2 characters are that of `s`, and any characters can be put in place of those underscores as long as the resulting strings do not contain `abc` as a sub-string.
-So, `abacb` can be reffered by `dp(3, 2)` while `abcab` shouldn't since it contains `abc` as a substring.
+So, `abacb` can be referred by `dp(3, 2)` while `abcab` shouldn't since it contains `abc` as a substring.
 Similarly, for `s = "abc"`, `dp(5, 1)` may refer to those string of the form `a _ _ _ _ _` while `dp(4, 0)` may refer to `_ _ _ _`.
 
 We can define `dp(0, m) = 1` for any `m < |s|` and to have value `0` elsewise.
 This is because, if we are left with no positions to put characters in to make a string, we must depend on how many characters has been matched with the pattern so far in the past (that is `m`).
-And since we don't like the pattern to be included, we can't let all of the pattern to be matched. So, `m` must be less than `|s|` to produce a desired string.
+And since we don't like the pattern to be included, we can't let all the pattern to be matched. So, `m` must be less than `|s|` to produce a desired string.
 
-Onto the transitios, how do we produce `dp(n, m)` given the values of `dp(n - 1, m')`?
+Onto the transitions, how do we produce `dp(n, m)` given the values of `dp(n - 1, m')`?
 
 Suppose, `s = "abac"`, the allowed characters are `a, b, c, d`, and we are trying to figure out `dp(4, 3)`. We can consider those strings to be similar to `a b a _ _ _ _`.
 Let's put a character at the first underscore.
@@ -66,7 +66,7 @@ Using [matrix exponentiation](http://www.progkriya.org/gyan/matrix-expo.html), w
 ### C++ Implementation
 
 Notes
-* Module by `2^32` can be simply done by using `unsigned int` data type.
+* Modulo by `2^32` can be simply done by using `unsigned int` data type.
 
 ```cpp
 #include <bits/stdc++.h>
