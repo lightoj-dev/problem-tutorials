@@ -35,14 +35,8 @@ Clearly none does. Thus `m = 0` for this case. Refers to `dp(3, 0)` and `_ _ _`.
 So, this produces `dp(3, 0)` similar to `_ _ _`.
 
 We can conclude that for this example, `dp(4, 3) = 1 * dp(3, 1) + 1 * dp(3, 2) + 2 * dp(3, 0)`. In a general case, for `n > 0`, we can write
-```
-dp(n, m) = for each allowed character c
-               + dp(n - 1, m')
-where m' = f(m, c) = the maximum number of characters matched between a proper prefix of  
-                     pattern s and a suffix of a string consisting of first m characters
-                     of s followed by character c
-and m, m' < |s|
-```
+
+![dp-def](dp-def.png)
 
 We can compute `f(m, c)` by using the [_KMP Prefix Function_](https://cp-algorithms.com/string/prefix-function.html) or by simple brute-force.
 In our previous example, `f(3, 'a') = 1, f(3, 'b') = 2, f(3, 'c') = 0, f(3, 'd') = 0`.
@@ -50,22 +44,18 @@ In our previous example, `f(3, 'a') = 1, f(3, 'b') = 2, f(3, 'c') = 0, f(3, 'd')
 Let's define `g(m, m')` as the number of allowed characters `c` for which `f(m, c) = m'`.
 In the previous example,
 ```
-g(3, 0) = 1 (for characters 'c', 'd')
+g(3, 0) = 2 (for characters 'c', 'd')
 g(3, 1) = 1 (for character 'a')
 g(3, 2) = 1 (for character 'b')
 g(3, 3) = 0 (no such character)
 ```
 
 So we can define `dp(n, m)` by the following:
-```
-dp(0, m) = 1 (for m < |s|)
-         = 0 (for m >= |s|)
 
-dp(n, m) = for each m'
-               + g(m, m') * dp(n - 1, m')
-```
+![dp-def-2](dp-def-2.png)
 
 Using matrices, we can write:
-![dp-def-mat](mat-def.gif)
+
+![dp-def-mat](mat-def.png)
 
 Using [matrix exponentiation](http://www.progkriya.org/gyan/matrix-expo.html), we can find `dp(n, 0)` for a given `n` in `O(|s|^3 lg n)` time.
