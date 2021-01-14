@@ -58,7 +58,7 @@ Using matrices, we can write:
 
 ![img](mat-def.png)
 
-Since, the square matrix remains constant, we can further imply
+Since, `g(m, m')` is constant, the square matrix in the middle remains constant. Thus
 
 ![img](mat-def-2.png)
 
