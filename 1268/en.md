@@ -36,7 +36,7 @@ So, this produces `dp(3, 0)` similar to `_ _ _`.
 
 We can conclude that for this example, `dp(4, 3) = 1 * dp(3, 1) + 1 * dp(3, 2) + 2 * dp(3, 0)`. In a general case, for `n > 0`, we can write
 
-![dp-def](dp-def.png)
+![img](dp-def.png)
 
 We can compute `f(m, c)` by using the [_KMP Prefix Function_](https://cp-algorithms.com/string/prefix-function.html) or by simple brute-force.
 In our previous example, `f(3, 'a') = 1, f(3, 'b') = 2, f(3, 'c') = 0, f(3, 'd') = 0`.
@@ -52,10 +52,14 @@ g(3, 3) = 0 (no such character)
 
 So we can define `dp(n, m)` by the following:
 
-![dp-def-2](dp-def-2.png)
+![img](dp-def-2.png)
 
 Using matrices, we can write:
 
-![dp-def-mat](mat-def.png)
+![img](mat-def.png)
+
+Since, the square matrix remains constant, we can further imply
+
+![img](mat-def-2.png)
 
 Using [matrix exponentiation](http://www.progkriya.org/gyan/matrix-expo.html), we can find `dp(n, 0)` for a given `n` in `O(|s|^3 lg n)` time.
