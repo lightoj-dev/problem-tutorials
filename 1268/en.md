@@ -5,6 +5,8 @@ You are asked to find the number of strings of length `n` consisting of some res
 
 ### Solution
 
+_TL, DR; establish a recurrence for the solution and find out the n'th term using matrix exponentiation._
+
 Let's define `dp(n, m)` to be the number of such strings of length `n` that do not contain pattern `s` and have the first `m` characters of `s` prepended to the left of these `n` characters.
 We can think such strings to be of length `m + n` with the first `m` characters being the first `m` characters of `s`.
 
@@ -17,7 +19,7 @@ We can define `dp(0, m) = 1` for any `m < |s|` and to have value `0` elsewise.
 This is because, if we are left with no positions to put characters in to make a string, we must depend on how many characters has been matched with the pattern so far in the past (that is `m`).
 And since we don't like the pattern to be included, we can't let all of the pattern to be matched. So, `m` must be less than `|s|` to produce a desired string.
 
-Onto the transitios, how do we produce `dp(n, m)` given the values of `dp(n - j, m')`?
+Onto the transitios, how do we produce `dp(n, m)` given the values of `dp(n - 1, m')`?
 
 Suppose, `s = "abac"`, the allowed characters are `a, b, c, d`, and we are trying to figure out `dp(4, 3)`. We can consider those strings to be similar to `a b a _ _ _ _`.
 Let's put a character at the first underscore.
@@ -62,3 +64,8 @@ dp(0, m) = 1 (for m < |s|)
 dp(n, m) = for each m'
                + g(m, m') * dp(n - 1, m')
 ```
+
+Using matrices, we can write:
+![dp-def-mat](mat-def.gif)
+
+Using [matrix exponentiation](http://www.progkriya.org/gyan/matrix-expo.html), we can find `dp(n, 0)` for a given `n` in `O(|s|^3 lg n)` time.
