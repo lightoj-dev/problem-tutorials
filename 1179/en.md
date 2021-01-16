@@ -1,4 +1,4 @@
-# LOJ 1437 - Beehives
+# LOJ 1179 - Josephus Problem
 
 ## Summary
 
@@ -18,12 +18,10 @@ Try to think bottom to top recursive approach.
 
 The problem has following recursive structure.
 
-`
-    josephus(n) = (josephus(n - 1) + k-1) % n + 1
-    josephus(1) = 1
-`
+``josephus(n) = (josephus(n - 1) + k-1) % n + 1 `` <br>
+``josephus(1) = 1``
 
-After the first person (kth from beginning) is killed, n-1 persons are left. So we call josephus(n – 1) to get the position with n-1 persons. But the position returned by josephus(n – 1) will consider the position starting from k%n + 1. So, we must make adjustments to the position returned by josephus(n – 1).
+After the first person (kth from beginning) is killed, n-1 persons are left. So we call `josephus(n – 1)` to get the position with n-1 persons. But the position returned by `josephus(n – 1)` will consider the position starting from k%n + 1. So, we must make adjustments to the position returned by `josephus(n – 1)`.
 
 - Time Complexity: `O(N)` per test case.
 - Memory Complexity: `O(N)` per test case.
