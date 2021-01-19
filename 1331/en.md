@@ -5,11 +5,11 @@
 In this problem, you have to find following area of 3 circle if they ar enclosed with each other 
 ## Hint
 
-if you connect 3 center circle by line, a Tringle is form. Determine the area of circle and then minus the area of 3 sector of each circle
+If you connect 3 center circle by line, a Tringle is form. Determine the area of circle and then minus the area of 3 sector of each circle
 
 - Prerequisites-1 : Area of a sector of a circle
 - Prerequisites-2 : Area of tringle if 3 sides given
-- Prerequisites-3 : angle if 3 sides given
+- Prerequisites-3 : Angle if 3 sides given
 
 # Solution
 ## Approach
@@ -26,10 +26,10 @@ where,
 Find the angle of each vertex of the triangle by the following formula <br>
 <img src="eq3"> <br>
 <br>
-after that find the Area of a sector of a circle from the following equation and subtract it form the total area <br>
+After that find the Area of a sector of a circle from the following equation and subtract it form the total area <br>
 <img src="eq4"> <br>
 <br>
-where r = radius and theta = angle
+Where r = radius and theta = angle
 
 - Time Complexity: `O(1)` per test case.
 - Memory Complexity: `O(1)` per test case.
