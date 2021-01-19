@@ -26,7 +26,7 @@ This is a quadratic equation. Apply the formula of max/min for quadratic equatio
 
 The general form of a quadratic equation is : ` f(x) = y = ax^2 + bx + c ` <br>
 
-<img src="graph.png" width="400">
+<img src="graph.png" width="700">
 
 It can be proven by some basic calculus that : <br>
 1. if `a>0` ,  for `x = -b/2a` we get the minimum value of the curve `y = ax^2 + bx + c` <br>
