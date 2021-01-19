@@ -23,10 +23,10 @@ where,
 <img src="eq2"> <br>
 <br>
 
-Find the angle of each vertex of the triangle by the following formula
+Find the angle of each vertex of the triangle by the following formula <br>
 <img src="eq3"> <br>
 <br>
-after that find the Area of a sector of a circle from the following equation and subtract it form the total area
+after that find the Area of a sector of a circle from the following equation and subtract it form the total area <br>
 <img src="eq4"> <br>
 <br>
 where r = radius and theta = angle
