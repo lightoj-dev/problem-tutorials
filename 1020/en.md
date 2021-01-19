@@ -6,7 +6,7 @@ In this problem, you have to find the winner of the game if both Alice and Bob p
 
 The game is playing by alternating turns. In each turn a player can take exactly `1` or `2` marbles.
 
-Both of them know the number of marbles initially. Now the game can be started by any one. But the winning condition depends on the player who starts it. If Alice starts first, then the player who takes the last marble looses the game. If Bob starts first, then the player who takes the last marble wins the game.
+Both of them know the number of marbles initially. Now the game can be started by any one. But the winning condition depends on the player who starts it. If `Alice` starts first, then the player who takes the `last marble` `looses` the game. If `Bob` starts first, then the player who takes the `last marble` `wins` the game.
 
 ## Hint
 
