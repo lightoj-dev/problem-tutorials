@@ -18,16 +18,16 @@ A method for calculating the area of a triangle when you know the lengths of all
 
 Let a,b,c be the lengths of the sides of a triangle. The area is given by:
 
-<img src="eq1"> <br>
+<img src="eq1.png"> <br>
 where,
-<img src="eq2"> <br>
+<img src="eq2.png"> <br>
 <br>
 
 Find the angle of each vertex of the triangle by the following formula <br>
-<img src="eq3"> <br>
+<img src="eq3.png"> <br>
 <br>
 After that find the Area of a sector of a circle from the following equation and subtract it form the total area <br>
-<img src="eq4"> <br>
+<img src="eq4.png"> <br>
 <br>
 Where r = radius and theta = angle
 
