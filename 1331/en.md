@@ -19,7 +19,7 @@ A method for calculating the area of a triangle when you know the lengths of all
 Let a,b,c be the lengths of the sides of a triangle. The area is given by:
 
 <img src="eq1.png"> <br>
-where,
+where,<br>
 <img src="eq2.png"> <br>
 <br>
 
