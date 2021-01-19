@@ -1,20 +1,9 @@
 # LOJ 1216 - Juice in the Glass #
 ---
-Once upon a time, there lived a mad programmer. He loved to solve creative problems other than anything. His wife loved him quite a lot but disliked his curiosity for the problems. One day he came from office, his wife gave him a glass of cold lime juice. She was in a romantic mood and waiting for some romantic stuff. But the programmer asked her curiously, "If I give u radius of the top and bottom part of the glass and the height, can you come up with the volume of the glass?" His wife became a bit disappointed but as she is smart she replied with a smile, "You already have drunk some juice, and the glass is not full. If I give you the height of the juice, can you find the volume of the remaining juice in the glass?" Then the programmer kissed his wife and said, "You are the best problem setter in the world!"
 
 <p align = "center"><img src="problem1216.png"></p>
 
-Now he set the same problem for you. The radius of the upper part _r1_ and lower part _r2_ is given. If height of the glass is _h_ and height of the juice is _p_ what is the volume of the juice in the glass?
-
-### Input
-
-Input starts with an integer __T (≤ 100)__, denoting the number of test cases.
-
-Each case starts with a line containing four integers __r1 r2 h p (1 ≤ r2 < r1 ≤ 100, 1 ≤ p ≤ h ≤ 100)__.
-
-### Output
-
-For each case, print the case number and the volume of the juice in the glass. __Errors less than 10<sup>-6</sup> will be ignored.__
+The radius of the upper part _r1_ and lower part _r2_ is given. If height of the glass is _h_ and height of the juice is _p_ what is the volume of the juice in the glass?
 
 ## Solution
 
