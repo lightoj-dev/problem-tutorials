@@ -18,18 +18,18 @@ A method for calculating the area of a triangle when you know the lengths of all
 
 Let a,b,c be the lengths of the sides of a triangle. The area is given by:
 
-\\[ Area =  \sqrt{s(s-a)(s-b)(s-c)}  \\] <br>
+<img src="eq1"> <br>
 where,
-\\[ s = (a+b+c) \over 2  \\]
+<img src="eq2"> <br>
 <br>
 
 Find the angle of each vertex of the triangle by the following formula
-
-
-
-
-  
-
+<img src="eq3"> <br>
+<br>
+after that find the Area of a sector of a circle from the following equation and subtract it form the total area
+<img src="eq4"> <br>
+<br>
+where r = radius and theta = angle
 
 - Time Complexity: `O(1)` per test case.
 - Memory Complexity: `O(1)` per test case.
