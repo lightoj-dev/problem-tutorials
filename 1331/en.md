@@ -72,10 +72,6 @@ void _main_main()
 
 int main ()
 {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-
     int testCase = 1 ; cin >> testCase ;
     for (int i = 0; i < testCase; i++){
         cout << "Case " << i+1 << ": " ;
