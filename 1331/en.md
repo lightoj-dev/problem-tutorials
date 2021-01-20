@@ -13,6 +13,7 @@ If you connect 3 center circle by line, a Tringle is form. Determine the area of
 
 # Solution
 ## Approach
+<img src = "geom.png">
 
 A method for calculating the area of a triangle when you know the lengths of all three sides.
 
@@ -22,14 +23,21 @@ Let a,b,c be the lengths of the sides of a triangle. The area is given by:
 where,<br>
 <img src="eq2.png"> <br>
 <br>
+In our case the sides are a+b,b+c+c+a (See the picture above)
 
-Find the angle of each vertex of the triangle by the following formula <br>
+Let a be the opposite length of angle A. b,c are the side length of Angle A, The angle of each vertex of the triangle can be found by the following formula <br>
 <img src="eq3.png"> <br>
+In our case,<br>
+Opposite of angele A opp_A = b+c <br>
+Opposite of angele B opp_B = c+a <br>
+Opposite of angele C opp_C = a+b <br>
 <br>
 After that find the Area of a sector of a circle from the following equation and subtract it form the total area <br>
 <img src="eq4.png"> <br>
 <br>
-Where r = radius and theta = angle
+In our case the area of green sector of R1 circle, <br>
+r = a , <br>
+theta = angle A <br>
 
 - Time Complexity: `O(1)` per test case.
 - Memory Complexity: `O(1)` per test case.
@@ -48,9 +56,9 @@ double area(double r , double angle)
     return 0.5*r*r*angle ;
 }
 
-double angle(double a, double b, double c)
+double angle(double opp_A, double opp_B, double opp_C)
 {
-    return acos( ( (b*b)+(c*c)-(a*a) ) / (2*b*c) ) ;
+    return acos( ( (opp_B*opp_B)+(opp_C*opp_C)-(opp_A*opp_A) ) / (2*opp_B*opp_C) ) ;
 }
 
 
