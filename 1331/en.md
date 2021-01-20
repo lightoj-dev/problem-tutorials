@@ -23,7 +23,7 @@ Let a,b,c be the lengths of the sides of a triangle. The area is given by:
 where,<br>
 <img src="eq2.png"> <br>
 <br>
-In our case the sides are a+b,b+c+c+a (See the picture above)
+In our case the sides are a+b,b+c,c+a (See the picture above)
 
 Let a be the opposite length of angle A. b,c are the side length of Angle A, The angle of each vertex of the triangle can be found by the following formula <br>
 <img src="eq3.png"> <br>
