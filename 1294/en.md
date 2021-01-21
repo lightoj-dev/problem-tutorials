@@ -1,24 +1,5 @@
-# LOJ 1294 - Positive Negative Sign #
+# Positive Negative Sign #
 ---
-Given two integers: _n_ and _m_ and _n_ is divisible by _2m_, you have to first write down the first n natural numbers in the following form:
-
-   - At first take first m integers and make their sign negative
-   - Then take next m integers and make their sign positive
-   - The next m integers should have negative signs and continue this procedure until all the n integers have been assigned a sign.
-
-For example, let n be 12 and m be 3. Then we have -1 - 2 - 3 + 4 + 5 + 6 - 7 - 8 - 9 + 10 + 11 + 12. If n = 4 and m = 1, then we have -1 +2 -3 + 4.
-
-Now your task is to find the summation of the numbers considering their signs.
-
-### Input
-
-Input starts with an integer _T (≤ 10000)_, denoting the number of test cases.Each case starts with a line containing two integers: _n_ and _m_ _(2 ≤ n ≤ 10<sup>9</9>, 1 ≤ m)_. And you can assume that _n_ is divisible by _2*m_.
-
-
-### Output
-
-For each case, print the case number and the summation separated by a space.
-
 ## Solution
 
 The problem statement has confirmed that `n = 2*m`. Which means that the series is __always possible__ to be split up in _pairs_. Let's observe the `series` for example of `n = 12` and `m = 3` :
