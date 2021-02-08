@@ -320,8 +320,6 @@ foreach my $caseno (1..$cases) {
 ### Php
 -----
 ```php
-<?php
-
 $cases = intval(fgets(STDIN));
 for ($caseno = 1; $caseno <= $cases; ++$caseno) {
   $line = explode(" ", fgets(STDIN));
@@ -330,8 +328,6 @@ for ($caseno = 1; $caseno <= $cases; ++$caseno) {
 
   fwrite(STDOUT, 'Case ' . $caseno . ': ' . ($a + $b) . "\n");
 }
-
-?>
 ```
 
 ### Python 2
