@@ -17,14 +17,14 @@ For each case of input you have to print the case number and the smallest amount
 
 ## Solution
 
-One crucial **Objervation** is needed to solve this problem. As the cities are in a ring shape and the roads are in between them and also the roads are one-way, so we have only two ways by which we can make it possible to go any city from each city. We can either consider the circle/ring of the cities in clockwise or anti-clockwise. If we make all the roads in clockwise or anti-clockwise only then we can fulfil the conditions. 
+One crucial **Observation** is needed to solve this problem. As the cities are in a ring shape and the roads are in between them and also the roads are one-way, so we have only two ways by which we can make it possible to go any city from each city. We can either consider the circle/ring of the cities in clockwise or anti-clockwise. If we make all the roads in clockwise or anti-clockwise only then we can fulfil the conditions. 
 
-Now, we can get the ammount of money for both of the ways and then take the minimum of them. 
+Now, we can get the amount of money for both of the ways and then take the minimum of them. 
 
 
 ## Implementation
 
-We will use a two dimentional `vector` for storing the roads and a `map` for stroing the cost associated with a road, the key of the map will be the `pair` of the cities which is the endpoint of a road and the value will be the cost associated with that road. We willl store the roads in two dimentional `vector` as a two-way roads, because  it will help us to check both clockwise and anti-clockwise with two `for` loops easily.  
+We will use a two dimentional `vector` for storing the roads and a `map` for stroing the cost associated with a road, the key of the map will be the `pair` of the cities which is the endpoint of a road(according to the direction) and the value will be the cost associated with that road. We will store the roads in two dimensional `vector` as a two-way roads, because it will help us to check both clockwise and anti-clockwise with two `for` loops easily.  
 
 The code for taking the input is given below.
 
