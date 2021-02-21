@@ -1,4 +1,4 @@
-# LOJ 1000 - Greeting on LightOJ
+# LOJ 1000 - Greeting from LightOJ
 
 It is the easiest problem on LightOJ volumes. All you have to do is print out the sum of input `a` and `b` on each case. There is nothing tricky about it.
 
