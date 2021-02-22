@@ -5,8 +5,8 @@
 ---
 In this problem,
 - Your goal is to find out if it is possible to get drunk.
-- To get drunk you will have to maintain $$m$$ prerequisites.
-- In each prerequisite, You will be given two drinks $$a$$ and $$b$$. To get drunk succcessfully you have to take $$a$$ before having $$b$$.
+- To get drunk you will have to maintain **m** prerequisites.
+- In each prerequisite, You will be given two drinks **a** and **b**. To get drunk succcessfully you have to take **a** before having **b**.
 - Now, to get drunk, You must take all the drinks and also by maintaining all the prereqisites.
 
 ### Hint
@@ -25,7 +25,7 @@ You have take <soda> before <wine> and also
 ---
 So, we what we need to do is:
 - Make two lists and store **preDrink** and **postDrink**.
-- Then we need to search for $$(a,b)$$ and $$(b,a)$$ pairs.
+- Then we need to search for **(a,b)** and **(b,a)** pairs.
 - For **i***th* and **j***th* prerequisite if  ```preDrink[i] == postDrink[j] && preDrink[j] == postDrink[i]```  is true then we can say that we found two pairs like  `(a,b) and (b,a)`.
 - So, We will search for the above condition and if we find two pairs like that then we can say that is is not possible to get drunk. 
 - Otherwise it is possible to get drunk.
