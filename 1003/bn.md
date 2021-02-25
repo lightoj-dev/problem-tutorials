@@ -21,7 +21,7 @@
      <wine> এর আগে  <water> এবং
      <water>  এর আগে  <soda> খেতে হবে।
 ```
-<img src="https://github.com/codermehraj/problem-tutorials/blob/main/1003/relation.png?raw=true" width="35%" height="30%"> <br>
+![relation image](relation.png) <br>
 তাহলে তা সম্ভব হবে না কারন তা একটি cycle তৈরি করবে এবং একসাথে সবগুলো পূর্বশর্ত মানতে পারবে না। অর্থাৎ বলা যায় যে, মাতাল হবার জন্য পূর্বশর্তে কোনো cycle থাকতে পারবে না। 
 
 ### পূর্ণাঙ্গ সমাধান
