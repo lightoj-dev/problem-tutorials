@@ -17,7 +17,7 @@ Try to think in which case you will not be able to get drunk.
 ---
 If the prerequisite says that:
 ```html
-You have take <soda> before <wine> ,
+You have to take <soda> before <wine> ,
               <wine> brfore <water> also
               <water> before <soda>
 ```
