@@ -21,7 +21,7 @@ You have to take <soda> before <wine> ,
               <wine> brfore <water> also
               <water> before <soda>
 ```
-<img src="https://github.com/codermehraj/problem-tutorials/blob/main/1003/relation.png?raw=true" width="400" height="350"> <br>
+<img src="https://github.com/codermehraj/problem-tutorials/blob/main/1003/relation.png?raw=true" width="35%" height="30%"> <br>
 then it will not be possible because it creates a cycle of order and you cannot satisfy all the prerequisite in a cycle. So, You can only be drunk if the prereqisite do not create a cycle.
 
 ### Detailed Solution
