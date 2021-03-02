@@ -1,0 +1,3 @@
+Actually, I have read too many codes of this problem on net. And, most of them are accepted. But, No one passes the test case given by me. They all take 6 to 7 seconds at least.
+Depending on problem description, I couldn't find any bug in my test case. Can you review my case? The case has 10000 test cases and in every case the value of n is 999966000289.
+Thanks.
