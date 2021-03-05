@@ -11,10 +11,11 @@ So having a clear concept of the topic mentioned above, we can solve this proble
 At first we have to construct the hull by merging the upper and lower hull using the basic algorithm.Now there are two cases.
 1) If the hull consists of a single point: If it is true then we are to draw a circle around that point maintaining a distance of d from that point because that would ensure the minimum perimeter of the fence.Having a distance greater than d will only maximize the perimeter which we don't want to solve this problem.
 2) If the hull consists of points greater than one,then it might be impossible to draw a circle around all points so that the points have atleast distance of d.In that case,we need to draw a oval around it so that we can ensure a distance of d from all the points.
+
 Now assuming you have built the hull,now you might be wondering what if one point of the hull is very close to the centre while the other point is far off from the centre.How am I supposed to build the fence around such a hull?
 The answer to that is you don't have to manually calculate from each point to check minimum distance of d is ensured.What you need to do is calculate the perimeter of the convex hull.Now if you have a single point the hull,the perimeter is zero.
 But if the hull consists of more than one point you are to find the perimeter of the hull by summing up all the distance of two consective coordinating points using Euclidean Distance Formula.Now in hull we know that the last point is connected with the first point in that case you can use modulus operator to find the distance in that case.
-Now assuming you have found the perimeter of the convex hull,if the hull consists of a single point we can draw a circle around that point of radius d considering that point as the centre.Now that circle is the fence maintaing a distance of d from the only point.
+Now assuming you have found the perimeter of the convex hull,if the hull consists of a single point we can draw a circle around that point of radius d considering that point as the centre.Now that circle is the fence maintaing a distance of d from the point.
 As the perimeter is zero for a single point so perimeter of the fence is equal to the perimeter of the circle which equals to 2*pi*d
 Now if the hull consists of more than one point,we need to imagine the entire hull as a single point that is as a centre of a circle and we need to draw a circle around that maintaing a radius of d.
 Now in reality we can't draw a proper circle but mostly an oval is possible.But for better understanding imagine the hull itself is the centre and draw a circle around it having a radius of d.
@@ -77,7 +78,7 @@ vector<Point>convex_hull(vector<Point>v)
     {
         if(i==n-1 or acw(left,right,v[i]))
         {
-            while(up.size()>=2 and !cw(up[up.size()-2],up[up.size()-1],v[i])) //ignoring the collinear points since it will be 90 degree even if they are taken so we avoiding them
+            while(up.size()>=2 and !cw(up[up.size()-2],up[up.size()-1],v[i])) 
                 up.pop_back();
             up.push_back(v[i]);
         }
