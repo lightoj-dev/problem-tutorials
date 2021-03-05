@@ -1,7 +1,6 @@
 # LOJ 1239 - Convex Fence
 
-In this problem, you will be given `T` testcases. The first line of each test case contains an integer two integers `n` and `d` where `n` denotes the number of points and d is the minimum distance told to maintain from each and every of these coordinating points. The next line consists of `2*k` integers where the even indexed integers denote the position of gray pieces whereas the odd indexed integers denote the white pieces on the board.Now Alice, the first player gets to move the grey pieces to the right and the second player, Bob gets to move the white pieces of the board to the left.Now in each move either player can move from 0 to abs(Bob's-Alice's-1) pieces.
-The next n lines denotes the coordinates of the points.Now, in the problems statement it was told to draw fence around the convex hull we build,such that each of the points maintain a minimum distance of d.
+In this problem, you will be given `T` testcases. The first line of each test case contains an integer two integers `n` and `d` where `n` denotes the number of points and d is the minimum distance told to maintain from each and every of these coordinating points.The next n lines denotes the coordinates of the points.Now, in the problems statement it was told to draw fence around the convex hull we build,such that each of the points maintain a minimum distance of d and output the perimeter of such a fence.
 
 
 ### Approach:
@@ -10,7 +9,7 @@ In order to solve this problem, there are a few prerequisites that need to be fu
 So having a clear concept of the topic mentioned above, we can solve this problem.
 At first we have to construct the hull by merging the upper and lower hull using the basic algorithm.Now there are two cases.
 1) If the hull consists of a single point: If it is true then we are to draw a circle around that point maintaining a distance of d from that point because that would ensure the minimum perimeter of the fence.Having a distance greater than d will only maximize the perimeter which we don't want to solve this problem.
-2) If the hull consists of points greater than one,then it might be impossible to draw a circle around all points so that the points have atleast distance of d.In that case,we need to draw a oval around it so that we can ensure a distance of d from all the points.
+2) If the hull consists of points greater than one,then it might be impossible to draw a circle around all points so that the points have a minimum distance of d.In that case,we need to draw a oval around it so that we can ensure a distance of d from all the points.
 
 Now assuming you have built the hull,now you might be wondering what if one point of the hull is very close to the centre while the other point is far off from the centre.How am I supposed to build the fence around such a hull?
 The answer to that is you don't have to manually calculate from each point to check minimum distance of d is ensured.What you need to do is calculate the perimeter of the convex hull.Now if you have a single point the hull,the perimeter is zero.
