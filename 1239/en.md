@@ -25,7 +25,8 @@ Here are some resources of **How Convex Hull is generated** so that you can have
 - [SecondThread](https://www.youtube.com/watch?v=G51AjY8tIcA&t=1039s)(Basics of Convex Hull)
 - [MATH IF FUN](https://www.mathsisfun.com/algebra/distance-2-points.html)(Basics of Euclidean Distance)
 - [Bangladesh Advanced Computing Society - BACS](https://www.youtube.com/watch?v=XMxWarChnZ0)(Many Applications of Convex Hull)
-- [CP-Algorithm](https://cp-algorithms.com/geometry/grahams-scan-convex-hull.html)(Implementation of convex hull)
+- [CP-Algorithm](https://cp-algorithms.com/geometry/grahams-scan-convex-hull.html)(Implementation of convex hull) 
+
 If you are still stuck with this problem, check the code below:
 ### C++
 ```
