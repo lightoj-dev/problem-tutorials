@@ -18,7 +18,7 @@ But if the hull consists of more than one point you are to find the perimeter of
 Now assuming you have found the perimeter of the convex hull,if the hull consists of a single point we can draw a circle around that point of radius d considering that point as the centre.Now that circle is the fence maintaing a distance of d from the point.
 As the perimeter is zero for a single point so perimeter of the fence is equal to the perimeter of the circle which equals to 2*pi*d
 
-But, if the hull consists of more than one point,we need to imagine the entire hull as a single point that is as a centre of a circle and we need to draw a circle around that maintaing a radius of d.
+But, if the hull consists of more than one point,we need to imagine all the vertices of the hull as a single point that is as the centre of a circle and we need to draw a circle around that point maintaining a radius of d.
 Now in reality we can't draw a proper circle but mostly an oval is possible.But for better understanding imagine the hull itself is the centre and draw a circle around it having a radius of d.
 So ,perimeter of fence=perimeter of convex hull+perimeter of the circle=perimeter of convex hull+ 2*pi*d
 ### Resources:
@@ -29,8 +29,8 @@ Here are some resources of **How Convex Hull is generated** so that you can have
 - [CP-Algorithm](https://cp-algorithms.com/geometry/grahams-scan-convex-hull.html)(Implementation of convex hull)
 
 If you are still stuck with this problem, check the code below:
-### C++
 ```
+CPP
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long int
