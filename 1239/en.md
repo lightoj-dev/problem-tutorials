@@ -30,7 +30,7 @@ Here are some resources of **How Convex Hull is generated** so that you can have
 
 If you are still stuck with this problem, check the code below:
 
-###C++
+### C++
 ```cpp
 #include<bits/stdc++.h>
 using namespace std;
