@@ -29,8 +29,8 @@ Here are some resources of **How Convex Hull is generated** so that you can have
 - [CP-Algorithm](https://cp-algorithms.com/geometry/grahams-scan-convex-hull.html)(Implementation of convex hull)
 
 If you are still stuck with this problem, check the code below:
-```
-CPP
+###C++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long int
