@@ -6,6 +6,8 @@ We will be given the _cordinates_ of a circle's center and two _points_ on the _
 
 ## Solution
 
+![graph](1433.png "Geometry Explained")
+
 To solve it, we first must remember the formula to calculate the [arc length](https://en.wikipedia.org/wiki/Arc_length "arc length") between 2 points of a __circle__, which is 
 ```
 arc length = (radius of the circle) * (angle created by the 2 points at the center of the circle, in radian)
@@ -22,7 +24,7 @@ S is the arc length when θ = S/r
 So, S = θ * r
 ```
 
-We can calculate the radius of the circle simply by taking the _distanc_ of any _point of a circle_ to its _center_, __distance = √((P1<sub>x</sub> - P2<sub>x</sub>)² + (P1<sub>y</sub> - P2<sub>y</sub>)²)__.
+We can calculate the radius of the circle simply by taking the _distance_ of any _point of a circle_ to its _center_, __distance = √((P1<sub>x</sub> - P2<sub>x</sub>)² + (P1<sub>y</sub> - P2<sub>y</sub>)²)__.
 
 Now to calculate the _angle_ we can use the _cosine rule_ of triangles,
 ```
