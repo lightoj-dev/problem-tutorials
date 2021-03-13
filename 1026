@@ -1,15 +1,14 @@
 # LOJ 1026 - Critical Links 
-Problem summary brief goes here
+
 Suppose there is a interconnected network between several server or nodes,In these network some nodes are said critical link which generates two disjoint(there is no other path) sub-networks such that any two servers of a sub-network are interconnected
 
 ## Solution
-Solution explanation starts from here
-It is a very basic problem in Bridge(graph) concept ...Actually we need to find how many bridges exists in this graph.Taking input of graph is interesting.First we construct graph and run DFS tree to find back edge and forward edge using discovery time and low time(means there is another path exists).and finally make pair of vertices and print it.
 
-Bridge concept: A bridge is defined as an edge which when romoved makes graphs disconnected.More precisely it increases number of connected component.Why we use DFS The idea behind this it will create the simple structure of the graph we can easily determine backedge.backedge is nothing but it says a node has multiple path to reach so we can there is a cycle. a cycle can't be a bridge.try to figure out. 
+It is a very basic problem in Bridge(graph) concept ...Actually we need to find how many bridges exists in this graph.Taking input of graph is interesting.First we construct graph and run DFS tree to find back edge and forward edge using discovery time and low time(means there another path exists). And finally make pair of vertices and print it.
 
-```cpp```
-//start writing code from here
+Bridge concept: A bridge is defined as an edge which when romoved makes graphs disconnected. More precisely it increases number of connected components. Why we use DFS The idea behind this is that it will create the simple structure of the graph and so we can easily determine backedge. Backedge is nothing but it says a node has multiple path to reach so we can confirm there is a cycle. A cyclic path can't be a bridge. Try to figure out. 
+
+```cpp
 
 #include<bits/stdc++.h>
 #define vi vector<int>
@@ -91,7 +90,9 @@ int main()
     }
 
 
-    return 0; //Last line of your code
+    return 0; 
 
-    ```
+    
 }
+
+```
