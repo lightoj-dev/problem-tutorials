@@ -6,7 +6,7 @@ Suppose there is a interconnected network between several server or nodes,In the
 
 It is a very basic problem in Bridge(graph) concept ...Actually we need to find how many bridges exists in this graph.Taking input of graph is interesting.First we construct graph and run DFS tree to find back edge and forward edge using discovery time and low time(means there another path exists). And finally make pair of vertices and print it.
 
-Bridge concept: A bridge is defined as an edge which when romoved makes graphs disconnected. More precisely it increases number of connected components. Why we use DFS The idea behind this is that it will create the simple structure of the graph and so we can easily determine backedge. Backedge is nothing but it says a node has multiple path to reach so we can confirm there is a cycle. A cyclic path can't be a bridge. Try to figure out. 
+Bridge concept: A bridge is defined as an edge which when romoved makes graphs disconnected. More precisely it increases number of connected components. Why we use DFS? The idea behind this is that it will create the simple structure of the graph and so we can easily determine back edge/forward edge. Back edge/forward edge is nothing but it says a node has multiple path to reach so we can confirm there is a cycle. A cyclic path can't be a bridge. Try to figure out. 
 
 ```cpp
 
