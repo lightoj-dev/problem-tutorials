@@ -1,6 +1,6 @@
 # LOJ 1026 - Critical Links 
 
-Suppose there is a interconnected network between several server or nodes,In these network some nodes are said critical link which generates two disjoint(there is no other path) sub-networks such that any two servers of a sub-network are interconnected
+Suppose there is a interconnected network between several server or nodes, in these network some nodes are said to be critical link which generates two disjoint (there is no other path) sub-networks such that any two servers of a sub-network are interconnected.
 
 ## Solution
 
