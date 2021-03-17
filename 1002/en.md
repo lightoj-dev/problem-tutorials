@@ -45,7 +45,7 @@ __All the possible paths for `1 to 2`__:
 | 1 -- 0 -- 2   | 9        | No      |
 | 1 -- 4 -- 2   | 7       | From `8` to `7`     |
 
-This is how we are traversing, leaving no path untried. We just update the distance array/list for `[1,2] = 7` as it is the _minimum_. We are only updating the cost of the _destination_. We do this repeat this process for from _home town_ to all the other cities.
+This is how we are traversing, leaving no path untried. We just update the distance array/list for `[1,2] = 7` as it is the _minimum_. We are only updating the cost of the _destination_. We repeat this process for from _home town_ to all the other cities and ultimately get the distance array/list.
 
 __What would happen if we had marked to avoid repetition so that we find _just one single optimal path to travel them all in 1 go_?__
 
