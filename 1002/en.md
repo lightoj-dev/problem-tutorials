@@ -1,19 +1,19 @@
 # LOJ 1002 - Country Roads
 ---
-Tags : graph, single source shortest path,
+Tags : graph, single source shortest path
 
 
 We will be given information of an area map (_undirected graph / bi-directional graph_) through the number of cities (_nodes_),number of roads (_edges_) in total and the cost (_weight_) for each _pair_ of linked cities via the road. And we will also be given __t__ the home town (_the staring node_) and we have to print out the minimum cost to reach this town from other cities.
 
 ### Helpful Resources
 
-* [Graph (abstract data type)](https://en.wikipedia.org/wiki/Graph_(abstract_data_type) "Graph (abstract data type) - WikiPedia")
+* [Graph (abstract data type) - Wikipedia](https://en.wikipedia.org/wiki/Graph_(abstract_data_type) "Graph (abstract data type) - WikiPedia")
 
-* [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm "Dijkstra's algorithm - WikiPedia")
+* [Dijkstra's algorithm - Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm "Dijkstra's algorithm - WikiPedia")
 
 * [Dijkstra’s shortest path algorithm - GeeksForGeeks](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/ "Dijkstra’s shortest path algorithm | Greedy Algo-7")
 
-* [Abdul Bari's Explanation of Dijsktra (Video)](https://www.youtube.com/watch?v=XB4MIexjvY0 "Abdul Bari's Explanation of Dijsktra - YouTube")
+* [Explanation of Dijsktra (Video)](https://www.youtube.com/watch?v=XB4MIexjvY0 "Abdul Bari's Explanation of Dijsktra - YouTube")
 
 
 ## Solution
@@ -32,7 +32,9 @@ We at first __update__ the __cost__ if the two cities have _directly_ connected 
 ```
 In this case, `0 1 5` and `0 1 4` are inputs for `0 -- 1` edge along with the weight/cost. We will `update` while taking `inputs` and update from `cost[0,1] = 5` to `cost[0,1] = 4` as it is minimum among those two __directly connected edges__.
 
-Now we need to traverse and update costs. We will go full __brute force__ by not leaving any route for a _home town_ to _another city_ untried. For example:
+
+
+Now we need to traverse and update costs. We will take another graph example to discuss how we are traversing. We will go full __brute force__ by not leaving any route for a _home town_ to _another city_ untried. For example:
 
 ![graph](graph.png "Example")
 
@@ -52,7 +54,7 @@ __What would happen if we had marked to avoid repetition so that we find _just o
 | Current City      | Visited |  Next City (City with lower cost) | Update | Highest Road Cost |
 | :--- | :--- | :--- | :---| :---|
 | 1 | {} | 0  | [1,0] = 2| 2|
-| 0 |{0}|   3|[1,3] = 3 | 3|
+| 0 |{0}|   3|[1,3] = 6 | 6|
 |3| {0,3}| 4 | [1,4] = 8|8|
 |4|{0,3,4}|2| [1,2] = 8| 8|
 |2|{0,3,4,2}|All City Traversed| N/A | 8|
