@@ -20,7 +20,7 @@ Let's calculate for each prime (until *n*) the maximum power *a* of this prime *
 So, for each prime *p<sub>i</sub>* until *n*, we calculate *a<sub>i</sub>* , which is the maximum power of that prme till *n*. Then, *lcm =  p<sub>1</sub><sup>a<sub>1</sub></sup> . p<sub>2</sub><sup>a<sub>2</sub></sup> . ... . p<sub>k</sub><sup>a<sub>k</sub></sup>* , which is the required answer.
 
 #### Problem with Naive Solution
-*n* can be equal to *10<sup>8*, and *T* can be equal to *10<sup>4</sup>* . There are rougly *k = 6x10<sup>6</sup>* primes till  *10<sup>8* . So for each case, if we intend to use the naive solution, the complexity for each case would be *O(k log n)*, where *k* is the number of prime factors till *n*. So, total complexity will be *O(Tk log n)* , which won't pass the time limit of  4s.
+*n* can be equal to *10<sup>8*, and *T* can be equal to *10<sup>4</sup>* . There are roughly *k = 6x10<sup>6</sup>* primes till  *10<sup>8* . So for each case, if we intend to use the naive solution, the complexity for each case would be *O(k log n)*, where *k* is the number of prime factors till *n*. So, total complexity will be *O(Tk log n)* , which won't pass the time limit of  4s.
 
 ### Observations
 
@@ -112,11 +112,10 @@ int main() {
         uint ans = 1;
 
         int idx =  upper_bound(primes, primes + psz, n) - primes;
-        //upper_bound gives the smallest prime greater than n
+        //upper_bound gives the iterator to the smallest prime greater than n
         //idx contains it's index
 
-        idx--; //now, idx contains the index of the largest prime
-        //not greater than n
+        idx--; //now, idx contains the index of the largest prime not greater than n
 
         ans *= mul[idx];
         for (int i = 0; i < psz; i++) {
@@ -133,12 +132,10 @@ int main() {
                 a++;
             }
 
-            ans *= pow(p, a - 1); //multiplying by a-1 since we took these primes
-            //once before.
+            ans *= pow(p, a - 1); //multiplying by p^(a-1) since we took these primes once before
         }
 
-        //answer is already calculated modulo 2^32
-        //because of taking unsigned integer
+        //answer is already calculated modulo 2^32 because of taking unsigned integer
         printf("%lld\n", ans);
     }
 }
