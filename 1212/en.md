@@ -7,20 +7,21 @@
 Example : if the query is "popLeft" or "popRight" and the double ended queue is empty than we can't perform these operations and have to print "The queue is empty"
 Same way if the query is "pushLeft" or "pushRight" while the double ended queue is full (it's size equals to 'm') you can't perform those operations and have to print "The queue is full".
 
-*If you don't know about a double ended queue data stracture check these links*
-*[Double ended queue on Wikipedia](https://en.wikipedia.org/wiki/Double-ended_queue)
-*[Youtube video explaining double ended queue](https://www.youtube.com/watch?v=j3rvizohd0I)
+If you don't know about a double ended queue data stracture check these links:
+1. [Double ended queue on Wikipedia](https://en.wikipedia.org/wiki/Double-ended_queue)
+2. [Youtube video explaining double ended queue](https://www.youtube.com/watch?v=j3rvizohd0I)
 ---
-###Solution Code###
+###Solution Code
+
 Here's an accepted code for the problem implemented in C++.
 Note: <deque> is C++'s built in implementation for double ended queues. Your specific programming language may have a different implementation for double ended queues.   
 If you don't know about "deque" in C++ you can check out these blogs:
-*[Geek for Geeks blog on deque](https://www.geeksforgeeks.org/deque-cpp-stl/)
-*[More in depth about deque by cplusplus.com](https://www.cplusplus.com/reference/deque/deque/)
+1. [Geek for Geeks blog on deque](https://www.geeksforgeeks.org/deque-cpp-stl/)
+2. [More in depth about deque by cplusplus.com](https://www.cplusplus.com/reference/deque/deque/)
 ---
 **Code :**
 
-```
+```cplusplus
 #include<bits/stdc++.h>
 
 using namespace std;
