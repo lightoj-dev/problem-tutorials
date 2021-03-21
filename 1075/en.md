@@ -47,7 +47,7 @@ Now if we have done everything according to above mentioned procedures, we will 
 
 Now since we know the __ultimate start point__, we also have __what is next, after that, then again after that... to the ultimate end point__.
 
-Now if we just loop following up to the number of `steps` required, we get all the outputs.
+Now if we just loop the following until the number of `steps` required, we get all the outputs.
 ```
 Current Place's Name = <Unique Number, Place>[Current Place's ID]
 Next Place's ID = Next Destination[Current Place's ID]
@@ -112,16 +112,16 @@ int main()
             }
 
             /*
-            Remember we are upgrading the matrix in a one way directed fashion.
-            Thus when a count of a place is 1 but relation matrix has 0 for that uniqueNumber,
-            it means that the place is the ultimate end point.
+            Remember we are updating the array for one direction.
+            Thus, when a count of a place is 1 but nextDestination array has 0 for that uniqueNumber,
+            means that the place is the ultimate end point.
             And when count is relation is not 0 and count is not more than 1,
-            it means it is the ultimate start point.
+            it means that it is the ultimate start point.
             */
 
-            //Updating a one way directed relation
+            //Updating a for the next point
             nextDestination[placeIndexMap[firstPoint]] = placeIndexMap[secondPoint];
-            //We won't be updating the relationship matrix for the other way around
+            //We won't be updating the nextDestination for the other way around
 
             count[placeIndexMap[firstPoint]]++;//Incrementing how many places are directly linked
             count[placeIndexMap[secondPoint]]++;//Incrementing how many places are directly linked
