@@ -1,4 +1,4 @@
-#LOJ-1212: Double Ended Queue tutorial
+# LOJ-1212: Double Ended Queue tutorial
 ---
 **What the problem wants**:You will be given 'n' queries & 'm' as the maximum size of a double ended queue. Depending on the queries you will have to print what kind of actions you performed on the double ended queue based on the queries and the value on which you performed the query.
 
@@ -11,7 +11,7 @@ If you don't know about a double ended queue data stracture check these links:
 1. [Double ended queue on Wikipedia](https://en.wikipedia.org/wiki/Double-ended_queue)
 2. [Youtube video explaining double ended queue](https://www.youtube.com/watch?v=j3rvizohd0I)
 ---
-###Solution Code
+### Solution Code
 
 Here's an accepted code for the problem implemented in C++.
 Note: <deque> is C++'s built in implementation for double ended queues. Your specific programming language may have a different implementation for double ended queues.   
@@ -21,7 +21,7 @@ If you don't know about "deque" in C++ you can check out these blogs:
 ---
 **Code :**
 
-```cplusplus
+```cpp
 #include<bits/stdc++.h>
 
 using namespace std;
