@@ -1,6 +1,6 @@
 # LOJ-1009: Back to Underworld
 ---
-**What the problem wants :**You will be given 'n' number of fights between lykans and vampires. The fight will be given as two numbers 'u' and 'v'. And we have to find the maximum number of lykan or vampire. We will need to output the maximum number of members, not which faction they belong to.
+**What the problem wants :** You will be given 'n' number of fights between lykans and vampires. The fight will be given as two numbers 'u' and 'v'. And we have to find the maximum number of lykan or vampire. We will need to output the maximum number of members, not which faction they belong to.
 
 **General approach to solution :** This can be identified as a graph problem. Where 'n' is the number of edges in a graph and 'u' and 'v' are connected nodes of an edge. lets consider the fact that each node can either represent a lykan or a vampire and can never be both. This means there can be at most two types of nodes. The answer will be the maximum between the sum of nodes. If there is total 10 nodes that are lykan and 5 that are vampire (or vice-versa) than the answer will be 10.
 One thing to remember is we can't explicitly say which node is lykan or vampire and we don't need to either.
@@ -13,7 +13,7 @@ So these are the steps we will take to solve the problem:
 **Technical Notes :** The input dataset for this problem is huge. This means using any inefficient method for taking inputs will result in exceeding the time limit. So, make sure to use very fast implementation of input and output methods of which ever language you are using. For example:
 in C++ using "cin" & "cout" might result in time limit exceeding even if the entire implementation is algorithmically correct . This can be avoided by using "scanf" and "printf".
 
-**Additional Resources:**If you don't know what BFS, adjacency matrix or graphs are you can check these awesome resources:
+**Additional Resources:** If you don't know what BFS, adjacency matrix or graphs are you can check these awesome resources:
   * [Graph Representation by geeksforgeeks](https://www.geeksforgeeks.org/graph-and-its-representations/)  
   * [Breadth First Search(BFS) by wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search)
   * [BFS visualization by william fiset on youtube](https://www.youtube.com/watch?v=oDqjPvD54Ss)
