@@ -12,7 +12,9 @@ In the example there are 2 members living in the 2nd and 3rd city, there are tot
 
 In the image we can see that there are only two cities (3rd & 4th) that are reachable by all members.
 Member from city-2 can go in a manner of 2 -> 3 -> 4.
-Member form city-3 can go in a manner of 3 -> 4.
+Member form city-3 can go in a manner of 3 -> 4. 
+
+This shows that only city 3 & 4 can be reached by all members. Making the answer = 2.  
 
 Algorithmic steps to solve the problem:
   1. Take inputs and store in appropriate data structure
