@@ -17,6 +17,7 @@ Now, when `n>=k` at first we can choose any cell from the board so for the first
 
 
 |R| | | | |
+|--- | ---| ---|--- |--- |
 | | | | | |
 | | | | | |
 | | | | | |
