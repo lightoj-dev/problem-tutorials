@@ -5,6 +5,7 @@ Tags : Logarithms, Base Conversion, Factorials, Memoization
 We will be given the value of __N__, and the basis of the _number system_, __base__. We need to find out the number of digit(s) of the factorial of an integer  (__N!__) in that __base__.
 
 ### Helpful Resources
+* [Logarithm - Britannica](https://www.britannica.com/science/logarithm#ref233783 "britannica")
 * [Logarithm - Wikipedia](https://en.wikipedia.org/wiki/Logarithm "WikiPedia")
 * [Memoization (1D, 2D and 3D) - Geeks for Geeks](https://www.geeksforgeeks.org/memoization-1d-2d-and-3d/ "Geeks for Geeks")
 
@@ -18,7 +19,7 @@ Let's observe what we get when we put __base - 10__ numbers in __log<sub>10</sub
 
 |Number|log<sub>10</sub>(Number)|⌊log<sub>10</sub>(Number)⌋|Digits|
 |:--|:--|:--|:--|
-|{0, ..., 9}|0.{something}|0|1|
+|{1, ..., 9}|0.{something}|0|1|
 |{10, ..., 99}|1.{something}|1|2|
 |{100, ..., 999}|2.{something}|2|3|
 |...|...|...|...|
