@@ -15,8 +15,8 @@ Let's clear our understanding about the problem
 
 Now, when `n>=k` at first we can choose any cell from the board so for the first rook we have n * n options to choose a place. After we place the first rook it occupies exactly one cell from each column and row( see below table). So for the next rook we have a (n-1)* (n-1) square board free options to choose. And for the next one (n-2) * (n-2) square board free options to choose. And so on. 
 For k rooks our number of choice is `n`<sup>`2`</sup>` * (n-1)`<sup>`2`</sup>` * (n-2)`<sup>`2`</sup>` * (n-3)`<sup>`2`</sup>`.....* (n-k+1)`<sup>`2`</sup>
-But in real we know that there is some duplicate ways as all rooks are same. The rooks can make k! way of formation without changing there position so we take only one. So our number distinct rooks palcing is:
-``(n<sup>2</sup> * (n-1)<sup>2</sup> * (n-2)<sup>2</sup> * (n-3)<sup>2</sup>.....* (n-k+1)<sup>2</sup>)/(k!)``
+But in real we know that there is some duplicate ways as all rooks are same. The rooks can make k! way of formation without changing there position so we take only one. So our number distinct rooks palcing is:<br>
+<strong>(n<sup>2</sup> * (n-1)<sup>2</sup> * (n-2)<sup>2</sup> * (n-3)<sup>2</sup>.....* (n-k+1)<sup>2</sup>)/(k!)<strong>
 
 
 
