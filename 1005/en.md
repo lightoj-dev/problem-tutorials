@@ -13,13 +13,14 @@ Let's clear our understanding about the problem
 2) As rook cannot be an attacking position every placement of a new rook will hold a new row and a new column as well.
   a) so if there is more rook than the square length then there is `zero` way to place all the rooks.
 
-Now, when `n>=k` at first we can choose any cell from the board so for the first rook we have n * n options to choose a place. After we place the first rook it occupies exactly one cell from each column and row( see below table).
+Now, when `n>=k` at first we can choose any cell from the board so for the first rook we have n * n options to choose a place. After we place the first rook it occupies exactly one cell from each column and row( see below table). So for the next rook we have a (n-1)* (n-1) square board free options to choose. And for the next one (n-2) * (n-2) square board free options to choose. And so on.
+
 
 
 | |✔ | | |✔| |
 |--- |---| ---| ---|--- |--- |
 | |✔| | |✔| |
-|✔|rook|  |✔|✔|✔|
+|✔|rook| ✔|✔|✔|✔|
 | |✔| | |✔| |
 | |✔| | |✔| |
 |✔|✔| ✔| ✔|rook |✔|
