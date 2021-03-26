@@ -16,9 +16,10 @@ Let's clear our understanding about the problem
 Now, when `n>=k` at first we can choose any cell from the board so for the first rook we have n * n options to choose a place. After we place the first rook it occupies exactly one cell from each column and row( see below table).
 
 
-| |✔ | |✔| |
-|--- | ---| ---|--- |--- |
-| |✔| |✔| |
-|✔|rook |✔|✔|✔|
-| |✔| |✔| |
-|✔|✔|✔|rook |✔|
+| |✔ | | |✔| |
+|--- |---| ---| ---|--- |--- |
+| |✔| | |✔| |
+|✔|rook|  |✔|✔|✔|
+| |✔| | |✔| |
+| |✔| | |✔| |
+|✔|✔| ✔| ✔|rook |✔|
