@@ -8,10 +8,13 @@ array.The next line consists of elements of the array.Now, in the problems state
 In order to solve this problem, there are a few prerequisites that need to be fulfilled which are: you need to have a basic understanding of Modular Arithmetic.The tutorials are given below in the "Resources" section.
 
 So having a clear concept of the topic mentioned above, we can solve this problem.
+
 res = ( res + A[i1] + A[i2] + ... + A[iK] ) % MOD;
+
 It has been executed for n^k times, and k numbers are added each time, so a total of k * n^k numbers will be added
 At the same time, we can also find that the number of times each number of the n numbers is added to the `res` variable is same.Then each number is added for (k * n^k) / n = k * n^(k-1) times
 So the sum = a1 *k * n^(k-1) + a2 * k * n^(k-1) + …… +an * k * n^(k-1) = (a1+a2+……+an) * k * n^(k-1) = sum * k * n^(k-1)
+
 Then we use modular exponentiation to compute the value of n^(k-1).
 Note that we need to take the modulus in each and every steps, and also take the modulus when summing the sum.
 
