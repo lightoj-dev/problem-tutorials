@@ -21,6 +21,23 @@ deleting the node, So it plainly boils down to the topic of articulation points 
 implementation using Tarjan's algorithm. I have added the resources above for understanding and also have commented some
 corner cases inside the code where understanding can be missed, so those can be helpful.
 
+Example: 
+- For the graph
+```
+5 4
+2 1
+1 3
+5 4
+4 1
+```
+              2
+              |
+              |
+       3 ---- 1 --- 4 --- 5
+
+> It is clear that if we remove vertices 1 and 4, they will break the graph into two components plus they are not even
+end nodes hence ans for it is `2`.
+
 
 ## Time Complexity
 
@@ -37,7 +54,6 @@ using namespace std;
 ////////////////////////////////////////////////
 //   Author: Vikram Singh                     //
 //   Handle: maverickjoy                      //
-//   Github: https://github.com/maverickjoy   //
 ////////////////////////////////////////////////
 
 
@@ -197,4 +213,4 @@ int main()
 ## Author
 
 - Vikram Singh 
-- Find me at [linkedin](https://www.linkedin.com/in/maverickvikram/)
+- Find me at [LOJ](https://lightoj.com/user/maverickjoy)
