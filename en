@@ -59,7 +59,7 @@ typedef long long ll;
 
 void compute(ll a, ll b){
     ll x = __gcd(a,b);
-    printf(" %lld/%lld\n",a/x,b/x);
+    printf("%lld/%lld\n",a/x,b/x);
 }
 
 int main()
@@ -76,7 +76,7 @@ int main()
             if(a[i]<0) neg_sum++;
         }
         printf("Case %lld: ",no++);
-        if(neg_sum == n) printf(" inf\n");
+        if(neg_sum == n) printf("inf\n");
         else compute(sum,n-neg_sum);
     }
     return 0;
