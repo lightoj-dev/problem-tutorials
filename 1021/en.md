@@ -6,12 +6,13 @@ Input starts with an integer _T_ (≤ 100), denoting the number of test cases.
 Each case starts has 3 inputs namely base of the number, and the number k, through which we have to check divisibility and lastly a string of character representing the number.Also the question states that leading zeroes in permutation is allowed.
 
 It is given that all characters are distinct, so maximum characters can be 16, and to find do this we will use bitmask and DP.
-dp[mask][rem] reprensents, the the number of permutation of digits corresponding to indices of set bits in the input string and having remainder rem when divided with k.
 
 ```
 for all i such that i is not set in mask:
        dp[mask | (1 << i)][(rem * base + digit[i]) % k] += dp[mask][rem]
 ```
+
+dp[mask][rem] reprensents, the the number of permutation of digits corresponding to indices of set bits in the input string and having remainder rem when divided with k.
 
 now the question is how we reached the dp states, if we have currently remainder **rem** and we add digit **dig** in last then the effective number will be _(rem\*base)+dig_ and again we take remainder by k, and also update mask.
 
@@ -19,7 +20,7 @@ This question is similar to [this question](https://codeforces.com/problemset/pr
 
 ## Solution in C++
 
-```
+```cpp
 // Author: masked_huh
 // Created: 2021-04-12 23:08:14
 
