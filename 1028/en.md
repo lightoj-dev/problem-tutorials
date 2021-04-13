@@ -21,7 +21,7 @@ So, the answer will be d(n)-1.
 
 
 # Solution of the problem in C++ 
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 #define m 1000010
