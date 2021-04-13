@@ -48,7 +48,7 @@ int main()
         }
 
         /* if the number N is divided by some prime number than
-        sum has to be multiped by (1+1) where first 1 is the number of
+        sum has to be multiped by (1+1) where first 1 is the count of
         that prime number, N is divisible by and second 1 is the plus one
         of the formula. */
 
