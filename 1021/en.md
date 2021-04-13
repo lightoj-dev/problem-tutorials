@@ -3,18 +3,20 @@
 ---
 
 Input starts with an integer _T_ (≤ 100), denoting the number of test cases.
-Each case starts has 3 inputs namely base of the number, and the number k, through which we have to check divisibility and lastly a string of character representing the number.Also the question states that leading zeroes in permutation is allowed.
+Each case has 3 inputs namely base of the number, and the number k, through which we have to check divisibility and lastly a string of character representing the number.Also the question states that leading zeroes in permutation is allowed.
 
-It is given that all characters are distinct, so maximum characters can be 16, and to find do this we will use bitmask and DP.
+It is given that all characters are distinct, so maximum characters can be 16, and to solve this problem we will use bitmask and DP.
 
 ```
 for all i such that i is not set in mask:
        dp[mask | (1 << i)][(rem * base + digit[i]) % k] += dp[mask][rem]
 ```
 
-dp[mask][rem] reprensents, the the number of permutation of digits corresponding to indices of set bits in the input string and having remainder rem when divided with k.
+where `dp[mask][rem]` reprensents, the the number of permutations possible now that some digits are already fixed and a remainder `rem` (after dividing by `k`) is achieved so far; the fixed digits have corresponding bits set in `mask`.
 
-now the question is how we reached the dp states, if we have currently remainder **rem** and we add digit **dig** in last then the effective number will be _(rem\*base)+dig_ and again we take remainder by k, and also update mask.
+Now the question is how we reached the dp states, if we have currently remainder **rem** and we add digit **dig** in last then the effective number will be _(rem\*base)+dig_ and again we take remainder by k, and also update mask.
+
+It is worth noting that `dp[mask = 0][rem = 0] = 1`.
 
 This question is similar to [this question](https://codeforces.com/problemset/problem/401/D), you can check that also, and if you are facing how dp reduced time check [this](https://codeforces.com/blog/entry/20076) and [this](https://codeforces.com/blog/entry/19423) link.
 
