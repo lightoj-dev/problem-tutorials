@@ -35,7 +35,9 @@ The binary value will be 10100
 
 ## Solution of the problem in C++
 
+
 ```cpp
+
 #include<stdio.h>
 int binaryToDecimal(int n)
 {
@@ -49,7 +51,7 @@ int binaryToDecimal(int n)
         dec_value += last_digit * base;
          base = base * 2;
     }
-return dec_value;
+    return dec_value;
 }
 int main()
 {
@@ -58,22 +60,23 @@ int main()
     scanf("%d",&t);
     for(i=1;i<=t;i++)
     {
-    scanf("%d%c%d%c%d%c%d",&a1,&s,&b1,&s,&c1,&s,&d1);
-    scanf("%d%c%d%c%d%c%d",&a2,&s,&b2,&s,&c2,&s,&d2);
+        scanf("%d%c%d%c%d%c%d",&a1,&s,&b1,&s,&c1,&s,&d1);
+        scanf("%d%c%d%c%d%c%d",&a2,&s,&b2,&s,&c2,&s,&d2);
 
-    a2=binaryToDecimal(a2);
-    b2=binaryToDecimal(b2);
-    c2=binaryToDecimal(c2);
-    d2=binaryToDecimal(d2);
+        a2=binaryToDecimal(a2);
+        b2=binaryToDecimal(b2);
+        c2=binaryToDecimal(c2);
+        d2=binaryToDecimal(d2);
 
-    if(a1==a2 && b1==b2 && c1==c2 && d1==d2)
-    {
-        printf("Case %d: Yes\n",i);
+        if(a1==a2 && b1==b2 && c1==c2 && d1==d2)
+        {
+            printf("Case %d: Yes\n",i);
+        }
+        else
+        {
+            printf("Case %d: No\n",i);
+        }
     }
-    else
-    {
-        printf("Case %d: No\n",i);
-    }
+    return 0;
 }
-return 0;
-}
+```
