@@ -6,7 +6,7 @@ If P(i) represents probability of choosing door i and T(i) represents time to ge
 then for n number of doors,<br>
                 Mathematical Expectation,<br> `E = P(1)*T(1) + P(2)*T(2) + P(3)*T(3) + ...... + P(n)*T(n)`<br>
 
-Let's begin with analyzing the 3rd test case of the sample test case. 
+Let's begin with analyzing the 3rd test of the sample test case. 
 The 3rd test case is -
 
 3<br>
@@ -23,7 +23,7 @@ Now, we need to calculate T(i) for i = 1, 2, 3<br>
 
 If __i = 1__ i.e if we choose 1st door it would take us straight out of the maze. So __T(1) = 3__<br>
 If __i = 2__ i.e if we choose 2nd door it would take 6 minutes but would return us to the same position!<br>
-  So, sadly _**we would have to start the whole process onece again. As we assumped before that the final expected time is E, therefore we can safely say that for starting the whole process once again we will need E minutes more!**_<br>
+  So, sadly _**we would have to start the whole process once again. As we assumed before that the final expected time is E, therefore we can safely say that for starting the whole process once again we will need E minutes more!**_<br>
   Thus time to get out of the maze if we choose 2nd gate<br>
   T(2) = Time to return to the same position + Expected time to get out of the maze for starting the process from beginning
   Therefore, __T(2) = 6 + E__<br>
@@ -35,20 +35,20 @@ So, finally,<br>
             `(1/3)*(3*E - 2*E) = (1/3)*(3 + 6 + 9)`<br>
             `E*(3 - 2) = (3 + 6 + 9)` (Diving both sides by 1/3)<br>
        and, __E = (3 + 6 + 9)/(3 - 2) ......... (1)__<br>
-       which ultimately yeilds, _**E = 18 / 1**_, which is our answer.<br>
+       which ultimately yields, _**E = 18 / 1**_, which is our answer.<br>
       
-If we look at equation (1), we can see,<br> __`3 + 6 + 9` is the sum of absoloute value of timetaken by each door.__<br> And, 3 is the number of doors and 2 is the number of reverse doors(doors that returns to the same postion). In other word, __`(3-2)` is the number of doors that can get us out of the maze.__
+If we look at equation (1), we can see,<br> __`3 + 6 + 9` is the sum of absolute value of time taken by each door.__<br> And, 3 is the number of doors and 2 is the number of reverse doors (doors that returns to the same postion). In other word, __`(3-2)` is the number of doors that can get us out of the maze.__
 
-So, now we can have a genaralized solution for this problem,<br>
+So, now we can have a generalized solution for this problem,<br>
           ``` E = (sum of absolute value of the given times) / (number of gates that can take us out of the maze) ```
    
 As, the output format is p/q, so both the the numbers divded by their GCD will be the ultimate solution.
 
 ### Special Case
-If there are no gates that can take us out of the maze, we would never get out of the maze! So, the ans would be `inf`
+If there is no gate that can take us out of the maze, we would never get out of the maze! So, the ans would be `inf`
 
-### Complexity
-As we are using a equation to solve the problem the time complexity would be simply of O(n)
+### Time Complexity
+As we are using an equation to solve the problem the time complexity would be simply of O(n)
 
 ### Solution in C++
 ```cpp
@@ -61,7 +61,6 @@ As we are using a equation to solve the problem the time complexity would be sim
 using namespace std;
 typedef long long ll;
 #define endl '\n'
-#define forn(i,n) for(ll i=0;i < ll (n); i++)
 #define scan(n) scanf("%lld", &n);
 #define print(n) printf("%lld", n);
 #define pb(n) push_back(n)
@@ -79,9 +78,11 @@ int main()
         ll n;
         scan(n);
         ll a[n], sum = 0;
-        forn(i,n) {scan(a[i]); sum+=abs(a[i]);}
+        for(ll i=0; i<n; i++) {
+            scan(a[i]); sum+=abs(a[i]);
+        }
         ll neg_sum = 0;
-        forn(i,n){
+        for(ll i=0; i<n; i++){
             if(a[i]<0) neg_sum++;
         }
         printf("Case %lld: ",no++);
