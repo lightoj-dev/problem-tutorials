@@ -1,32 +1,43 @@
 # Problem : Triangle Partitioning
-## Lightoj-1043
+## [Lightoj-1043](https://lightoj.com/problem/triangle-partitioning)
 
 ![](triangle1.png)
 
 we know that , when two Triangle is identical triangles then they follow this criteria..<br>
-1)  The proportions of each of their arms will be equal to each other and the angles of each other will also be equal to each other.<br>
-2) The area ratio of two identical triangles will be equal to the square ratio of their arms.<br>
+1. The proportions of each of their arms will be equal to each other and the angles of each other will also be equal to each other.<br>
+2. The area ratio of two identical triangles will be equal to the square ratio of their arms.<br>
+
 Here,  triangle ABC and ADE is identical triangle.<br> 
-So, the First criteria is,<br>  
-DE / AB = AC / DF = EF / BC<br> 
+So, the First criteria is,<br>
+
+DE / AB = AC / DF = EF / BC<br>
 and ∠A = ∠D and ∠B = ∠E and ∠C = ∠F <br>
-and the Second criteria is, <br> 
+
+The Second criteria is, <br>
+
 △DEF / △ABC = (DE / AB)^2 = (AC / DF)^2 = (EF / BC)^2 <br>
+
 ![](triangle2.png)<br>
+
 From the figure in question then we can write,<br>
 AD / AB = AE / AC = DE / BC ——————— (1)<br>
-And △ADE / △ABC = (AD / AB)^2 = (AE / AC)^2 = (DE / BC)^2 —————— (2)<br>
+and △ADE / △ABC = (AD / AB)^2 = (AE / AC)^2 = (DE / BC)^2 —————— (2)<br>
 From (2) we get,<br>
-So, 
-   △ADE / △ABC = (AD / AB)^2 <br>          
-   AD = sqrt (△ ADE / △ ABC) * AB  <br>
+
+△ADE / △ABC = (AD / AB)^2 <br>
+AD = sqrt (△ ADE / △ ABC) * AB  <br>
+
 Now, how do I get the values ​​of △ADE and △ABC ? <br>
 In question, ratio = (△ADE / BDEC) is given. Thus, BDEC = 1.<br>
 We know that, △ABC = △ADE + BDEC<br>
-And △ADE = △ADE / BDEC<br>
-Here , △ADE =ratio and △ABC= ratio + 1.<br>
-So , New_ratio= ratio / (ratio + 1)<br>
-# Cpp Code
+and △ADE = △ADE / BDEC<br>
+Here ,<br>
+△ADE =ratio and △ABC= ratio + 1.<br>
+
+So ,<br>
+New_ratio= ratio / (ratio + 1)<br>
+
+# Cpp Code 
 ```cpp
 #include <bits/stdc++.h>
 #define Dpos(n) fixed << setprecision(n)
