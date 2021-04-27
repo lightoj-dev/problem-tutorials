@@ -51,7 +51,7 @@ For distinction only and to make them easily detectable, some __Substrings__ are
 For example :
 From the __String__ `fwetUSSARrweUSASRadasdasd`, we can take __any__ of the __Substrings__ `USSAR` __or__ `USASR` which _both of them_ can produce the __Subsequences__ `USA` and `USSR`. Remember that __both__ the __Substrings__ and __Subsequences__ must maintain __order of characters__ of its original __String__. The only __difference__ between __Substrings__ and __Subsequences__ is that __Substrings__ must contain __consecutive characters__ too while __Subsequences__ has __NO__ such bound.
 
-Now if we just think of __shortest Strings__ for this particular test case, those would be only these 3 :
+Now if we just think of __shortest unique Strings__ for this particular test case, those would be only these 3 :
 ```
 USSRA
 USSAR
@@ -66,7 +66,7 @@ At first we will take the names and shift their characters right by 1 index for 
 
 As we have shifted the __characters__ to right by 1 index, then we simply create both the matrix for _dynamic programming_ by occupying the __first column__ and __first row__.
 
-For the __shortest Strings__ matrix, we will put the max  co-ordinate value to each of blocks in 1st column and 1st row. For example: for `(4,0)` and `(0,4)`, `4` is the maximum of both the values so those two blocks will have `4` as their value.
+For the __shortest Strings__ matrix, we will put the max(row,column) value to each of blocks in 1st column and 1st row. For example: for `(4,0)` and `(0,4)`, `4` is the maximum of both the values so those two blocks will have `4` as their value.
 
 The `shortestString` matrix should look like something like this :
 
