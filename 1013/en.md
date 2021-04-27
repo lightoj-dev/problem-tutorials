@@ -157,6 +157,8 @@ int main()
     for (int testCase = 1; testCase <= testCases; testCase++)
     {
         cin >> name1 >> name2;
+
+
         //Shift the characters of the name to right for ease of memoizing
         name1.insert(0, "0");
         name2.insert(0, "1");
@@ -172,17 +174,23 @@ int main()
                 //Checking if we need to take the cumulative sum from upper-left block
                 if (name1[i] == name2[j])
                 {
+                    //Adding 1 to cumulative sum from upper-left block
                     shortestString[i][j] = 1 + shortestString[i - 1][j - 1];
 
-                    //no need to add a new branch so taking cumulative sum from upper-left block
+                    //No need to add a new branch of unique strings so taking cumulative sum from upper-left block
                     uniqueString[i][j] = uniqueString[i - 1][j - 1];
 
                 }
                 else
                 {
+                    //Finding the minimum from left and upper block and adding 1 to the value of current block
                     shortestString[i][j] = 1 + min(shortestString[i][j - 1], shortestString[i - 1][j]);
+
+                    //Checking if there are two unique strings of the same length
                     if (shortestString[i][j - 1] == shortestString[i - 1][j])
                         uniqueString[i][j] = uniqueString[i][j - 1] + uniqueString[i - 1][j];
+
+                        //Checking if left block has the minimum value in shortestString matrix
                     else if (shortestString[i][j - 1] < shortestString[i - 1][j])
                         uniqueString[i][j] = uniqueString[i][j - 1];
                     else
