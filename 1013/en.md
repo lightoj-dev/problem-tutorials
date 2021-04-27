@@ -2,7 +2,7 @@
 ---
 Tags : String, Subsequence, Dynamic Programming, Memoization, Knapsack
 
-We need to find some __shortest Strings__ _possible_ (meaning that they won't have any unnecessary __suffix__ or __prefix__) that can produce the names as __Subsequences__ and we have to output :
+We need to find some __shortest _possible_ Strings__ _possible_ (meaning that they won't have any unnecessary __suffix__ or __prefix__) that can produce the names as __Subsequences__ and we have to output :
 
 1. How many __unique Strings__ are there?
 2. What is the __length__?
