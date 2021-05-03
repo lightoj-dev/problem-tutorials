@@ -17,11 +17,15 @@ So, now we have a set of mine points all of which we want to fence, using some
 pole points. And we want to minimize the number of pole points we use.
 
 We can make the following claims:
+
 * Instead of separate fences, we can make a single fence using the same or less
 number of poles yet fencing the same or more number of mines.
+
 ![Figure 1](./img1.png)
+
 * We can turn a concave fence into convex reducing the number of poles used by
 at least one yet fencing the same or more number of mines.
+
 ![Figure 2](./img2.png)
 
 Thus, our task comes down to creating a convex polygon with the smallest number
@@ -48,6 +52,7 @@ made from the convex hull of the given pole points sometimes produce an worse
 result. An example figure is given below:
 
 ![Figure 3](./img3.png)
+
 ABCDE is our convex hull. We cannot cover all the red points with ABDE or ABCE.
 But we can cover them all with a 4-side polygon ABFE where F is not on the 
 convex hull, rather inside.
