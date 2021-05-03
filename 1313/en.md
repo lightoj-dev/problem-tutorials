@@ -2,11 +2,55 @@
 
 _Keywords: Convex-Polygons, Shortest-Path_
 
-<!-- TODO: write statement -->
-
 ### Solution
 
-<!-- TODO: write solution -->
+Given the constraints, it is always better to cover a mine with poles instead 
+of guards if possible. Because:
+* Guard cost `G` is at least 5 times bigger than pole cost `P`. 
+* If a mine can be fenced around, it can be done so with no more than 3 poles.
+
+Some mines may not be fenced altogether, because there may be no 3 poles that
+cover it. These mines will lie outside of the convex hull generated from the
+pole points. Why?
+
+So, now we have a set of mine points all of which we want to fence, using some
+pole points. And we want to minimize the number of pole points we use.
+
+We can make the following claims:
+* Instead of separate fences, we can make a single fence using the same or less
+number of poles yet fencing the same or more number of mines.
+![Figure 1](./img1.png)
+* We can turn a concave fence into convex reducing the number of poles used by
+at least one yet fencing the same or more number of mines.
+![Figure 2](./img2.png)
+
+Thus, our task comes down to creating a convex polygon with the smallest number
+of vertices (pole points) that can cover all the mines. (Of course, the mines 
+that cannot be covered at all are ignored.)
+
+We can turn this into a graph problem. Let's consider vertices for every pole
+points. We will add an edge from `u` to `v` if all the mines are on the left 
+side of vector `p_v - p_u` where `p_u`, `p_v` are corresponding pole points.
+(A point `P` is said to be on the left side of a vector `AB` if the cross 
+product of vector `AB` and `AP` is positive.)
+
+The vertices on the shortest cycle in this directed graph are indeed the pole
+points forming a convex polygon covering all the mine points. We can find the
+shortest cycle length using Floyd-Warshall algorithm. (or any shortest path 
+algorithm)
+
+Total complexity: O(N^3 + MN^2)
+
+#### A Flawed Approach
+
+Assuming the smallest convex polygon that covers all the mine points, can be 
+made from the convex hull of the given pole points sometimes produce an worse
+result. An example figure is given below:
+
+![Figure 3](./img3.png)
+ABCDE is our convex hull. We cannot cover all the red points with ABDE or ABCE.
+But we can cover them all with a 4-side polygon ABFE where F is not on the 
+convex hull, rather inside.
 
 ### C++ Code:
 
