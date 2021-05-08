@@ -2,11 +2,11 @@
 ## [LightOj-1178](https://lightoj.com/problem/trapezium)
 ## Solution Approach:
 **Timothy Ti'en Ern Ang** sent us a new trapezium area formula which uses Pythagoras.<br>
-![](trapezium1.jpg)
+![](trapezium1.jpg)<br>
 If you compare it to the original simple trapezium formula, you'll see he's found a way to work out the height `h` using the four sides.<br>
-![](trapezium2.jpg)
+![](trapezium2.jpg)<br>
 Here's how he did it!<br>
-![](trapezium3.jpg)
+![](trapezium3.jpg)<br>
 He took the two right-angled triangles off the end and put them together. We know the base of this triangle is `(a-c)`. He then split them up.<br>
 
 If the base of one triangle is length `z` then the base of the other is `(a-c)-z = (a-c-z)`.<br>
