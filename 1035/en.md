@@ -25,8 +25,8 @@ Prime factors of *2 = 2<sup>1</sup> = 2!*
 
 Prime factors of *3 = 3<sup>1</sup>*
 
-To find the prime factor of *3!* w
-e have to add the prime factors of *2!* and *3*:
+To find the prime factor of *3!* we 
+have to add the prime factors of *2!* and *3*:
 
 Here, *N = 3* and *N - 1 = 2!*
 
