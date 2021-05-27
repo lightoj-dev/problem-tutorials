@@ -30,4 +30,4 @@ Distance from `0` to `7` is ```31+58 = 89``` which is the max distance we can ge
 ![ppp2](ppp2.png) <br>
 ![table1](table1.png) <br>
 3) Apply DFS for the last time taking `Q` as source node and similarly as before, we can store the distance of every node from the source node in an array. Let it's name `Q_diff`. <br>
-
+![ppp3](ppp3.png) <br>
