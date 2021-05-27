@@ -31,5 +31,13 @@ Distance from `0` to `7` is ```31+58 = 89``` which is the max distance we can ge
 ![table1](table1.png) <br>
 3) Apply DFS for the last time taking `Q` as source node and similarly as before, we can store the distance of every node from the source node in an array. Let it's name `Q_diff`. <br>
 ![ppp3](ppp3.png) <br>
-![table2](tabl2.png) <br>
-4) Maximum distance for every node should be the ```max(P_diff[i], Q_diff[i])``` where  `i` from `0` to `n-1`. 
+![table2](table2.png) <br>
+4) Maximum distance for every node should be the ```max(P_diff[i], Q_diff[i])``` where  `i` from `0` to `n-1`.  <br>
+
+### Explanation: <br>
+Suppose there are some linear nodes and distance of each two neighbouring nodes is given: <br>
+![table3](table3.png) <br>
+Now what will be the maximum distance from node `5`? Distance between node `0` and node `5` is ```1+2+3+1+2 = 9``` and distance between node `5` and node `9` is ```1+2+3+2 = 8```. If we observe, we can see that, maximum distance for each node will be either distance from node `0` or distance from node `9`. <br>
+
+Similarly, in a graph, maximum distance for each node is either distance from node `P` or distance from node `Q` where distance between `P` and `Q` is the maximum possible distance in the graph. 
+
