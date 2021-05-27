@@ -4,7 +4,7 @@
 For each node, you have to find another node in the `undirected` and `weighted` graph so that their intermediate distance is maximum and you have to print that distance for all nodes. <br>
 
 ### How to solve: <br>
-Consider this sample:
+Consider this sample: 
 ```
 9
 3 5 18
@@ -17,4 +17,6 @@ Consider this sample:
 0 2 58
 
 ```
-This sample can be represented in a graph like below:
+This sample can be represented in a graph like below: <br>
+![ppp](ppp.png) <br>
+1) Take a random node `S` as source and apply DFS. Find the node which is farthest from the source node. Suppose we got the node `P` which is farthest from the source node `S`. <br> 
