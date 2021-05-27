@@ -26,5 +26,8 @@ Distance from `0` to `5` is ```30+1+18 = 59``` <br>
 Distance from `0` to `6` is ```30+56 = 86``` <br>
 Distance from `0` to `8` is ```30+8 = 38``` <br>
 Distance from `0` to `7` is ```31+58 = 89``` which is the max distance we can get from the source node `0`. So `P` wil be node `7` . <br>
-2) Take `P` as source and apply DFS again to find the farthest node from `P` which can be called `Q`. Similarly we can easily figure out that distance from node `7` to node `6` is greater than any other node connected to `7`.So our `Q` is `6`. While applying DFS, we can store the distance of every node from the source node `P` in an array called `P_diff`. <br>
+2) Take `P` as source and apply DFS again to find the farthest node from `P` which can be called `Q`. Similarly we can easily figure out that distance from node `7` to node `6` is greater than any other node connected to `7`.So our `Q` is `6`. While applying DFS, we can store the distance of every node from the source node `P` in an array. Let it's name `P_diff`. <br>
 ![ppp2](ppp2.png) <br>
+![table1](table1.png) <br>
+3) Apply DFS for the last time taking `Q` as source node and similarly as before, we can store the distance of every node from the source node in an array. Let it's name `Q_diff`. <br>
+
