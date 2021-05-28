@@ -15,6 +15,9 @@ Example:
 3 4 - 3rd person can send mail to 4th person
 4 5 - 4th person can send mail to 5th person
 
+Here the graph is:
+![graph](graph.png "Example")
+
 So here, if I send mail to the 1st person first, then he can only send the 2nd person, then the mail will reach to 2 people in total.
 If I send mail to the 2nd person first, then he can only send the 1st person, then the mail will reach to 2 people in total.
 If I send mail to the 3rd person first, then he can only send the 4th and 5th person, then the mail will reach to 3 people in total.
