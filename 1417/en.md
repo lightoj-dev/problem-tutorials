@@ -1,4 +1,4 @@
-# LOJ 1133 - Array Simulation
+# LOJ 1417 - Forwarding Emails
 
 First of all, there are some people and you have to send them some mail.
 Now suppose you know that, if you send a mail to the 1st person, he will be able to forward the mail to the 2nd person.
