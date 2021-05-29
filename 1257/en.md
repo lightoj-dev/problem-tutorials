@@ -1,4 +1,4 @@
-# LightOJ 1057 - Farthest Nodes in a Tree (II)
+# LightOJ 1257 - Farthest Nodes in a Tree (II)
 ---
 ### Prerequisite: 
 1) Graph Theory
@@ -49,30 +49,10 @@ Similarly, in a graph, maximum distance for each node is either distance from no
 ``` cpp
 #include<bits/stdc++.h>
 
-//defines
-#define      loop(m,n)          for(m=0;m<n;m++)
-#define      loop1(m,n)         for(m=1;m<=n;m++)
-#define      rloop(m,n)         for(m=n-1;m>=0;m--)
-#define      case()             "Case " << z++ << ":"
-#define      test_inp()         ll Tc,z=1;cin>>Tc;while(Tc--)
-#define      ntest_inp()        for(int Tc=0;Tc<1;Tc++)
-#define      PTF(b)             puts(b?"YES":"NO")
-#define      Ptf(b)             puts(b?"Yes":"No")
-#define      ptf(b)             puts(b?"yes":"no")
-#define      newline            cout<<endl
-#define      quit               return 0
-
 using namespace std;
-
-//typedefs
 typedef long long ll;
-typedef pair<ll,ll> pll;
 
-//constants
-const ll mod=1000000007;
-
-//Solve here...
-vector<pll> adj[30005];
+vector<pair<ll, ll> > adj[30005];
 ll vis[30005] = {0} ;
 ll dif[30005];
 ll mx = 0, mxnode ;
@@ -88,7 +68,7 @@ void dfs(ll s, ll d)   //modified dfs function
     }
 
     ll i;
-    loop(i, adj[s].size())
+    for(i=0; i<adj[s].size(); i++)
     {
         if(vis[adj[s][i].first] == 0)
         {
@@ -101,13 +81,14 @@ void dfs(ll s, ll d)   //modified dfs function
 int main()
 {
     int i,j;
-
-    test_inp()
+    ll tc, k;
+    cin >> tc ;
+    for(k=0; k<tc; k++)
     {
         ll n;
         cin >> n ;
 
-        loop(i, n-1)
+        for(i=0; i<n-1; i++)
         {
             ll a, b, w ;
             cin >> a >> b >> w ; 
@@ -116,36 +97,39 @@ int main()
             adj[b].push_back({a,w});
         }
 
-       int P, Q ;
+        int P, Q ;
+        int P_diff[n+1], Q_diff[n+1];
+        
         //1st step
         mx = 0;         
         dfs(0, 0);
         P = mxnode ;
-
         memset(vis, 0, sizeof vis);
         mx = 0;
         
         //2nd step
         dfs(P, 0);
         Q = mxnode ;
-        int P_diff[n+1];
-        loop(i, n)
+        for(i=0; i<n; i++)
+        {
             P_diff[i] = dif[i];
-
+        }
         memset(dif, 0, sizeof dif);
         memset(vis, 0, sizeof vis);
         
         //3rd step
         dfs(Q, 0);
-        int Q_diff[n+1];
-        loop(i, n)
+        for(i=0; i<n; i++)
+        {
             Q_diff[i] = dif[i];
+        }
 
         //4th step
-        cout << case() << endl;
-
-        loop(i, n)
+        cout << "Case " << k+1 << ":" << endl;
+        for(i=0; i<n; i++)
+        {
             cout << max(P_diff[i], Q_diff[i]) << endl;
+        }
 
         memset(adj, 0, sizeof adj);
         memset(vis, 0, sizeof vis);
@@ -153,7 +137,7 @@ int main()
         
     }
 
-    quit;
+    return 0;
 }
 ```
 ### Solution in Python: (Thanks  to [Shanto Tanzim](https://codeforces.com/profile/Shantol) for the solution) <br>
