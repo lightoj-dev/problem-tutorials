@@ -22,18 +22,17 @@ If you are still stuck with this problem, check the codes below:
 
 ```c++
 #include<bits/stdc++.h>
-#define fr(i1,m) for(int i1=0;i1<m;i1++)
 using namespace std;
 int main()
 {
-    long n,m;
+    int n,m;
     cin>>n;
-    fr(i1,n)
+    for(int i1=0;i1<n;i1++)
     {
-        long a[100000]= {0},tt=0,i,j,c=0,x,k,l,p=1,b[100000]= {0};
+        int a[100000]= {0},tt=0,i,j,c=0,x,k,l,p=1,b[100000]= {0};
         cin>>m;
-        fr(i,m)
-        cin>>a[i];
+        for(i=0;i<m;i++)
+			cin>>a[i];
         b[0]=a[0];
         for(i=1; i<m; i++)
         {
