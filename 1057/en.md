@@ -156,6 +156,59 @@ int main()
     quit;
 }
 ```
+### Solution in Python: (Thanks  to [Shantol](https://codeforces.com/profile/Shantol) for the solution) <br>
+``` python
+dis=[0]*30005
+vis=[0]*30005
+
+def explore(i,d):
+	x=0
+	y=0
+	z=0
+	dis[i]=d
+	stk=[i]
+	while stk:
+		i=stk.pop()
+		for j in range(len(a[i])):
+			x=a[i][j][0]
+			w=a[i][j][1]
+			if not vis[x]:
+				vis[x]=1
+				dis[x]=dis[i]+w
+				stk+=x,
+				#explore(x,d+w)
+
+def routine(start):
+	ans=0
+	for i in range(30005):
+		vis[i]=0
+		dis[i]=0
+	maxi=-1
+	vis[start]=1
+	explore(start,0)
+	for i in range(n):
+		if dis[i]>maxi:
+			maxi=dis[i]
+			ans=i
+	return ans
+
+for cs in range(int(input())):
+	n=int(input())
+	a=[[] for i in range(n+5)]
+	for i in range(n-1):
+		x,y,w=map(int,input().split())
+		a[x]+=[y,w],
+		a[y]+=[x,w],
+	k1=routine(0)
+	k2=routine(k1)
+	c=[0]*30005
+	for i in range(n):
+		c[i]=dis[i]
+	k3=routine(k2)
+	print("Case",str(cs+1)+":")
+	for i in range(n):
+		print(max(dis[i],c[i]))
+```
 ### Solution in Java: (Thanks to [Zahid Hasan](https://codeforces.com/profile/Zahid_Hasan_Sahin) for the solution) <br>
 ``` java
 import java.util.ArrayList;
