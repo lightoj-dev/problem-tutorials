@@ -140,7 +140,7 @@ int main()
     return 0;
 }
 ```
-### Solution in Python: (Thanks  to [Shanto Tanzim](https://codeforces.com/profile/Shantol) for the solution) <br>
+### Solution in Python: (Thanks  to [Shanto Tanzim](https://lightoj.com/user/Shantokhan61) for the solution) <br>
 ``` python
 dis=[0]*30005
 vis=[0]*30005
