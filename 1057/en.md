@@ -156,7 +156,7 @@ int main()
     quit;
 }
 ```
-### Solution in Python: (Thanks  to [Shantol](https://codeforces.com/profile/Shantol) for the solution) <br>
+### Solution in Python: (Thanks  to [Shanto Tanzim](https://codeforces.com/profile/Shantol) for the solution) <br>
 ``` python
 dis=[0]*30005
 vis=[0]*30005
