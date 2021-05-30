@@ -30,7 +30,7 @@ So there can be two scenarios:
 
 - characters pointed by the pointers are unique: `word[s] != word[e]`, in that case, the result will be sum of
   - `calculate(s, e-1)` , all possible palindrome count using current index,
-  - `calculate(s+1, e)`, all possible palindrome count slipping current index,
+  - `calculate(s+1, e)`, all possible palindrome count skipping current index,
   - `calculate(s+1, e-1)`, skipping both of the characters.
 
 _**Fact**:  as there will be lots of repetition, we can reduce that using the dynamic programming technique by string the data in a two dimensional dp table of  the input strings size._
@@ -57,11 +57,13 @@ long long dp[100][100];
 
 
 long long calculate(int s, int e){
-    // invalid case
+  
+  // base cases
+  // invalid index
 	if(s > e) 
 		return 0;
 
-    // pointing at the same position
+   // pointing at the same position
 	if(s == e ) 
 		return 1;
 
