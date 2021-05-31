@@ -55,7 +55,7 @@ And also we need to take special care for path = 1.<br>
 
 Just by using this dp approach time complexity comes down to O(log N).
 
-###C++
+Code in C++:
 ```C++
 #include <vector>
 #include <set>
@@ -79,6 +79,7 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 ll num_of_digits, binary_eq[35], dp[35][2][2], tot[35][2][2];
+
 ll compute(ll level, ll parity, ll path){
     if(level == num_of_digits){            //Check if we have reached the end of a valid combination
         tot[level][parity][path] = 1;    //Add this 1 combination to the total number of combinations
@@ -105,6 +106,7 @@ ll compute(ll level, ll parity, ll path){
     tot[level][parity][path] = v;
     return u;
 }
+
 void convert_to_binary(ll x){ //Calculating the binary equivalent binary_eq
     ll pos = 0;
     while(x > 0){
@@ -114,6 +116,7 @@ void convert_to_binary(ll x){ //Calculating the binary equivalent binary_eq
     }
     num_of_digits = pos;
 }
+
 int main()
 {
     ll t,no=1;
