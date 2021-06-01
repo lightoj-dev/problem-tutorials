@@ -204,7 +204,7 @@ for cs in range(int(input())):
 	for i in range(n):
 		print(max(dis[i],c[i]))
 ```
-### Solution in Java: (Thanks to [Zahid Hasan](https://codeforces.com/profile/Zahid_Hasan_Sahin) for the solution) <br>
+### Solution in Java: (Thanks to [Zahid Hasan](https://lightoj.com/user/zahidhasan61) for the solution) <br>
 ``` java
 import java.util.ArrayList;
 import java.util.Scanner;
