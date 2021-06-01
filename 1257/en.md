@@ -43,7 +43,16 @@ Suppose there are some linear nodes and distance of each two neighbouring nodes 
 ![table3](table3.png) <br>
 Now what will be the maximum distance from node `5`? Distance between node `0` and node `5` is ```1+2+3+1+2 = 9``` and distance between node `5` and node `9` is ```1+2+3+2 = 8```. If we observe, we can see that, maximum distance for each node will be either distance from node `0` or distance from node `9`. <br>
 
-Similarly, in a graph, maximum distance for each node is either distance from node `P` or distance from node `Q` where distance between `P` and `Q` is the maximum possible distance in the graph. 
+Similarly, in a graph, maximum distance for each node is either distance from node `P` or distance from node `Q` where distance between `P` and `Q` is the maximum possible distance in the graph. Suppose for a node `U`, there can be two types of case:
+1) `U` lies on the path `PQ`. In this case, maximum distance from node `U` will obviously be either node `P` or node `Q` because `PQ` is the diameter of the graph. If we assume there is a node `V` and `UV` is not a diameter(```UV < PQ```) and distance from `U` and `V` is farthest. So, it means either ```UV > UP``` or ```UV > UQ```. Let, `UV` is greater than `UP`, so ```UV + UQ > UP + UQ``` which means ```UV + UQ > PQ ``` which is a contradiction because `PQ` is the maximum possible distance in the graph. So, maximum distance from node `U` is either node `P` or node `Q`.
+2) `U` doesn't lie on the path `PQ`. So, obviously `U` lies on a subchain that starts from any node on the diameter, let it `X`. Let farthest node from node `U` is node `V` which also lies on a subchain that starts from any node on the diameter, Let it `Y`. <br>
+![proof](proof.png) <br>
+As, `PQ` is the maximum possible distance i.e. diameter of the graph, ```PX >= UX``` and ```QY >= VY```. <br>
+So, if we think `UV` is the maximum possible distance from node `U` that means, ```UX + XY + VY > UX + XY + QY```. <br>
+that means, ```VY > QY``` which is a contradiction because diameter always follows the maximum distance. So, `Q` is the farthest node from node `U`. We can prove similarly for node `P`. <br>
+In this way, we can prove that maximum distance from every node `U` is either node `P` or node `Q`. <br>
+You can try out the above sample on ```How to solve```. Try to find a node, for which the farthest node is not `P` or `Q`.
+
 
 ### Solution in C++: <br>
 ``` cpp
