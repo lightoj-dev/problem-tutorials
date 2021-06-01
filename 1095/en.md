@@ -45,21 +45,6 @@ By combining all these derangement observations we can simply come to a final st
 _**Note**: we used dp tables to store the values to instead of calculating the values every time._
 
 
-
-```
-input:
-2
-5 3 2
-10 6 3
-```
-
-```
-output:
-Case 1: 12
-Case 2: 64320
-```
-
-
 #### Code
 
 ### C++
