@@ -40,7 +40,7 @@ Let's assume `y` is the position in within `N-M` from where we are taking number
    - a) We put `y`'s number in `x` and `x`'s number in `y`. So, now you have `M-K-1` numbers to derange and `N-M-1` numbers free.
    - b)  We put `y`'s number in `x` but don't want to put `x`'s number in `y`. So, we still need to derange `y`. i.e. the number of places to still derange is `M-K-1+1` = `M-K`. But you did use up one of the free numbers from `y`. 
 
-By combining all these derangement observations we can simply come to a final statement:  for each elements from `N-M` choose `x` and derange the rest,`N-K-1` of the elements. 
+So using derangement observations we can simply come to a final statement:  for each elements from `N-M` choose `X` elements and derange the rest,`N-X-K` of the elements. 
 
 _**Note**: we used dp tables to store the values to instead of calculating the values every time._
 
