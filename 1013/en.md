@@ -144,7 +144,7 @@ In example of `USA` and `USSR`, it will look something like this after _memoizat
 
 And `shortestString[name1.length()-1][name2.length()-1]` give us the __length of the shortest string__ which is `5`.
 
-#### How are we keeping track of common characters (shortest length of the substring)?
+#### How are we keeping track of unique strings?
 
 For the __unique String__ matrix, we occupy the 1st column and 1st row with `1`s because we are assuming that the number of __unique string__ is `1`, simply `name1 = name2` meaning there is no __difference of characters__.
 
@@ -176,7 +176,7 @@ While populating there can be these cases :
       ```
 
 * __Case name1[i] != name2[j] && shortestString[i][j - 1] != shortestString[i - 1][j] :__ In this case we just simply take the minimum of which can be taken from left block or upper block. The logic is similar to `shortestString[][]` population. We don't want unnecessary suffix to be added.
-    
+
 
 If we have done everything accordingly, `uniqueString` matrix should look like this :
 
