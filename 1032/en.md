@@ -55,6 +55,7 @@ And also we need to take special care for path = 1.
 
 Just by using this dp approach time complexity comes down to O(log N).
 
+Code in C++:
 ```C++
 #include <vector>
 #include <set>
@@ -80,14 +81,10 @@ typedef long double ld;
 ll num_of_digits, binary_eq[35], dp[35][2][2], tot[35][2][2];
 
 ll compute(ll level, ll parity, ll path){
-
     if(level == num_of_digits){            //Check if we have reached the end of a valid combination
         tot[level][parity][path] = 1;    //Add this 1 combination to the total number of combinations
         return 0;
     }
-
-    if(dp[level][parity][path] != -1) return dp[level][parity][path];
-
     ll u = 0, v = 0;
     if(path == 1){              //Check if we are currently on the exact same path as the binary equivalent
         ll next_digit = num_of_digits - 1 - level;
@@ -104,10 +101,6 @@ ll compute(ll level, ll parity, ll path){
         v = tot[level+1][0][0] + tot[level+1][1][0];
         if(parity == 1) u += tot[level+1][1][0];         //Adjacent bit is found
     }
-
-    dp[level][parity][path] = u;
-    tot[level][parity][path] = v;
-
     return u;
 }
 
@@ -138,5 +131,4 @@ int main()
     }
     return 0;
 }
-
 ```
