@@ -1,9 +1,13 @@
+# LightOJ 1032 - Fast Bit Calculations
+
 Tags: Digit DP<br>
 Outline: We can solve this problem by constructing a tree of all the valid combinations and then use dynamic programming to calculate the number of total adjacent bits.
 
 Before solving the problem directly, let's solve two small sub problems first.<br>
 
+### Sub-problem 1
 Say, we are given a fixed integer 3 and asked to construct a tree that represents a step by step procedure to find all the numbers having at most 3 digits in their binary equivalent.<br>
+
 How? Pretty straight forward right? Starting with a "Root" node we will just add up either 0 or 1 in each step until we reach 3 numbers of digits. Something in this way-<br>
 Step 1:<br>
 ![Figure_1](img_1.png)<br>
@@ -16,6 +20,7 @@ But, we can make a little change here. Instead of regarding the "Root" node as a
 ![Figure_4](img_4.png)<br>
 We can find the binary equivalent of numbers - 7, 6, 5, 4, 3, 2, 1, 0 as the final leaves of the tree.<br>
 
+### Sub-problem 2
 Now, let's make our subproblem a bit tough. What if instead of maximum number of digits, we are given an integer N and asked to construct a similar kind of tree with numbers less than or equal to N. Say we are given N = 5. Binary equivalent of 5 is 0101 which is clearly consists of 3 digits (4 with a leading "0"). So our resultant tree will be quite alike except number 6 and 7 will not be there in our answer. So our final result will be all of the previous leaves except 0111(7) and 0110(6).
 ![Figure_5](img_5.png)<br>
 So, how can we solve this problem?<br>
@@ -24,6 +29,7 @@ So, when we iterate over the tree, we have to keep track of whether we are at th
 Another example for N = 12 (01100), will clearify this point more.<br>
 ![Figure_6](img_6.png)<br>
 
+### Final problem
 Now we are ready to solve our main problem- we need to calculate total number of adjacent bits i.e every two consecutive "1"s from 0 to N.<br>
 When while building the tree, we can say an adjacent bit occurs only when we take a "1" for a node that ends with "1"(say 1-1 edge). For example for N = 12, the (1-1) edges are the adjacent bits.
 ![Figure_7](img_7.png)<br>
@@ -43,6 +49,7 @@ After node "01" we are counting one bold (1-1)edge for one addition of "1". But 
 So, now we can come to a conclusion, for each node we need count all the valid lowest descendants (or the leaves) and for each (1-1)edge we will just add the total number of valid lowest descendants with the answer and thus our ultimate ans will be generated.<br>
 
 But what would be the time complexity? As N can be 2^31 i.e. greater than 10^9. So time complexity would be O(10^9) and sadly, all this tree build up will help us nothing! So, again what to do?<br>
+
 There comes the dynamic programming!<br>
 Let's analysis the tree for one last time and we can find this similarity (taking node 010 and 000 for N = 12)- <br>
 ![Figure_9](img_9.png) ![Figure_10](img_10.png)<br>
@@ -55,7 +62,7 @@ And also we need to take special care for path = 1.
 
 Just by using this dp approach time complexity comes down to O(log N).
 
-Code in C++:
+### Code in C++:
 ```C++
 #include <vector>
 #include <set>
