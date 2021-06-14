@@ -1,9 +1,9 @@
 # LightOJ 1257 - Farthest Nodes in a Tree (II)
 ---
 ### Prerequisite: 
-1) Graph Theory
-2) DFS
-3) It is recommended to solve the problem [LightOJ 1094 - Farthest Nodes in a Tree](https://lightoj.com/problem/farthest-nodes-in-a-tree) before solving this problem.
+1) Graph Theory <br>
+2) DFS <br>
+3) It is recommended to solve the problem [LightOJ 1094 - Farthest Nodes in a Tree](https://lightoj.com/problem/farthest-nodes-in-a-tree) before solving this problem. <br>
 ### What the problem wants:<br> 
 For each node, you have to find another node in the `undirected` and `weighted` graph so that their intermediate distance is maximum and you have to print that distance for all nodes. <br>
 
@@ -19,7 +19,6 @@ Consider this sample:
 0 4 31
 4 7 58
 0 2 58
-
 ```
 This sample can be represented in a graph like below: <br>
 ![ppp](ppp.png) <br>
@@ -46,14 +45,14 @@ Now what will be the maximum distance from node `5`? Distance between node `0` a
 Similarly, in a graph, maximum distance for each node is either distance from node `P` or distance from node `Q` where distance between `P` and `Q` is the maximum possible distance in the graph. Suppose for a node `U`, there can be two types of case:
 1) `U` lies on the path `PQ`. In this case, maximum distance from node `U` will obviously be either node `P` or node `Q` because `PQ` is the diameter of the graph. If we assume there is a node `V` and `UV` is not a diameter(```UV < PQ```) and distance from `U` and `V` is farthest.<br>
 ![proof0](proof0.png)<br>
-So, it means either ```UV > UP``` or ```UV > UQ```. Let, `UV` is greater than `UP`, so ```UV + UQ > UP + UQ``` which means ```UV + UQ > PQ ``` which is a contradiction because `PQ` is the maximum possible distance in the graph. So, maximum distance from node `U` is either node `P` or node `Q`.
-3) `U` doesn't lie on the path `PQ`. So, obviously `U` lies on a subchain that starts from any node on the diameter, let it `X`. Let farthest node from node `U` is node `V` which also lies on a subchain that starts from any node on the diameter, Let it `Y`. <br>
+So, it means either ```UV > UP``` or ```UV > UQ```. Let, `UV` is greater than `UP`, so ```UV + UQ > UP + UQ``` which means ```UV + UQ > PQ ``` which is a contradiction because `PQ` is the maximum possible distance in the graph. So, maximum distance from node `U` is either node `P` or node `Q`. <br>
+2) `U` doesn't lie on the path `PQ`. So, obviously `U` lies on a subchain that starts from any node on the diameter, let it `X`. Let farthest node from node `U` is node `V` which also lies on a subchain that starts from any node on the diameter, Let it `Y`. <br>
 ![proof](proof.png) <br>
 As, `PQ` is the maximum possible distance i.e. diameter of the graph, ```PX >= UX``` and ```QY >= VY```. <br>
 So, if we think `UV` is the maximum possible distance from node `U` that means, ```UX + XY + VY > UX + XY + QY```. <br>
 that means, ```VY > QY``` which is a contradiction because diameter always follows the maximum distance. So, `Q` is the farthest node from node `U`. We can prove similarly for node `P`. <br>
 In this way, we can prove that maximum distance from every node `U` is either node `P` or node `Q`. <br>
-You can try out the above sample on ```How to solve```. Try to find a node, for which the farthest node is not `P` or `Q`.
+You can try out the above sample on ```How to solve```. Try to find a node, for which the farthest node is not `P` or `Q`. <br>
 
 
 ### Solution in C++: <br>
