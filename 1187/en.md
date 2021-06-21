@@ -98,3 +98,5 @@ int main()
 
 ```
 
+Written by:
+[Nasif Imtiaj](https://lightoj.com/user/nasifimtiaj-)
