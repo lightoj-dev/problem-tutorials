@@ -50,10 +50,16 @@ print the only remaining student as he will be in front of the list, in this cas
 ### Coding Approach:
 A brute force solution with the above idea using vector/array can result into TLE, as we will always need to erase an element and shift the rest. But we can easily solve this using PBDS(Policy Based Data Structure).
 
-PBDS: https://codeforces.com/blog/entry/11080
+PBDS:
+```
+https://codeforces.com/blog/entry/11080
+
+```
 
 ### Code
 ```
+cpp
+
 #include<bits/stdc++.h>
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
