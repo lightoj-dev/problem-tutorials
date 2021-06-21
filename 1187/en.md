@@ -57,8 +57,7 @@ https://codeforces.com/blog/entry/11080
 ```
 
 ### Code
-```
-cpp
+``` cpp
 
 #include<bits/stdc++.h>
 #include<ext/pb_ds/assoc_container.hpp>
