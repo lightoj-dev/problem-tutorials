@@ -9,9 +9,9 @@ coins to the right cell or down. The player who can't make a move loses.
 ### Solution
 
 For a cell (x, y), we can think of this as a pillar of height `R-x + C-y` and the
-coins in that cell as a pile of stones on that piller. Moving some coins to the
-cell right or beneath it is equivalent to moving some stones from this pillar of
-height `h` to a pillar of `h-1`. This is indeed a classic example of
+coins in that cell as a pile of stones on that pillar. Moving some coins to the
+cell right or beneath it is equivalent to moving some stones from a pile on this
+pillar of height `h` to a pillar of `h-1`. This is indeed a classic example of
 _Staircase Nim_, a lesser known Nim game, for which _Shafaet Ashraf_ has written
 [a brilliant blog post on CodeForces](https://codeforces.com/blog/entry/44651).
 
