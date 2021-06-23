@@ -3,7 +3,7 @@
 We Have an Array ```a``` of ```n+1``` elements, and in that we want to mark ```k``` points. And the output of this problem is the function
 
 ```
-f(a,v) = max(v[i + 1] - v[i]) over all i in set of marked indices.
+f(a,v) = max(a[i + 1] - a[i]) over all i in set of marked indices.
 ```
 
 Our objective is to minimize ```f​```. 
@@ -12,7 +12,7 @@ Our objective is to minimize ```f​```.
 
 Let us make the problem easier, and instead of having exactly $k$, we compute the function for atmost $k$. With this structure, we create new boolean function ```g(x) = (f(a,k) <= x)​```
 
-Observe that this function is monotonic. As for if there exists $x$ where it's true, for all ```y >= x , g(y) = 1``` will be true as well. Hence we can apply binary search on ```g​``` to find the optimal ```x```​. 
+Observe that this function is monotonic. As for if there exists x where it's true, for all ```y >= x , g(y) = 1``` will be true as well. Hence we can apply binary search on ```g​``` to find the optimal ```x```​. 
 
 To check if a ```x``` satisfies a condition, we can greedily pick the longest route possible from the starting position, and repeat this till the end. 
 
