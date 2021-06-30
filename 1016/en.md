@@ -37,12 +37,8 @@ Sort(Ycoordinates) = {3,5,99,100,131}
 Up to 5, {3,5} falls in the inclusive range [3,6]
 
 Next inclusive range
-= [Which element did not meet
-   the last inclusive range
-   (Which element did not meet the last inclusive range +
-      Brushe's width
-      )
-  ]
+= [Which element did not meet the last inclusive range
+   (Which element did not meet the last inclusive range +Brushe's width)]
 = [99,102]
 So, {99,100} will be covered now.
 
