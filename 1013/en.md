@@ -131,7 +131,7 @@ We just simply keep adding `1` to the last updated _cumulative sum_. Let's under
     shortestString[2][3]
     = shortestString[1][3] + 1 = 4
     ```
-    But do we really need `USSS` to get name1's `2` length substring `US` and name2's `3` length substring `USSS`? In other words, by taking maximum we are actually considering `US` and `USSS` which is because `USS` is already included in `shortestString[1][3]`; thus unnecessary suffix has been added.
+    But do we really need `USSS` to get name1's `2` length substring `US` and name2's `3` length substring `USS`? In other words, by taking maximum we are actually considering `US` and `USSS` which is because `USS` is already included in `shortestString[1][3]`; thus unnecessary suffix has been added.
 
 In example of `USA` and `USSR`, it will look something like this after _memoization_.
 
@@ -197,7 +197,7 @@ Notes :
 * You can solve the problem _recursively_ too and it won't throw any MLE.
 * `long` data type's size of `c++` is dependent on the hardware (processor) and the software (operating system and compiler). `LightOJ` uses a __64-bit__ compiler so only `long` is sufficient. However we might need to use `long long` if any of the dependency is __32-bit__.
 
-## Solution in C++ (Iterarive)
+## Solution in C++ (Iterative)
 ```cpp
 #include <bits/stdc++.h>
 

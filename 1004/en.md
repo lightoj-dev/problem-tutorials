@@ -2,7 +2,7 @@
 ---
 Tags : Dynamic Programming, Memoization
 
-We will be given a __diamond__ shaped array's __number of columns__, the monkey can climb down _only_ to __any of 2 adjacent blocks below__, which can also be _interpreted_ as, a block can be updated by summing __max value found among the 2 adjacent blocks from upper row__. We have to find out the maximum amount of Banana it can consume when he reaches the last block. In other words, we have to find out the maximum cumulative sum can be obtained by traversing in the above mentioned way
+We will be given a __diamond__ shaped array's __number of columns__, the monkey can climb down _only_ to __any of 2 adjacent blocks below__, which can also be _interpreted_ as, a block can be updated by summing __max value found among the 2 adjacent blocks from upper row__. We have to find out the maximum amount of Banana it can consume when he reaches the last block. In other words, we have to find out the maximum cumulative sum can be obtained by traversing in the above mentioned way.
 
 ### Helpful Resources
 

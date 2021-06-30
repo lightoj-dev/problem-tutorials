@@ -15,9 +15,9 @@ We will be given inputs for a pair of two places. First place is the origin and 
 This is an implementation problem that we can solve with map/associative-array/dictionary/similar key-value pair data structure.
 
 To keep record of the unique places, will assign an __unique number/ID__ to each __unique place's name__. We will have two arrays:
-- __Count array__ : This will store the how many cities are __directly__ connected to it. The number of __directly connected places__ can help us determine if this _particular_ place is the __ultimate start/end point or not__. The __ultimate start point__ will have __no__ other place __before__ that leads to it since it is the place from where traversing __starts__, in other words the _count_ will be `1`. Similarly, for __ultimate end point__, the _count_ will be `1` too and there will be no place to go to __after__ it.
+- __Count array__ : This will store the how many places are __directly__ connected to it. The number of __directly connected places__ can help us determine if this _particular_ place is the __ultimate start/end point or not__. The __ultimate start point__ will have __no__ other place __before__ that leads to it since it is the place from where traversing __starts__, in other words the _count_ will be `1`. Similarly, for __ultimate end point__, the _count_ will be `1` too __BUT__ there will be no place to go to __after__ it.
 
-- __Next Destination array__ : This array's `index = initial destination` (here, _initial destination_ does __not__ mean the ultimate start point) and `value = next destination`. Basically, `index ---> value = currentPoint ---> nextPoint`. It will help us storing we can go from where to where. Note that we will __not__ be updating this array as if the places were _bi-directional_ links. What we __won't__ do : `nextDestination[ID1] = ID2 & so nextDestination[ID2] = ID1`. __We are not updating in a bi-directional way__.
+- __Next Destination array__ : This array's `index = initial destination` (here, _initial destination_ does __not__ mean the ultimate start point) and `value = next destination`. Basically, `index ---> value = currentPoint ---> nextPoint`. It will help us storing we can go from where to where. Note that, we will __not__ be updating this array as if the places were _bi-directional_ links. What we __won't__ do : `nextDestination[ID1] = ID2 & so nextDestination[ID2] = ID1`. __We are not updating in a bi-directional way__.
 
 
 
@@ -26,9 +26,9 @@ For input, we take two maps:
 
 - __<Unique Number, Place>__ map: will save the inputs taking the __unique number assigned to that place__ as the __key__.
 
-A map itself can avoid duplication of `key` entry, however if we push it anyways then the `value` will get updated which we don't want, so we will check if a `key` (Place's Name) has been added or not. We are keeping two maps so that we can __easily search up a place's unique number by putting it to the map and vice versa__ in a __constant__ time.
+A map itself can avoid duplication of `key` entry, however if we push it anyways then the `value` will get updated which we don't want, so we will check if a `key` (Place's Name) has been added or not. We are keeping two maps so that we can __easily search up a place's unique number by putting it to the map and vice versa__.
 
-Now when we finally have everything done we can easily determine the __ultimate start point__ by the help of both `count` and `nextDestination` arrays. For example let's take a set of inputs:
+Now when we finally have everything done, we can easily determine the __ultimate start point__ by the help of both `count` and `nextDestination` arrays. For example let's take a set of inputs:
 
 ```
 4
@@ -48,7 +48,7 @@ Now if we have done everything according to above mentioned procedures, we will 
 
 Since now we know the __ultimate start point__ we can start traversing as we also have __what is next, after that, then again after that... to the ultimate end point__.
 
-Now if we just loop the following until the number of `steps` required, we get all the outputs.
+Now if we just loop the following until the number of `steps` required is met, we get all the outputs.
 ```
 Current Place's Name = <Unique Number, Place>[Current Place's ID]
 Next Place's ID = Next Destination[Current Place's ID]
@@ -77,26 +77,26 @@ int main()
     {
         cin >> steps;
 
-        //Index is the origin and Value is the destination
+        // Index is the origin and Value is the destination
         int nextDestination[steps + 1];
 
 
-        //How many destinations are directly linked?
+        // How many destinations are directly linked?
         int count[steps + 1];
 
 
-        memset(nextDestination, 0, sizeof(nextDestination));//Setting to 0 for false
-        memset(count, 0, sizeof(count));//Setting 0 for no direct connections
+        memset(nextDestination, 0, sizeof(nextDestination)); // Setting to 0 for false
+        memset(count, 0, sizeof(count)); // Setting 0 for no direct connections
 
-        map<string, int> placeIndexMap;//Map to store index as value
-        map<int, string> indexPlaceMap;//Map to store string as value
+        map<string, int> placeIndexMap; // Map to store index as value
+        map<int, string> indexPlaceMap; // Map to store string as value
 
         uniqueNumber = 1;
         for (int i = 1; i < steps; i++)
         {
             cin >> firstPoint >> secondPoint;
 
-            //Checking if duplicate key or not
+            // Checking if duplicate key or not
             if (!placeIndexMap[firstPoint])
             {
                 placeIndexMap[firstPoint] = uniqueNumber;
@@ -104,7 +104,7 @@ int main()
                 uniqueNumber++;
             }
 
-            //Checking if duplicate key or not
+            // Checking if duplicate key or not
             if (!placeIndexMap[secondPoint])
             {
                 placeIndexMap[secondPoint] = uniqueNumber;
@@ -113,22 +113,20 @@ int main()
             }
 
             /*
-            Remember we are updating the array for one direction.
-            Thus, when a count of a place is 1 but nextDestination array has 0 for that uniqueNumber,
-            means that the place is the ultimate end point.
-            And when count is relation is not 0 and count is not more than 1,
-            it means that it is the ultimate start point.
+            Remember, we are updating the array for one direction.
+            Thus, when the count of directly connected places of a place is 1 but nextDestination array has 0 for that uniqueNumber, means that the place is the ultimate end point.
+            And when count is 1 and nextDestination is 1, it means that it is the ultimate start point.
             */
 
-            //Updating a for the next point
+            // Updating a for the next point
             nextDestination[placeIndexMap[firstPoint]] = placeIndexMap[secondPoint];
-            //We won't be updating the nextDestination for the other way around
+            // We won't be updating the nextDestination for the other way around
 
-            count[placeIndexMap[firstPoint]]++;//Incrementing how many places are directly linked
-            count[placeIndexMap[secondPoint]]++;//Incrementing how many places are directly linked
+            count[placeIndexMap[firstPoint]]++; // Incrementing how many places are directly linked
+            count[placeIndexMap[secondPoint]]++; // Incrementing how many places are directly linked
         }
 
-        //Finding the ultimate startPoint
+        // Finding the ultimate startPoint
         for (int i = 1; i < uniqueNumber; i++)
             if (nextDestination[i] && count[i] == 1)
             {
