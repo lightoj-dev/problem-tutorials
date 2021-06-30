@@ -124,12 +124,12 @@ int main(){
         numberOfMoves++;
 
         for (int i = 0; i < numberOfDustPoints; i++) {
-			if(currentBrushYCoordinate + widthOfBrush < dustPointsYCoordinates[i]) {
-				currentBrushYCoordinate = dustPointsYCoordinates[i];
-				numberOfMoves++;
-			}
+	    if(currentBrushYCoordinate + widthOfBrush < dustPointsYCoordinates[i]) {
+		currentBrushYCoordinate = dustPointsYCoordinates[i];
+		numberOfMoves++;
+	    }
 
-		}
+	}
         cout << "Case " << testCase << ": " << numberOfMoves << '\n';
     }
 
