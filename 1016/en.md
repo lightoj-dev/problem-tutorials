@@ -119,7 +119,7 @@ int main(){
         // Sort the array
         quickSort(dustPointsYCoordinates,0, numberOfDustPoints-1);
 
-        // Start from the lowest point sweeping from the lowest point
+        // Start sweeping from the lowest point
         int currentBrushYCoordinate = dustPointsYCoordinates[0];
         numberOfMoves++;
 
