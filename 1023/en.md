@@ -5,7 +5,7 @@ You are given two integer numbers which are N and K.
 Here, N denoted by the first N English capital letters and K denote by the number of permutations.
 If the number of all permutations is less than K then print all of them.
 
-## prerequires:
+## prerequisite:
  * [Recurssion](https://www.geeksforgeeks.org/recursion/)
  * [STL (next_permutation)](https://www.geeksforgeeks.org/stdnext_permutation-prev_permutation-c/)
 
