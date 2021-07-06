@@ -22,7 +22,7 @@ ABCEFD<br>
 ...<br>
 FEDCBA<br>
 
-**Time Complexity: O(n*n!)** per test_case<br>
+**Time Complexity: O(N*K)** per test_case<br>
 
 ## STL Code:
 ```cpp
