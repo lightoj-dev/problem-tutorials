@@ -1,7 +1,7 @@
 # Problem Name: Substring Frequency
 ## [LightOj-1255](https://lightoj.com/problem/substring-frequency)
 ## Discussion:
-In this problem you are given two non-empty strings ` A ` and ` B `, both contain lower case English alphabets. You have to find the number of times ` B ` occurs as a substring of ` A `.<br>
+In this problem you are given two non-empty strings ` A ` and ` B `, both contain lower case English alphabets.<br>You have to find the number of times ` B ` occurs as a substring of ` A `.<br>
 **Note :** Count the number of times of ` B ` that occurs as a substring of ` A `.
 ## Solution Idea:
 In naive approach,<br>
@@ -10,7 +10,7 @@ The` time complexity of Naive Approach is ` **O(m*n)**.The ` m ` is the size of 
 But we can reduce this time complexity is **O(n+m)** using by **KMP(Knuth Morris Pratt) Pattern Searching**
 If you don't know how KMP works then check out these sites.
 * [KMP Algorithm](https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/)
-* [KMP Algorithm -by Abdul Bari](https://www.youtube.com/watch?v=V5-7GzOfADQ)
+* [[KMP Algorithm -by Abdul Bari]](https://www.youtube.com/watch?v=V5-7GzOfADQ)
 Beautiful explanation of how the KMP string matching algorithm will work.
 
 # CPP Code:
