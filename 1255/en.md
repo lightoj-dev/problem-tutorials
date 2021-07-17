@@ -116,4 +116,4 @@ int main()
 
 Happy Coding!!
 
-Written by:[Md. Rasel Meya](https://www.linkedin.com/in/raselmeya/)
+Written by:[Md. Rasel Meya](https://lightoj.com/user/rhrasel94)
