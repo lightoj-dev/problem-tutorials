@@ -65,6 +65,24 @@ int main()
 }
 
 ```
+## Python Code:
+```python
+
+import calendar
+month={"January":0, "February":1, "March":2, "April":3, "May":4, "June":5, "July":6, "August":7, "September":8, "October":9, "November":10, "December":11}
+for i in range(1,int(input())+1):
+	start=list(input().split())
+	end=list(input().split())
+	year=calendar.leapdays(int(start[2]),int(end[2])+1)
+	end_date=end[1][:-1]
+	if calendar.isleap(int(start[2]))==True and (month[start[0]]>1):
+		year-=1
+	if calendar.isleap(int(end[2]))==True and (month[end[0]]<1 or (month[end[0]]==1 and int(end_date)<=28)):
+		year-=1
+	print("Case {}:".format(i),year)
+	
+	
+```
 Happy Coding!
 
 Written by: [Md. Rasel Meya](https://lightoj.com/user/rhrasel94)
