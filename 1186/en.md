@@ -36,10 +36,10 @@ int main()
 		scanf("%d",&n);
 		for(int i=1;i<=n;i++) scanf("%d",&w[i]);
 		for(int i=1;i<=n;i++)
-        {
-            scanf("%d",&b[i]);
-            xorSum^=(b[i]-w[i]-1);
-        }
+		{
+		    scanf("%d",&b[i]);
+		    xorSum^=(b[i]-w[i]-1);
+		}
 
 		if(xorSum==0) printf("Case %d: black wins\n",times);
 		else printf("Case %d: white wins\n",times);
