@@ -79,7 +79,7 @@ ___
 ### C++
 
  ```cpp
- #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 void solve()
 {
@@ -97,22 +97,27 @@ void solve()
     //sorting all y axis with a inf negetive number
     sort(a.begin(),a.end());
     // find the total number of dust particles within a given range in front
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= n; i++)
+    {
         int p = upper_bound(a.begin(),a.end(),(a[i]+w)) - (a.begin());
         poss[i] = p-i;
     }
     //find the total number of dust particles within a given range in back
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= n; i++)
+    {
         int p = lower_bound(a.begin(),a.end(), (a[i]-w)) -  a.begin();
         prev[i] = p-1;
     }
 
-    for(int i = 0; i < k; i++){
+    for(int i = 0; i < k; i++)
+    {
         // find the maximum we can clean after (i+1) move if we take the point j
-        for(int j = 1; j <= n; ++j){
+        for(int j = 1; j <= n; ++j)
+        {
             dp[j] = poss[j] + (mx[prev[j]]);
         }
-        for(int j = 1; j <= n; ++j){
+        for(int j = 1; j <= n; ++j)
+        {
             mx[j] = max(mx[j-1], dp[j]);
         }
     }
@@ -123,12 +128,14 @@ int main()
 {
     int t,cas = 0;
     scanf("%d",&t);
-    while(t--){
+    while(t--)
+    {
         printf("Case %d: ", ++cas);
         solve();
     }
 
     return 0;
 }
+
 
  ```
