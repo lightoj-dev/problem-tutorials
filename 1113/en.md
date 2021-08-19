@@ -14,7 +14,7 @@ Also at the start we have to push the "http://www.lightoj.com/" url to the FORWA
 
  - **BACK :** If the size of the BACK stack is less than 2 print `Ignored`. Else , Push the top element of the _BACK_ stack to the _FORWARD_ stack and print the new top element of the _FORWARD_ stack .
 
- - **VISIT :**First take a new input as a string (for the given url). If the FORWARD stack is empty print `Ignored` . Else , push top element of the _FORWARD_ stack to the _BACK_ stack and empty the total _FORWARD_ stack. Then push the new inputted string to the empty _FORWARD_ stack and print the top element of the _FORWARD_ stack (the url we took as input).
+ - **VISIT :** First take a new input as a string (for the given url). If the FORWARD stack is empty print `Ignored` . Else , push top element of the _FORWARD_ stack to the _BACK_ stack and empty the total _FORWARD_ stack. Then push the new inputted string to the empty _FORWARD_ stack and print the top element of the _FORWARD_ stack (the url we took as input).
 
  - **QUIT :** Stop taking taking inputs and end the program.  
 
@@ -25,7 +25,7 @@ Also at the start we have to push the "http://www.lightoj.com/" url to the FORWA
 
 ![Illustration of different query](figure.svg)
 
-**Top Part :**As we can see in the above illustration , the first part shows the visual representation of "FORWARD" and "BACK" query . On "FORWARD" query the top element of _FORWARD stack_ is moved to the _BACK stack_ . OR the state changes as `state-1 => state-2`
+**Top Part :** As we can see in the above illustration , the first part shows the visual representation of "FORWARD" and "BACK" query . On "FORWARD" query the top element of _FORWARD stack_ is moved to the _BACK stack_ . OR the state changes as `state-1 => state-2`
 
 For the "BACK" query the exact opposite happens as the state changes as `state-2 => state-1`
 
