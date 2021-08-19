@@ -85,23 +85,27 @@ void solve()
 {
     int n,w,k,x;
     scanf("%d %d %d",&n,&w,&k);
-    vector<int> a(n+1);
+
+    vector<int> a(n+1),prev(n+1), mx(n+1, 0), poss(n+1);
     int dp[n+5];
-    vector<int> prev(n+1), mx(n+1, 0), poss(n+1);
+
     memset(dp, 0, sizeof dp);
 
     for(int i = 0; i < n; i++)
         scanf("%d %d",&x,&a[i]);
 
-    a[n] = INT_MIN/2;
+    a[n] = INT_MIN/2; //INT_MIN = NEGETIVE INFINITE
+
     //sorting all y axis with a inf negetive number
     sort(a.begin(),a.end());
+
     // find the total number of dust particles within a given range in front
     for(int i = 1; i <= n; i++)
     {
         int p = upper_bound(a.begin(),a.end(),(a[i]+w)) - (a.begin());
         poss[i] = p-i;
     }
+
     //find the total number of dust particles within a given range in back
     for(int i = 1; i <= n; i++)
     {
@@ -116,11 +120,14 @@ void solve()
         {
             dp[j] = poss[j] + (mx[prev[j]]);
         }
+
+        // for tracking maximum cleaned dust.
         for(int j = 1; j <= n; ++j)
         {
             mx[j] = max(mx[j-1], dp[j]);
         }
     }
+
     cout << *max_element(dp+1, dp + n+1) << "\n";
 }
 
@@ -128,6 +135,7 @@ int main()
 {
     int t,cas = 0;
     scanf("%d",&t);
+
     while(t--)
     {
         printf("Case %d: ", ++cas);
@@ -136,6 +144,5 @@ int main()
 
     return 0;
 }
-
 
  ```
