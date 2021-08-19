@@ -55,13 +55,13 @@ K = 31
 |array (value)|  9 |  19 | 21  |  29 |  44 | 57  | 72  | 83  | 94  | 97 |
 |poss(a[i]+w) | 25 | 35  |  37 | 45  | 60  | 73  |  88 |  99 | 110 |113 |
 |prev (a[i]-w)| -8 | 2   |  4  | 12  | 27  | 40  |  55 |  66 | 77  | 80 |
-|1st Move     |  3 | 3   |  2  |	2  |	2	 | 2   |  2  | 3   |	2  | 1  |
-|2nd Move     |  3 |	3  |	 2 |	5  |	5  |	5  |  5  | 6   |	5  |	4 |
-|3rd Move     |	3  |	3  |	 2 |	5  |	5  |	7  | 7   | 8   |	7  |	6 |
+|1st Move     |  3 | 3   |  2  |  2  |	2  | 2   |  2  | 3   |	2  | 1  |
+|2nd Move     |  3 |  3  |   2 |  5  |	5  |  5  |  5  | 6   |	5  |  4 |
+|3rd Move     |	3  |  3  |   2 |  5  |	5  |  7  | 7   | 8   |	7  |  6 |
 
 In the table `poss(a[i]+w)` is the range in which all dust particles are covered if we start the stroke from that particular point and `prev (a[i]-w)` is the range for strokes that end at that point.
 
-_further explanation as what happens at each move goes here_
+Then we just calculate the maximum porssible dust we can clean after each stroke.
 
 **Time Complexity :**
  `O(k*nlogn)`
@@ -80,55 +80,55 @@ ___
 
  ```cpp
  #include<bits/stdc++.h>
- using namespace std;
- void solve()
- {
- 	int n,w,k,x;
- 	scanf("%d %d %d",&n,&w,&k);
-     vector<int> a(n+1);
- 	int dp[n+5];
- 	vector<int> prev(n+1) , mx(n+1, 0) , poss(n+1);
- 	memset(dp, 0, sizeof dp);
+using namespace std;
+void solve()
+{
+    int n,w,k,x;
+    scanf("%d %d %d",&n,&w,&k);
+    vector<int> a(n+1);
+    int dp[n+5];
+    vector<int> prev(n+1), mx(n+1, 0), poss(n+1);
+    memset(dp, 0, sizeof dp);
 
- 	for(int i = 0; i < n; i++)
-		 scanf("%d %d" ,&x ,&a[i]);
+    for(int i = 0; i < n; i++)
+        scanf("%d %d",&x,&a[i]);
 
- 	a[n] = INT_MIN/2;
-	//sorting all y axis with a inf negetive number
- 	sort(a.begin(),a.end());
-	// find the total number of dust particles within a given range in front
-	 for(int i = 1; i <= n; i++){
-         int p = upper_bound(a.begin(),a.end(),(a[i]+w)) - (a.begin());
-         poss[i] = p-i;
- 	}
-	//find the total number of dust particles within a given range in back
-	for(int i = 1; i <= n; i++)
-	{
+    a[n] = INT_MIN/2;
+    //sorting all y axis with a inf negetive number
+    sort(a.begin(),a.end());
+    // find the total number of dust particles within a given range in front
+    for(int i = 1; i <= n; i++){
+        int p = upper_bound(a.begin(),a.end(),(a[i]+w)) - (a.begin());
+        poss[i] = p-i;
+    }
+    //find the total number of dust particles within a given range in back
+    for(int i = 1; i <= n; i++){
         int p = lower_bound(a.begin(),a.end(), (a[i]-w)) -  a.begin();
-	    prev[i] = p-1;
- 	}
+        prev[i] = p-1;
+    }
 
- 	for(int i = 0; i < k; i++){
-		// find the maximum we can clean after (i+1) move if we take the point j
-		 for(int j = 1; j <= n; ++j){
-             dp[j] = poss[j] + (mx[prev[j]]);
-         }
-         for(int j = 1; j <= n; ++j){
-             mx[j] = max(mx[j-1], dp[j]);
-         }
- 	}
- 	cout << *max_element(dp+1, dp + n+1) << "\n";
- }
+    for(int i = 0; i < k; i++){
+        // find the maximum we can clean after (i+1) move if we take the point j
+        for(int j = 1; j <= n; ++j){
+            dp[j] = poss[j] + (mx[prev[j]]);
+        }
+        for(int j = 1; j <= n; ++j){
+            mx[j] = max(mx[j-1], dp[j]);
+        }
+    }
+    cout << *max_element(dp+1, dp + n+1) << "\n";
+}
 
- int main()
- {
- 	int t,cas = 0;
- 	scanf("%d",&t);
- 	while(t--){
- 		printf("Case %d: ", ++cas);
- 		solve();
- 	}
+int main()
+{
+    int t,cas = 0;
+    scanf("%d",&t);
+    while(t--){
+        printf("Case %d: ", ++cas);
+        solve();
+    }
 
- 	return 0;
- }
+    return 0;
+}
+
  ```
