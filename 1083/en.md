@@ -39,7 +39,7 @@ Once we have left and right index we can calculate ,
 
 Afterwards, by calculating and comparing the area for each bar we can easily find the area of the largest rectangle in the histogram.
 
-**_NOTE :_** I highly recommend watching the the first video provided in the resources section. This is a very classic problem and to understand in fully it's important to see the step by step processes visually. Also reading the last blog in the resources section to know a slightly different coding process.
+**_NOTE :_** It's highly recommended to watch the the first video provided in the resources section. This is a very classic problem and to understand tn fully it's important to see the step by step processes visually. Also reading the last blog in the resources section to know a slightly different coding process.
 
 **Resources :**
 
