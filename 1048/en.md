@@ -1,18 +1,8 @@
-## Problem Restatement. 
-
-We Have an Array ```a``` of ```n+1``` elements, and in that we want to mark ```k``` points. And the output of this problem is the function
-
-```
-f(a,v) = max(a[i + 1] - a[i]) over all i in set of marked indices.
-```
-
-Our objective is to minimize ```f​```. 
-
 ### Analysis.
 
-Let us make the problem easier, and instead of having exactly $k$, we compute the function for atmost $k$. With this structure, we create new boolean function ```g(x) = (f(a,k) <= x)​```
+Let us make the problem easier, and instead of having exactly `k`, we compute the function for atmost `k`. With this structure, we create new boolean function ```g(x) = (f(a,k) <= x)```
 
-Observe that this function is monotonic. As for if there exists x where it's true, for all ```y >= x , g(y) = 1``` will be true as well. Hence we can apply binary search on ```g​``` to find the optimal ```x```​. 
+Observe that this function is monotonic. As for if there exists x where it's true, for all ```y >= x , g(y) = 1``` will be true as well. Hence we can apply binary search on ```g``` to find the optimal ```x```. 
 
 To check if a ```x``` satisfies a condition, we can greedily pick the longest route possible from the starting position, and repeat this till the end. 
 
@@ -46,7 +36,7 @@ The proof is by exchange arguments. As if in the the optimal solution the initia
 Now all that is left is to make the number of nights exactly equal to ```k```. For that we can simply break down the non-consecutive successive indices to increment the number of nights. 
 
 ```c++
-      int df = k + 1 - sz(answer);
+      int df = k + 1 - answer.size();
       vector<int> vec;
       while(df > 0) {
             int b = v.back();
@@ -69,8 +59,6 @@ Here is the full code.
 ```c++
 #include<bits/stdc++.h>
 using namespace std;
-#define A(x) (x).begin(),(x).end()
-#define sz(x) ((int)(x).size())
 
 void test() {
       int n,k;
@@ -79,7 +67,7 @@ void test() {
       for(int &x : v)
             cin >> x;
       vector<int> answer;
-      int lo = * max_element(A(v)) , hi = accumulate(A(v),0), ans = -1;
+      int lo = * max_element(v.begin(), v.end()) , hi = accumulate(v.begin(), v.end(), 0), ans = -1;
 
 
       auto ok = [&](int mid) {
@@ -112,7 +100,7 @@ void test() {
       }
       ok(ans);
       cout << ans << '\n';
-      int df = k + 1 - sz(answer);
+      int df = k + 1 - answer.size();
       vector<int> vec;
       while(df > 0) {
             int b = v.back();
@@ -124,7 +112,7 @@ void test() {
             else
                   --df;
       }
-      reverse(A(vec));
+      reverse(vec.begin(), vec.end());
       for(int x : vec)
             answer.push_back(x);
       for(int &x : answer)
