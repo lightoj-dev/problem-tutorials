@@ -1,8 +1,41 @@
 # LOJ - 1112: Curious Robin Hood
 
 -----
+**What the problem Wants :** The problem gives you an array of `n` elements , where you must perform three types of pre-defined query .
+these queries are:
 
-**General Approach :** The problem is a straight forward update and query problem. Using a `Binary Indexed Tree` or `segment tree` easily solves the problem.
+1. 1 i - give all the money of the ith index and print the amount given .
+2. 2 i v - add money v to the ith sack.
+3. 3 i j - find the total amount of money from the ith sack to the jth sack and print the amount
+
+Lets see what these queries mean on an example case.
+
+``` none
+1
+5 3
+1 2 3 4 5  // the given array
+1 3        // queries of type -1
+2 4 10     // queries of type -2
+3 2 4      // queries of type -3 
+```
+
+**Output :**
+
+``` none
+Case 1:
+4
+18
+```
+
+In the above example:
+
+after quary of type-1 the array is { 1 , 2 , 3 , _0_ , 5 }
+
+after quary of type-2 the array is { 1 , 2 , 3 , _0_ , _15_ }
+
+after query of type-3 the array is { 1 , 2 , 3 , _0_ , _15_ } which is the same . However at this step the output will be 18 , denoting the sum of all elements in the array from the index-2 to index-4.
+
+**General Approach :** The problem is a straight forward update and query problem. We can use a brute force approach which although solves the problem , doesn't meet our constraint for required time. As a brute force approach is too slow. Using a `Binary Indexed Tree` or `segment tree` however easily solves the problem within the time constraint.
 
 **How to know I have to use a special data-structure? :** The main question that arrives in solving this problem is how do I identify which data structure to use or why wont using a normal array be enough. The answer is within the time-limit and constraint. If we use a simple array and take a brute forced approach we can update any point in the array in `O(1)` time. But for every query for finding the sum within the given range will take `O(N)` time.
 
