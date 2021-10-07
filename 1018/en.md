@@ -1,3 +1,4 @@
+# LOJ 1018 - Brush (IV)
 ### What the problem wants
 N number of 2D points are given. You have to find minimun number of straight lines that cover all the points.
 ### Explanation with Example
@@ -30,7 +31,7 @@ After a bit of trying, we can see that we need at least 3 straight lines to cove
 
 ![Correct Solution](https://i.imgur.com/tdvAN2P.png)
 
-We connect (9, 15) and (12, 12) { point (10, 14) and (12, 13) also lies on this line }; (10, 10) and (11, 11) { point (12, 12) also lies on this line }; (11, 11) and (12, 13). So the answer is 3.
+We can see that only 3 straight lines are enough to cover all the points here. Point (9, 15), (12, 12), (10, 14), (12, 13) lies on one line, point (10, 10), (11, 11), (12 12) lies on another line and lastly point (11, 11), (12, 13) lies on other. So the answer is 3. A little bit of practice can convince you that all the points cannot be covered in less than 3 lines here. 
 
 ### Observation.
 - We want to minimize number of lines that covers all the points.
