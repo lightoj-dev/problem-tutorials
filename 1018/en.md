@@ -16,14 +16,20 @@ Suppose for the input
 9 15
 ```
 The picture looks something like this.
-!(Test Case)[https://i.imgur.com/tQIYCFZ.png]
+
+![Test Case](https://i.imgur.com/tQIYCFZ.png)
+
 Lets make saveral lines that covers all the points. For this we connect straight lines between (9, 15) and (10, 10); (10, 14) and (11, 11); (11, 13) and (12, 13); (12, 13) and (12, 12).
 Then the picture seems something like this.
-!(Incorrect Solution)[https://i.imgur.com/3njMU7b.png]
+
+![Incorrect Solution](https://i.imgur.com/3njMU7b.png)
+
 In this solution, we need 4 lines to cover all points.
 
 After a bit of trying, we can see that we need at least 3 straight lines to cover all the points. The one result may seem like this. 
-!(Correct Solution)[https://i.imgur.com/tdvAN2P.png]
+
+![Correct Solution](https://i.imgur.com/tdvAN2P.png)
+
 We connect (9, 15) and (12, 12) { point (10, 14) and (12, 13) also lies on this line }; (10, 10) and (11, 11) { point (12, 12) also lies on this line }; (11, 11) and (12, 13). So the answer is 3.
 
 ### Observation.
