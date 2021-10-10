@@ -17,7 +17,7 @@ Do not forget to clear stored informations (about nodes, edges) after/before eac
 Dijkstra algorithm, BFS-DFS, Graph traversal
 
 ### C++ implementation
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
