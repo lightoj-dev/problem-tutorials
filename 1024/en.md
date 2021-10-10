@@ -50,7 +50,7 @@ using namespace std;
 
 int p[1130], sz = 1;
 bool siv[10000];
-string ans = "Rahat Voch 8)";
+string ans = "";
 
 string multyply(string a, int b){
   int carry = 0;
