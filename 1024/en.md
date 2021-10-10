@@ -42,7 +42,7 @@ Some programming language like python allows built in big integer fascilities wh
 Sieve of Eratosthenes, Number theory
 
 ### C++ implementation
-```
+```cpp
 #include "bits/stdc++.h"
 using namespace std;
 
