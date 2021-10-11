@@ -16,9 +16,9 @@ As it is a minimization problem. In each step we are going to find out the minim
 We have one more step also. Look at decision no '1'. We have bolded region as "**abca**". Here we actually do not need two decision branches. Now as first and last characters are the same, we do not need to add any character. So answer for this branch would simply be the answer of "**bc**" ("a**bc**a"; next bolded region).
 
 Let's show the steps on image. First image shows all the branching. [Here instead of bolded region, we have enclosed our range of interest in paranthesis for better understanding.]
-!(Branch)[branch.png]
+![Branch](branch.png)
 Second image shows the corresponding result from that branching.
-!(Answer)[answer.png]
+![Answer](answer.png)
 
 Thus we can recursively solve the problem. As there will be a lot of redundant call to the same state, we will use memorization and dynamic programming to get the solution within the time limit.
 
