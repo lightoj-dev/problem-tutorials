@@ -14,13 +14,19 @@ Let's define <b>state</b> for recursion DP:</br>
 <hr>
 <b>Base case:</b> (pos>=n)<br>
 <b>Normal case: (0 base index)</b><br> 
-1. If house position (pos)=0 then<br>
-    a.we can sell and go next house (pos+1) or<br>
-    b.we can go next house without selling.
-2. If taken=1 that means soap sold in previous house so we can not sell to current house so we must go next houese without selling
-3. If house position (pos)=n-1 it is last house so we have to check first house.<br>
-    a.If sold soap in first house we can not sell current house.<br>
-    b.Otherwise we can sell.
+<ol>
+    <li>If house position (pos)=0 then</li>
+    <ol>
+        <li>we can sell and go next house (pos+1) or</li>
+        <li>we can go next house without selling.</li>
+    </ol>
+    <li>If taken=1 that means soap sold in previous house so we can not sell to current house so we must go next houese without selling</li>
+    <li>If house position (pos)=n-1 it is last house so we have to check first house.</li>
+    <ol>
+        <li>If sold soap in first house we can not sell current house.</li>
+        <li>Otherwise we can sell.</li>
+    </ol>
+</ol>
 <br><br><hr>
 
 If you still need some help for implementation. <br>
@@ -49,7 +55,7 @@ int fun(int pos, int taken, bool first){
     return ret;
 }
 int main(){
-    int test,cs;
+    int test,cs=1;
     cin>>test;
     while(test--){
         memset(dp,-1,sizeof dp);
