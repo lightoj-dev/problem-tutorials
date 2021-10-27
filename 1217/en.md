@@ -8,9 +8,11 @@ We are given <b><i>N</i></b> houses to soap. And houses are placed in circular p
 We can solve this problem using <b>Dynamic Programming</b> idea ( Here I use recursive DP).
 
 Let's define <b>state</b> for recursion DP:</br>
-1. position (pos) , 
-2. is possible to take this position's value (taken),
-3. is first position's value taken or not (first).
+<ol>
+    <li>position (pos) ,</li>
+    <li>is possible to take this position's value (taken),</li>
+    <li>is first position's value taken or not (first).</li>
+</ol>
 <hr>
 <b>Base case:</b> (pos>=n)<br>
 <b>Normal case: (0 base index)</b><br> 
