@@ -18,7 +18,7 @@ We need to print out the `name` of the `thief` and `victim` in each testcase.
 Basically we need to find out the name associated with `higher than average volume`  and `lower than average volume` 
 of consumed cake. Here, a `map` is used. It is a `key-value` pair. The `key` is the volume of the consumed cake, and the `value` is an `Object`. Which again contains two `key-value` pairs. The `key` is the name of the person and the `value` is the number of persons which consumed the exact amount of cake as the `key` of the `map` denotes. We are storing the name because as it is mentioned in the problem, there is only `one` pair of `theif-victim` in each test case. So, storing the names where `frequency` is 1 will give us the name of the `thief` and the `victim`.
 
-If you want to learn amore about javascript `Maps`, [Here is the official documentation.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+If you want to learn more about javascript `Maps`, [Here is the official documentation.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
 ```js
 const tab = {
