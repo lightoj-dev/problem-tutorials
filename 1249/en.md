@@ -2,33 +2,36 @@
 
 ### Problem statement
 In this problem, each test case contains `n` number of lines. Each line contains:
- `Name(n) length(l),breadth(b) height(h)`
+ `Name(n), length(l), breadth(b), height(h)`
 
-Denoting that the person with name(n) ate the cake of the length(l),breadth(b) & height. Each information separated by a `whitespace` .Each person should eat the same amount of cake `in volume` i.e each `l*b*h` should be the same.
-However, one single `thief` stole a portion from another `victim`, given that in all cases, 
+Denoting that the person with name (n) ate the cake of the length (l), breadth (b) and height (h). Each information is separated by a `whitespace`. Each person should eat the same amount (volume) of cake which means `l*b*h` should be the same.
+However, a single `thief` stole a portion from another `victim`, given that in all cases,  
 ```
 number of thief = number of victim = 1
 ```
-We need to print out the `name` of the `thief` & `victim` in a particular testcase.
+We need to print out the `name` of the `thief` and `victim` in each testcase.
 
 **Example Output:** `Case 1: mun took chocolate from all` 
 
 ### Approach
 
 Basically we need to find out the name associated with `higher than average volume`  and `lower than average volume` 
-of consumed cake. I used this data-structure to solve the problem:
+of consumed cake. Here, a `map` is used. It is a `key-value` pair. The `key` is the volume of the consumed cake, and the `value` is an `Object`. Which again contains two `key-value` pairs. The `key` is the name of the person and the `value` is the number of persons which consumed the exact amount of cake as the `key` of the `map` denotes. We are storing the name because as it is mentioned in the problem, there is only `one` pair of `theif-victim` in each test case. So, storing the names where `frequency` is 1 will give us the name of the `thief` and the `victim`.
+
+If you want to learn amore about javascript `Maps`, [Here is the official documentation.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
 ```js
 const tab = {
-    [key]: number // this denotes the volume of the consumed cake
+    [key]: // Amount of cake consumed
     {
-        name: string  // stored the name, not a necessary field in case of non-thiefs/non-victims
-        freq: number // stored the number of people with the same volume i.e, the key
+        name, // Name of the person consuming the same amount of cake as the key
+        frequency // Amount of people consuming the same amount fo cake 
     }
 }
 ```
 
-- If there is only single key, it means that everybody got the same volume of that cake
-- Otherwise, we find out the **minimum** key and the **maximum** key, along with the associated **name**. Then print out the name of the **victim** and the **thief**
+- If there is only one key, it means that everybody got the same volume of that cake
+- Otherwise, we need to find out the **minimum** key and the **maximum** key, along with the associated **name**. Then print out the name of the **victim** and the **thief**
 
 ### Javascript
 -----
@@ -49,11 +52,14 @@ rl.on('close',()=>{
     for(let i=0;i<noOfCases;i++){
         let victim = ''
         let thief = ''
-        let cases = parseInt(userInput[inputPtr])
+        let students = parseInt(userInput[inputPtr])
         let tab = {}
-        for(let i = inputPtr+1 ; i< cases+inputPtr+1;i++){
+        for(let i = inputPtr+1 ; i< students+inputPtr+1;i++){
             let temp = userInput[i].split(" ")
-            let vol = parseInt(temp[temp.length-1]) * parseInt(temp[temp.length-2]) * parseInt(temp[temp.length-3])
+            const l = parseInt(temp[temp.length-1])
+            const b = parseInt(temp[temp.length-2])
+            const h = parseInt(temp[temp.length-3])
+            let vol = l*b*h
             let name = temp[0]
             if(tab[vol]){
                 tab[vol].name = name
@@ -66,7 +72,7 @@ rl.on('close',()=>{
                 }
             }
         }
-        let keys = Object.keys(tab)
+        const keys = Object.keys(tab)
         if(keys.length===1){
             console.log(`Case ${i+1}: no thief`)
         }
@@ -89,7 +95,7 @@ rl.on('close',()=>{
             }
             console.log(`Case ${i+1}: ${thief} took chocolate from ${victim}`)
         }
-        inputPtr = inputPtr + cases + 1
+        inputPtr = inputPtr + students + 1
     }
 })
 ```
