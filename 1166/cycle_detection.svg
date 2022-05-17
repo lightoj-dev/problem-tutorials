@@ -27,7 +27,7 @@
      inkscape:cx="77.028125"
      inkscape:cy="341.6677"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
@@ -289,7 +289,7 @@
          id="tspan1895"
          x="11.759859"
          y="87.664398"
-         style="font-size:4.93889px;stroke-width:0.264583">fig : 2 cycles in the giver array = [2,4,3,1,5]</tspan><tspan
+         style="font-size:4.93889px;stroke-width:0.264583">fig : 2 cycles in the given array = [2,4,3,1,5]</tspan><tspan
          sodipodi:role="line"
          x="11.759859"
          y="93.838013"

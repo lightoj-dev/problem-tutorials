@@ -45,7 +45,7 @@ int main()
         int n,ans=0;
         cin>>n;      
         
-        int a[n+1]= {};    //for given arary
+        int a[n+1]= {};    //for given array
         bool vis[n+1]= {}; //for tracking visited numbers (when checking for cycles)
         
         for(int i=1; i<=n; i++)
