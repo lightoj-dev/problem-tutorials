@@ -21,7 +21,8 @@ So, the answer will be between 0 to 10<sup>9</sup>
 
 Let's **Binary Search** on 0 to 10<sup>9</sup>;
 
-### Condition
+### Sudocode
+
 let's L = 0 and R = 10<sup>9</sup>
 
 then M is the container size. **[M = L + (R-L)/2]**
@@ -52,7 +53,7 @@ void solve()
 	for(int i = 0; i < n; i++){
 		cin >> a[i];
 	}
-    /**Binary Search Part**/
+    /**Starting Binary Search**/
 	int L = 0;
 	int ans;
 	int R = INT_MAX/2;
@@ -61,30 +62,31 @@ void solve()
 		int cnt = 0,sum = 0;
         bool ok = true;
 		for(int i = 0; i < n; i++){
-			if(a[i] > M){//1st condition of binary search
+			if(a[i] > M){      //1st condition of binary search
 				L = M+1;
                 ok = false;
 				break;
 				
 			}
             /**Counting the number of containner we need**/
-			sum += a[i];// sum is how much we fill of a M size containner
+			
+			sum += a[i];      // sum is how much we fill of a M size containner
 			if(sum == M){
 				sum = 0;
-				cnt++;//cnt is the number of containner
+				cnt++;     //cnt is the number of containner
 			}
 			else if(sum > M){
 				cnt++;
 				sum = a[i];
 			}
 		}
-        if(!ok)continue; // if any of vessel is greater than M
+        if(!ok)continue;  // if any of vessel is greater than M
 		if(sum)cnt++;
 		
-		if(cnt > m){//2nd condition
+		if(cnt > m){      //2nd condition
 			L = M+1;
 		}
-		else {//3rd Condition
+		else {          //3rd Condition
 			R = M;
 		}
         ans = M;
