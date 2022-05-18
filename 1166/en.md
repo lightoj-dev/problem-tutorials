@@ -18,9 +18,10 @@ Now that we have an understanding of the swap operation. Let's visualize the arr
 
 Bringing each cycle in correct order will require `number of elements in the cycle - 1` swaps. If we sum all required swaps for correctly ordering each cycle we can easily find our answer.
 
-So , If there are `k` cycles in the array and number of element in each cycle is `x` then,
+So , If there are total `k` cycles in the array and number of element in each cycle is `x` then x<sub>i</sub> means the number of elements in the i'th cycle,
 
-**answer =  $\sum_{i=1}^{i=k} (x_i-1)$**
+**answer =  Σ(x<sub>i</sub> - 1)      where, 1 <= i <= k**
+
 
 **Resources:**  
 
