@@ -1,4 +1,4 @@
-# Get the Containers
+# # LOJ 1076 - Get the Containers
 
 ## Summary
 
@@ -27,7 +27,7 @@ let's L = 0 and R = 10<sup>9</sup>
 
 then M is the container size. **[M = L + (R-L)/2]**
 
-If M is the maximum size of those container. Then, We have to count how many container we need to poured all of those milk.
+If M is the maximum size of those containers. Then, We have to count how many containers we need to pour with all of those milk.
 
 1. if any of vessel size is bigger than the M then L = M+1 
   
@@ -66,7 +66,6 @@ void solve()
 				L = M+1;
                 ok = false;
 				break;
-				
 			}
             /**Counting the number of containner we need**/
 			
@@ -90,7 +89,7 @@ void solve()
 			R = M;
 		}
         ans = M;
-        if(L == R)ans = L;
+        if(L == R) ans = L;
 	}
     /**Ending the binary search part**/
 	cout << ans << "\n";
