@@ -101,7 +101,7 @@ void solve()
             R = M;
         }
         ans = M;
-        if(L == R)ans = L;
+        if(L == R) ans = L;
     }
     /**Ending the binary search part**/
     cout << ans << "\n";
