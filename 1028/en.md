@@ -5,7 +5,7 @@
 First of all, let us consider the fact: how we convert a 10 base number to a 2 base number. Simple it is. We have to divide the number with 2 until we get the quotient = 0. Now, we will try to convert the number 156 from base 10 to base 2.
 
 
-![](https://imgur.com/WvioaJT.png)
+![Bin_Convert](https://user-images.githubusercontent.com/40003419/170428428-e61cd9dc-d0ae-4941-a6fe-34e5ab6d4caa.jpeg)
 
                                
 The binary representation of the number (156)<sub>10</sub> will be (10011100)<sub>2</sub>. The first remainder actually represents the last digit. We need to find the number of bases when converted from base 10, there will be at least one trailing zero. For the the last digit has to be zero. We don't need to see the rest. The last digit becomes 0 only if the number N is divided by the base.
