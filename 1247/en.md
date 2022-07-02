@@ -4,7 +4,7 @@
 
 We have given a **N * M** Grid. A player can remove any number of stone from any row.
 So a player can remove 1 to all stone from a row. We can assume all the stone in a row as a single pile of stone.
-Then we will get N pile of stone.Now we can calculate xor sum of that pile and determine who is winner.
+Then we will get N pile of stone.Now we can calculate xor-sum of that pile and determine who is winner.
 
 ---
 Lets assume now we have 4 pile { 9 , 7 , 11 , 5 }.
