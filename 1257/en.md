@@ -25,7 +25,7 @@ This sample can be represented in a graph like below: <br>
 1) Take a random node `S` as source and apply DFS. Find the node which is farthest from the source node. Suppose we got the node `P` which is farthest from the source node `S`. <br> 
 ![ppp1](ppp1.png) <br>
 Suppose we have taken node `0` as `S`. <br>
-Distance from `0` to `5` is ```30+1+18 = 59``` <br>
+Distance from `0` to `5` is ```30+1+18 = 49`` <br>
 Distance from `0` to `6` is ```30+56 = 86``` <br>
 Distance from `0` to `8` is ```30+8 = 38``` <br>
 Distance from `0` to `7` is ```31+58 = 89``` which is the maximum distance we can get from the source node `0`. So `P` wil be node `7`. <br>
