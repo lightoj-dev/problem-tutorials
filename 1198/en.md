@@ -4,7 +4,7 @@ You will be given two arrays of length n let's say *A* and *B* containing n inte
 
 
 ## Solution Idea:
-What will happen if we sort these two arrays and compare *A<sub>i</sub>* with *B<sub>j</sub>*? 
+What will happen if we sort these two arrays in decreasing order and compare *A<sub>i</sub>* with *B<sub>j</sub>*? 
  If *A<sub>i</sub> > B<sub>j</sub>* then *A<sub>i</sub>* is also greater than *B<sub>j+1</sub>,B<sub>j+2</sub>....B<sub>n-1</sub>*  and you will win because *B<sub>j</sub> >= B<sub>j+1</sub>...>= B<sub>n-1</sub>*. If *A<sub>i</sub> < B<sub>j</sub>* then you can't win. Finally, It won't work. Consider the case  A = {10,7,3,2,1}  and B = {9,8,7,3,2} :
 |  | 0|1 | 2 | 3 | 4 |
 |-|-|-|-|-|-|
@@ -85,4 +85,3 @@ int main()
 }
 ```
 
-**Time Complexity: O(n<sup>2</sup>logn)**
