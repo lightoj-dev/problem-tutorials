@@ -19,7 +19,7 @@ But if we skip *B<sub>1</sub>* and look for next player of *B* for *A<sub>1</sub
 |**B:**| 9| ~~8~~ |`7`| 3| 2|
 
 It will give us a total score 5! That's the idea! If *A<sub>i</sub> <  B<sub>j</sub>* then look for the next opposition player who has power less than or equal to *A<sub>i</sub>* . 
-If we continue with *A<sub>i</sub> == B<sub>j</sub>*  this will give us total score 5. But what will happen if we look for the next player of *B*  which is less than *A<sub>i</sub>*
+If we continue with *A<sub>i</sub> == B<sub>j</sub>*  this will give us total score 5. But what will happen if we look for the next player of *B*  which is less than *A<sub>i</sub>*?
 | |0|1 | 2 | 3 | 4 | 
 |--| - | - | -| - | - | 
 |**A:**|  10 | `7` | 3 | 2 | 1 |
@@ -33,13 +33,13 @@ We will use `Recursion` to solve this problem.
 - First sort A and B in decreasing order.
 - Start from i=0 and j=0<br>
 **FindMaxScore( A , B , i , j )**
-	- If i >= A.size() or j >= B.size() then return 0   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Base Case
+	- If i >= A.size() or j >= B.size() then return 0   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Base Case, if there is no player remaining to fight then return 0
 	- If *A<sub>i</sub> > B<sub>j</sub>* then return 2+FindMaxScore( A , B , i+1 , j+1 )
 	- If *A<sub>i</sub> < B<sub>j</sub>* then return 0+FindMaxScore( A , B , i , j+1 )
-	- If*A<sub>i</sub> == B<sub>j</sub>* then return	max( 1+FindMaxScore(A,B,i+1,j+1) , FindMaxScore(A,B,i,j+1) )
+	- If *A<sub>i</sub> == B<sub>j</sub>* then return	max( 1+FindMaxScore(A,B,i+1,j+1) , FindMaxScore(A,B,i,j+1) )
 
-This solution works perfect but causes **TLE**. We will use `dynamic programming` for better performance. Take a 2D array lets say dp of size `nxn`.
-where `dp[i][j]` stores the maximum score from *A<sub>i</sub>-B<sub>j</sub>* to *A<sub>n-1</sub>-B<sub>n-1</sub>*. If score is found for *A<sub>i</sub>-B<sub>j</sub>* in `dp[i][j]` return this else continue.
+This solution works perfect but causes **TLE**. We will use `dynamic programming` for better performance. Take a 2D array lets say dp of size `n x n`.
+`dp[i][j]` stores the maximum score from *A<sub>i</sub>-B<sub>j</sub>* to *A<sub>n-1</sub>-B<sub>n-1</sub>*. If score is found for *A<sub>i</sub>-B<sub>j</sub>* in `dp[i][j]` return this else continue.
 
 **Code(C++):**
 ```cpp
