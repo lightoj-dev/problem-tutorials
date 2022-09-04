@@ -84,3 +84,30 @@ class Main {
   }
 }
 ```
+
+### Python
+```python
+from collections import Counter
+
+def solution(str_a: str, str_b: str) -> bool:
+    str_a = str_a.replace(" ", "").lower()
+    str_b = str_b.replace(" ", "").lower()
+    return Counter(str_a) == Counter(str_b)
+
+
+def main():
+    test_cases =  int(input())
+
+    for t in range(1, test_cases + 1):
+        str_a = input().strip()
+        str_b = input().strip()
+
+        result = "Yes" if solution(str_a, str_b) else "No"
+
+        print(f"Case {t}: {result}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
