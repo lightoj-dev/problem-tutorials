@@ -5,11 +5,11 @@ Tags : Dynamic Programming, Best Cumulative Sum, Memoization
 
 The problem statement has these key points:
 
-1. Conveyor belts moving row-wise in the same column from block __b__ to the __radium refinery__ can be added up as long as there is no column wise conveyor belt moving in between them.
-2. Conveyor belts moving column-wise in the same row from block __b__ to the __uranium__ can be added up as long as there is no row wise conveyor belt moving in between them.
-3. Any kind of conveyor is NOT _bi-directional_ when it comes to collection. It has to reach the refinery, in one direction. Either from East to West or from North to South, BUT West to East or South to North is not possible as the placement of the refineries are already given. This plays a heavy role on how to implement and memoize row-wise (left-to-right or right-to-left?) and column-wise (up-to-down or down-to-up?).
+1. Conveyor belts moving row-wise in the same column from block __b__ to the __radium refinery__ can be added up as long as there is no column-wise conveyor belt moving in between them.
+2. Conveyor belts moving column-wise in the same row from block __b__ to the __uranium__ can be added up as long as there is no row-wise conveyor belt moving in between them.
+3. Any kind of conveyor is NOT _bi-directional_ when it comes to collection. It has to reach the refinery, in one direction. Either from East to West or from North to South, BUT West to East or South to North is not possible as the refineries’ placement is already given. This plays a heavy role in how to implement and memoize row-wise (left-to-right or right-to-left?) and column-wise (up-to-down or down-to-up?).
 
-We need to find the max possible cumulative sum can be reached abiding by above mentioned rules.
+We need to find the max possible cumulative sum that can be reached by abiding by the above-mentioned rules.
 
 ### Helpful Resources
 
@@ -21,9 +21,9 @@ We need to find the max possible cumulative sum can be reached abiding by above 
 
 ## Solution
 
-For convenience, we will be using 2 seperate 2D array-based matrix (use anything to create a grid as long as the `mutation` and `look up` cost is O(1)) to keep column-wise and row-wise cumulative sum respectively. We add one extra padding in both row and column for memoization purposes than the actual matrix size. Taking point `3` in account, to avoid another iteration through row-wise or column-wise, we will simply sum up value of previous block (in case of `row` : `matrix[row][column-1]` {left block}; and incase of `column` : `matrix[row-1][column]` {upper block}) and add it to current block value. We have cumulated both of the refinary matrix in such a way that the alternative refinary wasn't considered at all when cumulating a particular one
+For convenience, we will be using 2 separate 2D array-based matrices (use anything to create a grid as long as the `mutation` and `look up` cost is O(1)) to keep column-wise and row-wise cumulative sum respectively. We add one extra padding in both row and column for memoization purposes than the actual matrix size. Taking point `3` in account, to avoid another iteration through row-wise or column-wise, we will simply sum up value of previous block (in case of `row` : `matrix[row][column-1]` {left block}; and in case of `column` : `matrix[row-1][column]` {upper block}) and add it to current block value. We have cumulated both of the refinery matrices in such a way that the alternative refinery wasn't considered at all when cumulating a particular one
 
-IF the problem stated the uranium refinery was at right and the radium refinery was at bottom, (i) we could have populated the matrices using ending indices {`i = m, i--` and `j = n, j--`} meaning taking inputs while transpoing the matrices, __OR__, (ii) memoized the rows from `matrix[row][column+1]` {right block} and the columns from `matrix[row+1][column]` {lower block}. In any case, the implementation of memoization direction would vary. How this is important or relevant is clarified in the next section when we are populating the result matrix, `memoizationMatrix`.
+IF the problem stated the uranium refinery was at right and the radium refinery was at bottom, (i) we could have populated the matrices using ending indices {`i = m, i--` and `j = n, j--`} meaning taking inputs while transposing the matrices, __OR__, (ii) memoized the rows from `matrix[row][column+1]` {right block} and the columns from `matrix[row+1][column]` {lower block}. In any case, the implementation of the memoization direction would vary. How this is important or relevant is clarified in the next section when we are populating the result matrix, `memoizationMatrix`.
 
 Let's take `test case 2` as an example.
 
@@ -42,7 +42,7 @@ Let's take `test case 2` as an example.
 |   __1__|  0 |0   |0   |0   | __0__|
 |   __2__|   50|  0 |0   |0   | __50__|
 
-Now for the block-wise decision making of which type of conveyor it should part of, we have a third 2D array which will compare both from the uranium and radium matrices. Since `uraniumMatrix` was left to right cumulated, we need to add up from the upper block of the `memoizationMatrix` of the current block. From which resource the best cumulation was taken for that upper block is not revelant as we had cummulated the refinery matrices in the opposite direction of the refineries, thus cross-paths have been handled. To intituively understand this, look at the last row of the `uraniumMatrix`, if we sum up neighbouring blocks of the same column of the `uraniumMatrix`, we are actually cummulating how much uranium was taken upto that particular column. As we are to choose the best, we are taking the updated value from `memoizationMatrix`. In other words, the `memoizationMatrix` works as the updated value holder for summing up. Simiarly, its actually the immediate left block for adding to `radiumMatrix` as it memoized from up to down. Basically, `memoizationMatrix[i][j]` is the modified value for `uraniumMatrix[i][j]` and `radiumMatrix[i][j]`. And we are progressing as if we are actually comparing between just 2 matrices. This how we are doing bottom-up approach. And the last block of the `memoizationMatrix` will be the answer.
+Now for the block-wise decision-making of which type of conveyor it should be part of, we have a third 2D array that will compare both the uranium and radium matrices. Since `uraniumMatrix` was left to right cumulated, we need to add up from the upper block of the `memoizationMatrix` of the current block. From which resource the best cumulation was taken for that upper block is not relevant as we had cumulated the refinery matrices in the opposite direction of the refineries, thus cross-paths have been handled. To intuitively understand this, look at the last row of the `uraniumMatrix`, if we sum up neighboring blocks of the same column of the `uraniumMatrix`, we are calculating how much uranium was taken up to that particular column. As we are to choose the best, we are taking the updated value from `memoizationMatrix`. In other words, the `memoizationMatrix` works as the updated value holder for summing up. Similarly, it’s the immediate left block for adding to `radiumMatrix` as it memoized from up to down. Basically, `memoizationMatrix[i][j]` is the modified value for `uraniumMatrix[i][j]` and `radiumMatrix[i][j]`. And we are progressing as if we are comparing just 2 matrices. This is how we are doing the bottom-up approach. And the last block of the `memoizationMatrix` will be the answer.
 
 `memoizationMatrix` :
 |   i\j| 0  |1   |2   |3   |
@@ -72,7 +72,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 /* 
-The `Reader` class aids only in taking inputs. Use any alternative that statisfies the time and memory constraints.
+The `Reader` class aids only in taking inputs. Use any alternative that satisfies the time and memory constraints.
 https://www.geeksforgeeks.org/fast-io-in-java-in-competitive-programming/ - 4th implementation for fast Java I/O.
 */
 
@@ -170,7 +170,7 @@ public class Main{
             }
             
             /*Memoization Matrix
-                - Treat this as the actual matrix for cummulation from previous block
+                - Treat this as the actual matrix for cumulation from previous block
             */
             for(int i = 1; i <= m; i++)
                 for(int j = 1; j <= n; j++)
