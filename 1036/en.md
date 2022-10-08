@@ -1,15 +1,15 @@
 # LOJ 1036 - A Refining Company
 
 ---
-Tags : Dynamic Programming, Best Cummulative Sum, Memoization
+Tags : Dynamic Programming, Best Cumulative Sum, Memoization
 
 The problem statement has these key points:
 
 1. Conveyor belts moving row-wise in the same column from block __b__ to the __radium refinery__ can be added up as long as there is no column wise conveyor belt moving in between them.
 2. Conveyor belts moving column-wise in the same row from block __b__ to the __uranium__ can be added up as long as there is no row wise conveyor belt moving in between them.
-3. Any kind of conveyor is NOT _bi-directional_ when it comes to collection. It has to reach the refinery, in one direction. Either from East to West or from North to South, BUT West to East or South to North is not possible as the placement of the refineries are already given. This plays a heavy role on how to implement and memoize row-wise (left-to-right or right-to-left?) and column-wise (top-to-bottom or bottom-to-top?).
+3. Any kind of conveyor is NOT _bi-directional_ when it comes to collection. It has to reach the refinery, in one direction. Either from East to West or from North to South, BUT West to East or South to North is not possible as the placement of the refineries are already given. This plays a heavy role on how to implement and memoize row-wise (left-to-right or right-to-left?) and column-wise (up-to-down or down-to-up?).
 
-We need to find the max possible cummulative sum can be reached abiding by above mentioned rules.
+We need to find the max possible cumulative sum can be reached abiding by above mentioned rules.
 
 ### Helpful Resources
 
@@ -21,31 +21,37 @@ We need to find the max possible cummulative sum can be reached abiding by above
 
 ## Solution
 
-For convenience, we will be using 2 seperate 2D array-based matrix (use anything to create a grid as long as the `mutation` and `look up` cost is O(1)) to keep column-wise and row-wise cummulative sum respectively. Taking point `3` in account, to avoid another iteration through row-wise or column-wise, we will simply sum up value of previous block (in case of `row` : `matrix[row][column-1]` {left block}; and incase of `column` : `matrix[row-1][column]` {upper block}) and add it to current block value. Let's take `test case 2` as an example.
+For convenience, we will be using 2 seperate 2D array-based matrix (use anything to create a grid as long as the `mutation` and `look up` cost is O(1)) to keep column-wise and row-wise cumulative sum respectively. We add one extra padding in both row and column for memoization purposes than the actual matrix size. Taking point `3` in account, to avoid another iteration through row-wise or column-wise, we will simply sum up value of previous block (in case of `row` : `matrix[row][column-1]` {left block}; and incase of `column` : `matrix[row-1][column]` {upper block}) and add it to current block value. We have cumulated both of the refinary matrix in such a way that the alternative refinary wasn't considered at all when cumulating a particular one
 
-uraniumMatrix
+IF the problem stated the uranium refinery was at right and the radium refinery was at bottom, (i) we could have populated the matrices using ending indices {`i = m, i--` and `j = n, j--`} meaning taking inputs while transpoing the matrices, __OR__, (ii) memoized the rows from `matrix[row][column+1]` {right block} and the columns from `matrix[row+1][column]` {lower block}. In any case, the implementation of memoization direction would vary. How this is important or relevant is clarified in the next section when we are populating the result matrix, `memoizationMatrix`.
+
+Let's take `test case 2` as an example.
+
+`uraniumMatrix` :
 |   i\j| 0  |1   |2   |3   |
 |---|---|---|---|---|
-|   0|0   |0   |0   |0   |
-|   1|  0 |5   |15   |49   |
-|  2 |   0|  0 |0   |0   |
+|   __0__|0   |0   |0   |0   |
+|   __1__|  0 |5   |15   |49   |
+|   __2__ |   0|  0 |0   |0   |
+|   __Total Uranium Taken From The Column </br> (M<sub>0</sub>,<sub>j</sub> + M<sub>1</sub>,<sub>j</sub> + ... + M<sub>n</sub>,<sub>j</sub>)__ | __0__ |  __5__ |__15__   |__49__   |
 
-radiumMatrix
+`radiumMatrix` :
+|   i\j| 0  |1   |2   |3   |Total Radium Taken From The Row </br> (M<sub>i</sub>,<sub>0</sub> + M<sub>i</sub>,<sub>1</sub> + ... + M<sub>i</sub>,<sub>n</sub>) |
+|---|---|---|---|---|---|
+|   __0__|0   |0   |0   |0   | __0__|
+|   __1__|  0 |0   |0   |0   | __0__|
+|   __2__|   50|  0 |0   |0   | __50__|
+
+Now for the block-wise decision making of which type of conveyor it should part of, we have a third 2D array which will compare both from the uranium and radium matrices. Since `uraniumMatrix` was left to right cumulated, we need to add up from the upper block of the `memoizationMatrix` of the current block. From which resource the best cumulation was taken for that upper block is not revelant as we had cummulated the refinery matrices in the opposite direction of the refineries, thus cross-paths have been handled. To intituively understand this, look at the last row of the `uraniumMatrix`, if we sum up neighbouring blocks of the same column of the `uraniumMatrix`, we are actually cummulating how much uranium was taken upto that particular column. As we are to choose the best, we are taking the updated value from `memoizationMatrix`. In other words, the `memoizationMatrix` works as the updated value holder for summing up. Simiarly, its actually the immediate left block for adding to `radiumMatrix` as it memoized from up to down. Basically, `memoizationMatrix[i][j]` is the modified value for `uraniumMatrix[i][j]` and `radiumMatrix[i][j]`. And we are progressing as if we are actually comparing between just 2 matrices. This how we are doing bottom-up approach. And the last block of the `memoizationMatrix` will be the answer.
+
+`memoizationMatrix` :
 |   i\j| 0  |1   |2   |3   |
 |---|---|---|---|---|
-|   0|0   |0   |0   |0   |
-|   1|  0 |0   |0   |0   |
-|  2 |   50|  0 |0   |0   |
+|   __0__|0   |0   |0   |0   |
+|   __1__|0 |5   |15   |49   |
+|   __2__|   0|  50 |50   |__50__   |
 
-IF the problem stated the uranium refinery was at right or the radium refinery was at bottom, (i) we could have populated the matrices using ending indices {`i = m, i--` and `j = n, j--`} meaning taking inputs while transpoing the matrices, __OR__, (ii) memoized the rows from `matrix[row][column+1]` {right block} and the columns from `matrix[row+1][column]` {lower block}. How this is important or relevant is clarified in the next section when we are populating the result matrix, `memoizationMatrix`.
-
-Now for the decision making, we have a third 2D array which will compare both from the uranium and radium matrices. We have column-wise memoized the radium matrix in such a way that the __downward__ blocks hold the cummulative sums of previous block, and in case of uranium, it is the __rightward__ blocks. When we choose to take radium then we can add to the left block, and if we choose to take uranium, we can add to the upper block of the `memoizationMatrix`. Since we are going towards the _opposite_ direction from each of refinery, no blocked path will be there. And if there's a block found that contains more resources of the alternative kind, it still does not affect the previous calculations. Also, if a single block of the alternative refinery outweighs, it still does not need to be recalculated because that was already done in the respective refinery based matrices.
-
-|   i\j| 0  |1   |2   |3   |
-|---|---|---|---|---|
-|   0|0   |0   |0   |0   |
-|   1|0 |0   |0   |0   |
-|  2 |   0|  0 |0   |0   |
+The above implementation is `accepted`.
 
 ## Time Complexity
 
@@ -53,11 +59,13 @@ Now for the decision making, we have a third 2D array which will compare both fr
 
 2D Array -> look up : O(1)
 
+Whole 2D Array -> iteration : O(row x column)
+
 Overall Complexity : O(3 x row x column) = O(row x column)
 
 ## Solution in Java (Iterative)
 
-* `Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));` will throw `TLE` or `MLE`. It has been tested.
+* `Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));` will throw `TLE` or `MLE`.
 
 ```java
 import java.io.DataInputStream;
@@ -127,9 +135,9 @@ public class Main{
 
     public static void main(String[] args) throws IOException {
         Reader in = new Reader();
-        int[][] radiumMatrix; // We will use this to memoize from East to West.
-        int[][] uraniumMatrix; // We will use this to memoize from South to North.
-        int[][] memoizationMatrix; // We will use this to track the best cummulative sum from either radium or uranium.
+        int[][] radiumMatrix; // East to West.
+        int[][] uraniumMatrix; // South to North.
+        int[][] memoizationMatrix; // Result matrix and updated value holder.
 
         int testCases = in.nextInt();
         
@@ -146,7 +154,7 @@ public class Main{
                 for(int j = 1; j <= n; j++){
                     uraniumMatrix[i][j] = in.nextInt();
 
-                    // East to West cummulative sum memoization
+                    // East to West cumulative sum memoization
                     uraniumMatrix[i][j] += uraniumMatrix[i][j-1];
                 }
             }
@@ -156,17 +164,19 @@ public class Main{
                 for(int j = 1; j <= n; j++){
                     radiumMatrix[i][j] = in.nextInt();
 
-                    // South to North cummulative sum memoization
+                    // South to North cumulative sum memoization
                     radiumMatrix[i][j] += radiumMatrix[i-1][j];
                 }
             }
             
-            // Memoization Matrix
+            /*Memoization Matrix
+                - Treat this as the actual matrix for cummulation from previous block
+            */
             for(int i = 1; i <= m; i++)
                 for(int j = 1; j <= n; j++)
                     memoizationMatrix[i][j] = findMax(
                         memoizationMatrix[i-1][j] + uraniumMatrix[i][j], 
-                        memoizationMatrix[i][j-1] + radiumMatrix[i][j]);
+                        memoizationMatrix[i][j-1] + radiumMatrix[i][j]); 
             
             System.out.println(String.format("Case %s: %s",testCase ,memoizationMatrix[m][n]));
         }
