@@ -106,5 +106,130 @@ int main()
     return 0;
 }
 ```
+#### Java
+-----
+* `Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)))` will throw MLE.
+
+```java
+import java.io.DataInputStream;
+import java.io.IOException;
+
+/* 
+The `Reader` class aids only in taking inputs. Use any alternative that satisfies the time and memory constraints.
+https://www.geeksforgeeks.org/fast-io-in-java-in-competitive-programming/ - 4th implementation for fast Java I/O.
+*/
+
+class Reader {
+    final private int BUFFER_SIZE = 1 << 16;
+    private DataInputStream din;
+    private byte[] buffer;
+    private int bufferPointer, bytesRead;
+
+    public Reader() {
+        din = new DataInputStream(System.in);
+        buffer = new byte[BUFFER_SIZE];
+        bufferPointer = bytesRead = 0;
+    }
+
+    public int nextInt() throws IOException {
+        int ret = 0;
+        byte c = read();
+        while (c <= ' ') {
+            c = read();
+        }
+        boolean neg = (c == '-');
+        if (neg)
+            c = read();
+        do {
+            ret = ret * 10 + c - '0';
+        } while ((c = read()) >= '0' && c <= '9');
+
+        if (neg)
+            return -ret;
+        return ret;
+    }
+
+    private void fillBuffer() throws IOException {
+        bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
+        if (bytesRead == -1)
+            buffer[0] = -1;
+    }
+
+    private byte read() throws IOException {
+        if (bufferPointer == bytesRead)
+            fillBuffer();
+        return buffer[bufferPointer++];
+    }
+
+    public void close() throws IOException {
+        if (din == null)
+            return;
+        din.close();
+    }
+}
+
+public class Main {
+
+    private static int segmentedTree[];
+
+    private static int GetMin(int x, int y) {
+        return (x < y) ? x : y;
+    }
+
+    private static int ConstructSegmentedTree(int[] inputArray, int indexSegmentStart, int indexSegmentEnd,
+            int indexCurrent) {
+        if (indexSegmentStart == indexSegmentEnd) {
+            segmentedTree[indexCurrent] = inputArray[indexSegmentStart];
+            return inputArray[indexSegmentStart];
+        }
+
+        int mid = indexSegmentStart + (indexSegmentEnd - indexSegmentStart) / 2;
+        segmentedTree[indexCurrent] = GetMin(
+                ConstructSegmentedTree(inputArray, indexSegmentStart, mid, indexCurrent * 2 + 1),
+                ConstructSegmentedTree(inputArray, mid + 1, indexSegmentEnd, indexCurrent * 2 + 2));
+        return segmentedTree[indexCurrent];
+    }
+
+    private static int MakeQuery(int indexSegmentStart, int indexSegmentEnd, int indexQueryStart, int indexQueryEnd,
+            int index) {
+        if (indexQueryStart <= indexSegmentStart && indexQueryEnd >= indexSegmentEnd)
+            return segmentedTree[index];
+
+        if (indexSegmentEnd < indexQueryStart || indexSegmentStart > indexQueryEnd)
+            return Integer.MAX_VALUE;
+
+        int mid = indexSegmentStart + (indexSegmentEnd - indexSegmentStart) / 2;
+        return GetMin(MakeQuery(indexSegmentStart, mid, indexQueryStart, indexQueryEnd, 2 * index + 1),
+                MakeQuery(mid + 1, indexSegmentEnd, indexQueryStart, indexQueryEnd, 2 * index + 2));
+    }
+
+    public static void main(String[] args) throws IOException {
+        Reader in = new Reader();
+        int testCases = in.nextInt();
+
+        for (int testCase = 1; testCase <= testCases; testCase++) {
+            int[] inputArray = new int[in.nextInt()];
+            int numberOfQueries = in.nextInt();
+
+            int length = inputArray.length;
+            for (int index = 0; index < length; index++)
+                inputArray[index] = in.nextInt();
+
+            int height = (int) (Math.ceil(Math.log(length) / Math.log(2)));
+            int size = 2 * (int) Math.pow(2, height) - 1;
+            segmentedTree = new int[size];
+            ConstructSegmentedTree(inputArray, 0, length - 1, 0);
+
+            System.out.println("Case "+testCase+":");
+            for (int query = 1; query <= numberOfQueries; query++) {
+                int indexQueryStart = in.nextInt() - 1;
+                int indexQueryEnd = in.nextInt() - 1;
+                System.out.println ((MakeQuery(0, length - 1, indexQueryStart, indexQueryEnd, 0)));
+            }
+        }
+        
+    }
+}
+```
 
  Happy coding! :3
