@@ -10,7 +10,7 @@ Note: `d(n)` denotes the number of divisors of the integer `n`
 
 One approach to solve the problem is to pre-compute the arrangement and afterward, to print out the answer in `O(1)` time complexity. This can be achieved by:
 1. Calculating the number of divisors of the integers using [modified sieve](https://codeforces.com/blog/entry/22229) technique
-2. Computing the order of integers with the help of [custom comparison function](http://fusharblog.com/3-ways-to-define-comparison-functions-in-cpp/) of C++
+2. Computing the order of integers with the help of [custom comparison function](https://www.onlycode.in/custom-comparators-in-c/) of C++
 
 This is a very good problem to help you learn custom comparison in C++. However, some people might find it difficult to get an `Accepted` verdict. The reason could be one of the following:
 
