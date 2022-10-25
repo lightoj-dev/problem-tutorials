@@ -35,18 +35,20 @@ For this just add up the immediately previous block’s value with the current b
 Compare the following 2 for a simple left-right cumulation.
 
 Towards the refinery:
+
 ||0|1|2|3|
 |---|---|---|---|---|
 |0|<|<|^|x|
 
-If we cumulate towards the refinery, the direction of cumulation will be (0,3) -> (0,2) -> (0,1) -> (0,0). But (0,2) cuts the path. So both (0,0) and (0,1) is faulty cumulated.
+If we cumulate towards the refinery, the direction of cumulation will be `(0,3) -> (0,2) -> (0,1) -> (0,0)`. But `(0,2)` cuts the path. So both `(0,0)` and `(0,1)` is _faulty_ cumulated.
 
 Opposite of the refinery:
+
 ||0|1|2|3|
 |---|---|---|---|---|
 |0|>|>|^|x|
 
-In this case, (0,0) -> (0,1) -> (0,2) -> (0,3) is the direction. So (0,0), (0,1) is still correctly cumulated even if (0,2) is going upwards.  
+In this case, `(0,0) -> (0,1) -> (0,2) -> (0,3)` is the direction. So `(0,0)`, `(0,1)` is still correctly cumulated even if `(0,2)` is going upwards.  
 
 ## 2. A block should be part of which type of conveyor?
 
@@ -70,6 +72,7 @@ While addressing subproblem-1, we did not take into account the alternative reso
 Taking a look at the above, we need to know what is the ultimate cumulative sum of from `(0,0)` to `(2,3)` if we consider a block has been carrying the summation of its previous blocks either left-right (uranium/left-right) or up-down (radium/up-down)?
 
 left-right:
+
 ||0|1|2|3|
 |---|---|---|---|---|
 |0|>|>|>|>|
@@ -78,9 +81,10 @@ left-right:
 
 {`>` is summed up with its value and the __IMMEDIATE__ previous block's value}
 
-Here, `((0,3) + (1,3) + (2,3))` [this is up->down, look at the image] = ULTIMATE CUMULATIVE SUM. Because while __solving sub-problem-1__, we made sure `(0,3) = (0,0) + (0,1) + (0,2) + (0,3)`, `(1,3) = (1,0) + (1,1) + (1,2) + (1,3)` and `(2,3) = (2,0) + (2,1) + (2,2) + (2,3)`, which was adding left->right. But we need `sum(each cumulated block)`, which is ____ from up->down of the cumulated left-right blocks. Basically, __(M<sub>0</sub>,<sub>j</sub> + M<sub>1</sub>,<sub>j</sub> + ... + M<sub>n</sub>,<sub>j</sub>)__ is applicable for left-right ULTIMATE CUMULATIVE SUM for up to __M<sub>j</sub>,<sub>n</sub>__ block.
+Here, `((0,3) + (1,3) + (2,3))` [this is up->down, look at the image] = ULTIMATE CUMULATIVE SUM. Because while __solving sub-problem-1__, we made sure `(0,3) = (0,0) + (0,1) + (0,2) + (0,3)`, `(1,3) = (1,0) + (1,1) + (1,2) + (1,3)` and `(2,3) = (2,0) + (2,1) + (2,2) + (2,3)`, which was adding left->right. But we need `sum(each cumulated block)`, which is __actually__ from up->down of the cumulated left-right blocks. Basically, __(M<sub>0</sub>,<sub>j</sub> + M<sub>1</sub>,<sub>j</sub> + ... + M<sub>n</sub>,<sub>j</sub>)__ is applicable for left-right ULTIMATE CUMULATIVE SUM for up to __M<sub>n</sub>,<sub>j</sub>__ block.
 
 up-down:
+
 ||0|1|2|3|
 |---|---|---|---|---|
 |0|v|v|v|v|
@@ -94,6 +98,7 @@ Similarly, here, `((2,0) + (2,1) + (2,2) + (2,3))` [this is left->right, look at
 We have established how are we doing full matrix cumulation up to a certain block left-right or up-down wise.
 
 Now for a matrix,
+
 ||0|1|2|3|
 |---|---|---|---|---|
 |0|x|x|x|x|
