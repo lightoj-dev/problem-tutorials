@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Case cout<<"Case "<<cs++<< ": ";
+#define endl "\n"
+#define int long long
+#define YES cout<<"yes"<<endl
+#define NO cout<<"no"<<endl
+int32_t main()
+{int32_t _,cs=1;cin>>_;while(_--){
+int i,sm=0,ele;
+    
+    cin>>ele;
+    int a[10009]={0};
+     for(i=0; i<ele ;i++)
+        {
+            cin>>sm;
+            a[sm]++;
+        }    
+               int flag = 0;
+           for (i = 1; i <= ele; i++)
+           {
+            if (a[ele - i])
+                a[ele - i]--;
+            else if (a[i - 1])
+                a[i - 1]--;
+            else
+            {
+                flag = 1;
+                break;
+            }
+           }
+
+        Case;   
+        if(flag)
+         NO;  
+         else 
+         YES;
+  
+       }return 0;}
