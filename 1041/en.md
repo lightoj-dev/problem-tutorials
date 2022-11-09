@@ -148,13 +148,13 @@ int main()
 ```
 
 ## Resources:
-[BFS] (https://cp-algorithms.com/graph/breadth-first-search.html)
-[DFS] (https://cp-algorithms.com/graph/depth-first-search.html)
-[Kruskal] (https://cp-algorithms.com/graph/mst_kruskal.html)
-[Prim's] (https://cp-algorithms.com/graph/mst_prim.html)
+- [BFS] (https://cp-algorithms.com/graph/breadth-first-search.html)
+- [DFS] (https://cp-algorithms.com/graph/depth-first-search.html) 
+- [Kruskal] (https://cp-algorithms.com/graph/mst_kruskal.html) 
+- [Prim's] (https://cp-algorithms.com/graph/mst_prim.html)
 
 
 ### Tutorial by:
-Md Hasibur Rahman (Evan)
-Department of CSE,
+Md Hasibur Rahman (Evan) <br/>
+Department of CSE, <br/>
 Jatiya Kabi Kazi Nazrul Islam University
