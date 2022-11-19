@@ -6,7 +6,7 @@
 ## Solution 
 * For each test case take input as string (unless you are working with python)
 * Check the last character 
-* convert it to integere 
+* convert it to integer 
 * if its even 
   * print 'even'
 * if its odd 
