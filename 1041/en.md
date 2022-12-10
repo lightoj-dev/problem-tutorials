@@ -1,3 +1,6 @@
+## Problem Id: LOJ-1041
+## Problem Name: Road Construction
+
 ## Prerequisite:
 1. Graph Traversal (BFS/DFS)
 2. Minimum Spanning Tree (Kruskal/Prim's Algorithm)
@@ -16,13 +19,6 @@ To solve this problem we need to know if all the cities are directly or indirect
 
 For my convenience I will implement this in a different way.
 
-#### Approach for sub problem 1:
-Key point of this problem is to traverse the whole graph. We can traverse the whole graph using DFS/BFS algorithm. I have implemented this code using BFS. But you can use DFS too. If you are not familiar with any of them then you are requested to learn about BFS/DFS algorithm. 
-
-Lets observe our algorithm. We need to know if all the cities can be traversed at a single traversal. How can we trace if all the cities are covered or not? To do this we can trace each city and put them at SET data structure so that we can be sure about number of different cities. You can do this without help of SET. You are free to do any of the operations to trace them. But I prefer to use SET data structure to trace distinct cities. 
-
-After that we can traverse the graph. Each time we encounter a new node/city we will increase value of counter. After applying graph traversing algorithm our counter will store number of cities/nodes visited so far. Now we can compare this counter with size of SET. If our counter equals to size of the SET then we can be sure that all the cities are connected with each other. But if they are not equal then obviously we should print **impossible**.
-
 ### Sub Problem 2:
 This sub problem is straight forward. We need to repair the roads and make all the cities connected. But to repair the road we will have to spend some money. So we will repair those roads which have least cost. That is why we can sort the road connection with their cost in ascending order. Then we will try to connect the roads with one another. You will be able to relate the solution of this sub problem if you know about **Minimum Spanning Tree**. I suggest to have a read on this topic and learn **Prim's  and Kruskal's Algorithm**. This algorithm will help us to build a graph with least cost. In my solution I've implemented Kurskal's Algorithm.
 
@@ -33,10 +29,6 @@ This sub problem is straight forward. We need to repair the roads and make all t
 
 using namespace std;
 
-#define fast                          \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);                    \
-    cout.tie(NULL);
 
 struct NewData
 {
@@ -155,6 +147,4 @@ int main()
 
 
 ### Tutorial by:
-Md Hasibur Rahman (Evan) <br/>
-Department of CSE, <br/>
-Jatiya Kabi Kazi Nazrul Islam University
+Profile Link: [Hasibur Rahman] (https://lightoj.com/user/evan13)
