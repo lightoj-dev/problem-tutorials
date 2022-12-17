@@ -1,5 +1,4 @@
-## Problem Id: LOJ-1041
-## Problem Name: Road Construction
+# LOJ-1041: Road Construction
 
 ## Prerequisite:
 1. Graph Traversal (BFS/DFS)
@@ -16,8 +15,6 @@ For convenience we will divide the whole problem into two sub problems.
 To solve this problem we need to know if all the cities are directly or indirectly connected to others. It can be solved in two ways ; 
 - we can check if all the cities compose a single connected component 
 - We may traveres the whole graph once and then check if all the nodes/cities are visited or not. 
-
-For my convenience I will implement this in a different way.
 
 ### Sub Problem 2:
 This sub problem is straight forward. We need to repair the roads and make all the cities connected. But to repair the road we will have to spend some money. So we will repair those roads which have least cost. That is why we can sort the road connection with their cost in ascending order. Then we will try to connect the roads with one another. You will be able to relate the solution of this sub problem if you know about **Minimum Spanning Tree**. I suggest to have a read on this topic and learn **Prim's  and Kruskal's Algorithm**. This algorithm will help us to build a graph with least cost. In my solution I've implemented Kurskal's Algorithm.
