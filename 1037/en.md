@@ -15,7 +15,9 @@ Bitmask Dynamic Programming
 Great source for learning bitmask DP for the first time: https://www.hackerearth.com/practice/algorithms/dynamic-programming/bit-masking/tutorial/
 
 ## Solution
-For each mask we brute force over all distinct pairs (**i**, **j**) **contained in the mask** where considering **i's** being the last to kill, we try weapons from **j's** arsenals to kill **it** and take the minimum result overall. This will ensure the optimum result for that particular mask. Doing that for all masks in increasing order, and our result will be the mask that contains every target.
+Suppose we have to kill all targets of the set **S** = {2, 3, 5, 7}. We will choose a target to kill at last (for, say 5) then excluding 5 from **S** gives a new set **G** = {2, 3, 7}. Now, if we know the optimal answer for the smaller set **G**, we can efficiently compute the answer for **S** considering target 5 being the last to kill. Using the weapons from the arsenals of targets belonging to **G** that are provided to kill target 5, we take the weapon that kills it with minimum shots and add this to the result of **G** to get the required answer for **S**. Now, that might not be the optimal result for **S**. So we try all targets from **S** to see which target being the last to kill gives the best result.
+
+So the algorithm is pretty straightforward. For each mask we brute force over all distinct pairs (**i**, **j**) **contained in the mask** where considering **i's** being the last to kill, we try weapons from **j's** arsenals to kill **it** and take the minimum result overall. This will ensure the optimum result for that particular mask. Doing that for all masks in increasing order, and our result will be the mask that contains every target.
 
 ## Complexity
 - Time Complexity: `O(T * (2^n * n^2))`.
@@ -85,3 +87,4 @@ int main() {
     
     return 0;
 }
+```
