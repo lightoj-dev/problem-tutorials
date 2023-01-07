@@ -35,7 +35,7 @@ using namespace std;
 
 int main() {
 
-	// for fast I/O
+    // for fast I/O
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
