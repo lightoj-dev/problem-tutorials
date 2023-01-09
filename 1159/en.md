@@ -69,8 +69,7 @@ int main()
 	int n = Y.length();
 	int o = Z.length();
 
-	cout << "Case "<< idx<<": "<< batman(X, Y,
-									Z, m, n, o)<<endl;;
+	cout << "Case "<< idx<<": "<< batman(X, Y,Z, m, n, o)<<endl;;
 
 	
 }
