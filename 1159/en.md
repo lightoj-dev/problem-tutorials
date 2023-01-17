@@ -16,7 +16,7 @@ dp[1...i], Y[1...j], Z[1...k] for all possible values of i, j, k
 To compute the value of LCS[i][j][k], we consider three possibilities:
 - You can start by checking base case whether the length of any string is 0, in which case the LCS is 0.
 - if three characters match, length of the common subsequence would be 1 plus 
-  the length of the common subsequence till the i-1 and j-1 indexes
+  the length of the common subsequence till the i-1,j-1 and k-1 indexes
 - Otherwise, the LCS is will be maximum of value of the element above or to the left of the 
   current element of three strings(max of neighbour elements).
 
