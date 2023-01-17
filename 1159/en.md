@@ -5,8 +5,7 @@
 In this problem given 3 string and need to find the length of the longest common subsequence 
 [LCS](https://www.programiz.com/dsa/longest-common-subsequence) of these three strings.
 
-The LCS of three strings is the longest sequence of characters that appear in the same order 
-in all three strings. Its not necessary that the characters have to be next to each other 
+Its not necessary that the characters have to be next to each other 
 in the original strings.
 
 One approach to solve the problem is to create a 3-dimensional table with dimensions corresponding
@@ -75,7 +74,7 @@ int main()
 	int n = Y.length();
 	int o = Z.length();
 
-	cout << "Case "<< idx<<": "<< LCS(X, Y,Z, m, n, o)<<endl;;
+	cout << "Case "<< idx<<": "<< LCS(X, Y,Z, m, n, o)<<endl;
 
 	
 }
