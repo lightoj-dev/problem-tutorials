@@ -1,30 +1,31 @@
 
-# LOJ 1159
+# [LOJ 1159 Batman](https://lightoj.com/problem/batman)
+
 ## Solution Approach:
-This code is for finding the length of the longest common subsequence (LCS) of three strings. 
-The LCS of three strings is the longest sequence of characters that appear in the same order in all three strings.
+In this problem given 3 string and need to find the length of the longest common subsequence [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence#:~:text=A%20longest%20common%20subsequence%20(LCS,positions%20within%20the%20original%20sequences.) of these three strings.
 
-The function batman takes in three strings, X, Y, and Z, as well as their lengths, and returns the length of the LCS of the three strings. 
-It does this by filling in a 3-dimensional array, L, using a bottom-up dynamic programming approach.
+The LCS of three strings is the longest sequence of characters that appear in the same order in all three strings. Its not necessary that the characters have to be next to each other in the original strings.
 
-The base case is when either the length of X, Y, or Z is 0, in which case the LCS is 0. If the last characters of X, Y, and Z are the same,
-then the LCS of the three strings is one more than the LCS of the three strings without the last characters. 
-Otherwise, the LCS is the maximum of the LCS of the three strings with X, Y, or Z shortened by one character. 
-# In short 
--if the string matches then it goes diagoanlly(add 1 and increase i,j,k index)
--if not then take max of neighbour elements
+One approach to solve the problem is to create a 3-dimensional table with dimensions corresponding to the lengths of each of the three input strings.
+The sub-problems in this case are the substrings dp[1...i], Y[1...j], Z[1...k] for all possible values of i, j, k
 
+To compute the value of LCS[i][j][k], we consider three possibilities:
+-You can start by checking base case whether the length of any string is 0, in which case the LCS is 0.
+-if three characters match, length of the common subsequence would be 1 plus the length of the common subsequence till the i-1 and j-1 indexes
+-Otherwise, the LCS is will be maximum of value of the element above or to the left of the current element of three strings(max of neighbour elements).
+
+The final LCS value is stored in LCS[m][n][o], which is the LCS of the three input strings.
+
+This question is similar to [this question](https://leetcode.com/problems/longest-common-subsequence/description/), you can check that also.
 
 
 # C++
 ```
-
 #include<bits/stdc++.h>
 using namespace std;
 
 
-int batman( string X, string Y, string Z, int m,
-							int n, int o)
+int LCS( string X, string Y, string Z, int m, int n, int o)
 {
 	int dp[m+1][n+1][o+1];
 
@@ -42,14 +43,12 @@ int batman( string X, string Y, string Z, int m,
 					dp[i][j][k] = dp[i-1][j-1][k-1] + 1;
 
 				else
-					dp[i][j][k] = max(max(dp[i-1][j][k],
-										dp[i][j-1][k]),
-									dp[i][j][k-1]);
+					dp[i][j][k] = max(max(dp[i-1][j][k], dp[i][j-1][k]), dp[i][j][k-1]);
 			}
 		}
 	}
 
-	//the last index should have the answer
+	
 	return dp[m][n][o];
 }
 
@@ -69,7 +68,7 @@ int main()
 	int n = Y.length();
 	int o = Z.length();
 
-	cout << "Case "<< idx<<": "<< batman(X, Y,Z, m, n, o)<<endl;;
+	cout << "Case "<< idx<<": "<< LCS(X, Y,Z, m, n, o)<<endl;;
 
 	
 }
