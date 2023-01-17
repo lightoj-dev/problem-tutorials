@@ -2,17 +2,24 @@
 # [LOJ 1159 Batman](https://lightoj.com/problem/batman)
 
 ## Solution Approach:
-In this problem given 3 string and need to find the length of the longest common subsequence [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence#:~:text=A%20longest%20common%20subsequence%20(LCS,positions%20within%20the%20original%20sequences.) of these three strings.
+In this problem given 3 string and need to find the length of the longest common subsequence 
+[LCS](https://www.programiz.com/dsa/longest-common-subsequence) of these three strings.
 
-The LCS of three strings is the longest sequence of characters that appear in the same order in all three strings. Its not necessary that the characters have to be next to each other in the original strings.
+The LCS of three strings is the longest sequence of characters that appear in the same order 
+in all three strings. Its not necessary that the characters have to be next to each other 
+in the original strings.
 
-One approach to solve the problem is to create a 3-dimensional table with dimensions corresponding to the lengths of each of the three input strings.
-The sub-problems in this case are the substrings dp[1...i], Y[1...j], Z[1...k] for all possible values of i, j, k
+One approach to solve the problem is to create a 3-dimensional table with dimensions corresponding
+to the lengths of each of the three input strings.
+The sub-problems in this case are the substrings 
+dp[1...i], Y[1...j], Z[1...k] for all possible values of i, j, k
 
 To compute the value of LCS[i][j][k], we consider three possibilities:
--You can start by checking base case whether the length of any string is 0, in which case the LCS is 0.
--if three characters match, length of the common subsequence would be 1 plus the length of the common subsequence till the i-1 and j-1 indexes
--Otherwise, the LCS is will be maximum of value of the element above or to the left of the current element of three strings(max of neighbour elements).
+- You can start by checking base case whether the length of any string is 0, in which case the LCS is 0.
+- if three characters match, length of the common subsequence would be 1 plus 
+  the length of the common subsequence till the i-1 and j-1 indexes
+- Otherwise, the LCS is will be maximum of value of the element above or to the left of the 
+  current element of three strings(max of neighbour elements).
 
 The final LCS value is stored in LCS[m][n][o], which is the LCS of the three input strings.
 
