@@ -12,7 +12,7 @@ Let's define LCS[i][j][k] to be the LCS of the three sub-strings X[1..i], Y[1..j
 
 To compute the value of LCS[i][j][k], we consider three possibilities:
 - You can start by checking base case whether the length of any string is 0, in which case the LCS is 0.
-- if three characters match, length of the common subsequence would be 1 plus 
+- if last characters of each string match, length of the common subsequence would be 1 plus 
   the length of the common subsequence till the i-1,j-1 and k-1 indexes
 - Otherwise, we can drop the last character of any one of the three strings and take the maximum value i.e. LCS[i][j][k] = max(LCS[i-1][j][k], LCS[i][j-1][k], LCS[i][j][k-1]).
 
