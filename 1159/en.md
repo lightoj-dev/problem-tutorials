@@ -65,10 +65,10 @@ int main()
     for(int idx=1;idx<=len;idx++){
        string X,Y,Z;
        cin>>X>>Y>>Z;
-	   int m = X.length();
-	   int n = Y.length();
-	   int o = Z.length();
-	   cout << "Case "<< idx<<": "<< LCS(X, Y,Z, m, n, o)<<endl;
+       int m = X.length();
+       int n = Y.length();
+       int o = Z.length();
+       cout << "Case "<< idx<<": "<< LCS(X, Y,Z, m, n, o)<<endl;
 
 	
 
