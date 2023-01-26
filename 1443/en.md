@@ -5,7 +5,7 @@ Print the divisors of a given number N in an order such that when two consecutiv
 
 ## Prerequisite
 Prime factorization: https://cp-algorithms.com/algebra/factorization.html
-(For solving this problem the basic O($\sqrt{N}$) algorithm will suffice)
+(For solving this problem the basic O( $\sqrt{N}$ ) algorithm will suffice)
 
 ## Solution
 Say, N = $2^4$ * $3^2$ * $5^2$
@@ -14,29 +14,36 @@ M = $2^4$ * $3^0$ * $5^0$
 
 Clearly M is a divisor of N and writing all the divisors of M is pretty easy:-
 
-<span style="color:aqua">1, $2^1$, $2^2$, $2^3$, $2^4$ = M. </span>
 
-Now, let's raise the power of 3 by 1.
+1, $2^1$, $2^2$, $2^3$, $2^4$ = M. </span>
 
-M = $2^4$ * $3^1$ * $5^0$
+Now, let's raise the power of 3 by 1. M = $2^4$ * $3^1$ * $5^0$
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$</span>, <span style="color:lime">$2^4$ * $3^1$ = M, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3.</span>
+<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$</span>, 
 
-Raising the power of 3 again by 1.
+<span style="color:lime">$2^4$ * $3^1$ = M, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3.</span>
 
-M = $2^4$ * $3^2$ * $5^0$
+Raising the power of 3 again by 1. M = $2^4$ * $3^2$ * $5^0$
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$</span>, <span style="color:lime">$2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3,</span> <span style="color:violet">1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$ = M.</span>
+<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$</span>, 
 
-Raising the power of 5 by 1.
+<span style="color:lime">$2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3</span>,
 
-M = $2^4$ * $3^2$ * $5^1$
+<span style="color:violet">1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$ = M.</span>
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$</span>, <span style="color:lime"> $2^4$ * $3^2$ * $5^1$ = M, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$.</span>
+Raising the power of 5 by 1. M = $2^4$ * $3^2$ * $5^1$
+
+<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$</span>, 
+
+<span style="color:lime"> $2^4$ * $3^2$ * $5^1$ = M, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$.</span>
 
 Now, M = N = $2^4$ * $3^2$ * $5^2$
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$</span>, <span style="color:lime"> $2^4$ * $3^2$ * $5^1$ = M, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$,</span> <span style="color:violet"> 1 * $5^2$, $3^1$ * $5^2$, $3^2$ * $5^2$, $2^1$ * $3^2$ * $5^2$, $2^2$ * $3^2$ * $5^2$, $2^3$ * $3^2$ * $5^2$, $2^4$ * $3^2$ * $5^2$ = M.</span>
+<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$</span>, 
+
+<span style="color:lime"> $2^4$ * $3^2$ * $5^1$, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$ </span> , 
+
+<span style="color:violet"> 1 * $5^2$, $3^1$ * $5^2$, $3^2$ * $5^2$, $2^1$ * $3^2$ * $5^2$, $2^2$ * $3^2$ * $5^2$, $2^3$ * $3^2$ * $5^2$, $2^4$ * $3^2$ * $5^2$ = M.</span>
 
 Done!
 
@@ -44,7 +51,7 @@ When finding the divisors of a subset of prime numbers raised to specific powers
 
 ## Complexity
 - Time Complexity: O(T * $\sqrt{N}$).
-- Memory Complexity: O($\sqrt{N}$).
+- Memory Complexity: O( $\sqrt{N}$ ).
 
 ## Code
 
