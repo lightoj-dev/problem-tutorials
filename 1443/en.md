@@ -15,39 +15,39 @@ M = $2^4$ * $3^0$ * $5^0$
 Clearly M is a divisor of N and writing all the divisors of M is pretty easy:-
 
 
-1, $2^1$, $2^2$, $2^3$, $2^4$ = M. </span>
+1, $2^1$, $2^2$, $2^3$, $2^4$.
 
-Now, let's raise the power of 3 by 1. M = $2^4$ * $3^1$ * $5^0$
+Now, let's raise the power of 3 by 1. M = $2^4$ * $3^1$ * $5^0$ and the divisors of M we get are:
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$</span>, 
+1, $2^1$, $2^2$, $2^3$, $2^4$, 
 
-<span style="color:lime">$2^4$ * $3^1$ = M, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3.</span>
+$2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3.
 
-Raising the power of 3 again by 1. M = $2^4$ * $3^2$ * $5^0$
+Raising the power of 3 again by 1. M = $2^4$ * $3^2$ * $5^0$ and the divisors of M now are:
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$</span>, 
+1, $2^1$, $2^2$, $2^3$, $2^4$, 
 
-<span style="color:lime">$2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3</span>,
+$2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3,
 
-<span style="color:violet">1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$ = M.</span>
+1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$.
 
-Raising the power of 5 by 1. M = $2^4$ * $3^2$ * $5^1$
+Raising the power of 5 by 1. M = $2^4$ * $3^2$ * $5^1$ and the list of the divisors of M is:
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$</span>, 
+1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$, 
 
-<span style="color:lime"> $2^4$ * $3^2$ * $5^1$ = M, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$.</span>
+$2^4$ * $3^2$ * $5^1$, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$.
 
-Now, M = N = $2^4$ * $3^2$ * $5^2$
+Now, for M = N = $2^4$ * $3^2$ * $5^2$ we get:
 
-<span style="color:aqua"> 1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$</span>, 
+1, $2^1$, $2^2$, $2^3$, $2^4$, $2^4$ * $3^1$, $2^3$ * $3^1$, $2^2$ * $3^1$, $2^1$ * $3^1$, 1 * 3, 1 * $3^2$, $2^1$ * $3^2$, $2^2$ * $3^2$, $2^3$ * $3^2$, $2^4$ * $3^2$, 
 
-<span style="color:lime"> $2^4$ * $3^2$ * $5^1$, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$ </span> , 
+$2^4$ * $3^2$ * $5^1$, $2^3$ * $3^2$ * $5^1$, $2^2$ * $3^2$ * $5^1$, $2^1$ * $3^2$ * $5^1$, $3^2$ * $5^1$, $3^1$ * $5^1$, 1 * $5^1$, 
 
-<span style="color:violet"> 1 * $5^2$, $3^1$ * $5^2$, $3^2$ * $5^2$, $2^1$ * $3^2$ * $5^2$, $2^2$ * $3^2$ * $5^2$, $2^3$ * $3^2$ * $5^2$, $2^4$ * $3^2$ * $5^2$ = M.</span>
+1 * $5^2$, $3^1$ * $5^2$, $3^2$ * $5^2$, $2^1$ * $3^2$ * $5^2$, $2^2$ * $3^2$ * $5^2$, $2^3$ * $3^2$ * $5^2$, $2^4$ * $3^2$ * $5^2$.
 
 Done!
 
-When finding the divisors of a subset of prime numbers raised to specific powers, a pattern can be observed. After finding all the divisors of the initial subset, the power of a different prime number can be increased one by one and the previous divisors (excluding the new prime number) can be multiplied by it. The order in which the divisors are multiplied by the new prime number depends on whether the power is odd or even. If the power is odd, the divisors are multiplied starting from the back of the list, and if the power is even, the divisors are multiplied starting from the beginning of the list. This pattern can be used to construct a solution. So the answer can't never be "**impossible**".
+When finding the divisors of a subset of prime numbers raised to specific powers, a pattern can be observed. After finding all the divisors of the initial subset, the power of a different prime number can be increased one by one and the previous divisors (excluding the new prime number) can be multiplied by it. The order in which the divisors are multiplied by the new prime number depends on whether the power is odd or even. If the power is odd, the divisors are multiplied starting from the back of the list, and if the power is even, the divisors are multiplied starting from the beginning of the list. This pattern can be used to construct a solution. So the answer can never be "**impossible**".
 
 ## Complexity
 - Time Complexity: O(T * $\sqrt{N}$).
