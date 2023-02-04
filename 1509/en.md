@@ -13,8 +13,7 @@ If you are still stuck with this problem, check the code below:
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long int
-main()
+int main()
 {
     int t;
     cin >> t;
@@ -28,7 +27,9 @@ main()
             cout << "No" << endl;
         }
         else
+        {
             cout << "Yes" << endl;
+        }
     }
 }
 ```
