@@ -18,7 +18,7 @@ To compute the value of LCS[i][j][k], we consider three possibilities:
 
 
 
-The final LCS value is stored in LCS[len[X]][len[Y]][len(Z)], which is the LCS of the three input strings.
+The final LCS value is stored in LCS[len(X)][len(Y)][len(Z)], which is the LCS of the three input strings.
 
 This problem is similar to [this problem](https://leetcode.com/problems/longest-common-subsequence/description/), you can check that also.
 
@@ -33,7 +33,7 @@ int LCS( string X, string Y, string Z, int m, int n, int o)
 {
 	int dp[m+1][n+1][o+1];
 
-//Going with bottom up aproach
+	//Going with bottom up aproach
 	for (int i=0; i<=m; i++)
 	{
 		for (int j=0; j<=n; j++)
@@ -52,29 +52,22 @@ int LCS( string X, string Y, string Z, int m, int n, int o)
 		}
 	}
 
-	
 	return dp[m][n][o];
 }
 
 
 int main()
 {
-
-    int len;
-    cin>>len;
-    for(int idx=1;idx<=len;idx++){
-       string X,Y,Z;
-       cin>>X>>Y>>Z;
-       int m = X.length();
-       int n = Y.length();
-       int o = Z.length();
-       cout << "Case "<< idx<<": "<< LCS(X, Y,Z, m, n, o)<<endl;
-
-	
-
-	   
-
-	
-}
+	int len;
+	cin>>len;
+	for(int idx=1;idx<=len;idx++)
+	{
+		string X,Y,Z;
+		cin>>X>>Y>>Z;
+		int m = X.length();
+		int n = Y.length();
+		int o = Z.length();
+		cout << "Case "<< idx<<": "<< LCS(X, Y, Z, m, n, o)<<endl;
+	}
 }
 ```
