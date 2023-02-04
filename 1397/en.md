@@ -10,21 +10,22 @@
 
 ###### Solution Approach
 
-Firstly we implement a basic sudoku solver with four important points:
+Firstly we implement a basic sudoku solver with five important points:
 
 1)We first have to find the empty positions for that we have the findEmptyLocation function
 
 2) To solve a sudoku we have to place a number at an empty position denoted by '.' in this question
 
-3) We use the isSafe function here to determine whether it is safe to place a particular number
+3) We use the isSafe function to determine whether it is valid to place a particular number here
 
 4) If empty location found, we iterate from 1 to 9 and try to place that number in that empty position, checking whether it is safe to place the value in each iteration
 
-5) If the empty positions are such that the number of values that needs to be placed exceeds 9 for the given set of isSafe conditions which means we can't just place 1 to 9, then we can conclude that the Sudoku is not solvable and the empty positions remain as 0 denoting that it cannot be filled
+5) If the empty positions are such that we can't just place 1 to 9, then we can conclude that the Sudoku is not solvable and the empty positions remain as 0 denoting that it cannot be filled
 
 To summarise,
 
-In each iteration, we find an empty location. At the empty location, we place a value absent from the same row, box and column, and check if the current state of board can be solved. If it cannot be solved, we place 0 in the empty positions, otherwise we place the appropriate value and finally print the final state of the sudoku matrix.
+In each iteration, we find an empty location. At the empty location, we place a value absent from the same row, box and column, and check if the current state of board can be solved. If it cannot be solved, we output so. 
+Otherwise we place the appropriate value and finally print the final state of the sudoku matrix.
 
 
 Note: This is a classic backtracking problem, it does not require dynamic programming approach, it cannot be solved simply by a naive brute force solution.
