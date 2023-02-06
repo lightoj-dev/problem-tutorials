@@ -1,6 +1,6 @@
 # Dimik - Even Odd 2
 
-In this problem, you will be given `T` testcases.Each line of the testcases consist of an integer `n` which can be a number consisting of maximum 100 digits.We have to determine whether the number is odd or even.
+In this problem, you will be given `T` testcases.Each line of the testcase consist of an integer `n` which can be a number consisting of maximum 100 digits.We have to determine whether `n` is odd or even.
 
 ## Hint: You just need to handle last bit 
 
