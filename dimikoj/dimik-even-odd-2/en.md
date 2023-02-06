@@ -13,7 +13,7 @@ In this problem, you will be given `T` testcases.Each line of the testcases cons
 * if its not divisible by 2 
   * its a odd number so print 'odd'
   
-  ### C++
+### C++
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
