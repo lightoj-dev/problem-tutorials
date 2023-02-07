@@ -1,4 +1,4 @@
-# LOJ 1070 - Alebraic Problem
+# LOJ 1070 - Algebraic Problem
 
 ## Summary
 Given three non-negative integers, a+b = **p**, ab = **q** and **n** we have to find the value of $a^n$ + $b^n$. a and b not necessarily have to be integers. There will be no such input so that we have to find the value of $0^0$
