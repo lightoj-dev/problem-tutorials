@@ -1,7 +1,7 @@
 # LOJ 1070 - Alebraic Problem
 
 ## Summary
-Given three non-negative integers, a+b = **p**, ab = **q** and **n** we have to find the value of $a^n$+$b^n$. a and b not necessarily have to be integers. There will be no such input so that we have to find the value of $0^0$
+Given three non-negative integers, a+b = **p**, ab = **q** and **n** we have to find the value of $a^n$ + $b^n$. a and b not necessarily have to be integers. There will be no such input so that we have to find the value of $0^0$
 
 ## Prerequisite
 Matrix Exponentiation: https://www.youtube.com/watch?v=QcT5T-46iFA
@@ -11,7 +11,7 @@ Matrix Exponentiation: https://www.youtube.com/watch?v=QcT5T-46iFA
 ## Solution
 Let's define:
 
-F(n) = $a^n$+$b^n$
+F(n) = $a^n$ + $b^n$
 
 => F(0) = $a^0$ + $b^0$ = 2
 
@@ -19,17 +19,17 @@ F(n) = $a^n$+$b^n$
 
 $a^2$ +  $b^2$ = $(a+b)^2$ - 2ab
 
-=> $a^2$ +  $b^2$ = (a + b) * (a + b) - ab * ($a^0$ + $b^0$)
+=> $a^2$ +  $b^2$ = (a + b) * (a + b) - ab * ( $a^0$ + $b^0$ )
 
-=> F(2) = $a^2$ +  $b^2$ = **p** * (a + b) - **q** * ($a^0$ + $b^0$)
+=> F(2) = $a^2$ +  $b^2$ = **p** * (a + b) - **q** * ( $a^0$ + $b^0$ )
 
-$a^3$ +  $b^3$ = (a + b) * ($a^2$ +  $b^2$) - ab * (a + b)
+$a^3$ +  $b^3$ = (a + b) * ( $a^2$ +  $b^2$ ) - ab * (a + b)
 
-=> F(3) = $a^3$ +  $b^3$ = **p** * ($a^2$ +  $b^2$) - **q** * (a + b)
+=> F(3) = $a^3$ +  $b^3$ = **p** * ( $a^2$ +  $b^2$ ) - **q** * (a + b)
 
-$a^4$ +  $b^4$ = (a + b) * ($a^3$ +  $b^3$) - ab * ($a^2$ +  $b^2$)
+$a^4$ +  $b^4$ = (a + b) * ( $a^3$ +  $b^3$ ) - ab * ( $a^2$ +  $b^2$ )
 
-=> F(4) = $a^4$ +  $b^4$ = **p** * ($a^3$ +  $b^3$) - **q** * ($a^2$ +  $b^2$)
+=> F(4) = $a^4$ +  $b^4$ = **p** * ( $a^3$ +  $b^3$ ) - **q** * ( $a^2$ +  $b^2$ )
 
 Observing the pattern we can conclude:
 
@@ -37,43 +37,50 @@ F(n) = **p** * F(n-1) - **q** * F(n-2)
 
 It's a linear recurrence that can be solved using matrix exponentiation technique.
 
-$
+$$
 \begin{pmatrix}
 p & -q \\
 1 & 0
 \end{pmatrix}
-$
-$
 \begin{pmatrix}
 F(1) \\
 F(0)
-\end{pmatrix}
-$ =
-$
+\end{pmatrix} =
 \begin{pmatrix}
 F(2) \\
 F(1)
 \end{pmatrix}
-$
+$$
 
-$
+$$
+\begin{pmatrix}
+p & -q \\
+1 & 0
+\end{pmatrix} ^ {2}
+\begin{pmatrix}
+p \\
+2
+\end{pmatrix} =
+\begin{pmatrix}
+F(3) \\
+F(2)
+\end{pmatrix}
+$$
+
+$$
 \begin{pmatrix}
 p & -q \\
 1 & 0
 \end{pmatrix} ^ {n}
-$
-$
 \begin{pmatrix}
 p \\
 2
-\end{pmatrix}
-$ =
-$
+\end{pmatrix} =
 \begin{pmatrix}
 F(n+1) \\
 F(n)
 \end{pmatrix}
-$
+$$
 
 ## Complexity
 - Time Complexity: O(T * $k^3$ $log{_2}{n}$). Here, k = 2
