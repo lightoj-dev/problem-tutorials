@@ -8,7 +8,7 @@ Binary Exponentiation: https://cp-algorithms.com/algebra/binary-exp.html
 
 Matrix Exponentiation: https://www.youtube.com/watch?v=QcT5T-46iFA
 
-**unsigned long long int** in C/C++: https://www.geeksforgeeks.org/maximum-value-of-unsigned-long-long-int-in-c/ (language specific)
+**unsigned long long int** in C/C++: https://www.geeksforgeeks.org/maximum-value-of-unsigned-long-long-int-in-c/ (language specific). Implementations of **unsigned long long int** have a modulo behavior when performing arithmetic operations. Any arithmetic manipulation with unsigned long long int's will be taken modulo $2^{64}$ automatically.
 
 ## Solution
 Let's define:
@@ -31,7 +31,13 @@ $a^4$ +  $b^4$ = (a + b) * ($a^3$ +  $b^3$) - ab * ($a^2$ +  $b^2$)
 
 Observing the pattern we can conclude:
 
-F(n) = p * F(n-1) - q * F(n-2) is a linear recurrence which can be solved using matrix exponentiation technique.
+F(n) = **p** * F(n-1) - **q** * F(n-2) is a linear recurrence which can be solved using matrix exponentiation technique.
+
+
+
+
+
+
 
 
 
