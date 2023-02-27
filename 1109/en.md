@@ -61,3 +61,49 @@ int main() {
   return 0;
 }
 ```
+
+### Java
+-----
+```java
+import java.util.*;
+public class Solution {
+    static class pair<I extends Integer, I1 extends Integer> {
+        Integer val, divisor;
+        pair(Integer val, Integer divisor) {
+            this.val = val;
+            this.divisor = divisor;
+        }
+    }
+    static Scanner stdin = new Scanner(System.in);
+    private static ArrayList<pair<Integer, Integer>> list = new ArrayList<>();
+    public static void main(String[] args) {
+        FalseOrdering();
+        int t = stdin.nextInt();
+        for (int i = 1; i <= t; i++) {
+            int n = stdin.nextInt();
+            System.out.println("Case " + i + ": " + list.get(n - 1).val);
+        }
+    }
+    static void FalseOrdering() {
+        for (int i = 1; i <= 1000; i++) {
+            int cnt = 0;
+            for (int j = 1; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    cnt += 2;
+                    if (i / j == j)
+                        cnt -= 1;
+                }
+            }
+            list.add(new pair<Integer, Integer>(i, cnt));
+        }
+        Collections.sort(list, new Comparator<pair<Integer, Integer>>() {
+            @Override
+            public int compare(pair<Integer, Integer> a, pair<Integer, Integer> b) {
+                if (Objects.equals(a.divisor, b.divisor))
+                    return b.val - a.val;
+                return a.divisor - b.divisor;
+            }
+        });
+    }
+}
+```
