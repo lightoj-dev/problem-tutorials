@@ -6,7 +6,7 @@ The problem is asking for the number of ways to choose four positive integers, w
 ## Prerequisite
 i) Basic Permutation and Combination. 
 
-ii) Finding divisors of an integer N in *O( $\sqrt{N}$ )* complexity.
+ii) Finding divisors of an integer N in O( $\sqrt{N}$ ) complexity.
 
 ## Solution
 Let's generalize the problem a bit. We define:
@@ -42,7 +42,7 @@ inline ll nC4(ll n) {
 
 int main(int argc, const char *argv[]) {
 
-	// for fast I/O
+    // for fast I/O
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
