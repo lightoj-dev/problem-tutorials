@@ -50,7 +50,7 @@ int main(int argc, const char *argv[]) {
     cin >> t;
 
     for(int ts = 1; ts <= t; ++ts) {
-		int n;
+	int n;
         cin >> n;
 
         vector <int> div_cnt(MAXN+1);
@@ -59,9 +59,13 @@ int main(int argc, const char *argv[]) {
             cin >> x;
 
             for(int j = 1; j*j <= x; ++j) {
-                if (x % j) continue;
+                if (x % j) {
+		    continue;
+		}
                 div_cnt[j]++;
-                if (j*j != x) div_cnt[x/j]++;
+                if (j*j != x) {
+		    div_cnt[x/j]++;
+		}
             }
         }
 
@@ -74,7 +78,7 @@ int main(int argc, const char *argv[]) {
         }
 
         cout << "Case " << ts << ": " << ans[1] << '\n';
-	}
+    }
 
     return 0;
 } 
