@@ -1,13 +1,21 @@
 # LOJ 1183 - Computing Fast Average
 
 ## Summary
+The problem requires implementing two types of queries on an array of integers (initially all values are 0):
 
+1. Changing the value of elements in a range of indices with a specific value given. (**update query**)
+
+2. Finding the average value of integers in a range of indices. (**get query**)
 
 ## Prerequisite
+Segment tree with lazy propagation: 
 
+https://cp-algorithms.com/data_structures/segment_tree.html#find-the-smallest-number-greater-or-equal-to-a-specified-number-acceleration-with-fractional-cascading 
+
+(See the section titled **Range updates (Lazy Propagation)**)
 
 ## Solution
-
+The solution is nothing but formulating it to the **range update-sum query**. The range update query is equivalent to the classic lazy update (setting a value to a range of indices) so is the range sum query. To form an irreducible fraction we divide both the nominator (range sum) and the denominator (total indices) by the gcd of them.
 
 ## Complexity
 - Time Complexity: O(T * (N + Q * $log{_2}{N}$)).
