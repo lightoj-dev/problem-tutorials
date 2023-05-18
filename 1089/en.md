@@ -10,11 +10,11 @@ First let's simplify the problem a bit. Suppose there is no such segment like: *
 
 Let's think of each segment **AB** as of two points where **A** is the opening of the segment and **B** the ending of it. 
 
-Consider the set **S** of all opening and ending points of the segments sorted in increasing order. Iterating over the set from the begining, whenever we find an opening point **S[i]**, we increment the **counter** (starting with 0) by 1, indicating for any point **p** such that **S[i] <= p <= S[i+1]**  if **S[i+1]** is an ending point otherwise **S[i] <= p < S[i+1]** will be contained by that many of segments. If we find an ending point **S[i]**, we know for sure we had the opening point of that segment before, so it's time to close the segment, so we decrement the **counter** by 1, now indicating for any point **p** such that **S[i] < p <= S[i+1]**  if **S[i+1]** is an ending point otherwise **S[i] < p < S[i+1]** will be contained by that many of segments.
+Consider the set **S** of all opening and ending points of the segments sorted in increasing order. Iterating over the set from the begining, whenever we find an opening point **S[i]**, we increment the **counter** (starting with 0) by 1, indicating for any point **p** such that **S[i] <= p <= S[i+1]**,  if **S[i+1]** is an ending point, otherwise **S[i] <= p < S[i+1]** will be contained by that many of segments. If we find an ending point **S[i]**, we know for sure we had the opening point of that segment before, so it's time to close the segment, so we decrement the **counter** by 1, now indicating for any point **p** such that **S[i] < p <= S[i+1]**,  if **S[i+1]** is an ending point, otherwise **S[i] < p < S[i+1]** will be contained by that many of segments.
 
 We can sort our queries so that we can calculate answers for them in increasing order as we iterate over the set **S**.
 
-That was the general approach.Now, solving the original problems is all about handling the exception case where we may have the same point for many openings and endings. See the code and documentation for understading how to handle duplicate points.
+That was the general approach. Now, solving the original problems is all about handling the exception case where we may have the same point for many openings and endings. See the code and documentation for understading how to handle duplicate points.
 
 ## Complexity
 - Time Complexity: O(T * (N $log{_2}{N}$ + Q $log{_2}{Q}$).
