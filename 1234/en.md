@@ -1,90 +1,11 @@
-# LOJ 1070 - Algebraic Problem
-
-## Summary
-Given three non-negative integers, a+b = **p**, ab = **q** and **n** we have to find the value of $a^n$ + $b^n$. a and b not necessarily have to be integers. There will be no such input so that we have to find the value of $0^0$
-
-## Prerequisite
-Matrix Exponentiation: https://www.youtube.com/watch?v=QcT5T-46iFA
-
-**unsigned long long int** in C/C++: https://www.geeksforgeeks.org/maximum-value-of-unsigned-long-long-int-in-c/ (language specific). Implementations of **unsigned long long int** have a modulo behavior when performing arithmetic operations. Any arithmetic manipulation with unsigned long long int's will be taken modulo $2^{64}$ automatically.
+# LOJ 1234 - Harmonic Number
 
 ## Solution
-Let's define:
-
-F(n) = $a^n$ + $b^n$
-
-=> F(0) = $a^0$ + $b^0$ = 2
-
-=> F(1) = a + b = **p**
-
-$a^2$ +  $b^2$ = $(a+b)^2$ - 2ab
-
-=> $a^2$ +  $b^2$ = (a + b) * (a + b) - ab * ( $a^0$ + $b^0$ )
-
-=> F(2) = $a^2$ +  $b^2$ = **p** * (a + b) - **q** * ( $a^0$ + $b^0$ )
-
-$a^3$ +  $b^3$ = (a + b) * ( $a^2$ +  $b^2$ ) - ab * (a + b)
-
-=> F(3) = $a^3$ +  $b^3$ = **p** * ( $a^2$ +  $b^2$ ) - **q** * (a + b)
-
-$a^4$ +  $b^4$ = (a + b) * ( $a^3$ +  $b^3$ ) - ab * ( $a^2$ +  $b^2$ )
-
-=> F(4) = $a^4$ +  $b^4$ = **p** * ( $a^3$ +  $b^3$ ) - **q** * ( $a^2$ +  $b^2$ )
-
-Observing the pattern we can conclude:
-
-F(n) = **p** * F(n-1) - **q** * F(n-2) 
-
-It's a linear recurrence that can be solved using matrix exponentiation technique.
-
-$$
-\begin{pmatrix}
-p & -q \\
-1 & 0
-\end{pmatrix}
-\begin{pmatrix}
-F(1) \\
-F(0)
-\end{pmatrix} =
-\begin{pmatrix}
-F(2) \\
-F(1)
-\end{pmatrix}
-$$
-
-$$
-\begin{pmatrix}
-p & -q \\
-1 & 0
-\end{pmatrix} ^ {2}
-\begin{pmatrix}
-p \\
-2
-\end{pmatrix} =
-\begin{pmatrix}
-F(3) \\
-F(2)
-\end{pmatrix}
-$$
-
-$$
-\begin{pmatrix}
-p & -q \\
-1 & 0
-\end{pmatrix} ^ {n}
-\begin{pmatrix}
-p \\
-2
-\end{pmatrix} =
-\begin{pmatrix}
-F(n+1) \\
-F(n)
-\end{pmatrix}
-$$
+Instead of Brute-forcing for every individual test case, we go from lower bound (**1**) to the upper bound (**1e8**). Along the way we calculate the harmonic sum so far and any test case equal to the number we are at, assign the harmonic sum to the answer of that individual test case.
 
 ## Complexity
-- Time Complexity: O(T * $k^3$ $log{_2}{n}$). Here, k = 2
-- Memory Complexity: O( $k^2$ ).
+- Time Complexity: O($T$). 
+- Memory Complexity: O($T$).
 
 ## Code
 
@@ -92,79 +13,47 @@ $$
 
 ```cpp
 #include <bits/stdc++.h>
- 
+
 using namespace std;
 
 
-typedef unsigned long long ull;
+typedef pair <int, int> pii;
 
-struct Matrix {
-    vector <vector <ull>> mat;
 
-    Matrix(int n) {
-        mat.assign(n, vector <ull> (n, 0));
-    }
-};
-
-Matrix mat_multiply(const Matrix& A, const Matrix& B) {
-    int n = A.mat.size();
-    Matrix res(n);
-
-    for(int i = 0; i < n; ++i) {
-        for(int j = 0; j < n; ++j) {
-            for(int k = 0; k < n; ++k) {
-                res.mat[i][j] += A.mat[i][k] * B.mat[k][j];
-            }
-        }
-    }
+int main() {
     
-    return res;
-}
-
-Matrix binpow(Matrix &A, int power) {
-    int n = A.mat.size();
-    Matrix res(n);
-
-    for(int i = 0; i < n ; ++i) {
-        for(int j = 0; j < n; ++j) {
-            res.mat[i][j] = (i == j? 1:0); // identity matrix
-        }
-    }
-
-    while (power > 0) {
-        if (power & 1) {
-            res = mat_multiply(res, A);
-        }
-        power >>= 1;
-        A = mat_multiply(A, A);
-    }
-
-    return res;
-}
-
-int main(int argc, const char *argv[]) {
-     
-    // for fast I/O
+    // For fast I/O
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+
+    const int MAXN = 1e8;
 
     int t;
     cin >> t;
 
+    // 1-based indexing
+    vector <pii> N(t+1);
+    for(int i = 1; i <= t; ++i) {
+        cin >> N[i].first;
+        // Saving corresponding index of the test case
+        N[i].second = i;
+    }
+    sort(N.begin(), N.end());
+
+    vector <double> ans(t+1);
+    double now = 0;
+    int idx = 1;
+    for(int i = 1; i <= MAXN; ++i) {
+        now += 1. / i;
+        while (idx < (int)N.size() && N[idx].first == i) { // Could be duplicates, that's why using 'while' loop
+            ans[N[idx++].second] = now;
+        }
+    }
+
     for(int ts = 1; ts <= t; ++ts) {
-        ull p, q, n;
-        cin >> p >> q >> n;
-
-        Matrix A(2);
-        A.mat[0][0] = p;
-        A.mat[0][1] = -q;
-        A.mat[1][0] = 1;
-
-        A = binpow(A, n);
-
-        cout << "Case " << ts << ": " << A.mat[1][0]*p + (A.mat[1][1]<<1) << '\n';
+        cout << fixed << setprecision(10) << "Case " << ts << ": " << ans[ts] << '\n';
     }
 
     return 0;
-} 
+}
 ```
