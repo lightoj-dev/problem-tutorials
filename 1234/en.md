@@ -1,7 +1,9 @@
 # LOJ 1234 - Harmonic Number
 
 ## Solution
-Instead of Brute-forcing for every individual test case, we go from lower bound (**1**) to the upper bound (**1e8**). Along the way we calculate the harmonic sum so far and any test case equal to the number we are at, assign the harmonic sum to the answer of that individual test case.
+From the definition of H<sub>n</sub> we perceive: **H<sub>n+1</sub> = H<sub>n</sub> + (1/ n)**
+
+So we need not to calculate **H<sub>n</sub>** using the straighforward formula for every single test case. We go from non-decreasing order of test cases whilst keeping a variable for harmonic sum so far. This way not only we save time but memory as well, because there's no need for storing all the harmonic values beforehand.
 
 ## Complexity
 - Time Complexity: O($T$). 
