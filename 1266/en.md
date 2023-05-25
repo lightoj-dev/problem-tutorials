@@ -3,7 +3,7 @@
 ### Summary
 You will be given two type of query and the range of query is 1<=q<=3000. Two type of query is -
 1. 0 x y  that means add a point in (x,y) co-ordinate if it doesn't already exist.
-2. 1 x1 y1 x2 y2 - you have to find the number of point exist in this range where     (x1,y1) is lower left corner of rectangle and (x2,y2) is upper right corner.
+2. 1 x1 y1 x2 y2 - you have to find the number of point exist in this range where     (x1,y1) is lower left corner of rectangle and (x2,y2) is upper right corner. 
 
 ### Tag
 Data Structure, Binary Indexed Tree
