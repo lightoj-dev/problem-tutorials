@@ -9,8 +9,8 @@ You will be given two type of query and the range of query is 1<=q<=3000. Two ty
 Data Structure, Binary Indexed Tree
 ### Quick links for prerequisites
 Binary Indexed Tree:  
-https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2
-https://cp-algorithms.com/data_structures/fenwick.html
+- https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2
+- https://cp-algorithms.com/data_structures/fenwick.html
 ### Observation 
 In basic BIT (binary index tree) we deal with one dimentional array . The difference is here we have to deal with both X and Y value. so if we take two dimentional array for saving segmented sum . Here BIT[X][Y] denotes for each x index we have another array for Y value. 
 ### Solution 
