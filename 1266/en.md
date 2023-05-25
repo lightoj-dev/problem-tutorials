@@ -1,33 +1,32 @@
 # LightOj 1266 - Points in Rectangle
-[Problem Statement](http://lightoj.com/volume_showproblem.php?problem=1266)  
-### Summary
-You will be given two type of query and the range of query is 1<=q<=3000. Two type of query is -
-1. 0 x y  that means add a point in (x,y) co-ordinate if it doesn't already exist.
-2. 1 x1 y1 x2 y2 - you have to find the number of point exist in this range where     (x1,y1) is lower left corner of rectangle and (x2,y2) is upper right corner. 
-
 ### Tag
 Data Structure, Binary Indexed Tree
 ### Quick links for prerequisites
 Binary Indexed Tree:  
 - https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2
 - https://cp-algorithms.com/data_structures/fenwick.html
-### Observation 
-In basic BIT (binary index tree) we deal with one dimentional array . The difference is here we have to deal with both X and Y value. so if we take two dimentional array for saving segmented sum . Here BIT[X][Y] denotes for each x index we have another array for Y value. 
+
+ 
 ### Solution 
-1. for first type of query we will just update the point in (x,y) index with value 1 which mainly represent number of point in that index. As it is told only one point exist in one point so value used for update always 1. But if that point is already updated then we don't have to update it.
-2. The come to second type of query . Here two index is given . Now how to use our query function?? lets look at the image bellow-
-![first](https://user-images.githubusercontent.com/52863153/227806473-b97210cb-ed3d-4978-962a-b1d02bff6eb0.png)
-
-from above image we have to find number of point in green colored rectangle. <br>
-so firstly query(x2,y2)-query(x2,y1-1) denotes the rectengle bellow with colored yellow shown bellow
-
-![second](https://user-images.githubusercontent.com/52863153/227806592-5822527d-32a8-4300-ab63-989753d6a8d0.png)
-but we have to avoid the left part which is marked in image bellow with colored red.
-![third](https://user-images.githubusercontent.com/52863153/227806619-5faad985-a9d9-4aec-ba8e-7ddb624d2570.png)
-so final ans <br>
-=query(x2,y2)-query(x2,y1-1)-{ query(x1-1,y2)-query(x1-1,y1-1)} <br>
-=query(x2,y2)-query(x2,y1-1)-query(x1-1,y2)+query(x1-1,y1-1) <br>
-then we can find easily number of point from BIT array 
+- We will maintain a 2-D BIT to solve this problem. For query 0 x y, we will call update function each time we got a new point (x,y). For the second query, we will call query function with parameter (x,y). It will return  the sum of the rectangle that's lower left co-ordinate is (1,1) and upper right co-ordinate is (x,y). Let's take a look first testcase: <br>
+1   <br>
+4   <br>
+0 1 1   <br>
+0 2 6   <br>
+1 1 1 6 6   <br>
+1 2 2 5 5   <br>
+-  We got two points (1,1) and (2,6), let's plot these points <br>
+![first](https://github.com/Rabby033/problem-tutorials/assets/52863153/5bdf2a95-34db-4f0e-88df-8a1c0cd8aa8f)
+- In the first query , we have to find how many point are inside (1,1) and (6,6) . We will call query funtion with parameter (6,6) , it will return the number of point. So the ans is 2. <br>
+- Let's come to the second query. Here we have to find the number of point inside (2,2) and (5,5). We will call query function with parameter (5,5). But it will return the number of point inside (1,1) and (5,5). The area is ploted bellow in red-  
+  ![second](https://github.com/Rabby033/problem-tutorials/assets/52863153/58e666ac-42f8-41a9-8381-d129e94b23d2)
+- We took some extra area. Because we have to find from (2,2) to (5,5) not (1,1) to (5,5). However, the final equation of ans is - <br>
+Ans=**A-B-C+D** Where <br>  A=query(x2,y2) <br> B=query(x1-1,y2-1) <br> C=query(x2-1,y1-1) <br> D=query(x1-1,y1-1) <br>
+let's clarify this equation. First look at the area ploted bellow of **A,B,C,D**. 
+![third](https://github.com/Rabby033/problem-tutorials/assets/52863153/ddeec284-bedd-428f-aa94-09484b3f668e)
+![fourth](https://github.com/Rabby033/problem-tutorials/assets/52863153/781a3c06-2646-46f0-a643-f58d175450a1)
+- As D is inside of both B and C. So at the time of substracting B and C , D is subtracted twice . so D is added. Now after calculating 
+we got our area where no point is located. So ans of the second query is 0. Hope you understood the solution.
 
 ### Code
 
@@ -35,11 +34,9 @@ then we can find easily number of point from BIT array
 ```cpp
 #include<bits/stdc++.h>
 using namespace std;
-#define ll  long long int
-const ll N=2e6+5;
-const ll mod=1000000007;
-ll BIT[1005][1005];
+long long int BIT[1005][1005];
 bool vis[1005][1005];
+
 void update(int x, int y , int val)
 {
     while(x<=1001)
@@ -53,9 +50,9 @@ void update(int x, int y , int val)
         x+=(x&-x);
     }
 }
-ll query(int x, int y)
+long long int query(int x, int y)
 {
-    ll sum=0;
+    long long int sum=0;
     while(x>0)
     {
         int y1=y;
@@ -73,7 +70,7 @@ void solve()
    
    memset(BIT,0,sizeof(BIT)); //initialize with zero 
    memset(vis,false,sizeof(vis)); // initalize with zero
-   ll q,a,b,c,d,x1,y1,x2,y2;
+   long long int q,a,b,c,d,x1,y1,x2,y2;
    cin>>q;
    while(q--)
    {
@@ -92,19 +89,14 @@ void solve()
       {
          cin>>x1>>y1>>x2>>y2;
          x1++,x2++,y1++,y2++;
-         ll ans=query(x2,y2)-query(x2,y1-1)-query(x1-1,y2)+query(x1-1,y1-1); /* find total point inside the given rectengle */
+         long long int ans=query(x2,y2)-query(x2,y1-1)-query(x1-1,y2)+query(x1-1,y1-1); /* find total point inside the given rectengle */
          cout<<ans<<endl;
       }
    }
-
-
    return;
 }
 int32_t main()
 {
- 
- 
- 
   int tt;
   tt = 1;
   cin>>tt;
@@ -116,4 +108,3 @@ int32_t main()
   return 0;
 }
 ```
-##### Happy_coding (inshallah! One day you will be rewarded for your hardwork )
