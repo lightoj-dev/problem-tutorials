@@ -8,7 +8,7 @@ You will be given two type of query and the range of query is 1<=q<=3000. Two ty
 ### Tag
 Data Structure, Binary Indexed Tree
 ### Quick links for prerequisites
-Binray index tree:  
+Binary Indexed Tree:  
 https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2
 https://cp-algorithms.com/data_structures/fenwick.html
 ### Observation 
