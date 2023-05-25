@@ -10,7 +10,7 @@ Binary Indexed Tree:
 ### Solution 
 - We will maintain a 2-D BIT to solve this problem. For query 0 x y, we will call update function each time we got a new point (x,y). For the second query, we will call query function with parameter (x,y). It will return  the sum of the rectangle that's lower left co-ordinate is (1,1) and upper right co-ordinate is (x,y). Let's take a look first testcase: <br>
 1   <br>
-4   <br>
+4   <br> 
 0 1 1   <br>
 0 2 6   <br>
 1 1 1 6 6   <br>
@@ -89,7 +89,7 @@ void solve()
       {
          cin>>x1>>y1>>x2>>y2;
          x1++,x2++,y1++,y2++;
-         long long int ans=query(x2,y2)-query(x2,y1-1)-query(x1-1,y2)+query(x1-1,y1-1); /* find total point inside the given rectengle */
+         long long int ans=query(x2,y2)-query(x2,y1-1)-query(x1-1,y2)+query(x1-1,y1-1); /* find total point inside the given rectangle */
          cout<<ans<<endl;
       }
    }
