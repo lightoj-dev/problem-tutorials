@@ -6,7 +6,7 @@ You will be given two type of query and the range of query is 1<=q<=3000. Two ty
 2. 1 x1 y1 x2 y2 - you have to find the number of point exist in this range where     (x1,y1) is lower left corner of rectangle and (x2,y2) is upper right corner.
 
 ### Tag
-Data Structure , Binary index tree
+Data Structure, Binary Indexed Tree
 ### Quick links for prerequisites
 Binray index tree:  
 https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2
