@@ -1,25 +1,18 @@
 # LOJ 1234 - Harmonic Number
 
 ## Solution
-From the definition of H<sub>n</sub> we perceive: **H<sub>n+1</sub> = H<sub>n</sub> + (1/ n)**
+We won't be able to iterate from 1 to n for each test-case independently, since it will not fit the time limit. What we can do is iterate once from `n=1` to `1e8` (max) and compute `H(n)` for each of them using `H(n) = H(n-1) + 1/n`. Whenever we come across a `n` that is queried in the input, we will save the value for output. After the iteration has been completed, we will output all the queries together.
 
-So we need not to calculate **H<sub>n</sub>** using the straighforward formula for every single test case. We go from non-decreasing order of test cases whilst keeping a variable for harmonic sum so far. This way not only we save time but memory as well, because there's no need for storing all the harmonic values beforehand.
+### Complexity
+- Time Complexity: `O(MAX(N))`. 
+- Memory Complexity: `O(T)`.
 
-## Complexity
-- Time Complexity: O($T$). 
-- Memory Complexity: O($T$).
-
-## Code
-
-### C++
+## C++ Code
 
 ```cpp
 #include <bits/stdc++.h>
 
 using namespace std;
-
-
-typedef pair <int, int> pii;
 
 
 int main() {
@@ -34,7 +27,7 @@ int main() {
     cin >> t;
 
     // 1-based indexing
-    vector <pii> N(t+1);
+    vector <pair <int, int>> N(t+1);
     for(int i = 1; i <= t; ++i) {
         cin >> N[i].first;
         // Saving corresponding index of the test case
@@ -46,8 +39,9 @@ int main() {
     double now = 0;
     int idx = 1;
     for(int i = 1; i <= MAXN; ++i) {
-        now += 1. / i;
-        while (idx < (int)N.size() && N[idx].first == i) { // Could be duplicates, that's why using 'while' loop
+        now += 1.0 / i;
+        // Could be duplicates, that's why using 'while' loop
+        while (idx < (int)N.size() && N[idx].first == i) {
             ans[N[idx++].second] = now;
         }
     }
