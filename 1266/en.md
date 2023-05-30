@@ -93,7 +93,8 @@ void solve()
       {
          cin>>x1>>y1>>x2>>y2;
          x1++,x2++,y1++,y2++;
-         long long int ans=query(x2,y2)-query(x2,y1-1)-query(x1-1,y2)+query(x1-1,y1-1); /* find total point inside the given rectangle */
+         // find total point inside the given rectangle
+         long long int ans=query(x2,y2)-query(x2,y1-1)-query(x1-1,y2)+query(x1-1,y1-1);
          cout<<ans<<endl;
       }
    }
