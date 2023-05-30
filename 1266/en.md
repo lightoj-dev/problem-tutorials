@@ -8,7 +8,9 @@ Binary Indexed Tree:
 
  
 ### Solution 
-- We will maintain a 2-D BIT to solve this problem. For query 0 x y, we will call update function each time we got a new point (x,y). For the second query, we will call query function with parameter (x,y). It will return  the sum of the rectangle that's lower left co-ordinate is (1,1) and upper right co-ordinate is (x,y). Let's take a look first testcase: <br>
+We will maintain a 2-D BIT to solve this problem. For query 0 x y, we will insert a new point (x,y). For the second type of query, we can utilize the 2-D BIT to know how many points there are in the rectangle (1,1) to (x,y). 
+
+Let's take a look first testcase:
 1   <br>
 4   <br> 
 0 1 1   <br>
