@@ -21,7 +21,7 @@ Let's take a look first testcase:
 <add three back-ticks here for code-block>
 -  We got two points (1,1) and (2,6), let's plot these points <br>
 ![first](./first.PNG)
-- In the first query , we have to find how many point are inside (1,1) and (6,6) . We will call query funtion with parameter (6,6) , it will return the number of point. So the ans is 2. <br>
+- In the first query, we have to find how many point are inside (1,1) and (6,6). We can easily do that by querying the BIT, the ans is 2.
 - Let's come to the second query. Here we have to find the number of point inside (2,2) and (5,5). We will call query function with parameter (5,5). But it will return the number of point inside (1,1) and (5,5). The area is ploted bellow in red-  
   ![second](./second.PNG)
 - We took some extra area. Because we have to find from (2,2) to (5,5) not (1,1) to (5,5). However, the final equation of ans is - <br>
