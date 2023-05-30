@@ -25,7 +25,11 @@ Let's take a look first testcase:
 - Let's come to the second query. Here we have to find the number of point inside (2,2) and (5,5). We will call query function with parameter (5,5). But it will return the number of point inside (1,1) and (5,5). The area is ploted bellow in red-  
   ![second](./second.PNG)
 - We took some extra area. Because we have to find from (2,2) to (5,5) not (1,1) to (5,5). However, the final equation of ans is - <br>
-Ans=**A-B-C+D** Where <br>  A=query(x2,y2) <br> B=query(x1-1,y2-1) <br> C=query(x2-1,y1-1) <br> D=query(x1-1,y1-1) <br>
+`Ans=A-B-C+D` where
+  * A = Number of points in rectangle (1, 1) to (x2,y2)
+  * B = Number of points in rectangle (1, 1) to (x1-1,y2-1)
+  * C = Number of points in rectangle (1, 1) to (x2-1,y1-1)
+  * D = Number of points in rectangle (1, 1) to (x1-1,y1-1)
 let's clarify this equation. First look at the area ploted bellow of **A,B,C,D**. 
  ![third](./third.PNG)
  ![fourth](./fourth.PNG)
