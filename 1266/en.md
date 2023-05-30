@@ -27,8 +27,8 @@ Let's take a look first testcase:
 - We took some extra area. Because we have to find from (2,2) to (5,5) not (1,1) to (5,5). However, the final equation of ans is - <br>
 Ans=**A-B-C+D** Where <br>  A=query(x2,y2) <br> B=query(x1-1,y2-1) <br> C=query(x2-1,y1-1) <br> D=query(x1-1,y1-1) <br>
 let's clarify this equation. First look at the area ploted bellow of **A,B,C,D**. 
- ![second](./third.PNG)
- ![second](./fourth.PNG)
+ ![third](./third.PNG)
+ ![fourth](./fourth.PNG)
 - As D is inside of both B and C. So at the time of substracting B and C , D is subtracted twice . so D is added. Now after calculating 
 we got our area where no point is located. So ans of the second query is 0. Hope you understood the solution.
 
