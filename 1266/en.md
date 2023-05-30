@@ -11,14 +11,14 @@ Binary Indexed Tree:
 We will maintain a 2-D BIT to solve this problem. For query 0 x y, we will insert a new point (x,y). For the second type of query, we can utilize the 2-D BIT to know how many points there are in the rectangle (1,1) to (x,y). 
 
 Let's take a look first testcase:
-<add three back-ticks here for code-block>
+```
 1
 4
 0 1 1
 0 2 6
 1 1 1 6 6
 1 2 2 5 5
-<add three back-ticks here for code-block>
+```
 -  We got two points (1,1) and (2,6), let's plot these points <br>
 ![first](./first.PNG)
 - In the first query, we have to find how many point are inside (1,1) and (6,6). We can easily do that by querying the BIT, the ans is 2.
