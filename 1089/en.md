@@ -10,15 +10,19 @@ First let's simplify the problem a bit. Suppose there is no such segment like: *
 
 Let's think of each segment **AB** as of two points where **A** is the opening of the segment and **B** the ending of it. 
 
-Consider the set **S** of all opening and ending points of the segments sorted in increasing order. Iterating over the set from the begining, whenever we find an opening point **S[i]**, we increment the **counter** (starting with 0) by 1, indicating for any point **p** such that **S[i] <= p <= S[i+1]**,  if **S[i+1]** is an ending point, otherwise **S[i] <= p < S[i+1]** will be contained by that many of segments. If we find an ending point **S[i]**, we know for sure we had the opening point of that segment before, so it's time to close the segment, so we decrement the **counter** by 1, now indicating for any point **p** such that **S[i] < p <= S[i+1]**,  if **S[i+1]** is an ending point, otherwise **S[i] < p < S[i+1]** will be contained by that many of segments.
+Consider the set of all opening and ending points of the segments sorted in increasing order. Iterating over the set from the beginning, only two case can arise. 
 
-We can sort our queries so that we can calculate answers for them in increasing order as we iterate over the set **S**.
+1. An opening point **p** indicating the segment (of that opening point **p**) has started running. By means of saying that any point that comes after it (or equal to that) and not after the ending of it will be contained in that segment. 
 
-That was the general approach. Now, solving the original problems is all about handling the exception case where we may have the same point for many openings and endings. See the code and documentation for understading how to handle duplicate points.
+2. An ending point **p** indicating an ongoing segment has just been closed now and we can't take any point after that into the account of that segment (whose ending is **p**). 
+
+We can sort our queries so that we can calculate answers for them in increasing order as we iterate over the set **S** while only maintaining a single counter.
+
+That was the general approach. Now, solving the original problems is all about handling the exception case where we may have the same point for many openings and endings. See the code and comments for understading how to handle duplicate points.
 
 ## Complexity
 - Time Complexity: O(T * (N $log{_2}{N}$ + Q $log{_2}{Q}$).
-- Memory Complexity: O(N +Q).
+- Memory Complexity: O(N + Q).
 
 ## Code
 
