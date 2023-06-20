@@ -12,7 +12,7 @@ Let's think of each segment **AB** as of two points where **A** is the opening o
 
 Consider the set of all opening and ending points of the segments sorted in increasing order. Iterating over the set from the beginning, only two case can arise. 
 
-1. An opening point **p** indicating the segment (of that opening point **p**) has started running. By means of saying that any point that comes after it (or equal to that) and not after the ending of it will be contained in that segment. 
+1. An opening point `A` of segment `AB` is found. `AB` has started. Any point that comes after `A` (or equal to `A`) until we reach the endpoint `B` will be on that segment.
 
 2. An ending point **p** indicating an ongoing segment has just been closed now and we can't take any point after that into the account of that segment (whose ending is **p**). 
 
