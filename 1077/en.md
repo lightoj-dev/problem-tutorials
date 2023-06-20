@@ -2,7 +2,7 @@
 
 
 ## Solution
-The Number of lattice points lie on the segment **A(x1, y1) -> B(x2, y2)** is same for segment **A(0, 0) -> B(x2 - x1, y2 - y1)** because co-ordinate translation doesn't change the relative distance of lattice points from each other.
+The number of lattice points lie on the segment **A(x1, y1) -> B(x2, y2)** is same for segment **A(0, 0) -> B(x2 - x1, y2 - y1)** because co-ordinate translation doesn't change the relative distance of lattice points from each other.
 The number of lattice points will also be equal to that of segment **A(0, 0) -> B(|x2 - x1|, |y2 - y1|)** since sign (+/-) only tells us in which quadrants the segment will fall.
 Number of lattice points is length dependent not quadrant dependent.
 
@@ -17,7 +17,7 @@ But what's the proof they lie on the segment **AB** and there can't be any other
 See: https://math.stackexchange.com/questions/628117/how-to-count-lattice-points-on-a-line
 
 ## Complexity
-- Time Complexity: O(T * lg(N)). Where N = **max(a, b)** of **gcd(a, b)**. [Check](https://www.quora.com/What-is-the-time-complexity-of-Euclids-GCD-algorithm/answer/M00nlight-2?ch=10&oid=16747157&share=a62b29f9&srid=xek7a&target_type=answer) for the time complexity of Eulclid's GCD algorithm.
+- Time Complexity: O(T * lg(N)). Where N = **max(a, b)** of **gcd(a, b)**. [Check](https://stackoverflow.com/questions/3980416/time-complexity-of-euclids-algorithm) for the time complexity of Euclid's GCD algorithm.
 - Memory Complexity: O(1).
 
 ## Code
