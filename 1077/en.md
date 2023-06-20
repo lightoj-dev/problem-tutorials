@@ -2,7 +2,9 @@
 
 
 ## Solution
-The Number of lattice points lie on the segment **A(x1, y1) -> B(x2, y2)** is same for segment **A(0, 0) -> B(x2 - x1, y2 - y1)** (co-ordinate translation doesn't change the relative distance of lattice points from each other) and so for segment **A(0, 0) -> B(|x2 - x1|, |y2 - y1|)** (sign (+/-) only let's us know in which quadrant the segment will fall. Number of lattice points is length dependent not quadrant dependent).
+The Number of lattice points lie on the segment **A(x1, y1) -> B(x2, y2)** is same for segment **A(0, 0) -> B(x2 - x1, y2 - y1)** because co-ordinate translation doesn't change the relative distance of lattice points from each other.
+The number of lattice points will also be equal to that of segment **A(0, 0) -> B(|x2 - x1|, |y2 - y1|)** since sign (+/-) only tells us in which quadrants the segment will fall.
+Number of lattice points is length dependent not quadrant dependent.
 
 So, how to calculate the number of lattice points on any segment **A(0, 0) -> B(x, y)** where **x, y >= 0**? The answer is: **gcd(x, y) + 1**. Why?
 
