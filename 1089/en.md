@@ -14,7 +14,7 @@ Consider the set of all opening and ending points of the segments sorted in incr
 
 1. An opening point `A` of segment `AB` is found. `AB` has started. Any point that comes after `A` (or equal to `A`) until we reach the endpoint `B` will be on that segment.
 
-2. An ending point **p** indicating an ongoing segment has just been closed now and we can't take any point after that into the account of that segment (whose ending is **p**). 
+2. An ending point `B` of segment `AB` is found. Ongoing segment `AB` is closed. We can't take any point after that into account. 
 
 We can sort our queries so that we can calculate answers for them in increasing order as we iterate over the set **S** while only maintaining a single counter.
 
