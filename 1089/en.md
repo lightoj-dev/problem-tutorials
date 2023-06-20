@@ -10,7 +10,7 @@ First let's simplify the problem a bit. Suppose there is no such segment like: *
 
 Let's think of each segment **AB** as of two points where **A** is the opening of the segment and **B** the ending of it. 
 
-Consider the set of all opening and ending points of the segments sorted in increasing order. Iterating over the set from the beginning, only two case can arise. 
+Consider the set of all opening and ending points of the segments sorted in increasing order. Iterating over the set, there may be two scenarios: 
 
 1. An opening point `A` of segment `AB` is found. `AB` has started. Any point that comes after `A` (or equal to `A`) until we reach the endpoint `B` will be on that segment.
 
