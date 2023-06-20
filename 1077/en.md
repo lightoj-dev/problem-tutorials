@@ -15,7 +15,7 @@ But what's the proof they lie on the segment **AB** and there can't be any other
 See: https://math.stackexchange.com/questions/628117/how-to-count-lattice-points-on-a-line
 
 ## Complexity
-- Time Complexity: O(T).
+- Time Complexity: O(T * lg(N)). Where N = **max(a, b)** of **gcd(a, b)**. [Check](https://www.quora.com/What-is-the-time-complexity-of-Euclids-GCD-algorithm/answer/M00nlight-2?ch=10&oid=16747157&share=a62b29f9&srid=xek7a&target_type=answer) for the time complexity of Eulclid's GCD algorithm.
 - Memory Complexity: O(1).
 
 ## Code
@@ -27,10 +27,6 @@ See: https://math.stackexchange.com/questions/628117/how-to-count-lattice-points
 
 using namespace std;
 
-typedef long long ll;
-typedef pair <ll, ll> pii;
-
-
 int main() {
     
     // For fast I/O
@@ -41,7 +37,7 @@ int main() {
     cin >> t;
 
     for(int ts = 1; ts <= t; ++ts) {
-        pii A, B;
+        pair <long long, long long> A, B;
         cin >> A.first >> A.second >> B.first >> B.second;
 
         cout << "Case " << ts << ": " << __gcd(abs(A.first - B.first), abs(A.second - B.second)) + 1 << '\n';
