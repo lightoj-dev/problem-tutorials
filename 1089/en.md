@@ -21,7 +21,7 @@ We can sort our queries so that we can calculate answers for them in increasing 
 That was the general approach. Now, solving the original problems is all about handling the exception case where we may have the same point for many openings and endings. See the code and comments for understading how to handle duplicate points.
 
 ## Complexity
-- Time Complexity: O(T * (N $log{_2}{N}$ + Q $log{_2}{Q}$).
+- Time Complexity: O(T * (N * lg(N) + Q * lg(Q)).
 - Memory Complexity: O(N + Q).
 
 ## Code
