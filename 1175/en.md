@@ -21,8 +21,8 @@ If we forget about the movable fire cells that grows every minute, then the prob
  However, taking the fire cells into account, we can think of them as movable osbtacles that expand to the adjacent cells every minute causing *Jane* not to move through them. Before Jane moves to any of her adjacent cells, the fire cells must move to their adjacent cells, because Jane can only move through that cell if the fire hasn't lit up in that very moment. 
 
 ## Complexity
-- Time Complexity: O(T * $R*C$).
-- Memory Complexity: O($R * C$).
+- Time Complexity: O(T * R * C).
+- Memory Complexity: O(R * C).
 
 ## Code
 
@@ -33,21 +33,18 @@ If we forget about the movable fire cells that grows every minute, then the prob
 
 using namespace std;
 
-typedef pair <int, int> pii;
-
-
-const int INF = numeric_limits <int>:: max(); // Unreachable
+const int INF = numeric_limits <int>:: max(); // Indicating Unreachable state
 
 int r, c;
 vector <string> grid;
 
 // An Efficient (and quite common) Way to Navigate Grid Problems: https://codeforces.com/blog/entry/78827
-
 const int dr[] = {-1, 0, 1, 0};
 const int dc[] = {0, 1, 0, -1};
 
 inline bool valid(int x, int y) {
-    return x >= 0 && x < r && y >= 0 && y < c && grid[x][y] != '#'; // 0-based index grid
+    // 0-based index grid
+    return x >= 0 && x < r && y >= 0 && y < c && grid[x][y] != '#';
 }
 
 struct Cell {
@@ -72,9 +69,10 @@ int main() {
 
         grid.resize(r);
         
-        pii source;
+        pair <int, int> source;
         queue <Cell> Q;
-        vector <vector <int>> dist(r, vector <int> (c, INF)); // Minimum minutes needed to move to cell[i][j] from starting cell
+        // dist[i][j] = Minimum minutes needed to move to cell[i][j] from starting cell
+        vector <vector <int>> dist(r, vector <int> (c, INF));
         for(int i = 0; i < r; ++i) {
             cin >> grid[i];
             for(int j = 0; j < c; ++j) {
@@ -82,7 +80,8 @@ int main() {
                     source = {i, j};
                 }
                 else if (grid[i][j] == 'F') {
-                    grid[i][j] = '#'; // Turning into a movable obstacle
+                    // Turning into a movable obstacle
+                    grid[i][j] = '#';
                     Q.push(Cell(true, i, j));
                 }
             }
@@ -99,14 +98,17 @@ int main() {
             for(int i = 0; i < 4; ++i) {
                 int x = u.x + dr[i];
                 int y = u.y + dc[i];
-
-                if (valid(x, y) && dist[x][y] == INF) { // Checking for not an obstacle yet
+             
+                // Checking for not an obstacle yet
+                if (valid(x, y) && dist[x][y] == INF) {
                     if (u.flag) {
-                        grid[x][y] = '#'; // Now an obstacle that can move
+                        // Now an obstacle that can move
+                        grid[x][y] = '#';
                         Q.push(Cell(true, x, y));
                     }
                     else {
-                        dist[x][y] = dist[u.x][u.y] + 1; // That's jane moving
+                        // That's jane moving
+                        dist[x][y] = dist[u.x][u.y] + 1;
                         Q.push(Cell(false, x, y));
                     }
                 }
@@ -114,10 +116,12 @@ int main() {
         }
         
         int best = INF;
-        for(int j = 0; j < c; ++j) { // Topmost and downmost rows
+        // Topmost and downmost rows
+        for(int j = 0; j < c; ++j) {
             best = min({best, dist[0][j], dist[r-1][j]});
         }
-        for(int i = 0; i < r; ++i) { // Leftmost and rightmost columns
+        // Leftmost and rightmost columns
+        for(int i = 0; i < r; ++i) {
             best = min({best, dist[i][0], dist[i][c-1]});
         }
 
@@ -127,7 +131,8 @@ int main() {
             cout << "IMPOSSIBLE\n";
         }
         else {
-            cout << best+1 << '\n'; // Adding 1 because of getting out of the maze completely 
+            // Adding 1 because of getting out of the maze completely
+            cout << best+1 << '\n'; 
         }
 
         grid.clear();
