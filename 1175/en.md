@@ -1,24 +1,14 @@
 # LOJ 1175 - Jane and the Frost Giants
 
-## Summary
-
-**Input:**
-
-A 2D grid representing the maze, where each square is either empty, blocked by an obstacle, or contains fire lit by the *Frost Giants*, except one cell which is the starting location of *Jane* in the maze. Both *Jane* and the fire take one minute to move to an adjacent cell (horizontally or vertically).
-
-**Output:**
-
-A boolean value indicating whether *Jane* can escape the maze before the fire reaches her. If *Jane* can escape, the minimum number of minutes it takes for her to escape from the maze.
-
-**Note:** *Jane* can escape from any square that borders the edge of the maze.
-
 ## Prerequisite
-**BFS** (Bredth First Search): https://cp-algorithms.com/graph/breadth-first-search.html
+[BFS (Bredth First Search)](https://cp-algorithms.com/graph/breadth-first-search.html)
 
 ## Solution
 If we forget about the movable fire cells that grows every minute, then the problem reduces to calculating how many minutes it takes to reach a cell without going through an obstacle, which can be done easily with BFS alone.
 
- However, taking the fire cells into account, we can think of them as movable osbtacles that expand to the adjacent cells every minute causing *Jane* not to move through them. Before Jane moves to any of her adjacent cells, the fire cells must move to their adjacent cells, because Jane can only move through that cell if the fire hasn't lit up in that very moment. 
+Taking the fire cells into account, we can think of them as movable osbtacles that expand to the adjacent cells every minute causing *Jane* not to move through them. Consider the first instance of the grid where the **#** cells are entirely obstacles that can't move versus **F** cells, all of which shows the same feature as the **#** cells (can't move through them) but also in the next instance all the adjacent cells of each **F** cell will become new **F** cells aka, 'movable obstacles' repeating the same procedure. So, we have to keep track of **F** cells coverage as well as *Jane's* parallely.
+
+Point to be noted: At every instance, before *Jane* moves to any of her adjacent cells, the **F** cells must move to their adjacent cells, because *Jane* can only move through that cell if the fire hasn't lit up in that very moment. 
 
 ## Complexity
 - Time Complexity: O(T * R * C).
@@ -87,7 +77,7 @@ int main() {
             }
         }
 
-        // All the fire cells have been added to the queue so that they always move to the adjacent cells first not Jane
+        // All the fire cells have been added to the queue so that they always move to the adjacent cells first not, Jane
         dist[source.first][source.second] = 0;
         Q.push(Cell(false, source.first, source.second));
         
