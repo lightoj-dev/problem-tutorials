@@ -2,7 +2,7 @@
 
 
 ## Solution
-The number of lattice points lie on the segment **A(x1, y1) -> B(x2, y2)** is same for segment **A(0, 0) -> B(x2 - x1, y2 - y1)** because co-ordinate translation doesn't change the relative distance of lattice points from each other.
+The number of lattice points lying on the segment **A(x1, y1) -> B(x2, y2)** is same for segment **A(0, 0) -> B(x2 - x1, y2 - y1)** because co-ordinate translation doesn't change the relative distance of lattice points from each other.
 The number of lattice points will also be equal to that of segment **A(0, 0) -> B(|x2 - x1|, |y2 - y1|)** since sign (+/-) only tells us in which quadrants the segment will fall.
 Number of lattice points is length dependent not quadrant dependent.
 
