@@ -6,9 +6,14 @@
 ## Solution
 If we forget about the movable fire cells that grows every minute, then the problem reduces to calculating how many minutes it takes to reach a cell without going through an obstacle, which can be done easily with BFS alone.
 
-Taking the fire cells into account, we can think of them as movable osbtacles that expand to the adjacent cells every minute causing *Jane* not to move through them. Consider the first instance of the grid where the **#** cells are entirely obstacles that can't move versus **F** cells, all of which shows the same feature as the **#** cells (can't move through them) but also in the next instance all the adjacent cells of each **F** cell will become new **F** cells aka, 'movable obstacles' repeating the same procedure. So, we have to keep track of **F** cells coverage as well as *Jane's* parallely.
+Similarly, with BFS, we can also compute the shortest time it takes
+fire to spread to a cell. Jane can only move through a cell if she
+reaches there before fire does.
 
-Point to be noted: At every instance, before *Jane* moves to any of her adjacent cells, the **F** cells must move to their adjacent cells, because *Jane* can only move through that cell if the fire hasn't lit up in that very moment. 
+We can utilize this observation while traversing through the grid
+to find a route for Jane. If fire gets to an empty cell before
+she does, we can consider the cell an obstacle and move on.
+Otherwise, consider it empty and try to move through there.
 
 ## Complexity
 - Time Complexity: O(T * R * C).
