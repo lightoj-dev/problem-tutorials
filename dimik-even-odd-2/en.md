@@ -10,7 +10,7 @@ In this problem, you will be given `T` testcases.Each line of the testcase consi
 
 ### Solution in C++
 
-### Step 1: Include necessary libraries
+> Step 1: Include necessary libraries
 
 ```cpp
 #include<bits/stdc++.h>
@@ -27,13 +27,15 @@ bool isEven(string number) {
     return (lastDigit % 2 == 0);
 }
 ```
-<ul>
-<li>Inside the isEven function, we extract the last digit of the number by accessing the last character of the string (number[number.size() - 1]) and subtracting the ASCII value of '0' from it. This converts the character representation of the digit to an integer.
-</li>
-<li>
-We then check if the last digit is divisible by 2 using the modulo operator (%). If the remainder is 0, the number is even and we return true; otherwise, we return false
-</li>
-</ul>
+
+> Step 2: Function for identify Odd Even
+
+- Inside the isEven function, we extract the last digit of the number by accessing the last character of the string (number[number.size() - 1]) and subtracting the ASCII value of '0' from it. This converts the character representation of the digit to an integer.
+
+- We then check if the last digit is divisible by 2 using the modulo operator (%). If the remainder is 0, the number is even and we return true; otherwise, we return false
+
+> Step 3: Use the function from main 
+
 ### Implement the main function
 ```cpp
 int main() {
@@ -54,20 +56,14 @@ int main() {
     return 0;
 }
 ```
-<ul>
-<li>
-In the main function, we first read the number of test cases from the input using cin >> numTestCases.
-</li>
-<li>
-Since we read an integer before reading strings, we need to ignore the newline character left in the input buffer. We do this using cin.ignore().
-</li>
-<li>
-Next, we enter a loop to process each test case. For each test case, we read the number as a string using getline(cin, number). This allows us to handle numbers with multiple digits.
-</li>
-<li>
-We then call the isEven function with the number as the argument. Depending on the return value, we output whether the number is even or odd using cout.
-</li>
-</ul>
+
+- In the main function, we first read the number of test cases from the input using cin >> numTestCases.
+
+- Since we read an integer before reading strings, we need to ignore the newline character left in the input buffer. We do this using cin.ignore().
+
+- Next, we enter a loop to process each test case. For each test case, we read the number as a string using getline(cin, number). This allows us to handle numbers with multiple digits.
+
+- We then call the isEven function with the number as the argument. Depending on the return value, we output whether the number is even or odd using cout.
 
 ### Full code 
 ```cpp
