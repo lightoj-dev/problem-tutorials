@@ -1,6 +1,6 @@
 # Dimik - Descending Number
 
-In this problem,you will not be given anu inputs.The only thing which you will have to do is to print all the numbers starting from 1 upto 1000 but in descending order.  
+In this problem,you will not be given any inputs.The only thing which you will have to do is to print all the numbers starting from 1 upto 1000 but in descending order.  
 
 ### Solution 
 * Each number has to be seperated using the `space` character.
