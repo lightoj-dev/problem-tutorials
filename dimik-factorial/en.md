@@ -1,6 +1,6 @@
 # Dimik - Factorial
 
-In this problem, you will be given `T` testcases.Each line of the testcase consist of an integer `n`.We have to determine the factorial value of `n`
+In this problem, you will be given `T` testcases.Each line of the testcase consists of an integer `n`.We have to determine the factorial value of `n`
 
 ### Solution
 Factorial of any value n denotes finding the product of all the values starting from 1 upto n.
