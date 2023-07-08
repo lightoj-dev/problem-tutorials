@@ -1,6 +1,6 @@
 # Dimik - Even Odd 1
 
-In this problem, you will be given `T` testcases.Each line of the testcase consists of an integer `n`.We have to determine whether `n` is even or odd.
+In this problem, you will be given `T` testcases. Each line of the testcase consists of an integer `n`. We have to determine whether `n` is even or odd.
 
 ### Solution 
 * If n is divisible by 2
