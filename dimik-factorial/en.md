@@ -1,10 +1,10 @@
 # Dimik - Factorial
 
-In this problem, you will be given `T` testcases.Each line of the testcase consists of an integer `n`.We have to determine the factorial value of `n`
+In this problem, you will be given `T` testcases. Each line of the testcase consists of an integer `n`. We have to determine the factorial value of `n`
 
 ### Solution
 Factorial of any value n denotes finding the product of all the values starting from 1 upto n.
-In other words `Factorial[n]=1*2*3*4...*(n-2)*(n-1)*n`.
+In other words, `Factorial[n]=1*2*3*4...*(n-2)*(n-1)*n`.
 So we can make an efficient solution, by preprocessing all the factorials for different possible values of n and while going through the test cases,we can just print out the factorial of `n`.
 
 ### C++
