@@ -1,43 +1,43 @@
 ## LOJ-1269: Consecutive Sum
 
 **Problem Insight**
+<br>
 
-<div style="text-align: justify">
 Little Jimmy is actually performing the [<b>xor</b>](https://en.wikipedia.org/wiki/Exclusive_or) operation. So, we are required to find the maximum xor subarray, and the minimum xor subarray.
-And Notice that xor of the numbers range from only `0` to `255`.
-</div>
-
+Notice that binary of the numbers will only be of <b>`8`</b> bit in length. And the binary of the xors cannot exceed <b>`255`</b>.
 <br>
 
 **Solution**
+<br>
 
-<div style="text-align: justify">
 Given an array of length <b>`n`</b>. We call <b>`cxor[i]`</b> the xor of all the array elements in range <b>`[0, i]`</b>, with <b>`i`</b> inclusive. Then the xor of all the elements in range <b>`[i, j]`</b>,
-with <b>`j`</b> inclusive, is simply <b>`cxor[i-1]^cxor[j]`</b>. And so, we will precalculate all the <b>`cxor[i]`</b>s for <b>`0 < i < n`</b> in the same way as calculating
-the cumulative summations. And then we will calculate xors for all subarray <b>`[i, j]`</b> with <b>`0 <= i < j < n`</b>. The maximum xor is the answer.
-</div>
-
+with <b>`j`</b> inclusive, is simply <b>`cxor[i-1]^cxor[j]`</b>. And so, we will precalculate all the <b>`cxor[i]`</b>'s for <b>`0 < i < n`</b> in the same way as calculating
+the cumulative summations. And then we will calculate xors for all subarray <b>`[i, j]`</b> with <b>`0 <= i < j < n`</b>. Of all the calculated xors, the maximum xor is the required maximum sum, and the minimum xor is the required minimum sum.
 <br>
-  
-<div style="text-align: justify">
-The problem is <b>`n`</b> can be as big as <b>50000</b>. So the total number of subarrays can be a maximum of <b>50000*49999/2</b> which is well over <b>10<sup>9</sup></b>. So this approach will not work.
-But, as we all know, the xor of two numbers is maximum when their binary representations are as different as possible, meaning, if <b>`cxor[j]`</b> has a <b>`1`</b> in the 
-<b>`kth`</b> position, it's better if <b>`cxor[i-1]`</b> has a <b>`0`</b> in that position in order to get the xor maximized. So, for each <b>`j`</b> we only need to find an
-<b>`i`</b> such that the binaries of <b>`cxor[i-1]`</b> and <b>`cxor[j]`</b> have as many mismatches as possible.
-</div>
-  
+
+The problem is that <b>`n`</b> can be as big as <b>`50000`</b>. So the total number of subarrays can be a maximum of <b>`50000*49999/2`</b> which is well over <b>`10`<sup>`9`</sup></b>. So this approach will not work.
+But, as we all know, the xor of two numbers is maximum when their binary representations are as different as possible; meaning, if <b>`cxor[j]`</b> has a <b>`1`</b> in the 
+<b>`kth`</b> position in its binary representation, then it's better if <b>`cxor[i-1]`</b> has a <b>`0`</b> in that position in order to get the xor maximized. So, for each <b>`cxor[j]`</b> we only need to find a
+<b>`cxor[i-1]`</b> such that the binaries of <b>`cxor[i-1]`</b> and <b>`cxor[j]`</b> have as many mismatches as possible.
 <br>
-But, how do we find such <b>`cxor[i-1]`</b> efficiently. One way is to use [<b>Trie</b>](https://www.geeksforgeeks.org/trie-insert-and-search/) data structure.
-We keep inserting each of <b>`cxor[i]`</b> in a loop. And in each cycle of the loop, we first search for the most mismatched cumulative xor saved in the tree and perform
-the xor operation all the while checking if the xor is maximum. And then insert the current <b>`cxor[i]`</b>.
-</div>
 
-**Tip:** Be careful about the memory while using Trie. It is good practice to clear the memory every testcase. And also, avoid using `string` in cpp,
-and use `char` array.
+Similarly, we can find the minimum xor by simply looking for a <b>`cxor[i-1]`</b> which has as many matches with <b>`cxor[j]`</b> as possible.
 
+But, how do we find such <b>`cxor[i-1]`</b> efficiently? One way is to use the [<b>Trie</b>](https://www.geeksforgeeks.org/trie-insert-and-search/) data structure.
+For each <b>`cxor[j]`</b>, we first search for the most mismatched or most matched <b>`cxor`</b> saved in the tree and perform the xor operation with it. And then insert the current <b>`cxor[j]`</b>. And as we go, we keep note of the maximum and minimum xors.
 <br>
 <br>
 
+**Complexity**
+<br>
+
+The complexities of inserting, and searching in the Trie tree are both `O(8)` because, each of the <b>`cxor`</b>'s is of length `8`. So, they're basically `O(1)`. Each Binary conversion is similarly `O(1)`.
+The cumulative xor needs `O(n)` time. So, the overall complexity is `O(n)`.
+<br>
+
+**Tip:** Be careful about the memory while using Trie. It is good practice to clear the memory on every testcase. Also, avoid using `string` in cpp,
+and use `char` array as it's faster. And it's better to actually not use `string` or `char` for binary conversion.
+<br>
 
 **Recommended for Learner**
 <br>
