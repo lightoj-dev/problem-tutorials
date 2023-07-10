@@ -5,7 +5,7 @@
 [Bitmask DP](https://www.hackerearth.com/practice/algorithms/dynamic-programming/bit-masking/tutorial/)
 
 ## Solution
-`Observation 1`: 
+`Observation 1`: At the end of the day, a cell will be toggled if it has been toggled an odd number of times; otherwise, it will remain in the same state. The specific cells causing the toggling are irrelevant; only the parity of the toggles matters.
 
 `Observation 2`: If there is a sequence of moves that lead to an answer then it's also possible to do the moves in top-down manner, i.e, toggle the necessary cells from the topmost row to the bottommost row. Follows immediately from `observation 1` Hence, dynamic programming at rescue!
 
@@ -18,7 +18,6 @@ Among all the local optimums, we select the one with the minimum value as the an
 ## Complexity
 - Time Complexity: **O(T * R * 2<sup>2C</sup>)**.
 - Memory Complexity: **O(R * 2<sup>2C</sup>)**.
-
 
 ## Code
 
