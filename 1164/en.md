@@ -1,8 +1,8 @@
 # LOJ-1164: Horrible Queries
 
 ## Prerequisite:
-1. Segment Tree
-2. Range Operation: Lazy Propagation
+- [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
+- [Lazy Propagation](https://www.topcoder.com/thrive/articles/range-operations-lazy-propagation)
 
 ## Problem at a glance:
 In this problem we are required to perform two kinds of operation.
@@ -17,7 +17,7 @@ Lazy propagation is an optimization technique used with segment trees. If you ar
 
 With lazy propagation, instead of updating a range instantly, we only mark the root node of that range for future updates. We maintain an extra array to keep track of which nodes need to be updated. Here's an illustration:
 
-<img src="lazyPropagationExample.jpg">
+![example image of lazy propagation](lazyPropagationExample.jpg)
 
 Let's say we want to update the range [4:6]. The root node of this range is the 3rd node. Rather than updating all the nodes below [4:6] immediately, we simply mark the immediate children of the 3rd node with a value that should be added in the future. Our second array tracks this information for each node to determine if its child nodes should be updated or not. When we need to query or update the range again, we will update the specific node.
 
@@ -30,12 +30,12 @@ You will have a better understanding of this concept as you read through the tut
 
 using namespace std;
 
-#define ll long long
+
 #define endl "\n"
 #define MAX 400010
 
 
-ll segSum[MAX], lazy[MAX];
+long long segSum[MAX], lazy[MAX];
 
 void clearAll() {
     for (int i = 0; i < MAX; i++) {
@@ -45,7 +45,7 @@ void clearAll() {
 }
 
 
-void update(int node, ll leftTree, ll rightTree, ll left, ll right, ll value) {
+void update(int node, long long leftTree, long long rightTree, long long left, long long right, long long value) {
     int leftSide  = node * 2;
     int rightSide = (node * 2) + 1;
     if (lazy[node]) {
@@ -74,7 +74,7 @@ void update(int node, ll leftTree, ll rightTree, ll left, ll right, ll value) {
 }
 
 
-ll query(int node, ll lt, ll rt, ll l, ll r) {
+long long query(int node, long long lt, long long rt, long long l, long long r) {
     int leftSide  = node * 2;
     int rightSide = (node * 2) + 1;
     if (lazy[node]) {
@@ -92,8 +92,8 @@ ll query(int node, ll lt, ll rt, ll l, ll r) {
         return segSum[node];
     }
     int mid = (lt + rt) >> 1;
-    ll leftSum  = query(leftSide, lt, mid, l, r);
-    ll rightSum = query(rightSide, mid + 1, rt, l, r);
+    long long leftSum  = query(leftSide, lt, mid, l, r);
+    long long rightSum = query(rightSide, mid + 1, rt, l, r);
     return leftSum + rightSum;   
 }
 
@@ -110,7 +110,7 @@ int  main() {
             int choice, left, right;
             cin >> choice >> left >> right;
             if (choice == 0) {
-                ll value;
+                long long value;
                 cin >> value;
                 update(1, 0, n - 1, left, right, value);
             }
@@ -122,9 +122,7 @@ int  main() {
     return 0;
 }
 ```
-## Resources:
-- [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
-- [Lazy Propagation](https://www.topcoder.com/thrive/articles/range-operations-lazy-propagation)
+
 
 ### Tutorial by:
 Profile Link: [Hasibur Rahman](https://lightoj.com/user/evan13)
