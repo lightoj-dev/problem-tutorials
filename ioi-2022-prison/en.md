@@ -22,7 +22,7 @@ In this subtask, we can get some partial scores depending on how small the chose
 We can simulate how to compare two binary numbers. By noting that it requires up to 13 bits to represent a number up to 5000, the value on the whiteboard represents the current state, i.e.
 
 * If the value is $3 \times d$, then we need to check the $(12 − d)$-th bit of $A$, and then overwrite it with $3 × d + 1$ or $3 × d + 2$ depending on the bit value.
-* If the value $is 3 × d + 1$ or $3 × d + 2$, then we know the $(12 − d)$-th bit of $A$ is either 0 or 1 from the previous prisoner. Then, the current prisoner has to check the $(12 − d)$-th of $B$ and compare the current bit value between $A$ and $B$. If the values are still the same, the prisoner can overwrite it with $3 \times (d + 1)$ to continue to the next bit. Otherwise, the prisoner can answers which bag has fewer coins.
+* If the value is $3 × d + 1$ or $3 × d + 2$, then we know the $(12 − d)$-th bit of $A$ is either 0 or 1 from the previous prisoner. Then, the current prisoner has to check the $(12 − d)$-th of $B$ and compare the current bit value between $A$ and $B$. If the values are still the same, the prisoner can overwrite it with $3 \times (d + 1)$ to continue to the next bit. Otherwise, the prisoner can answers which bag has fewer coins.
 
 Therefore, this solution needs $x = 3 \times {\lceil {\log_2{N}} \rceil} − 1$ or $x = 38$ for $N = 5000$.
 
