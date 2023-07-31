@@ -1,6 +1,6 @@
-# Dimik - Summation
+# Dimik - Square Number
 
-In this problem, you will be given `T` testcases. Each line of the testcase consists of a 5 digit integer `n`. We just have to print the summation of leftmost and rightmost digit of an integer `n`.
+In this problem, you will be given `T` testcases. Each line of the testcase consists of an integer `n`. We just identify is the value of `n` is a square number or not.
 
 ### Solution
 We can find the solution by square rooting the value of `n` using `sqrt` function and multiply against itself through the use of `floor` function. Because the value returned by `sqrt` function is `double` and to compare with the `integer` value of `n`, the datatype `double` is converted to `int` using `floor` function.
