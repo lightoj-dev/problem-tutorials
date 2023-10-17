@@ -1,4 +1,4 @@
-## Dimik Decressing 
+## Dimik decreasing 
 
 ### What the problem wants 
 
