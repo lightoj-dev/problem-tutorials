@@ -1,0 +1,82 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define endl "\n"
+#define F first
+#define S second
+typedef  long long ll;
+ll mod = 1000000007;
+#define PII pair<int,int>
+char ar[505][505];
+map<int,int>vst[505];
+int cnt = 0;
+int dx[] = {-1,1,0,0};
+int dy[] = {0,0,1,-1};
+int com[505][505];
+void dfs(int x,int y,int n,int m,int k)
+{
+    vst[x][y] = 1;
+    if(ar[x][y] == 'C') cnt++;
+    ///mark the id where this node is located or we can say that com[x][y] is at kth id
+    ///cause each node of same id have same number of crystal
+    com[x][y] = k;
+    for(int i = 0;i < 4;i++)
+    {
+        ///checking if the node is valid or not
+        if(x+dx[i] >= 0 && x+dx[i] < n && y+dy[i] >= 0 && y + dy[i] < m && 
+         ar[x+dx[i]][y+dy[i]] != '#' && !vst[x+dx[i]][y+dy[i]])
+            
+            dfs(x+dx[i],y+dy[i],n,m,k);
+    }
+}
+
+void solve(ll t)
+{
+  int n,m,q;
+  scanf("%d %d %d",&n,&m,&q);
+
+  for(int i = 0;i < n;i++)
+  {
+      for(int j = 0;j < m;j++)
+      {
+        scanf(" %c",&ar[i][j]);
+        vst[i][j] = 0;
+      }
+  }
+  ///as there is atmost n*m number of disjoint graph in the grid we declare an array
+  ///and assign each disjoint graph a id
+  int cc[n*m] = {0},k = 0;
+  for(int i = 0;i < n;i++)
+  {
+      for(int j = 0;j < m;j++)
+      {
+          if(!vst[i][j] && ar[i][j] != '#')
+          {
+          cnt = 0;
+          dfs(i,j,n,m,k);
+          cc[k] = cnt;
+          k++;
+          }
+      }
+  }
+  while(q--)
+  {
+      int x,y;
+      scanf("%d %d",&x,&y);
+      x--,y--;
+      printf("%d\n",cc[com[x][y]]);
+
+  }
+}
+
+int main()
+{
+    int  t = 1;
+    scanf("%d",&t);
+    for(int tc = 1; tc <= t; tc++)
+    {
+        printf("Case %d:\n",tc);
+        solve(tc);
+    }
+    return 0;
+
+}
