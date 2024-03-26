@@ -80,3 +80,39 @@ int main()
     return 0;
 }
 ```
+
+## Solution with bitset
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
+    int T;
+    cin >> T;
+    for (int tc = 1; tc <= T; ++tc) {
+        cout << "Case " << tc << ": ";
+
+        vector<int> n(4);
+        vector<bitset<8>> b(4);
+        char _;
+        
+        for (int i = 0; i < 4; ++i) {
+            cin >> n[i];
+            if (i != 3)
+                cin >> _;
+        }
+        for (int i = 0; i < 4; ++i) {
+            cin >> b[i];
+            if (i != 3)
+                cin >> _;
+        }
+
+        bool ok = true;
+        for (int i = 0; i < 4; ++i)
+            ok &= (b[i].to_ulong() == n[i]);
+
+        cout << (ok ? "Yes" : "No") << "\n";
+    }
+}
+```
