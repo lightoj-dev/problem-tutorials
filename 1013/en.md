@@ -18,7 +18,7 @@ We need to find some __shortest _possible_ Strings__(meaning that they won't hav
 
 * [Memoization (1D, 2D and 3D) - GeeksForGeeks](https://www.geeksforgeeks.org/memoization-1d-2d-and-3d/ "Memoization (1D, 2D and 3D)")
 
-* [What is Dynamic Programming ? - educative.io](https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews/m2G1pAq0OO0 "[What is Dynamic Programming?")
+* [What is Dynamic Programming ? - Design Gurus](https://www.designgurus.io/course-play/grokking-dynamic-programming/doc/what-is-dynamic-programming "[What is Dynamic Programming?")
 
 * [Dynamic Programming, Memoization, Tabulation - freeCodeCamp.org  (Video)](https://www.youtube.com/watch?v=oBt53YbR9Kk "FreeCodeCamp - YouTube")
 
